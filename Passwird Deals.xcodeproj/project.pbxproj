@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BB1516B12F003A4394 /* UIKit.framework */; };
+		CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BD1516B12F003A4394 /* Foundation.framework */; };
+		CD2A72C01516B12F003A4394 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */; };
+		CD2A72C61516B12F003A4394 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72C41516B12F003A4394 /* InfoPlist.strings */; };
+		CD2A72C81516B12F003A4394 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72C71516B12F003A4394 /* main.m */; };
+		CD2A72CC1516B12F003A4394 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72CB1516B12F003A4394 /* AppDelegate.m */; };
+		CD2A72CF1516B12F003A4394 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */; };
+		CD2A72D21516B12F003A4394 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72D01516B12F003A4394 /* MainStoryboard_iPad.storyboard */; };
+		CD2A72D51516B12F003A4394 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72D41516B12F003A4394 /* MasterViewController.m */; };
+		CD2A72D81516B12F003A4394 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72D71516B12F003A4394 /* DetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CD2A72B71516B12F003A4394 /* Passwird Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD2A72BB1516B12F003A4394 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD2A72BD1516B12F003A4394 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */ = {isa = PBXFileReference; path = "Passwird Deals-Info.plist"; sourceTree = "<group>"; };
+		CD2A72C51516B12F003A4394 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CD2A72C71516B12F003A4394 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */ = {isa = PBXFileReference; path = "Passwird Deals-Prefix.pch"; sourceTree = "<group>"; };
+		CD2A72CA1516B12F003A4394 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD2A72CB1516B12F003A4394 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD2A72CE1516B12F003A4394 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		CD2A72D11516B12F003A4394 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		CD2A72D31516B12F003A4394 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		CD2A72D41516B12F003A4394 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		CD2A72D61516B12F003A4394 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		CD2A72D71516B12F003A4394 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD2A72B41516B12F003A4394 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */,
+				CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */,
+				CD2A72C01516B12F003A4394 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD2A72AC1516B12F003A4394 = {
+			isa = PBXGroup;
+			children = (
+				CD2A72C11516B12F003A4394 /* Passwird Deals */,
+				CD2A72BA1516B12F003A4394 /* Frameworks */,
+				CD2A72B81516B12F003A4394 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD2A72B81516B12F003A4394 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD2A72B71516B12F003A4394 /* Passwird Deals.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD2A72BB1516B12F003A4394 /* UIKit.framework */,
+				CD2A72BD1516B12F003A4394 /* Foundation.framework */,
+				CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD2A72C11516B12F003A4394 /* Passwird Deals */ = {
+			isa = PBXGroup;
+			children = (
+				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
+				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
+				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
+				CD2A72D01516B12F003A4394 /* MainStoryboard_iPad.storyboard */,
+				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
+				CD2A72D41516B12F003A4394 /* MasterViewController.m */,
+				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
+				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
+				CD2A72C21516B12F003A4394 /* Supporting Files */,
+			);
+			path = "Passwird Deals";
+			sourceTree = "<group>";
+		};
+		CD2A72C21516B12F003A4394 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */,
+				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
+				CD2A72C71516B12F003A4394 /* main.m */,
+				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD2A72B61516B12F003A4394 /* Passwird Deals */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD2A72DB1516B12F003A4394 /* Build configuration list for PBXNativeTarget "Passwird Deals" */;
+			buildPhases = (
+				CD2A72B31516B12F003A4394 /* Sources */,
+				CD2A72B41516B12F003A4394 /* Frameworks */,
+				CD2A72B51516B12F003A4394 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Passwird Deals";
+			productName = "Passwird Deals";
+			productReference = CD2A72B71516B12F003A4394 /* Passwird Deals.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD2A72AE1516B12F003A4394 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = CD2A72B11516B12F003A4394 /* Build configuration list for PBXProject "Passwird Deals" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CD2A72AC1516B12F003A4394;
+			productRefGroup = CD2A72B81516B12F003A4394 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD2A72B61516B12F003A4394 /* Passwird Deals */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD2A72B51516B12F003A4394 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD2A72C61516B12F003A4394 /* InfoPlist.strings in Resources */,
+				CD2A72CF1516B12F003A4394 /* MainStoryboard_iPhone.storyboard in Resources */,
+				CD2A72D21516B12F003A4394 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD2A72B31516B12F003A4394 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD2A72C81516B12F003A4394 /* main.m in Sources */,
+				CD2A72CC1516B12F003A4394 /* AppDelegate.m in Sources */,
+				CD2A72D51516B12F003A4394 /* MasterViewController.m in Sources */,
+				CD2A72D81516B12F003A4394 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CD2A72C41516B12F003A4394 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD2A72C51516B12F003A4394 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD2A72CE1516B12F003A4394 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		CD2A72D01516B12F003A4394 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD2A72D11516B12F003A4394 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD2A72D91516B12F003A4394 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD2A72DA1516B12F003A4394 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD2A72DC1516B12F003A4394 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
+				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CD2A72DD1516B12F003A4394 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
+				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD2A72B11516B12F003A4394 /* Build configuration list for PBXProject "Passwird Deals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD2A72D91516B12F003A4394 /* Debug */,
+				CD2A72DA1516B12F003A4394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD2A72DB1516B12F003A4394 /* Build configuration list for PBXNativeTarget "Passwird Deals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD2A72DC1516B12F003A4394 /* Debug */,
+				CD2A72DD1516B12F003A4394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD2A72AE1516B12F003A4394 /* Project object */;
+}
