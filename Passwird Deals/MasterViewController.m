@@ -3,16 +3,20 @@
 //  Passwird Deals
 //
 //  Created by Patrick Crager on 3/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
+
+#import "DealData.h"
+#import "NSDictionaryExtension.h"
+#import "UIImageExtension.h"
 
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize deals = _deals;
 
 - (void)awakeFromNib
 {
@@ -39,6 +43,27 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
     }
+    
+    // Build dictionary from JSON at URL
+    NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];    
+    NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
+    NSMutableArray *deals = [NSMutableArray array];
+    // Loop through the array of JSON deals and create Deal objects added to a mutable array
+    for (id aDeal in dealsArray) {
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]]];
+        UIImage *thumb = [image makeThumbnailOfSize:CGSizeMake(50,50)];
+        NSNumber *isExpired = [aDeal valueForKey:@"isExpired"];
+        
+        DealData *deal = 
+        [[DealData alloc] initWithTitle:[aDeal valueForKey:@"headline"] 
+                                   body:[aDeal valueForKey:@"body"]
+                                  image:thumb
+                              isExpired:[isExpired boolValue]];
+        [deals addObject:deal];
+    }
+    // Set the created mutable array to the controller's property
+    self.deals = deals;
+    self.title = @"Passwird Deals";
 }
 
 - (void)viewDidUnload
@@ -51,6 +76,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -78,42 +105,39 @@
     }
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return 1;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
+    return [self.deals count];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+// Set the deal into the DealCell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
+    
+    DealData *deal = [self.deals objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = deal.headline;
+    cell.imageView.image = deal.image;
+    if ( !deal.isExpired )
+        cell.detailTextLabel.text = nil;
+    else
+        cell.detailTextLabel.text = @"(expired)";
+    
+    return cell;
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+// Pass selected deal to detail controller
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    DetailViewController *detailController = segue.destinationViewController;
+    DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    detailController.detailItem = deal;
 }
-*/
 
 @end

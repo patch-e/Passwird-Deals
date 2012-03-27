@@ -3,10 +3,13 @@
 //  Passwird Deals
 //
 //  Created by Patrick Crager on 3/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
 #import "AppDelegate.h"
+
+#import "MasterViewController.h"
+#import "DealData.h"
 
 @implementation AppDelegate
 
@@ -20,6 +23,7 @@
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
     }
+    
     return YES;
 }
 							

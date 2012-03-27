@@ -14,9 +14,15 @@
 		CD2A72C81516B12F003A4394 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72C71516B12F003A4394 /* main.m */; };
 		CD2A72CC1516B12F003A4394 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72CB1516B12F003A4394 /* AppDelegate.m */; };
 		CD2A72CF1516B12F003A4394 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */; };
-		CD2A72D21516B12F003A4394 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72D01516B12F003A4394 /* MainStoryboard_iPad.storyboard */; };
 		CD2A72D51516B12F003A4394 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72D41516B12F003A4394 /* MasterViewController.m */; };
 		CD2A72D81516B12F003A4394 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72D71516B12F003A4394 /* DetailViewController.m */; };
+		CD2A72E21516B329003A4394 /* DealData.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72E11516B329003A4394 /* DealData.m */; };
+		CD2B2E79151DF841004A222C /* UIImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B2E78151DF841004A222C /* UIImageExtension.m */; };
+		CD2B2E7C151F8B89004A222C /* NSDictionaryExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B2E7B151F8B89004A222C /* NSDictionaryExtension.m */; };
+		CD2B2E7F1520D2F5004A222C /* pd-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2B2E7E1520D2F4004A222C /* pd-icon.png */; };
+		CD2B2E811520D2FB004A222C /* pd-icon-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2B2E801520D2FB004A222C /* pd-icon-hd.png */; };
+		CD2B2E831520D303004A222C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2B2E821520D303004A222C /* Default.png */; };
+		CD2B2E851520D309004A222C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2B2E841520D309004A222C /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,18 +30,27 @@
 		CD2A72BB1516B12F003A4394 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD2A72BD1516B12F003A4394 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */ = {isa = PBXFileReference; path = "Passwird Deals-Info.plist"; sourceTree = "<group>"; };
+		CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Passwird Deals-Info.plist"; sourceTree = "<group>"; };
 		CD2A72C51516B12F003A4394 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD2A72C71516B12F003A4394 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */ = {isa = PBXFileReference; path = "Passwird Deals-Prefix.pch"; sourceTree = "<group>"; };
-		CD2A72CA1516B12F003A4394 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Passwird Deals-Prefix.pch"; sourceTree = "<group>"; };
+		CD2A72CA1516B12F003A4394 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD2A72CB1516B12F003A4394 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CD2A72CE1516B12F003A4394 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		CD2A72D11516B12F003A4394 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		CD2A72D31516B12F003A4394 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		CD2A72D31516B12F003A4394 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		CD2A72D41516B12F003A4394 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		CD2A72D61516B12F003A4394 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		CD2A72D61516B12F003A4394 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		CD2A72D71516B12F003A4394 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		CD2A72E01516B329003A4394 /* DealData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealData.h; sourceTree = "<group>"; };
+		CD2A72E11516B329003A4394 /* DealData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealData.m; sourceTree = "<group>"; };
+		CD2B2E77151DF841004A222C /* UIImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtension.h; sourceTree = "<group>"; };
+		CD2B2E78151DF841004A222C /* UIImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtension.m; sourceTree = "<group>"; };
+		CD2B2E7A151F8B89004A222C /* NSDictionaryExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionaryExtension.h; sourceTree = "<group>"; };
+		CD2B2E7B151F8B89004A222C /* NSDictionaryExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryExtension.m; sourceTree = "<group>"; };
+		CD2B2E7E1520D2F4004A222C /* pd-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pd-icon.png"; sourceTree = "<group>"; };
+		CD2B2E801520D2FB004A222C /* pd-icon-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pd-icon-hd.png"; sourceTree = "<group>"; };
+		CD2B2E821520D303004A222C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CD2B2E841520D309004A222C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +97,10 @@
 		CD2A72C11516B12F003A4394 /* Passwird Deals */ = {
 			isa = PBXGroup;
 			children = (
-				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
-				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
-				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
-				CD2A72D01516B12F003A4394 /* MainStoryboard_iPad.storyboard */,
-				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
-				CD2A72D41516B12F003A4394 /* MasterViewController.m */,
-				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
-				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
+				CD2B2E861520D36E004A222C /* Resources */,
+				CD2B2E7D1520CF51004A222C /* Extensions */,
+				CD2A72DF1516B2D8003A4394 /* Model */,
+				CD2A72DE1516B2AD003A4394 /* GUI */,
 				CD2A72C21516B12F003A4394 /* Supporting Files */,
 			);
 			path = "Passwird Deals";
@@ -104,6 +115,52 @@
 				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD2A72DE1516B2AD003A4394 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
+				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
+				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
+				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
+				CD2A72D41516B12F003A4394 /* MasterViewController.m */,
+				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
+				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		CD2A72DF1516B2D8003A4394 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD2A72E01516B329003A4394 /* DealData.h */,
+				CD2A72E11516B329003A4394 /* DealData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CD2B2E7D1520CF51004A222C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD2B2E77151DF841004A222C /* UIImageExtension.h */,
+				CD2B2E78151DF841004A222C /* UIImageExtension.m */,
+				CD2B2E7A151F8B89004A222C /* NSDictionaryExtension.h */,
+				CD2B2E7B151F8B89004A222C /* NSDictionaryExtension.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		CD2B2E861520D36E004A222C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD2B2E841520D309004A222C /* Default@2x.png */,
+				CD2B2E821520D303004A222C /* Default.png */,
+				CD2B2E801520D2FB004A222C /* pd-icon-hd.png */,
+				CD2B2E7E1520D2F4004A222C /* pd-icon.png */,
+			);
+			name = Resources;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +215,10 @@
 			files = (
 				CD2A72C61516B12F003A4394 /* InfoPlist.strings in Resources */,
 				CD2A72CF1516B12F003A4394 /* MainStoryboard_iPhone.storyboard in Resources */,
-				CD2A72D21516B12F003A4394 /* MainStoryboard_iPad.storyboard in Resources */,
+				CD2B2E7F1520D2F5004A222C /* pd-icon.png in Resources */,
+				CD2B2E811520D2FB004A222C /* pd-icon-hd.png in Resources */,
+				CD2B2E831520D303004A222C /* Default.png in Resources */,
+				CD2B2E851520D309004A222C /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +233,9 @@
 				CD2A72CC1516B12F003A4394 /* AppDelegate.m in Sources */,
 				CD2A72D51516B12F003A4394 /* MasterViewController.m in Sources */,
 				CD2A72D81516B12F003A4394 /* DetailViewController.m in Sources */,
+				CD2A72E21516B329003A4394 /* DealData.m in Sources */,
+				CD2B2E79151DF841004A222C /* UIImageExtension.m in Sources */,
+				CD2B2E7C151F8B89004A222C /* NSDictionaryExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,14 +256,6 @@
 				CD2A72CE1516B12F003A4394 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		CD2A72D01516B12F003A4394 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CD2A72D11516B12F003A4394 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -259,7 +314,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -270,7 +327,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -294,6 +353,7 @@
 				CD2A72DD1516B12F003A4394 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

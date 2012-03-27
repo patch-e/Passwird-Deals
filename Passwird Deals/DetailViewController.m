@@ -3,10 +3,12 @@
 //  Passwird Deals
 //
 //  Created by Patrick Crager on 3/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
 #import "DetailViewController.h"
+
+#import "DealData.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -16,7 +18,8 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
+@synthesize headlineField = _headlineField;
+@synthesize bodyField = _bodyField;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
@@ -40,7 +43,8 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.headlineField.text = self.detailItem.headline;
+        self.bodyField.text = self.detailItem.body;
     }
 }
 
@@ -61,6 +65,8 @@
 
 - (void)viewDidUnload
 {
+    [self setHeadlineField:nil];
+    [self setBodyField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

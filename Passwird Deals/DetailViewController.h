@@ -3,15 +3,18 @@
 //  Passwird Deals
 //
 //  Created by Patrick Crager on 3/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@class DealData;
 
-@property (strong, nonatomic) id detailItem;
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UINavigationControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) DealData * detailItem;
+
+@property (weak, nonatomic) IBOutlet UILabel *headlineField;
+@property (weak, nonatomic) IBOutlet UILabel *bodyField;
 
 @end

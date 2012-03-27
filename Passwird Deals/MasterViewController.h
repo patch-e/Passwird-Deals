@@ -3,7 +3,7 @@
 //  Passwird Deals
 //
 //  Created by Patrick Crager on 3/18/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,5 +13,7 @@
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+
+@property (strong) NSMutableArray *deals;
 
 @end
