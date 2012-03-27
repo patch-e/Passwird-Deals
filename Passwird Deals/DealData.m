@@ -1,0 +1,28 @@
+//
+//  DealData.m
+//  Passwird Deals
+//
+//  Created by Patrick Crager on 3/18/12.
+//  Copyright (c) 2012 McCrager. All rights reserved.
+//
+
+#import "DealData.h"
+
+@implementation DealData
+
+@synthesize headline = _headline;
+@synthesize body = _body;
+@synthesize image = _image;
+@synthesize isExpired = _isExpired;
+
+- (id)initWithTitle:(NSString*)headline body:(NSString*)body image:(UIImage*)image isExpired:(BOOL)isExpired {
+    if ((self = [super init])) {
+        self.headline = headline;
+        self.body = body;
+        self.image = image;
+        self.isExpired = isExpired;
+    }
+    return self;
+}
+
+@end
