@@ -16,4 +16,6 @@
 
 @property (strong) NSMutableArray *deals;
 
+- (IBAction)refresh:(id)sender;
+
 @end

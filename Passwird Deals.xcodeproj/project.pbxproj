@@ -23,6 +23,7 @@
 		CD2B2E811520D2FB004A222C /* pd-icon-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2B2E801520D2FB004A222C /* pd-icon-hd.png */; };
 		CD2B2E831520D303004A222C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2B2E821520D303004A222C /* Default.png */; };
 		CD2B2E851520D309004A222C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2B2E841520D309004A222C /* Default@2x.png */; };
+		CD65EACE1529547300102C14 /* NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* NSStringExtension.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,9 @@
 		CD2B2E801520D2FB004A222C /* pd-icon-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pd-icon-hd.png"; sourceTree = "<group>"; };
 		CD2B2E821520D303004A222C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CD2B2E841520D309004A222C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CD65EACC1529547200102C14 /* NSStringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringExtension.h; sourceTree = "<group>"; };
+		CD65EACD1529547300102C14 /* NSStringExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExtension.m; sourceTree = "<group>"; };
+		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,9 @@
 				CD2B2E78151DF841004A222C /* UIImageExtension.m */,
 				CD2B2E7A151F8B89004A222C /* NSDictionaryExtension.h */,
 				CD2B2E7B151F8B89004A222C /* NSDictionaryExtension.m */,
+				CD65EACC1529547200102C14 /* NSStringExtension.h */,
+				CD65EACD1529547300102C14 /* NSStringExtension.m */,
+				CD65EACF1529562300102C14 /* GTMDefines.h */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -189,7 +196,7 @@
 		CD2A72AE1516B12F003A4394 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = CD2A72B11516B12F003A4394 /* Build configuration list for PBXProject "Passwird Deals" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -236,6 +243,7 @@
 				CD2A72E21516B329003A4394 /* DealData.m in Sources */,
 				CD2B2E79151DF841004A222C /* UIImageExtension.m in Sources */,
 				CD2B2E7C151F8B89004A222C /* NSDictionaryExtension.m in Sources */,
+				CD65EACE1529547300102C14 /* NSStringExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

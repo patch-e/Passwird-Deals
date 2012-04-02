@@ -12,6 +12,7 @@
 #import "DealData.h"
 #import "NSDictionaryExtension.h"
 #import "UIImageExtension.h"
+#import "NSStringExtension.h"
 
 @implementation MasterViewController
 
@@ -39,7 +40,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
     }
@@ -53,9 +53,10 @@
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]]];
         UIImage *thumb = [image makeThumbnailOfSize:CGSizeMake(50,50)];
         NSNumber *isExpired = [aDeal valueForKey:@"isExpired"];
+        NSString *headline = [[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML];
         
         DealData *deal = 
-        [[DealData alloc] initWithTitle:[aDeal valueForKey:@"headline"] 
+        [[DealData alloc] initWithTitle:headline
                                    body:[aDeal valueForKey:@"body"]
                                   image:thumb
                               isExpired:[isExpired boolValue]];
@@ -105,6 +106,8 @@
     }
 }
 
+#pragma mark - Managing the table view
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -138,6 +141,11 @@
     DetailViewController *detailController = segue.destinationViewController;
     DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     detailController.detailItem = deal;
+}
+
+- (IBAction)refresh:(id)sender {
+    [self.tableView reloadData];
+    NSLog(@"here");
 }
 
 @end

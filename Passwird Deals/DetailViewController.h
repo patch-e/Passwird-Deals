@@ -10,11 +10,16 @@
 
 @class DealData;
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UINavigationControllerDelegate>
+@interface DetailViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) DealData * detailItem;
 
-@property (weak, nonatomic) IBOutlet UILabel *headlineField;
-@property (weak, nonatomic) IBOutlet UILabel *bodyField;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
+
+-(IBAction)goBack:(id)sender;
+-(IBAction)goForward:(id)sender;
 
 @end
