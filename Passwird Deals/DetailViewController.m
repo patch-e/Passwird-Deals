@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 #import "DealData.h"
+#import "MBProgressHUD.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -21,6 +22,8 @@
 @synthesize activityIndicator = _activityIndicator;
 @synthesize backButton = _backButton;
 @synthesize forwardButton = _forwardButton;
+@synthesize safariButton = _safariButton;
+@synthesize dealButton = _dealButton;
 
 - (void)didReceiveMemoryWarning
 {
@@ -50,10 +53,16 @@
     [self.webView goForward]; 
 }
 
-#pragma mark - View lifecycle
+-(IBAction)loadDeal:(id)sender {
+    [self loadDealIntoWebView];
+}
 
-- (void)configureView
-{
+- (IBAction)openInSafari:(id)sender {
+    NSURL *currentURL = [self.webView.request URL];
+    [[UIApplication sharedApplication] openURL:currentURL];
+}
+
+-(void)loadDealIntoWebView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
         NSString *html = [NSString stringWithFormat:
@@ -62,24 +71,27 @@
                           "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />"
                           "<style type=\"text/css\">"
                           "body {"
-                          "background-color: #C5CCD3;"
+                          "background-color: #ababab;"
                           "font-family: Helvetica;"
+                          "}"
+                          "a {"
+                          "color: #004875;"
+                          "-webkit-tap-highlight-color: rgba(255, 0, 0, 0.5);"
                           "}"
                           ".headline {"
                           "margin: 0px;"      
-                          "padding: 0px 15px;"
+                          "padding: 0px 10px;"
                           "font-size: 18px;"
-                          "color: #4C566C;"
-                          "text-shadow: white 0px 1px 0px;"      
+                          "color: #f90602;"
+                          "text-shadow: #707268 0px 1px 0px;"      
                           "text-overflow: inherit;"
                           "white-space: normal;"
                           "overflow: visible;"
-                          
                           "}"
                           ".body {"
-                          "background-color: white;"
+                          "background-color: #fff;"
                           "border: 1px solid #ADAAAD;"
-                          "margin: 7px 9px 60px 9px;"
+                          "margin: 10px 5px 10px 5px;"
                           "padding: 8px;"
                           "font-size: 16px;"
                           "-webkit-border-radius: 8px;"
@@ -88,16 +100,27 @@
                           ".expired {"
                           "color: #ff0000;"
                           "}"
+                          ".center {"
+                          "text-align: center;"
+                          "}"
                           "</style>"
                           "</head>"
                           "<body>"
                           "<h1 class=\"headline\">%@ <span class=\"expired\">%@</span></h1>"
+                          "<div class=\"body center\"><img src=\"%@\"/></div>"
                           "<div class=\"body\">%@</div>"
                           "</body>"
-                          "</html>", self.detailItem.headline, (self.detailItem.isExpired ? @"(expired)" : @""), self.detailItem.body];
+                          "</html>", self.detailItem.headline, (self.detailItem.isExpired ? @"(expired)" : @""), self.detailItem.imageURL, self.detailItem.body];
         
         [self.webView loadHTMLString:html baseURL:nil];
     }
+}
+
+#pragma mark - View lifecycle
+
+- (void)configureView
+{
+    [self loadDealIntoWebView];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
@@ -107,18 +130,28 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.activityIndicator stopAnimating];
     
-    if ([self.webView canGoBack]) {
-        self.backButton.enabled = YES;
+    if ( [[[self.webView.request URL] absoluteString] isEqualToString:@"about:blank"] ) {
+        self.dealButton.enabled = NO; 
+        self.safariButton.enabled = NO;    
+        self.backButton.enabled = NO;
+        self.forwardButton.enabled = NO;
     }
     else {
-        self.backButton.enabled = NO;        
-    }
-    
-    if ([self.webView canGoForward]) {
-        self.forwardButton.enabled = YES;
-    }
-    else {
-        self.forwardButton.enabled = NO;        
+        self.dealButton.enabled = YES; 
+        self.safariButton.enabled = YES; 
+        if ([self.webView canGoBack]) {
+            self.backButton.enabled = YES;
+        }
+        else {
+            self.backButton.enabled = NO;  
+        } 
+        
+        if ([self.webView canGoForward]) {
+            self.forwardButton.enabled = YES;   
+        }
+        else {
+            self.forwardButton.enabled = NO;      
+        }   
     }
 }
 
@@ -135,6 +168,8 @@
     [self setActivityIndicator:nil];
     [self setBackButton:nil];
     [self setForwardButton:nil];
+    [self setSafariButton:nil];
+    [self setDealButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

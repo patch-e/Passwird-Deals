@@ -10,9 +10,9 @@
 #import "DetailViewController.h"
 
 #import "DealData.h"
-#import "NSDictionaryExtension.h"
-#import "UIImageExtension.h"
-#import "NSStringExtension.h"
+#import "Extensions.h"
+#import "MBProgressHUD.h"
+#import "GTMNSString+HTML.h"
 
 @implementation MasterViewController
 
@@ -32,78 +32,6 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-    }
-    
-    // Build dictionary from JSON at URL
-    NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];    
-    NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
-    NSMutableArray *deals = [NSMutableArray array];
-    // Loop through the array of JSON deals and create Deal objects added to a mutable array
-    for (id aDeal in dealsArray) {
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]]];
-        UIImage *thumb = [image makeThumbnailOfSize:CGSizeMake(50,50)];
-        NSNumber *isExpired = [aDeal valueForKey:@"isExpired"];
-        NSString *headline = [[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML];
-        
-        DealData *deal = 
-        [[DealData alloc] initWithTitle:headline
-                                   body:[aDeal valueForKey:@"body"]
-                                  image:thumb
-                              isExpired:[isExpired boolValue]];
-        [deals addObject:deal];
-    }
-    // Set the created mutable array to the controller's property
-    self.deals = deals;
-    self.title = @"Passwird Deals";
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self.tableView reloadData];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 #pragma mark - Managing the table view
@@ -144,8 +72,93 @@
 }
 
 - (IBAction)refresh:(id)sender {
+    self.deals = nil;
+    [self.tableView reloadData];    
+    [self fetchAndParseDataIntoTableView];
+}
+
+- (void)fetchAndParseDataIntoTableView {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        // Build dictionary from JSON at URL
+        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];    
+        NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
+        NSMutableArray *deals = [NSMutableArray array];
+        // Loop through the array of JSON deals and create Deal objects added to a mutable array
+        for (id aDeal in dealsArray) {
+            NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+            UIImage *thumb = [image makeThumbnailOfSize:CGSizeMake(50,50)];
+            NSNumber *isExpired = [aDeal valueForKey:@"isExpired"];
+            NSString *headline = [[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML];
+
+            
+            DealData *deal = 
+            [[DealData alloc] init:headline
+                              body:[aDeal valueForKey:@"body"]
+                             image:thumb
+                          imageURL:imageURL
+                         isExpired:[isExpired boolValue]];
+            [deals addObject:deal];
+        }
+        // Set the created mutable array to the controller's property
+        self.deals = deals;
+        [self.tableView reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });    
+}
+
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+    }
+    
+    [self fetchAndParseDataIntoTableView];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     [self.tableView reloadData];
-    NSLog(@"here");
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
 }
 
 @end

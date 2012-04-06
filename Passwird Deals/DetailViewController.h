@@ -18,8 +18,12 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *safariButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *dealButton;
 
--(IBAction)goBack:(id)sender;
--(IBAction)goForward:(id)sender;
+- (IBAction)goBack:(id)sender;
+- (IBAction)goForward:(id)sender;
+- (IBAction)loadDeal:(id)sender;
+- (IBAction)openInSafari:(id)sender;
 
 @end

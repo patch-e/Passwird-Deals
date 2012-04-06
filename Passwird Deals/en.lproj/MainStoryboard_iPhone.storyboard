@@ -67,7 +67,7 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="35">
+                    <navigationItem key="navigationItem" title="Passwird Deals" id="35">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="qBv-dB-Xjj">
                             <connections>
                                 <action selector="refresh:" destination="12" id="anj-7M-ynq"/>
@@ -96,35 +96,48 @@
                                     <outlet property="delegate" destination="21" id="oFF-9u-ndg"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="8eH-pV-Nef">
-                                <rect key="frame" x="295" y="5" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="G9Y-eM-6bM">
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Back" id="dJ9-XT-l82">
+                                    <barButtonItem enabled="NO" title="◄" id="dJ9-XT-l82">
                                         <connections>
                                             <action selector="goBack:" destination="21" id="Uiz-OZ-fSO"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z5K-nI-5uT"/>
-                                    <barButtonItem title="Forward" id="et5-2e-NaJ">
+                                    <barButtonItem enabled="NO" title="►" id="et5-2e-NaJ">
                                         <connections>
                                             <action selector="goForward:" destination="21" id="UAC-4Z-4df"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z5K-nI-5uT"/>
+                                    <barButtonItem enabled="NO" title="Safari" id="UP0-Dx-AeA">
+                                        <connections>
+                                            <action selector="openInSafari:" destination="21" id="xRE-WI-DQh"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="XKN-Ff-UH8">
+                                <rect key="frame" x="233" y="384" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Deal" id="26"/>
+                    <navigationItem key="navigationItem" title="View Deal" id="26">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Deal" id="dcb-9k-f9T">
+                            <connections>
+                                <action selector="loadDeal:" destination="21" id="TUC-RJ-Tcu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="8eH-pV-Nef" id="cct-sz-Flb"/>
+                        <outlet property="activityIndicator" destination="XKN-Ff-UH8" id="g5U-of-aoI"/>
                         <outlet property="backButton" destination="dJ9-XT-l82" id="IvK-Lo-zMA"/>
+                        <outlet property="dealButton" destination="dcb-9k-f9T" id="zgw-zt-SDD"/>
                         <outlet property="forwardButton" destination="et5-2e-NaJ" id="G0O-PY-tJQ"/>
+                        <outlet property="safariButton" destination="UP0-Dx-AeA" id="GOq-1x-2kj"/>
                         <outlet property="webView" destination="fRC-ds-tlm" id="l02-EF-q4B"/>
                     </connections>
                 </viewController>
@@ -133,7 +146,7 @@
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>

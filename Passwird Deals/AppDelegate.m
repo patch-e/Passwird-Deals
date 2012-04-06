@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
-#import "DealData.h"
 
 @implementation AppDelegate
 

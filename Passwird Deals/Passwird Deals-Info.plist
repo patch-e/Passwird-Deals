@@ -5,13 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Passwird</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>pd-icon.png</string>
-		<string>pd-icon-hd.png</string>
+		<string>icon.png</string>
+		<string>icon@2x.png</string>
+		<string>Default.png</string>
+		<string>Default@2x.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -19,11 +21,11 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>pd-icon.png</string>
-				<string>pd-icon-hd.png</string>
+				<string>icon.png</string>
+				<string>icon@2x.png</string>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -45,11 +47,13 @@
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
-	<string>MainStoryboard_iPad</string>
+	<string>MainStoryboard_iPhone</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

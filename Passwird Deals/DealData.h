@@ -13,8 +13,9 @@
 @property (strong) NSString *headline;
 @property (strong) NSString *body;
 @property (strong) UIImage *image;
+@property (strong) NSURL *imageURL;
 @property (assign) BOOL isExpired;
 
-- (id)initWithTitle:(NSString*)headline body:(NSString*)body image:(UIImage*)image isExpired:(BOOL)isExpired;
+- (id)init:(NSString*)headline body:(NSString*)body image:(UIImage*)image imageURL:(NSURL*)imageURL isExpired:(BOOL)isExpired;
 
 @end
