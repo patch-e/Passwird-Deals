@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+
 @property (strong) NSMutableArray *deals;
 
 - (IBAction)refresh:(id)sender;

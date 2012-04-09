@@ -17,6 +17,7 @@
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize refreshButton = _refreshButton;
 @synthesize deals = _deals;
 
 - (void)awakeFromNib
@@ -74,6 +75,7 @@
 - (IBAction)refresh:(id)sender {
     self.deals = nil;
     [self.tableView reloadData];    
+    self.refreshButton.enabled = NO;
     [self fetchAndParseDataIntoTableView];
 }
 
@@ -105,6 +107,7 @@
         // Set the created mutable array to the controller's property
         self.deals = deals;
         [self.tableView reloadData];
+        self.refreshButton.enabled = YES;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });    
 }
@@ -124,6 +127,7 @@
 
 - (void)viewDidUnload
 {
+    [self setRefreshButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
