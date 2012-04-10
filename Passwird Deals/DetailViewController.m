@@ -63,8 +63,17 @@
 }
 
 -(void)loadDealIntoWebView {
+    static NSDateFormatter *dateFormatter = nil;
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    }
+    NSString *dateString = [dateFormatter stringFromDate:self.detailItem.datePosted];
+    
     // Update the user interface for the detail item.
     if (self.detailItem) {
+        
         NSString *html = [NSString stringWithFormat:
                           @"<html>"
                           "<head>"
@@ -73,21 +82,24 @@
                           "body {"
                           "background-color: #ababab;"
                           "font-family: Helvetica;"
+                          "padding-bottom: 5px;"
                           "}"
+                          
                           "a {"
                           "color: #004875;"
                           "-webkit-tap-highlight-color: rgba(255, 0, 0, 0.5);"
                           "}"
+                          
                           ".headline {"
                           "margin: 0px;"      
                           "padding: 0px 10px;"
                           "font-size: 18px;"
                           "color: #000;"
-                          //"text-shadow: #707268 0px 1px 0px;"      
                           "text-overflow: inherit;"
                           "white-space: normal;"
                           "overflow: visible;"
                           "}"
+                          
                           ".body {"
                           "background-color: #fff;"
                           "border: 1px solid #ADAAAD;"
@@ -97,20 +109,20 @@
                           "-webkit-border-radius: 8px;"
                           "-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);"
                           "}"
-                          ".expired {"
-                          "color: #f90602;"
-                          "}"
-                          ".center {"
-                          "text-align: center;"
-                          "}"
+                          
+                          ".date { float: right; margin-left: 5px; }"
+                          ".expired { color: #f90602; }"
+                          ".center { text-align: center; }"
+
                           "</style>"
                           "</head>"
                           "<body>"
+                          "<small class=\"date\">%@</small>"
                           "<h1 class=\"headline\">%@ <span class=\"expired\">%@</span></h1>"
                           "<div class=\"body center\"><img src=\"%@\"/></div>"
                           "<div class=\"body\">%@</div>"
                           "</body>"
-                          "</html>", self.detailItem.headline, (self.detailItem.isExpired ? @"(expired)" : @""), self.detailItem.imageURL, self.detailItem.body];
+                          "</html>", dateString, self.detailItem.headline, (self.detailItem.isExpired ? @"(expired)" : @""), self.detailItem.imageURL, self.detailItem.body];
         
         [self.webView loadHTMLString:html baseURL:nil];
     }
@@ -138,20 +150,17 @@
     }
     else {
         self.dealButton.enabled = YES; 
-        self.safariButton.enabled = YES; 
-        if ([self.webView canGoBack]) {
-            self.backButton.enabled = YES;
-        }
-        else {
-            self.backButton.enabled = NO;  
-        } 
+        self.safariButton.enabled = YES;
         
-        if ([self.webView canGoForward]) {
+        if ([self.webView canGoBack])
+            self.backButton.enabled = YES;
+        else
+            self.backButton.enabled = NO;  
+        
+        if ([self.webView canGoForward])
             self.forwardButton.enabled = YES;   
-        }
-        else {
+        else
             self.forwardButton.enabled = NO;      
-        }   
     }
 }
 

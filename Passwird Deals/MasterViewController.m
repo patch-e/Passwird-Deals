@@ -92,16 +92,22 @@
             NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
             UIImage *thumb = [image makeThumbnailOfSize:CGSizeMake(50,50)];
-            NSNumber *isExpired = [aDeal valueForKey:@"isExpired"];
-            NSString *headline = [[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML];
 
+            NSNumber *isExpired = [aDeal valueForKey:@"isExpired"];
+            
+            NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
+            NSInteger offset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
+            NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:
+                             [[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]
+                            dateByAddingTimeInterval:offset];            
             
             DealData *deal = 
-            [[DealData alloc] init:headline
+            [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
                               body:[aDeal valueForKey:@"body"]
                              image:thumb
                           imageURL:imageURL
-                         isExpired:[isExpired boolValue]];
+                         isExpired:[isExpired boolValue]
+                        datePosted:datePosted];
             [deals addObject:deal];
         }
         // Set the created mutable array to the controller's property
