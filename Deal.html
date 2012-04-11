@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="format-detection" content="telephone=no">
+        <style type="text/css">
+            body {
+                background-color: #ababab;
+                font-family: Helvetica;
+                padding-bottom: 5px;
+            }
+                
+            a {
+                color: #004875;
+                -webkit-tap-highlight-color: rgba(255, 0, 0, 0.5);
+            }
+                
+            .headline {
+                margin: 0px;
+                padding: 0px 10px;
+                font-size: 18px;
+                color: #000;
+                text-overflow: inherit;
+                white-space: normal;
+                overflow: visible;
+            }
+                
+            .body {
+                background-color: #fff;
+                border: 1px solid #ADAAAD;
+                margin: 10px 5px 10px 5px;
+                padding: 8px;
+                font-size: 16px;
+                -webkit-border-radius: 8px;
+                -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            }
+                
+            .date { float: right; margin-left: 5px; }
+            .expired { color: #f90602; }
+            .center { text-align: center; }
+        </style>
+    </head>
+    
+    <body>
+        <small class="date">%@</small>
+        <h1 class="headline">%@ <span class="expired">%@</span></h1>
+        <div class="body center"><img src="%@"/></div>
+        <div class="body">%@</div>
+    </body>
+</html>
