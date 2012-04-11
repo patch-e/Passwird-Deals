@@ -13,6 +13,7 @@
 #import "Extensions.h"
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
+#import "UIImageView+WebCache.h"
 
 @implementation MasterViewController
 
@@ -54,12 +55,14 @@
     
     DealData *deal = [self.deals objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = deal.headline;
-    cell.imageView.image = deal.image;
+    [cell.textLabel setText:deal.headline];
+    [cell.imageView setImageWithURL:deal.imageURL 
+                   placeholderImage:[UIImage imageNamed:@"icon.png"]];
+    
     if ( !deal.isExpired )
-        cell.detailTextLabel.text = nil;
+        [cell.detailTextLabel setText:nil];
     else
-        cell.detailTextLabel.text = @"(expired)";
+        [cell.detailTextLabel setText:@"(expired)"];
     
     return cell;
 }
@@ -87,29 +90,24 @@
         NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];    
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
+        
         // Loop through the array of JSON deals and create Deal objects added to a mutable array
         for (id aDeal in dealsArray) {
-            NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-            UIImage *thumb = [image makeThumbnailOfSize:CGSizeMake(50,50)];
-
-            NSNumber *isExpired = [aDeal valueForKey:@"isExpired"];
-            
             NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
-            NSInteger offset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
+            NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
             NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:
                              [[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]
-                            dateByAddingTimeInterval:offset];            
+                            dateByAddingTimeInterval:dateOffset];            
             
             DealData *deal = 
             [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
                               body:[aDeal valueForKey:@"body"]
-                             image:thumb
-                          imageURL:imageURL
-                         isExpired:[isExpired boolValue]
+                          imageURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]
+                         isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
                         datePosted:datePosted];
             [deals addObject:deal];
         }
+        
         // Set the created mutable array to the controller's property
         self.deals = deals;
         [self.tableView reloadData];
