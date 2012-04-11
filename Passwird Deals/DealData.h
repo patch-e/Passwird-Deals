@@ -16,6 +16,10 @@
 @property (assign) BOOL isExpired;
 @property (strong) NSDate *datePosted;
 
-- (id)init:(NSString*)headline body:(NSString*)body imageURL:(NSURL*)imageURL isExpired:(BOOL)isExpired datePosted:(NSDate*)datePosted;
+- (id)init:(NSString*)headline 
+      body:(NSString*)body 
+  imageURL:(NSURL*)imageURL 
+ isExpired:(BOOL)isExpired 
+datePosted:(NSDate*)datePosted;
 
 @end

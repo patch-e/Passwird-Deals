@@ -16,7 +16,11 @@
 @synthesize isExpired = _isExpired;
 @synthesize datePosted = _datePosted;
 
-- (id)init:(NSString*)headline body:(NSString*)body imageURL:(NSURL*)imageURL isExpired:(BOOL)isExpired datePosted:(NSDate *)datePosted {
+- (id)init:(NSString*)headline 
+      body:(NSString*)body 
+  imageURL:(NSURL*)imageURL 
+ isExpired:(BOOL)isExpired 
+datePosted:(NSDate *)datePosted {
     if ((self = [super init])) {
         self.headline = headline;
         self.body = body;
