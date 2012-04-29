@@ -138,13 +138,9 @@
 }
 
 -(void)loadDealIntoWebView {
-    static NSDateFormatter *dateFormatter = nil;
-    if (dateFormatter == nil) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    }
-    NSString *dateAsString = [dateFormatter stringFromDate:self.detailItem.datePosted];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
+    NSString *dateAsString = [formatter stringFromDate:self.detailItem.datePosted];
     
     // Update the user interface for the detail item.
     if (self.detailItem) {

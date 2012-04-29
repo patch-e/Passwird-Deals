@@ -17,9 +17,9 @@
                 
             .headline {
                 clear: both;
-                margin: 0px;
+                margin: 10px 0px 0px 0px;
                 padding: 0px 10px;
-                font-size: 18px;
+                font-size: 20px;
                 color: #000;
                 text-overflow: inherit;
                 white-space: normal;
@@ -36,14 +36,32 @@
                 -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
             }
                 
-            .date { float: right; margin-left: 5px; }
+            /*.date { float: right; margin-left: 5px; }*/
             .expired { color: #f90602; }
             .center { text-align: center; }
+            
+            .date {
+                position: relative;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                margin: 0px -10px 0px -10px;
+                padding: 0px 15px;
+                height: 20px;
+                border-top: 1px solid #A4B0B9;
+                border-bottom: 1px solid #979DA3;
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#8F9EA9), to(#B7C0C7));
+                font-size: 18px;
+                font-weight: bold;
+                color: white;
+                line-height: 20px;
+                text-shadow: rgba(0, 0, 0, 0.3) 0px 1px 0px;
+            }
         </style>
     </head>
     
     <body>
-        <small class="date">%@</small>
+        <div class="date">%@</div>
         <h1 class="headline">%@ <span class="expired">%@</span></h1>
         <div class="body center"><img src="%@"/></div>
         <div class="body">%@</div>
