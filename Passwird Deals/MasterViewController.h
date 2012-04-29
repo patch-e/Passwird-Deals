@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 
 @property (strong) NSMutableArray *deals;
+@property (strong) NSMutableDictionary *sections;
 
 - (IBAction)refresh:(id)sender;
 

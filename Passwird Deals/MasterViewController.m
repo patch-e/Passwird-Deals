@@ -20,6 +20,7 @@
 @synthesize detailViewController = _detailViewController;
 @synthesize refreshButton = _refreshButton;
 @synthesize deals = _deals;
+@synthesize sections = _sections;
 
 - (void)awakeFromNib
 {
@@ -40,12 +41,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [[self.sections allKeys] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section] substringFromIndex:1];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.deals count];
+    return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section]] count];
 }
 
 // Set the deal into the DealCell
@@ -53,8 +58,9 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
-    DealData *deal = [self.deals objectAtIndex:indexPath.row];
-    
+    //DealData *deal = [self.deals objectAtIndex:indexPath.row];
+    DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+
     [cell.textLabel setText:deal.headline];
     [cell.imageView setImageWithURL:deal.imageURL 
                    placeholderImage:[UIImage imageNamed:@"icon.png"]];
@@ -71,14 +77,21 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     DetailViewController *detailController = segue.destinationViewController;
-    DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    
+    //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
+                                                   sortedArrayUsingSelector:@selector(compare:)] 
+                                                  objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
+                      objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    
     detailController.detailItem = deal;
 }
 
 - (IBAction)refresh:(id)sender {
     self.deals = nil;
+    self.sections = nil;
     [self.tableView reloadData];    
-    self.refreshButton.enabled = NO;
+    [self.refreshButton setEnabled:NO];
     [self fetchAndParseDataIntoTableView];
 }
 
@@ -90,14 +103,33 @@
         NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];    
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
+        self.sections = [NSMutableDictionary dictionary];
         
+        BOOL sectionExists;
+        NSInteger sectionCount = 0;
         // Loop through the array of JSON deals and create Deal objects added to a mutable array
         for (id aDeal in dealsArray) {
             NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
             NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
-            NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:
-                             [[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]
-                            dateByAddingTimeInterval:dateOffset];            
+            NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
+            NSString *stringFromDate = [formatter stringFromDate:datePosted];
+            
+            sectionExists = NO;
+            for (NSString *str in [self.sections allKeys])
+            {
+                if ([str isEqualToString:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]])
+                    sectionExists = YES;
+            }
+            if (!sectionExists) {
+                sectionCount++;
+                [self.sections setValue:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]];
+            }
+            else {
+                
+            }
             
             DealData *deal = 
             [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
@@ -105,8 +137,10 @@
                           imageURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]
                          isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
                         datePosted:datePosted];
+            
             [deals addObject:deal];
-        }
+            [[self.sections objectForKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]] addObject:deal];
+        };
         
         // Set the created mutable array to the controller's property
         self.deals = deals;
@@ -123,7 +157,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] 
+                                    animated:NO 
+                              scrollPosition:UITableViewScrollPositionMiddle];
     }
     
     [self fetchAndParseDataIntoTableView];
