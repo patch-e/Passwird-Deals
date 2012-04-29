@@ -22,6 +22,9 @@
 		CD3E97D6152D3EED003A4EC0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E97D5152D3EED003A4EC0 /* Default@2x.png */; };
 		CD3E97E2152DB0DC003A4EC0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E97E0152DB0DC003A4EC0 /* icon.png */; };
 		CD3E97E3152DB0DC003A4EC0 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */; };
+		CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
+		CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD506E96154CFC9400FC2CEC /* Twitter.framework */; };
+		CD506E9E154D01B700FC2CEC /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD506E9D154D01B700FC2CEC /* Tweet.txt */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
@@ -60,6 +63,10 @@
 		CD3E97D5152D3EED003A4EC0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CD3E97E0152DB0DC003A4EC0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		CD418A7B153E653200E02F0D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		CD418A7C153E653200E02F0D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		CD506E96154CFC9400FC2CEC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		CD506E9D154D01B700FC2CEC /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tweet.txt; sourceTree = "<group>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -91,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */,
 				CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */,
 				CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */,
 				CD2A72C01516B12F003A4394 /* CoreGraphics.framework in Frameworks */,
@@ -103,6 +111,7 @@
 		CD2A72AC1516B12F003A4394 = {
 			isa = PBXGroup;
 			children = (
+				CD506E96154CFC9400FC2CEC /* Twitter.framework */,
 				CD2A72C11516B12F003A4394 /* Passwird Deals */,
 				CD2A72BA1516B12F003A4394 /* Frameworks */,
 				CD2A72B81516B12F003A4394 /* Products */,
@@ -160,6 +169,8 @@
 				CD2A72D41516B12F003A4394 /* MasterViewController.m */,
 				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
 				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
+				CD418A7B153E653200E02F0D /* SearchViewController.h */,
+				CD418A7C153E653200E02F0D /* SearchViewController.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 		CD2B2E861520D36E004A222C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD506E9D154D01B700FC2CEC /* Tweet.txt */,
 				CDD72AE115352E0D0062C1A8 /* Deal.html */,
 				CD3E97E0152DB0DC003A4EC0 /* icon.png */,
 				CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */,
@@ -262,6 +274,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = CD2A72AC1516B12F003A4394;
 			productRefGroup = CD2A72B81516B12F003A4394 /* Products */;
@@ -285,6 +298,7 @@
 				CD3E97E2152DB0DC003A4EC0 /* icon.png in Resources */,
 				CD3E97E3152DB0DC003A4EC0 /* icon@2x.png in Resources */,
 				CDD72AE215352E0D0062C1A8 /* Deal.html in Resources */,
+				CD506E9E154D01B700FC2CEC /* Tweet.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +324,7 @@
 				CDD72ADB153522F40062C1A8 /* SDWebImagePrefetcher.m in Sources */,
 				CDD72ADC153522F40062C1A8 /* UIButton+WebCache.m in Sources */,
 				CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */,
+				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
