@@ -24,7 +24,6 @@
 @synthesize activityIndicator = _activityIndicator;
 @synthesize backButton = _backButton;
 @synthesize forwardButton = _forwardButton;
-@synthesize dealButton = _dealButton;
 
 - (void)didReceiveMemoryWarning
 {
@@ -54,10 +53,6 @@
     [self.webView goForward]; 
 }
 
--(IBAction)loadDeal:(id)sender {
-    [self loadDealIntoWebView];
-}
-
 - (void)openInSafari {
     NSURL *currentURL = [self.webView.request URL];
     [[UIApplication sharedApplication] openURL:currentURL];
@@ -69,12 +64,11 @@
         NSError *error;
         NSStringEncoding encoding;
         NSString *tweetFilePath = [[NSBundle mainBundle] pathForResource: @"Tweet" 
-                                                                   ofType: @"txt"];
+                                                                  ofType: @"txt"];
         NSString *tweetString = [NSString stringWithContentsOfFile:tweetFilePath 
                                                       usedEncoding:&encoding 
                                                              error:&error];
         NSString *tweet = [NSString stringWithFormat:tweetString, self.detailItem.headline];
-        NSLog(@"%@", tweet);
         
         TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
         [tweetSheet setInitialText:tweet];
@@ -85,7 +79,7 @@
         UIAlertView *alertView =
             [[UIAlertView alloc]
              initWithTitle:@"Sorry"
-             message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"                                                          
+             message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
              delegate:self                                              
              cancelButtonTitle:@"OK"                                                   
              otherButtonTitles:nil];
@@ -101,7 +95,7 @@
         [sheet setTag:0];
     }
     else {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Tweet Deal", @"Open in Safari", nil];
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Back to Deal", @"Tweet Deal", @"Open in Safari", nil];
         [sheet setTag:1];
     }
     
@@ -124,9 +118,12 @@
         case 1:
             switch (buttonIndex) {
                 case 0:
-                    [self tweetDeal];
+                    [self loadDealIntoWebView];                    
                     break;
                 case 1:
+                    [self tweetDeal];
+                    break;
+                case 2:
                     [self openInSafari];
                     break;
                 default:
@@ -178,13 +175,10 @@
     [self.activityIndicator stopAnimating];
     
     if ( [[[self.webView.request URL] absoluteString] isEqualToString:@"about:blank"] ) {
-        [self.dealButton setEnabled:NO];
         [self.backButton setEnabled:NO];
         [self.forwardButton setEnabled:NO];
     }
     else {
-        [self.dealButton setEnabled:YES];
-        
         if ([self.webView canGoBack])
             [self.backButton setEnabled:YES];
         else
@@ -210,7 +204,6 @@
     [self setActivityIndicator:nil];
     [self setBackButton:nil];
     [self setForwardButton:nil];
-    [self setDealButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

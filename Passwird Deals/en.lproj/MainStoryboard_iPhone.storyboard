@@ -114,31 +114,25 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="z5K-nI-5uT"/>
-                                    <barButtonItem systemItem="action" id="L4r-Z8-ZlO">
-                                        <connections>
-                                            <action selector="showActionSheet:" destination="21" id="KuM-XO-VVe"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="XKN-Ff-UH8">
-                                <rect key="frame" x="83" y="384" width="20" height="20"/>
+                                <rect key="frame" x="295" y="384" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="View Deal" id="26">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Deal" id="dcb-9k-f9T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="L4r-Z8-ZlO">
                             <connections>
-                                <action selector="loadDeal:" destination="21" id="TUC-RJ-Tcu"/>
+                                <action selector="showActionSheet:" destination="21" id="KuM-XO-VVe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="XKN-Ff-UH8" id="g5U-of-aoI"/>
                         <outlet property="backButton" destination="dJ9-XT-l82" id="IvK-Lo-zMA"/>
-                        <outlet property="dealButton" destination="dcb-9k-f9T" id="zgw-zt-SDD"/>
                         <outlet property="forwardButton" destination="et5-2e-NaJ" id="G0O-PY-tJQ"/>
                         <outlet property="webView" destination="fRC-ds-tlm" id="l02-EF-q4B"/>
                     </connections>
@@ -184,35 +178,6 @@
             <point key="canvasLocation" x="455" y="-512"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="action" name="goForward:"/>
-                <relationship kind="action" name="loadDeal:"/>
-                <relationship kind="action" name="showActionSheet:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="dealButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refresh:"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
