@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+#import <Twitter/Twitter.h>
+
 #import "DealData.h"
 #import "MBProgressHUD.h"
 
@@ -22,7 +24,6 @@
 @synthesize activityIndicator = _activityIndicator;
 @synthesize backButton = _backButton;
 @synthesize forwardButton = _forwardButton;
-@synthesize safariButton = _safariButton;
 @synthesize dealButton = _dealButton;
 
 - (void)didReceiveMemoryWarning
@@ -57,9 +58,83 @@
     [self loadDealIntoWebView];
 }
 
-- (IBAction)openInSafari:(id)sender {
+- (void)openInSafari {
     NSURL *currentURL = [self.webView.request URL];
     [[UIApplication sharedApplication] openURL:currentURL];
+}
+
+- (void)tweetDeal {
+    if ([TWTweetComposeViewController canSendTweet])
+    {
+        NSError *error;
+        NSStringEncoding encoding;
+        NSString *tweetFilePath = [[NSBundle mainBundle] pathForResource: @"Tweet" 
+                                                                   ofType: @"txt"];
+        NSString *tweetString = [NSString stringWithContentsOfFile:tweetFilePath 
+                                                      usedEncoding:&encoding 
+                                                             error:&error];
+        NSString *tweet = [NSString stringWithFormat:tweetString, self.detailItem.headline];
+        NSLog(@"%@", tweet);
+        
+        TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+        [tweetSheet setInitialText:tweet];
+        [self presentModalViewController:tweetSheet animated:YES];
+    }
+    else
+    {
+        UIAlertView *alertView =
+            [[UIAlertView alloc]
+             initWithTitle:@"Sorry"
+             message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"                                                          
+             delegate:self                                              
+             cancelButtonTitle:@"OK"                                                   
+             otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+-(IBAction)showActionSheet:(id)sender {
+    UIActionSheet *sheet;
+    
+    if ( [[[self.webView.request URL] absoluteString] isEqualToString:@"about:blank"] ) {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Tweet Deal", nil];
+        [sheet setTag:0];
+    }
+    else {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Tweet Deal", @"Open in Safari", nil];
+        [sheet setTag:1];
+    }
+    
+    [sheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+    [sheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch(actionSheet.tag) {
+        case 0:
+            switch (buttonIndex) {
+                case 0:
+                    [self tweetDeal];
+                    break;
+                default:
+                    //NSLog(@"Cancel Button Clicked");
+                    break;
+            }
+            break;
+        case 1:
+            switch (buttonIndex) {
+                case 0:
+                    [self tweetDeal];
+                    break;
+                case 1:
+                    [self openInSafari];
+                    break;
+                default:
+                    //NSLog(@"Cancel Button Clicked");
+                    break;
+            }
+            break;
+    }
 }
 
 -(void)loadDealIntoWebView {
@@ -107,14 +182,12 @@
     [self.activityIndicator stopAnimating];
     
     if ( [[[self.webView.request URL] absoluteString] isEqualToString:@"about:blank"] ) {
-        [self.dealButton setEnabled:NO]; 
-        [self.safariButton setEnabled:NO];    
+        [self.dealButton setEnabled:NO];
         [self.backButton setEnabled:NO];
         [self.forwardButton setEnabled:NO];
     }
     else {
-        [self.dealButton setEnabled:YES]; 
-        [self.safariButton setEnabled:YES];
+        [self.dealButton setEnabled:YES];
         
         if ([self.webView canGoBack])
             [self.backButton setEnabled:YES];
@@ -141,7 +214,6 @@
     [self setActivityIndicator:nil];
     [self setBackButton:nil];
     [self setForwardButton:nil];
-    [self setSafariButton:nil];
     [self setDealButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.

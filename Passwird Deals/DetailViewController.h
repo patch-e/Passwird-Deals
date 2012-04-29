@@ -10,7 +10,7 @@
 
 @class DealData;
 
-@interface DetailViewController : UIViewController <UIWebViewDelegate>
+@interface DetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) DealData * detailItem;
 
@@ -18,12 +18,11 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *safariButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *dealButton;
 
 - (IBAction)goBack:(id)sender;
 - (IBAction)goForward:(id)sender;
 - (IBAction)loadDeal:(id)sender;
-- (IBAction)openInSafari:(id)sender;
+- (IBAction)showActionSheet:(id)sender;
 
 @end
