@@ -35,6 +35,10 @@
 		CDD72ADC153522F40062C1A8 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACE153522F40062C1A8 /* UIButton+WebCache.m */; };
 		CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */; };
 		CDD72AE215352E0D0062C1A8 /* Deal.html in Resources */ = {isa = PBXBuildFile; fileRef = CDD72AE115352E0D0062C1A8 /* Deal.html */; };
+		CDDFC85A154F6BF2000A65B4 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDFC856154F6BF2000A65B4 /* left.png */; };
+		CDDFC85B154F6BF2000A65B4 /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDFC857154F6BF2000A65B4 /* left@2x.png */; };
+		CDDFC85C154F6BF2000A65B4 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDFC858154F6BF2000A65B4 /* right.png */; };
+		CDDFC85D154F6BF2000A65B4 /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDFC859154F6BF2000A65B4 /* right@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +95,10 @@
 		CDD72ACF153522F40062C1A8 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		CDD72AE115352E0D0062C1A8 /* Deal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Deal.html; sourceTree = "<group>"; };
+		CDDFC856154F6BF2000A65B4 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		CDDFC857154F6BF2000A65B4 /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
+		CDDFC858154F6BF2000A65B4 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		CDDFC859154F6BF2000A65B4 /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +210,10 @@
 		CD2B2E861520D36E004A222C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDDFC856154F6BF2000A65B4 /* left.png */,
+				CDDFC857154F6BF2000A65B4 /* left@2x.png */,
+				CDDFC858154F6BF2000A65B4 /* right.png */,
+				CDDFC859154F6BF2000A65B4 /* right@2x.png */,
 				CD506E9D154D01B700FC2CEC /* Tweet.txt */,
 				CDD72AE115352E0D0062C1A8 /* Deal.html */,
 				CD3E97E0152DB0DC003A4EC0 /* icon.png */,
@@ -299,6 +311,10 @@
 				CD3E97E3152DB0DC003A4EC0 /* icon@2x.png in Resources */,
 				CDD72AE215352E0D0062C1A8 /* Deal.html in Resources */,
 				CD506E9E154D01B700FC2CEC /* Tweet.txt in Resources */,
+				CDDFC85A154F6BF2000A65B4 /* left.png in Resources */,
+				CDDFC85B154F6BF2000A65B4 /* left@2x.png in Resources */,
+				CDDFC85C154F6BF2000A65B4 /* right.png in Resources */,
+				CDDFC85D154F6BF2000A65B4 /* right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
