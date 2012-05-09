@@ -17,25 +17,11 @@
 
 @implementation MasterViewController
 
-@synthesize detailViewController = _detailViewController;
+//@synthesize detailViewController = _detailViewController;
 @synthesize refreshButton = _refreshButton;
+@synthesize searchButton = _searchButton;
 @synthesize deals = _deals;
 @synthesize sections = _sections;
-
-- (void)awakeFromNib
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.clearsSelectionOnViewWillAppear = NO;
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-    }
-    [super awakeFromNib];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - Managing the table view
 
@@ -76,15 +62,17 @@
 // Pass selected deal to detail controller
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    DetailViewController *detailController = segue.destinationViewController;
-    
-    //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-    DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
-                                                   sortedArrayUsingSelector:@selector(compare:)] 
-                                                  objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
-                      objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-    
-    detailController.detailItem = deal;
+    if ([segue.identifier isEqualToString:@"Detail"]) {
+        DetailViewController *detailController = segue.destinationViewController;
+        
+        //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
+                                                       sortedArrayUsingSelector:@selector(compare:)] 
+                                                      objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
+                          objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+        detailController.detailItem = deal;   
+    }
 }
 
 - (IBAction)refresh:(id)sender {
@@ -92,6 +80,7 @@
     self.sections = nil;
     [self.tableView reloadData];    
     [self.refreshButton setEnabled:NO];
+    [self.searchButton setEnabled:NO];
     [self fetchAndParseDataIntoTableView];
 }
 
@@ -112,10 +101,10 @@
             NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
             NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
             NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
-            
+
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
-            NSString *stringFromDate = [formatter stringFromDate:datePosted];
+            NSString *stringFromDate = [formatter stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
             
             sectionExists = NO;
             for (NSString *str in [self.sections allKeys])
@@ -126,9 +115,6 @@
             if (!sectionExists) {
                 sectionCount++;
                 [self.sections setValue:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]];
-            }
-            else {
-                
             }
             
             DealData *deal = 
@@ -146,11 +132,18 @@
         self.deals = deals;
         [self.tableView reloadData];
         self.refreshButton.enabled = YES;
+        self.searchButton.enabled = YES;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });    
 }
 
 #pragma mark - View lifecycle
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
+}
 
 - (void)viewDidLoad
 {
@@ -168,6 +161,7 @@
 - (void)viewDidUnload
 {
     [self setRefreshButton:nil];
+    [self setSearchButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
