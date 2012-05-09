@@ -205,64 +205,6 @@
             </objects>
             <point key="canvasLocation" x="983" y="-147"/>
         </scene>
-        <!--Detail View Controller - Detail-->
-        <scene sceneID="Ojm-P1-4GF">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E1v-XS-ii7" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="" title="Detail" id="XfK-CY-JvJ" customClass="DetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h8X-nj-RBI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="BvB-6S-gAh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="XfK-CY-JvJ" id="VqA-WS-08e"/>
-                                </connections>
-                            </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="ZeO-66-9xy">
-                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem enabled="NO" image="left.png" width="44" style="plain" id="cCd-vb-zmC">
-                                        <connections>
-                                            <action selector="goBack:" destination="XfK-CY-JvJ" id="jIZ-cG-z7U"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem enabled="NO" image="right.png" width="44" style="plain" id="TZn-rT-KZ1">
-                                        <connections>
-                                            <action selector="goForward:" destination="XfK-CY-JvJ" id="EHZ-yJ-L89"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="y1K-nq-N7e">
-                                <rect key="frame" x="295" y="428" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="View Deal" id="GbW-ki-6WA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="wsj-Cl-LkB">
-                            <connections>
-                                <action selector="showActionSheet:" destination="XfK-CY-JvJ" id="DrA-tY-Gb3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="activityIndicator" destination="y1K-nq-N7e" id="sre-Nd-Miw"/>
-                        <outlet property="backButton" destination="cCd-vb-zmC" id="Wzo-cD-Jbz"/>
-                        <outlet property="forwardButton" destination="TZn-rT-KZ1" id="SlE-ic-KlA"/>
-                        <outlet property="webView" destination="BvB-6S-gAh" id="fbs-vG-VKa"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1498" y="364"/>
-        </scene>
     </scenes>
     <resources>
         <image name="left.png" width="11" height="21"/>
