@@ -64,6 +64,7 @@
         // Build dictionary from JSON at URL
         NSLog(@"Search input: %@", searchBar.text);
         NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@", searchBar.text]];
+        
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
         self.sections = [NSMutableDictionary dictionary];
@@ -92,6 +93,14 @@
         // Set the created mutable array to the controller's property
         self.deals = deals;
         [self.tableView reloadData];
+        
+        if ( [self.tableView numberOfRowsInSection:0] == 0 )
+        {
+            NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
+            [self.sections setObject: [self.sections objectForKey: @"Search Results"] forKey: @"No Results Found"];
+            [self.sections removeObjectForKey: @"Search Results"];
+        }
+        
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     });    
 }
