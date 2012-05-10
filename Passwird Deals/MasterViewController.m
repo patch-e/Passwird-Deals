@@ -17,7 +17,6 @@
 
 @implementation MasterViewController
 
-//@synthesize detailViewController = _detailViewController;
 @synthesize refreshButton = _refreshButton;
 @synthesize searchButton = _searchButton;
 @synthesize deals = _deals;
@@ -39,9 +38,9 @@
     return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section]] count];
 }
 
-// Set the deal into the DealCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Set the deal into the DealCell
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
     //DealData *deal = [self.deals objectAtIndex:indexPath.row];
@@ -59,33 +58,17 @@
     return cell;
 }
 
-// Pass selected deal to detail controller
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Detail"]) {
-        DetailViewController *detailController = segue.destinationViewController;
-        
-        //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
-                                                       sortedArrayUsingSelector:@selector(compare:)] 
-                                                      objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
-                          objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        
-        detailController.detailItem = deal;   
-    }
-}
-
 - (IBAction)refresh:(id)sender {
     self.deals = nil;
     self.sections = nil;
-    [self.tableView reloadData];    
+    [self.tableView reloadData];
     [self.refreshButton setEnabled:NO];
     [self.searchButton setEnabled:NO];
     [self fetchAndParseDataIntoTableView];
 }
 
 - (void)fetchAndParseDataIntoTableView {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
@@ -133,11 +116,27 @@
         [self.tableView reloadData];
         self.refreshButton.enabled = YES;
         self.searchButton.enabled = YES;
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     });    
 }
 
 #pragma mark - View lifecycle
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Pass selected deal to detail controller
+    if ([segue.identifier isEqualToString:@"Detail"]) {
+        DetailViewController *detailController = segue.destinationViewController;
+        
+        //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
+                                                       sortedArrayUsingSelector:@selector(compare:)] 
+                                                      objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
+                          objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+        detailController.detailItem = deal;   
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -12,8 +12,6 @@
 
 @interface MasterViewController : UITableViewController
 
-//@property (strong, nonatomic) DetailViewController *detailViewController;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 

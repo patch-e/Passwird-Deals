@@ -7,11 +7,11 @@
 //
 
 #import "DetailViewController.h"
+#import "WebViewController.h"
 
 #import <Twitter/Twitter.h>
 
 #import "DealData.h"
-#import "MBProgressHUD.h"
 
 @interface DetailViewController ()
 
@@ -23,9 +23,7 @@
 
 @synthesize detailItem = _detailItem;
 @synthesize webView = _webView;
-@synthesize activityIndicator = _activityIndicator;
-@synthesize backButton = _backButton;
-@synthesize forwardButton = _forwardButton;
+@synthesize selectedURL = _selectedURL;
 
 - (void)didReceiveMemoryWarning
 {
@@ -45,20 +43,7 @@
     }
 }
 
-#pragma mark - Managing the web view
-
--(IBAction)goBack:(id)sender {
-    [self.webView goBack]; 
-}
-
--(IBAction)goForward:(id)sender {
-    [self.webView goForward]; 
-}
-
-- (void)openInSafari {
-    NSURL *currentURL = [self.webView.request URL];
-    [[UIApplication sharedApplication] openURL:currentURL];
-}
+#pragma mark - Managing the action sheet
 
 - (void)tweetDeal {
     if ([TWTweetComposeViewController canSendTweet])
@@ -93,11 +78,19 @@
     UIActionSheet *sheet;
     
     if ( [[[self.webView.request URL] absoluteString] isEqualToString:@"about:blank"] ) {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Tweet Deal", nil];
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
+                                            delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:nil 
+                                   otherButtonTitles:@"Tweet Deal", nil];
         [sheet setTag:0];
     }
     else {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Back to Deal", @"Tweet Deal", @"Open in Safari", nil];
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
+                                            delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:nil 
+                                   otherButtonTitles:@"Back to Deal", @"Tweet Deal", @"Open in Safari", nil];
         [sheet setTag:1];
     }
     
@@ -106,34 +99,25 @@
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch(actionSheet.tag) {
+    switch (buttonIndex) {
         case 0:
-            switch (buttonIndex) {
-                case 0:
-                    [self tweetDeal];
-                    break;
-                default:
-                    //NSLog(@"Cancel Button Clicked");
-                    break;
-            }
+            [self tweetDeal];
             break;
-        case 1:
-            switch (buttonIndex) {
-                case 0:
-                    [self loadDealIntoWebView];                    
-                    break;
-                case 1:
-                    [self tweetDeal];
-                    break;
-                case 2:
-                    [self openInSafari];
-                    break;
-                default:
-                    //NSLog(@"Cancel Button Clicked");
-                    break;
-            }
+        default:
+            //NSLog(@"Cancel Button Clicked");
             break;
     }
+}
+
+#pragma mark - Managing the web view
+
+-(BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {    
+    if( navigationType == UIWebViewNavigationTypeLinkClicked ) {
+        self.selectedURL = request.URL;
+        [self performSegueWithIdentifier: @"Web" sender: self];
+        return NO;
+    } 
+    return YES; 
 }
 
 -(void)loadDealIntoWebView {
@@ -162,31 +146,15 @@
     }
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    [self.activityIndicator startAnimating];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self.activityIndicator stopAnimating];
-    
-    if ( [[[self.webView.request URL] absoluteString] isEqualToString:@"about:blank"] ) {
-        [self.backButton setEnabled:NO];
-        [self.forwardButton setEnabled:NO];
-    }
-    else {
-        if ([self.webView canGoBack])
-            [self.backButton setEnabled:YES];
-        else
-            [self.backButton setEnabled:NO];  
-        
-        if ([self.webView canGoForward])
-            [self.forwardButton setEnabled:YES];   
-        else
-            [self.forwardButton setEnabled:NO];      
-    }
-}
-
 #pragma mark - View lifecycle
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Pass selected URL and deal to web controller
+    WebViewController *webController = segue.destinationViewController;
+    webController.pushedURL = self.selectedURL;
+    webController.detailItem = self.detailItem;
+}
 
 - (void)configureView
 {
@@ -203,9 +171,6 @@
 - (void)viewDidUnload
 {
     [self setWebView:nil];
-    [self setActivityIndicator:nil];
-    [self setBackButton:nil];
-    [self setForwardButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

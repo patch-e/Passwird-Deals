@@ -18,18 +18,10 @@
 @implementation SearchViewController
 
 @synthesize searchBar;
-@synthesize doneButton;
 @synthesize deals = _deals;
 @synthesize sections = _sections;
 
-#pragma mark - Managing the detail item
-
-//- (void)setDetailItem:(id)newDetailItem
-//{
-//
-//}
-
-#pragma mark - Managing the search view
+#pragma mark - Managing the table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -45,9 +37,9 @@
     return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section]] count];
 }
 
-// Set the deal into the DealCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Set the deal into the DealCell
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
     //DealData *deal = [self.deals objectAtIndex:indexPath.row];
@@ -65,47 +57,8 @@
     return cell;
 }
 
-// Pass selected deal to detail controller
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Detail"]) {
-        DetailViewController *detailController = segue.destinationViewController;
-        
-        //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
-                                                       sortedArrayUsingSelector:@selector(compare:)] 
-                                                      objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
-                          objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        
-        detailController.detailItem = deal;   
-    }
-}
-
-- (IBAction)done:(id)sender 
-{
-    [searchBar resignFirstResponder];
-    [self dismissViewControllerAnimated:YES completion: nil];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
-{
-    [searchBar resignFirstResponder];
-    
-    self.deals = nil;
-    self.sections = nil;
-    [self.tableView reloadData]; 
-    [self fetchAndParseDataIntoTableView];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar
-{
-    [searchBar becomeFirstResponder];
-    [self dismissViewControllerAnimated:YES completion: nil];
-}
-
-
 - (void)fetchAndParseDataIntoTableView {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
@@ -139,12 +92,40 @@
         // Set the created mutable array to the controller's property
         self.deals = deals;
         [self.tableView reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     });    
 }
 
+#pragma mark - Managing the search bar
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
+{
+    [searchBar resignFirstResponder];
+    
+    self.deals = nil;
+    self.sections = nil;
+    [self.tableView reloadData]; 
+    
+    [self fetchAndParseDataIntoTableView];
+}
 
 #pragma mark - View lifecycle
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Pass selected deal to detail controller
+    if ([segue.identifier isEqualToString:@"Detail"]) {
+        DetailViewController *detailController = segue.destinationViewController;
+        
+        //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
+                                                       sortedArrayUsingSelector:@selector(compare:)] 
+                                                      objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
+                          objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+        detailController.detailItem = deal;   
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -163,7 +144,6 @@
 - (void)viewDidUnload
 {
     [self setSearchBar:nil];
-    [self setDoneButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
