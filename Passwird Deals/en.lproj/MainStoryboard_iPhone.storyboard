@@ -19,7 +19,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
+            <point key="canvasLocation" x="-13" y="80"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
@@ -68,14 +68,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Passwird Deals" id="35">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="search" id="kuV-Hf-HgB">
-                            <connections>
-                                <segue destination="NBq-gl-XMZ" kind="push" identifier="Search" id="1X7-xZ-Xil"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="refresh" id="qBv-dB-Xjj">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="refresh" id="qBv-dB-Xjj">
                             <connections>
                                 <action selector="refresh:" destination="12" id="anj-7M-ynq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="search" id="kuV-Hf-HgB">
+                            <connections>
+                                <segue destination="NBq-gl-XMZ" kind="push" identifier="Search" id="1X7-xZ-Xil"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -85,7 +85,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="503" y="244"/>
+            <point key="canvasLocation" x="479" y="80"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="fRC-ds-tlm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
@@ -105,26 +105,6 @@
                                     <outlet property="delegate" destination="21" id="oFF-9u-ndg"/>
                                 </connections>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="G9Y-eM-6bM">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem enabled="NO" image="left.png" width="44" style="plain" id="dJ9-XT-l82">
-                                        <connections>
-                                            <action selector="goBack:" destination="21" id="Uiz-OZ-fSO"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem enabled="NO" image="right.png" width="44" style="plain" id="et5-2e-NaJ">
-                                        <connections>
-                                            <action selector="goForward:" destination="21" id="UAC-4Z-4df"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="XKN-Ff-UH8">
-                                <rect key="frame" x="295" y="384" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -136,14 +116,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="XKN-Ff-UH8" id="g5U-of-aoI"/>
-                        <outlet property="backButton" destination="dJ9-XT-l82" id="IvK-Lo-zMA"/>
-                        <outlet property="forwardButton" destination="et5-2e-NaJ" id="G0O-PY-tJQ"/>
                         <outlet property="webView" destination="fRC-ds-tlm" id="l02-EF-q4B"/>
+                        <segue destination="XfK-CY-JvJ" kind="push" identifier="Web" id="Wmt-ve-5cK"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1498" y="364"/>
+            <point key="canvasLocation" x="957" y="722"/>
         </scene>
         <!--Search View Controller - Search-->
         <scene sceneID="6aU-9M-Scf">
@@ -157,6 +135,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackOpaque" id="zrD-mn-MYf">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -203,7 +182,66 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="983" y="-147"/>
+            <point key="canvasLocation" x="957" y="80"/>
+        </scene>
+        <!--Web View Controller - Web-->
+        <scene sceneID="Ojm-P1-4GF">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E1v-XS-ii7" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="" title="Web" id="XfK-CY-JvJ" customClass="WebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h8X-nj-RBI">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="BvB-6S-gAh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XfK-CY-JvJ" id="VqA-WS-08e"/>
+                                </connections>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="ZeO-66-9xy">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem enabled="NO" image="left.png" width="44" style="plain" id="cCd-vb-zmC">
+                                        <connections>
+                                            <action selector="goBack:" destination="XfK-CY-JvJ" id="jIZ-cG-z7U"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" image="right.png" width="44" style="plain" id="TZn-rT-KZ1">
+                                        <connections>
+                                            <action selector="goForward:" destination="XfK-CY-JvJ" id="EHZ-yJ-L89"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="y1K-nq-N7e">
+                                <rect key="frame" x="295" y="384" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Browser" id="GbW-ki-6WA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="wsj-Cl-LkB">
+                            <connections>
+                                <action selector="showActionSheet:" destination="XfK-CY-JvJ" id="DrA-tY-Gb3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="y1K-nq-N7e" id="sre-Nd-Miw"/>
+                        <outlet property="backButton" destination="cCd-vb-zmC" id="Wzo-cD-Jbz"/>
+                        <outlet property="forwardButton" destination="TZn-rT-KZ1" id="SlE-ic-KlA"/>
+                        <outlet property="webView" destination="BvB-6S-gAh" id="fbs-vG-VKa"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1438" y="722"/>
         </scene>
     </scenes>
     <resources>
@@ -214,12 +252,7 @@
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="action" name="goForward:"/>
                 <relationship kind="action" name="showActionSheet:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
@@ -234,9 +267,19 @@
         <class className="SearchViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="action" name="goForward:"/>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
     </classes>
@@ -246,6 +289,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="teQ-Uk-T7m"/>
+        <segue reference="fL1-NV-6EN"/>
     </inferredMetricsTieBreakers>
 </document>
