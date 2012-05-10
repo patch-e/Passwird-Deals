@@ -27,6 +27,8 @@
 		CD506E9E154D01B700FC2CEC /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD506E9D154D01B700FC2CEC /* Tweet.txt */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
+		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
+		CD89BBDE155B41EE00747FD5 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBDD155B41EE00747FD5 /* NSData+Base64.m */; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
 		CDD72AD9153522F40062C1A8 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
@@ -76,6 +78,10 @@
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		CD779FB8152BDFC900580633 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CD779FB9152BDFC900580633 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		CD89BBDC155B41EE00747FD5 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		CD89BBDD155B41EE00747FD5 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		CDD72ABC153522F40062C1A8 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		CDD72ABD153522F40062C1A8 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		CDD72ABE153522F40062C1A8 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -119,7 +125,6 @@
 		CD2A72AC1516B12F003A4394 = {
 			isa = PBXGroup;
 			children = (
-				CD506E96154CFC9400FC2CEC /* Twitter.framework */,
 				CD2A72C11516B12F003A4394 /* Passwird Deals */,
 				CD2A72BA1516B12F003A4394 /* Frameworks */,
 				CD2A72B81516B12F003A4394 /* Products */,
@@ -137,6 +142,7 @@
 		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD506E96154CFC9400FC2CEC /* Twitter.framework */,
 				CD2A72BB1516B12F003A4394 /* UIKit.framework */,
 				CD2A72BD1516B12F003A4394 /* Foundation.framework */,
 				CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */,
@@ -179,6 +185,8 @@
 				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
 				CD418A7B153E653200E02F0D /* SearchViewController.h */,
 				CD418A7C153E653200E02F0D /* SearchViewController.m */,
+				CD89BBD4155A10CB00747FD5 /* WebViewController.h */,
+				CD89BBD5155A10CB00747FD5 /* WebViewController.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -196,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
+				CD89BBDC155B41EE00747FD5 /* NSData+Base64.h */,
+				CD89BBDD155B41EE00747FD5 /* NSData+Base64.m */,
 				CD779FB8152BDFC900580633 /* MBProgressHUD.h */,
 				CD779FB9152BDFC900580633 /* MBProgressHUD.m */,
 				CD2B2E77151DF841004A222C /* Extensions.h */,
@@ -341,6 +351,8 @@
 				CDD72ADC153522F40062C1A8 /* UIButton+WebCache.m in Sources */,
 				CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */,
 				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
+				CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */,
+				CD89BBDE155B41EE00747FD5 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
