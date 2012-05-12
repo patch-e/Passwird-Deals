@@ -77,22 +77,12 @@
 -(IBAction)showActionSheet:(id)sender {
     UIActionSheet *sheet;
     
-    if ( [[[self.webView.request URL] absoluteString] isEqualToString:@"about:blank"] ) {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
-                                            delegate:self 
-                                   cancelButtonTitle:@"Cancel" 
-                              destructiveButtonTitle:nil 
-                                   otherButtonTitles:@"Tweet Deal", nil];
-        [sheet setTag:0];
-    }
-    else {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
-                                            delegate:self 
-                                   cancelButtonTitle:@"Cancel" 
-                              destructiveButtonTitle:nil 
-                                   otherButtonTitles:@"Back to Deal", @"Tweet Deal", @"Open in Safari", nil];
-        [sheet setTag:1];
-    }
+    sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
+                                        delegate:self 
+                               cancelButtonTitle:@"Cancel" 
+                          destructiveButtonTitle:nil 
+                               otherButtonTitles:@"Tweet Deal", nil];
+    [sheet setTag:0];
     
     [sheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
     [sheet showInView:self.view];
@@ -142,7 +132,11 @@
                             self.detailItem.imageURL, 
                             self.detailItem.body];
 
-        [self.webView loadHTMLString:html baseURL:nil];
+        
+        NSString *path = [[NSBundle mainBundle] bundlePath];
+        NSURL *baseURL = [NSURL fileURLWithPath:path];
+        
+        [self.webView loadHTMLString:html baseURL:baseURL];
     }
 }
 
