@@ -25,6 +25,8 @@
 		CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
 		CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD506E96154CFC9400FC2CEC /* Twitter.framework */; };
 		CD506E9E154D01B700FC2CEC /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD506E9D154D01B700FC2CEC /* Tweet.txt */; };
+		CD53E4DC155DF29400EA704D /* Deal.css in Resources */ = {isa = PBXBuildFile; fileRef = CD53E4DB155DF29400EA704D /* Deal.css */; };
+		CD53E4DE155DF3A300EA704D /* Deal.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CD53E4DD155DF3A300EA704D /* Deal.min.css */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
@@ -73,6 +75,8 @@
 		CD418A7C153E653200E02F0D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		CD506E96154CFC9400FC2CEC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		CD506E9D154D01B700FC2CEC /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tweet.txt; sourceTree = "<group>"; };
+		CD53E4DB155DF29400EA704D /* Deal.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Deal.css; sourceTree = "<group>"; };
+		CD53E4DD155DF3A300EA704D /* Deal.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Deal.min.css; sourceTree = "<group>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				CDDFC859154F6BF2000A65B4 /* right@2x.png */,
 				CD506E9D154D01B700FC2CEC /* Tweet.txt */,
 				CDD72AE115352E0D0062C1A8 /* Deal.html */,
+				CD53E4DB155DF29400EA704D /* Deal.css */,
+				CD53E4DD155DF3A300EA704D /* Deal.min.css */,
 				CD3E97E0152DB0DC003A4EC0 /* icon.png */,
 				CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */,
 				CD3E97D5152D3EED003A4EC0 /* Default@2x.png */,
@@ -325,6 +331,8 @@
 				CDDFC85B154F6BF2000A65B4 /* left@2x.png in Resources */,
 				CDDFC85C154F6BF2000A65B4 /* right.png in Resources */,
 				CDDFC85D154F6BF2000A65B4 /* right@2x.png in Resources */,
+				CD53E4DC155DF29400EA704D /* Deal.css in Resources */,
+				CD53E4DE155DF3A300EA704D /* Deal.min.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
