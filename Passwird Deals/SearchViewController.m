@@ -118,6 +118,10 @@
     [self fetchAndParseDataIntoTableView];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
+    [searchBar resignFirstResponder];    
+}
+
 #pragma mark - View lifecycle
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
