@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
-- (IBAction)done:(id)sender;
+@class DetailViewController;
+
+@interface SearchViewController : UITableViewController <UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong) NSMutableArray *deals;
+@property (strong) NSMutableDictionary *sections;
 
 @end

@@ -12,15 +12,11 @@
 
 @interface DetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
 
-@property (strong, nonatomic) DealData * detailItem;
+@property (strong, nonatomic) DealData *detailItem;
+@property (strong, nonatomic) NSURL *selectedURL;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 
-- (IBAction)goBack:(id)sender;
-- (IBAction)goForward:(id)sender;
 - (IBAction)showActionSheet:(id)sender;
 
 @end
