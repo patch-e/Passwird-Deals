@@ -15,12 +15,15 @@
 #import "GTMNSString+HTML.h"
 #import "UIImageView+WebCache.h"
 
+#import "PullToRefreshView.h"
+
 @implementation MasterViewController
 
 @synthesize refreshButton = _refreshButton;
 @synthesize searchButton = _searchButton;
 @synthesize deals = _deals;
 @synthesize sections = _sections;
+PullToRefreshView *pull;
 
 #pragma mark - Managing the table view
 
@@ -64,11 +67,15 @@
     [self.tableView reloadData];
     [self.refreshButton setEnabled:NO];
     [self.searchButton setEnabled:NO];
-    [self fetchAndParseDataIntoTableView];
+    [self fetchAndParseDataIntoTableView:YES];
 }
 
-- (void)fetchAndParseDataIntoTableView {
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+- (void)fetchAndParseDataIntoTableView:(BOOL)showHUD {
+    if ( showHUD ) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        hud.labelText = @"Loading";
+    }
+    
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
@@ -100,10 +107,12 @@
                 [self.sections setValue:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]];
             }
             
+            NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
             DealData *deal = 
             [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
                               body:[aDeal valueForKey:@"body"]
-                          imageURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]
+                          imageURL:imageURL
+                         imageData:nil
                          isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
                         datePosted:datePosted];
             
@@ -116,8 +125,18 @@
         [self.tableView reloadData];
         self.refreshButton.enabled = YES;
         self.searchButton.enabled = YES;
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        if ( showHUD )
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
+        [pull finishedLoading];
     });    
+}
+
+#pragma mark - Managing PullToRefresh
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+{
+    [self fetchAndParseDataIntoTableView:NO];
 }
 
 #pragma mark - View lifecycle
@@ -154,7 +173,11 @@
                               scrollPosition:UITableViewScrollPositionMiddle];
     }
     
-    [self fetchAndParseDataIntoTableView];
+    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
+    [pull setDelegate:self];
+    [self.tableView addSubview:pull];
+    
+    [self fetchAndParseDataIntoTableView:YES];
 }
 
 - (void)viewDidUnload

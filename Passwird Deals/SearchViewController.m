@@ -58,7 +58,9 @@
 }
 
 - (void)fetchAndParseDataIntoTableView {
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.labelText = @"Loading";
+    
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
@@ -79,10 +81,12 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
             
+            NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
             DealData *deal = 
             [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
                               body:[aDeal valueForKey:@"body"]
-                          imageURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]
+                          imageURL:imageURL
+                         imageData:nil
                          isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
                         datePosted:datePosted];
             

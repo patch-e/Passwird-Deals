@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PullToRefreshView.h"
+
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <PullToRefreshViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
