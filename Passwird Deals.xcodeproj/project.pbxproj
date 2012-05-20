@@ -31,6 +31,10 @@
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
 		CD89BBDE155B41EE00747FD5 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBDD155B41EE00747FD5 /* NSData+Base64.m */; };
+		CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */; };
+		CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
+		CDB6DAE115687B6300BFF2B2 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DADF15687B6300BFF2B2 /* blackArrow.png */; };
+		CDB6DAE215687B6300BFF2B2 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
 		CDD72AD9153522F40062C1A8 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
@@ -86,6 +90,12 @@
 		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CD89BBDC155B41EE00747FD5 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		CD89BBDD155B41EE00747FD5 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
+		CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
+		CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CDB6DADF15687B6300BFF2B2 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
 		CDD72ABC153522F40062C1A8 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		CDD72ABD153522F40062C1A8 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		CDD72ABE153522F40062C1A8 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */,
 				CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */,
 				CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */,
 				CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */,
@@ -146,6 +157,7 @@
 		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */,
 				CD506E96154CFC9400FC2CEC /* Twitter.framework */,
 				CD2A72BB1516B12F003A4394 /* UIKit.framework */,
 				CD2A72BD1516B12F003A4394 /* Foundation.framework */,
@@ -207,6 +219,8 @@
 		CD2B2E7D1520CF51004A222C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */,
+				CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */,
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
 				CD89BBDC155B41EE00747FD5 /* NSData+Base64.h */,
 				CD89BBDD155B41EE00747FD5 /* NSData+Base64.m */,
@@ -224,6 +238,8 @@
 		CD2B2E861520D36E004A222C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDB6DADF15687B6300BFF2B2 /* blackArrow.png */,
+				CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */,
 				CDDFC856154F6BF2000A65B4 /* left.png */,
 				CDDFC857154F6BF2000A65B4 /* left@2x.png */,
 				CDDFC858154F6BF2000A65B4 /* right.png */,
@@ -238,6 +254,7 @@
 				CD3E97D3152D3EE6003A4EC0 /* Default.png */,
 				CD3E97CE152D3E7F003A4EC0 /* pd-icon-appstore-512.png */,
 				CD3E97CF152D3E7F003A4EC0 /* pd-icon-appstore-1024.png */,
+				CDB6DABF1564105400BFF2B2 /* README.md */,
 			);
 			name = Resources;
 			path = ..;
@@ -333,6 +350,8 @@
 				CDDFC85D154F6BF2000A65B4 /* right@2x.png in Resources */,
 				CD53E4DC155DF29400EA704D /* Deal.css in Resources */,
 				CD53E4DE155DF3A300EA704D /* Deal.min.css in Resources */,
+				CDB6DAE115687B6300BFF2B2 /* blackArrow.png in Resources */,
+				CDB6DAE215687B6300BFF2B2 /* blackArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +380,7 @@
 				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
 				CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */,
 				CD89BBDE155B41EE00747FD5 /* NSData+Base64.m in Sources */,
+				CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
