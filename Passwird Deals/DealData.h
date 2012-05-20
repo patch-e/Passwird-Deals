@@ -13,12 +13,14 @@
 @property (strong) NSString *headline;
 @property (strong) NSString *body;
 @property (strong) NSURL *imageURL;
+@property (strong) NSData *imageData;
 @property (assign) BOOL isExpired;
 @property (strong) NSDate *datePosted;
 
 - (id)init:(NSString*)headline 
       body:(NSString*)body 
-  imageURL:(NSURL*)imageURL 
+  imageURL:(NSURL*)imageURL
+ imageData:(NSData*)imageData
  isExpired:(BOOL)isExpired 
 datePosted:(NSDate*)datePosted;
 
