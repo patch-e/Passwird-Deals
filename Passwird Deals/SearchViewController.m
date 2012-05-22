@@ -65,7 +65,8 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
         NSLog(@"Search input: %@", searchBar.text);
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@", searchBar.text]];
+        
+        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@", [searchBar.text urlEncode]]];
         
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
