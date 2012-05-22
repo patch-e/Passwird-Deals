@@ -20,3 +20,9 @@
 -(NSData*)toJSON;
 
 @end
+
+@interface NSString(Extension)
+
+-(NSString *)urlEncode;
+
+@end
