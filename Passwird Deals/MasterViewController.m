@@ -79,52 +79,61 @@ PullToRefreshView *pull;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];    
-        NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
-        NSMutableArray *deals = [NSMutableArray array];
-        self.sections = [NSMutableDictionary dictionary];
-        
-        BOOL sectionExists;
-        NSInteger sectionCount = 0;
-        // Loop through the array of JSON deals and create Deal objects added to a mutable array
-        for (id aDeal in dealsArray) {
-            NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
-            NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
-            NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
+        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];  
+        if ( dealsDictionary == nil ) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                                message:@"Could not connect to the remote server at this time."
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles: nil];
+            [alertView show];            
+        } else {
+            NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
+            NSMutableArray *deals = [NSMutableArray array];
+            self.sections = [NSMutableDictionary dictionary];
+            
+            BOOL sectionExists;
+            NSInteger sectionCount = 0;
+            // Loop through the array of JSON deals and create Deal objects added to a mutable array
+            for (id aDeal in dealsArray) {
+                NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
+                NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
+                NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
 
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
-            NSString *stringFromDate = [formatter stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
+                NSString *stringFromDate = [formatter stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
+                
+                sectionExists = NO;
+                for (NSString *str in [self.sections allKeys])
+                {
+                    if ([str isEqualToString:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]])
+                        sectionExists = YES;
+                }
+                if (!sectionExists) {
+                    sectionCount++;
+                    [self.sections setValue:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]];
+                }
+                
+                NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
+                DealData *deal = 
+                [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
+                                  body:[aDeal valueForKey:@"body"]
+                              imageURL:imageURL
+                             imageData:nil
+                             isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
+                            datePosted:datePosted];
+                
+                [deals addObject:deal];
+                [[self.sections objectForKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]] addObject:deal];
+            };
             
-            sectionExists = NO;
-            for (NSString *str in [self.sections allKeys])
-            {
-                if ([str isEqualToString:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]])
-                    sectionExists = YES;
-            }
-            if (!sectionExists) {
-                sectionCount++;
-                [self.sections setValue:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]];
-            }
-            
-            NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
-            DealData *deal = 
-            [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
-                              body:[aDeal valueForKey:@"body"]
-                          imageURL:imageURL
-                         imageData:nil
-                         isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
-                        datePosted:datePosted];
-            
-            [deals addObject:deal];
-            [[self.sections objectForKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]] addObject:deal];
-        };
-        
-        // Set the created mutable array to the controller's property
-        self.deals = deals;
-        [self.tableView reloadData];
-        self.refreshButton.enabled = YES;
-        self.searchButton.enabled = YES;
+            // Set the created mutable array to the controller's property
+            self.deals = deals;
+            [self.tableView reloadData];
+            self.refreshButton.enabled = YES;
+            self.searchButton.enabled = YES;
+        }
         if ( showHUD )
             [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         

@@ -35,6 +35,10 @@
 {
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString: urlAddress]];
     
+    if (data == nil) {
+        return nil;
+    }
+        
     __autoreleasing NSError* error = nil;
     
     id result = [NSJSONSerialization JSONObjectWithData:data 
