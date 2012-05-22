@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @class DealData;
 
-@interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
+@interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) DealData * detailItem;
 @property (strong, nonatomic) NSURL *pushedURL;

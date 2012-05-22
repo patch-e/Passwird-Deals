@@ -10,6 +10,7 @@
 #import "WebViewController.h"
 
 #import <Twitter/Twitter.h>
+#import <MessageUI/MessageUI.h>
 
 #import "DealData.h"
 
@@ -45,6 +46,56 @@
 
 #pragma mark - Managing the action sheet
 
+- (void)openMail {
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        
+        mailer.mailComposeDelegate = self;
+        
+        [mailer setSubject:@"Check out this deal on passwird.com"];
+        
+        NSString *emailBody = [NSString stringWithFormat:@"<html><body><strong>%@</strong><br/><br/><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
+        [mailer setMessageBody:emailBody isHTML:YES];
+        
+        [self presentModalViewController:mailer animated:YES];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                            message:@"Your device doesn't support composing of emails."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller 
+          didFinishWithResult:(MFMailComposeResult)result 
+                        error:(NSError*)error {
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+            break;
+        default:
+            NSLog(@"Mail not sent.");
+            break;
+    }
+    
+    // Remove the mail view
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)tweetDeal {
     if ([TWTweetComposeViewController canSendTweet])
     {
@@ -63,13 +114,11 @@
     }
     else
     {
-        UIAlertView *alertView =
-            [[UIAlertView alloc]
-             initWithTitle:@"Sorry"
-             message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
-             delegate:self                                              
-             cancelButtonTitle:@"OK"                                                   
-             otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                            message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
+                                                           delegate:self                                              
+                                                  cancelButtonTitle:@"OK"                                                   
+                                                  otherButtonTitles:nil];
         [alertView show];
     }
 }
@@ -81,7 +130,7 @@
                                         delegate:self 
                                cancelButtonTitle:@"Cancel" 
                           destructiveButtonTitle:nil 
-                               otherButtonTitles:@"Tweet Deal", nil];
+                               otherButtonTitles:@"Tweet Deal", @"Email Deal", nil];
     [sheet setTag:0];
     
     [sheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
@@ -92,6 +141,9 @@
     switch (buttonIndex) {
         case 0:
             [self tweetDeal];
+            break;
+        case 1:
+            [self openMail];
             break;
         default:
             //NSLog(@"Cancel Button Clicked");
