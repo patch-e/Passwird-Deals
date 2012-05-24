@@ -14,12 +14,10 @@
 
 @interface MasterViewController : UITableViewController <PullToRefreshViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 
+@property (strong) NSMutableData *responseData;
 @property (strong) NSMutableArray *deals;
 @property (strong) NSMutableDictionary *sections;
-
-- (IBAction)refresh:(id)sender;
 
 @end

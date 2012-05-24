@@ -19,8 +19,8 @@
 
 @implementation MasterViewController
 
-@synthesize refreshButton = _refreshButton;
 @synthesize searchButton = _searchButton;
+@synthesize responseData = _responseData;
 @synthesize deals = _deals;
 @synthesize sections = _sections;
 PullToRefreshView *pull;
@@ -61,13 +61,89 @@ PullToRefreshView *pull;
     return cell;
 }
 
-- (IBAction)refresh:(id)sender {
-    self.deals = nil;
-    self.sections = nil;
+#pragma mark - Managing the asyncronous data download
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [self.responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.responseData appendData:data];
+    
+    NSError* error = nil;
+    id result = [NSJSONSerialization JSONObjectWithData:self.responseData
+                                                options:kNilOptions error:&error];    
+    
+    NSDictionary* dealsDictionary = result;  
+    NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
+    NSMutableArray *deals = [NSMutableArray array];
+    self.sections = [NSMutableDictionary dictionary];
+    
+    BOOL sectionExists;
+    NSInteger sectionCount = 0;
+    // Loop through the array of JSON deals and create Deal objects added to a mutable array
+    for (id aDeal in dealsArray) {
+        NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
+        NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
+        NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
+        NSString *stringFromDate = [formatter stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
+        
+        sectionExists = NO;
+        for (NSString *str in [self.sections allKeys])
+        {
+            if ([str isEqualToString:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]])
+                sectionExists = YES;
+        }
+        if (!sectionExists) {
+            sectionCount++;
+            [self.sections setValue:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]];
+        }
+        
+        NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
+        DealData *deal = 
+        [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
+                          body:[aDeal valueForKey:@"body"]
+                      imageURL:imageURL
+                     imageData:nil
+                     isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
+                    datePosted:datePosted];
+        
+        [deals addObject:deal];
+        [[self.sections objectForKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]] addObject:deal];
+    };
+    
+    // Set the created mutable array to the controller's property
+    self.deals = deals;
     [self.tableView reloadData];
-    [self.refreshButton setEnabled:NO];
-    [self.searchButton setEnabled:NO];
-    [self fetchAndParseDataIntoTableView:YES];
+    self.searchButton.enabled = YES;
+    
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    [pull finishedLoading];
+
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"connection error");
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"Could not connect to the remote server at this time."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+    [alertView show];
+    
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    [pull finishedLoading];
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"connection success");
 }
 
 - (void)fetchAndParseDataIntoTableView:(BOOL)showHUD {
@@ -76,69 +152,17 @@ PullToRefreshView *pull;
         hud.labelText = @"Loading";
     }
     
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        // Build dictionary from JSON at URL
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:@"http://mccrager.com/api/passwird"];  
-        if ( dealsDictionary == nil ) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                                message:@"Could not connect to the remote server at this time."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles: nil];
-            [alertView show];            
-        } else {
-            NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
-            NSMutableArray *deals = [NSMutableArray array];
-            self.sections = [NSMutableDictionary dictionary];
-            
-            BOOL sectionExists;
-            NSInteger sectionCount = 0;
-            // Loop through the array of JSON deals and create Deal objects added to a mutable array
-            for (id aDeal in dealsArray) {
-                NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
-                NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
-                NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
-
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
-                NSString *stringFromDate = [formatter stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
-                
-                sectionExists = NO;
-                for (NSString *str in [self.sections allKeys])
-                {
-                    if ([str isEqualToString:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]])
-                        sectionExists = YES;
-                }
-                if (!sectionExists) {
-                    sectionCount++;
-                    [self.sections setValue:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]];
-                }
-                
-                NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
-                DealData *deal = 
-                [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
-                                  body:[aDeal valueForKey:@"body"]
-                              imageURL:imageURL
-                             imageData:nil
-                             isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
-                            datePosted:datePosted];
-                
-                [deals addObject:deal];
-                [[self.sections objectForKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]] addObject:deal];
-            };
-            
-            // Set the created mutable array to the controller's property
-            self.deals = deals;
-            [self.tableView reloadData];
-            self.refreshButton.enabled = YES;
-            self.searchButton.enabled = YES;
-        }
-        if ( showHUD )
-            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-        
-        [pull finishedLoading];
-    });    
+    //build the connection for async data downloading, 10 second timeout
+    NSURL *url = [NSURL URLWithString:@"http://mccrager.com/api/passwird"];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];                                
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    
+    //on good connection, fill responseData, delegate will fire connection:didReceiveData:
+    if ( connection ) {
+        self.responseData = [[NSMutableData alloc] init];
+    } else {
+        NSLog(@"connection failed");  
+    }    
 }
 
 #pragma mark - Managing PullToRefresh
@@ -191,7 +215,6 @@ PullToRefreshView *pull;
 
 - (void)viewDidUnload
 {
-    [self setRefreshButton:nil];
     [self setSearchButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
