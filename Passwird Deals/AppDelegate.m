@@ -10,6 +10,8 @@
 
 #import "MasterViewController.h"
 
+#import "Appirater.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -17,6 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Appirater appLaunched:YES];
+    
     return YES;
 }
 							
@@ -41,6 +45,7 @@
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
