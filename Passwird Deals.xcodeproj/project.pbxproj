@@ -28,6 +28,9 @@
 		CD53E4DC155DF29400EA704D /* Deal.css in Resources */ = {isa = PBXBuildFile; fileRef = CD53E4DB155DF29400EA704D /* Deal.css */; };
 		CD53E4DE155DF3A300EA704D /* Deal.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CD53E4DD155DF3A300EA704D /* Deal.min.css */; };
 		CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF86156B36E800CF4D73 /* MessageUI.framework */; };
+		CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD55DF91156DD82D00CF4D73 /* Appirater.m */; };
+		CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF93156DD84400CF4D73 /* CFNetwork.framework */; };
+		CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
@@ -83,6 +86,10 @@
 		CD53E4DB155DF29400EA704D /* Deal.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Deal.css; sourceTree = "<group>"; };
 		CD53E4DD155DF3A300EA704D /* Deal.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Deal.min.css; sourceTree = "<group>"; };
 		CD55DF86156B36E800CF4D73 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CD55DF90156DD82D00CF4D73 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		CD55DF91156DD82D00CF4D73 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		CD55DF93156DD84400CF4D73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -128,6 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */,
+				CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */,
 				CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */,
 				CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */,
 				CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */,
@@ -160,6 +169,8 @@
 		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */,
+				CD55DF93156DD84400CF4D73 /* CFNetwork.framework */,
 				CD55DF86156B36E800CF4D73 /* MessageUI.framework */,
 				CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */,
 				CD506E96154CFC9400FC2CEC /* Twitter.framework */,
@@ -223,6 +234,8 @@
 		CD2B2E7D1520CF51004A222C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CD55DF90156DD82D00CF4D73 /* Appirater.h */,
+				CD55DF91156DD82D00CF4D73 /* Appirater.m */,
 				CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */,
 				CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */,
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
@@ -385,6 +398,7 @@
 				CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */,
 				CD89BBDE155B41EE00747FD5 /* NSData+Base64.m in Sources */,
 				CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */,
+				CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
