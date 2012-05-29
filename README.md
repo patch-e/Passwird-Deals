@@ -18,14 +18,17 @@ v1.4
 
 v1.5
 ====
-- v1.5 Add pull to refresh functionality to the main table view, remove refresh button
-- v1.5 Add "Email Deal" action to the action sheets
-- v1.5 Bug fix for searching where >1 search term should crash the app
-- v1.5 Bug fix for handling when the remote API server is down
-- v1.5 Loading indicator for images in deal view
+- v1.5 Added pull to refresh functionality to the main table view, removed refresh button
+- v1.5 Added "Email Deal" action to the action sheets
+- v1.5 Bug fixed for searching where >1 search term should crash the app
+- v1.5 Bug fixed for handling when the remote API server is down
+- v1.5 Added loading indicator for images in deal view
 - v1.5 Main view changed to download JSON data asynchronously, the search view still downloads synchronously, but there isn't a need to change it there. Pull to refresh should be asynchronous so that the view isn't blocked from being able to dragged.
+- v1.5 Appirater app review plugin implemented into the app
 
 Future enhancements:
 - v? Add "About" view to credit passwird.com and it's owner, Irwin
 - v? Look into increasing the cell prototype's size to show more of the deal headline and a larger thumbnail
 - v? Look into allowing the ability to filter out "expired" deals
+- v? Don't clear deals that were previously downloaded after a pull to refresh fails to connect with the remote server
+- v? Change the image loading indicator or remove altogether in favor of base64 encoded images that are already downloaded when generating the table view thumbnails
