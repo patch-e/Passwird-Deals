@@ -54,8 +54,8 @@
     // Remove in progress downloader from queue
     [manager cancelForDelegate:self];
 
-    //force placeholder to be 50x50 with UIImage extension
-    self.image = [placeholder makeThumbnailOfSize:CGSizeMake(50,50)];
+    //force placeholder to be 57x57 with UIImage extension
+    self.image = [placeholder makeThumbnailOfSize:CGSizeMake(57,57)];
 
     if (url)
     {
@@ -71,8 +71,8 @@
 
 - (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
 {
-    //force image to be 50x50 with UIImage extension
-    self.image = [image makeThumbnailOfSize:CGSizeMake(50,50)];
+    //force image to be 57x57 with UIImage extension
+    self.image = [image makeThumbnailOfSize:CGSizeMake(57,57)];
 }
 
 @end

@@ -23,6 +23,10 @@
 
 #pragma mark - Managing the table view
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 85;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [[self.sections allKeys] count];
