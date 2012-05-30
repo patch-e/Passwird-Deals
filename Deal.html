@@ -5,12 +5,13 @@
         <link type="text/css" rel="stylesheet" href="Deal.min.css">
         <script type="text/javascript" src="spin.min.js"></script>
     </head>
-    <body onload="spinner()">
+    <body>
         <div class="date">%@</div>
         <h1 class="headline">%@ <span class="expired">%@</span></h1>
-        <div class="imageContainer center body">
+        <div class="image center body">
             <div id="spinner" class="spinner"></div>
-            <div class="image"><img src="%@"/></div>
+            <script type="text/javascript">spinner();</script>
+            <img src="%@"/>
         </div>
         <div class="body">%@</div>
     </body>

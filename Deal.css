@@ -11,6 +11,10 @@ a {
 }
 img { 
     min-width: 50px; 
+    position: relative; 
+    z-index: 1;
+    top: -25;
+    margin-bottom: -25px;
 }
 
 /* LAYOUT */
@@ -45,13 +49,8 @@ img {
     -webkit-border-radius: 8px;
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
-.imageContainer {
-    min-height: 20px;
-}
 .image {
-    position: relative; 
-    margin-top: -25px; 
-    z-index: 1;
+    min-height: 20px;
 }
 .spinner {
     margin: 0px auto;
