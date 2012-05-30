@@ -26,9 +26,12 @@ v1.5
 - v1.5 Main view changed to download JSON data asynchronously, the search view still downloads synchronously, but there isn't a need to change it there. Pull to refresh should be asynchronous so that the view isn't blocked from being able to dragged.
 - v1.5 Appirater app review plugin implemented into the app
 
+v1.6
+====
+- v1.6 Increasded the cell prototype's size to show more of the deal headline and a larger thumbnail
+- v1.6 Changed the image loading indicator to use spin.js
+
 Future enhancements:
 - v? Add "About" view to credit passwird.com and it's owner, Irwin
-- v? Look into increasing the cell prototype's size to show more of the deal headline and a larger thumbnail
 - v? Look into allowing the ability to filter out "expired" deals
 - v? Don't clear deals that were previously downloaded after a pull to refresh fails to connect with the remote server
-- v? Change the image loading indicator or remove altogether in favor of base64 encoded images that are already downloaded when generating the table view thumbnails
