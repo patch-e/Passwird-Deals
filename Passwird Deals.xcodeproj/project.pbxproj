@@ -33,6 +33,7 @@
 		CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */; };
 		CD55DF98156DE71400CF4D73 /* preloader.gif in Resources */ = {isa = PBXBuildFile; fileRef = CD55DF97156DE71400CF4D73 /* preloader.gif */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD69D9531575A6C600BBAB50 /* spin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CD69D9501575A4D800BBAB50 /* spin.min.js */; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
 		CD89BBDE155B41EE00747FD5 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBDD155B41EE00747FD5 /* NSData+Base64.m */; };
@@ -95,6 +96,7 @@
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		CD69D9501575A4D800BBAB50 /* spin.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = spin.min.js; sourceTree = "<group>"; };
 		CD779FB8152BDFC900580633 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CD779FB9152BDFC900580633 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				CDD72AE115352E0D0062C1A8 /* Deal.html */,
 				CD53E4DB155DF29400EA704D /* Deal.css */,
 				CD53E4DD155DF3A300EA704D /* Deal.min.css */,
+				CD69D9501575A4D800BBAB50 /* spin.min.js */,
 				CD3E97E0152DB0DC003A4EC0 /* icon.png */,
 				CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */,
 				CD3E97D3152D3EE6003A4EC0 /* Default.png */,
@@ -356,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD69D9531575A6C600BBAB50 /* spin.min.js in Resources */,
 				CD2A72C61516B12F003A4394 /* InfoPlist.strings in Resources */,
 				CD2A72CF1516B12F003A4394 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CD3E97D4152D3EE6003A4EC0 /* Default.png in Resources */,
