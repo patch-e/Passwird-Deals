@@ -149,6 +149,12 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView setRowHeight:85.f];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

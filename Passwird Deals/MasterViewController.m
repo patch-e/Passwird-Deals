@@ -158,7 +158,7 @@ PullToRefreshView *pull;
     
     //build the connection for async data downloading, 10 second timeout
     NSURL *url = [NSURL URLWithString:@"http://mccrager.com/api/passwird"];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];                                
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];                                
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
     //on good connection, fill responseData, delegate will fire connection:didReceiveData:
@@ -228,7 +228,7 @@ PullToRefreshView *pull;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self.tableView setRowHeight:85.f];
     [self.tableView reloadData];
 }
 
