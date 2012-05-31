@@ -165,6 +165,18 @@
                               scrollPosition:UITableViewScrollPositionMiddle];
     }
     
+    // Set the keyboard appearance of the search bar
+    for (UIView *searchBarSubview in [searchBar subviews]) {
+        if ([searchBarSubview conformsToProtocol:@protocol(UITextInputTraits)]) {
+            @try {
+                [(UITextField *)searchBarSubview setKeyboardAppearance:UIKeyboardAppearanceAlert];
+            }
+            @catch (NSException * e) {
+                // ignore exception
+            }
+        }
+    }
+    
     [searchBar becomeFirstResponder];
     searchBar.delegate = self;
 }
