@@ -133,7 +133,7 @@
                                otherButtonTitles:@"Tweet Deal", @"Email Deal", nil];
     [sheet setTag:0];
     
-    [sheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+    [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     [sheet showInView:self.view];
 }
 

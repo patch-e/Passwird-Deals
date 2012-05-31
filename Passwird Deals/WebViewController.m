@@ -119,7 +119,7 @@
     sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Tweet Deal", @"Email Deal", @"Open in Safari", nil];
     [sheet setTag:1];
     
-    [sheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+    [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     [sheet showInView:self.view];
 }
 
