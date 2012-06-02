@@ -61,6 +61,7 @@
 @end
 
 @implementation NSString(Extension)
+
 -(NSString *)urlEncode {
 	return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(
                                                                                  NULL,
@@ -69,4 +70,5 @@
                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                                                                  kCFStringEncodingUTF8 );
 }
+
 @end
