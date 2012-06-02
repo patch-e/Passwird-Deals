@@ -10,13 +10,13 @@ http://itunes.apple.com/us/app/passwird-deals/id517165629?mt=8
 Current Version: 1.4
 
 - 1.4 initial release approved to the App Store, May 18, 2012
-- 1.5  update release approved to the App Store, May ??, 2012
-- 1.6  update release approved to the App Store, May ??, 2012
+- 1.5  update release approved to the App Store, May 31, 2012
+- 1.6  update release approved to the App Store, June ??, 2012
 
 
 v1.6
 ====
-- v1.6 Increasded the cell prototype's size to show more of the deal headline and a larger thumbnail
+- v1.6 Increased the cell prototype's size to show more of the deal headline and a larger thumbnail
 - v1.6 Changed the image loading indicator to use spin.js
 - v1.6 Add "About" modal view for support, donations, and to credit passwird.com and owner, Irwin
 
