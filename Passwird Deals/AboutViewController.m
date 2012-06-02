@@ -46,6 +46,7 @@
         
         mailer.mailComposeDelegate = self;
         
+        [mailer setToRecipients:[NSArray arrayWithObject:[NSString stringWithString:@"p.crager@gmail.com"]]];
         [mailer setSubject:@"Passwird Deals app feedback"];
         
         [self presentModalViewController:mailer animated:YES];
