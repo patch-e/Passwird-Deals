@@ -176,6 +176,13 @@ PullToRefreshView *pull;
     [self fetchAndParseDataIntoTableView:NO];
 }
 
+#pragma mark - Managing the About modal view
+
+- (IBAction)showAboutModal:(id)sender
+{
+    [self performSegueWithIdentifier: @"About" sender: self];
+}
+
 #pragma mark - View lifecycle
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -199,7 +206,7 @@ PullToRefreshView *pull;
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
-
+        
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -213,6 +220,16 @@ PullToRefreshView *pull;
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     [pull setDelegate:self];
     [self.tableView addSubview:pull];
+    
+    //create the info button and replace the info button on the storyboard, this
+    //button will use that modal segue linked from the replaced info button
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    infoButton.frame = CGRectMake(-10, -10, 56, 56);
+    [infoButton addTarget:self 
+                   action:@selector(showAboutModal:) 
+         forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    self.navigationItem.leftBarButtonItem = infoBarButtonItem;
     
     [self fetchAndParseDataIntoTableView:YES];
 }
@@ -230,6 +247,7 @@ PullToRefreshView *pull;
     [super viewWillAppear:animated];
     [self.tableView setRowHeight:85.f];
     [self.tableView reloadData];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
