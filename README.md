@@ -7,7 +7,7 @@ http://mccrager.com/PasswirdDeals
 
 http://itunes.apple.com/us/app/passwird-deals/id517165629?mt=8
 
-Current Version: 1.4
+Current Version: 1.5
 
 - 1.4 initial release approved to the App Store, May 18, 2012
 - 1.5  update release approved to the App Store, May 31, 2012
