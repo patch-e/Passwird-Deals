@@ -22,12 +22,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Passwird Deals/DealData.m"
-         timestampString = "357416392.653436"
+         timestampString = "358966081.154229"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
-         landmarkName = "-init:body:imageURL:isExpired:datePosted:"
+         startingLineNumber = "21"
+         endingLineNumber = "21"
+         landmarkName = "-init:body:imageURL:imageData:isExpired:datePosted:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -35,52 +35,65 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Passwird Deals/SearchViewController.m"
-         timestampString = "358398382.867513"
+         timestampString = "360088022.523563"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
-         landmarkName = "@implementation SearchViewController"
-         landmarkType = "3">
+         startingLineNumber = "158"
+         endingLineNumber = "158"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Passwird Deals/SearchViewController.m"
-         timestampString = "358304360.855257"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
-         landmarkName = "@implementation SearchViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Passwird Deals/SearchViewController.m"
-         timestampString = "358304360.855257"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "@implementation SearchViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Passwird Deals/SearchViewController.m"
-         timestampString = "358306526.63102"
+         timestampString = "360030013.965878"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "66"
          endingLineNumber = "66"
-         landmarkName = "@implementation SearchViewController"
-         landmarkType = "3">
+         landmarkName = "-fetchAndParseDataIntoTableView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Passwird Deals/SearchViewController.m"
+         timestampString = "360030013.965878"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "73"
+         endingLineNumber = "73"
+         landmarkName = "-fetchAndParseDataIntoTableView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Passwird Deals/Extensions.m"
+         timestampString = "359513105.610661"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "+dictionaryWithContentsOfJSONURLString:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Passwird Deals/AboutViewController.h"
+         timestampString = "360290665.816306"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "12"
+         endingLineNumber = "12"
+         landmarkName = "@interface AboutViewController"
+         landmarkType = "2">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

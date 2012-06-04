@@ -31,7 +31,6 @@
 		CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD55DF91156DD82D00CF4D73 /* Appirater.m */; };
 		CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF93156DD84400CF4D73 /* CFNetwork.framework */; };
 		CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */; };
-		CD55DF98156DE71400CF4D73 /* preloader.gif in Resources */ = {isa = PBXBuildFile; fileRef = CD55DF97156DE71400CF4D73 /* preloader.gif */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD69D9531575A6C600BBAB50 /* spin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CD69D9501575A4D800BBAB50 /* spin.min.js */; };
 		CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
@@ -105,7 +104,6 @@
 		CD55DF91156DD82D00CF4D73 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		CD55DF93156DD84400CF4D73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CD55DF97156DE71400CF4D73 /* preloader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = preloader.gif; sourceTree = "<group>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 				CD69D9601577D62A00BBAB50 /* envelope@2x.png */,
 				CD69D9611577D62A00BBAB50 /* star.png */,
 				CD69D9621577D62A00BBAB50 /* star@2x.png */,
-				CD55DF97156DE71400CF4D73 /* preloader.gif */,
 				CDB6DADF15687B6300BFF2B2 /* blackArrow.png */,
 				CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */,
 				CDDFC856154F6BF2000A65B4 /* left.png */,
@@ -433,7 +430,6 @@
 				CD53E4DE155DF3A300EA704D /* Deal.min.css in Resources */,
 				CDB6DAE115687B6300BFF2B2 /* blackArrow.png in Resources */,
 				CDB6DAE215687B6300BFF2B2 /* blackArrow@2x.png in Resources */,
-				CD55DF98156DE71400CF4D73 /* preloader.gif in Resources */,
 				CD69D9631577D62B00BBAB50 /* twitter.png in Resources */,
 				CD69D9641577D62B00BBAB50 /* twitter@2x.png in Resources */,
 				CD69D9651577D62B00BBAB50 /* usd.png in Resources */,
