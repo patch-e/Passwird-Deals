@@ -13,21 +13,26 @@
 @synthesize headline = _headline;
 @synthesize body = _body;
 @synthesize imageURL = _imageURL;
-@synthesize imageData = _imageData;
 @synthesize isExpired = _isExpired;
 @synthesize datePosted = _datePosted;
 
-- (id)init:(NSString*)headline 
-      body:(NSString*)body 
-  imageURL:(NSURL*)imageURL
- imageData:(NSData*)imageData
- isExpired:(BOOL)isExpired 
-datePosted:(NSDate *)datePosted {
-    if ((self = [super init])) {
+- (id)init {
+    return [self initWithHeadline:@"" 
+                             body:@"" 
+                         imageURL:nil
+                        isExpired:YES 
+                       datePosted:nil];
+}
+
+- (id)initWithHeadline:(NSString*)headline 
+                  body:(NSString*)body 
+              imageURL:(NSURL*)imageURL
+             isExpired:(BOOL)isExpired 
+            datePosted:(NSDate *)datePosted {
+    if (self = [super init]) {
         self.headline = headline;
         self.body = body;
         self.imageURL = imageURL;
-        self.imageData = imageData;
         self.isExpired = isExpired;
         self.datePosted = datePosted;
     }

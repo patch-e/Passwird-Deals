@@ -27,7 +27,7 @@ PullToRefreshView *pull;
 
 #pragma mark - Managing the table view
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 85;
 }
 
@@ -65,7 +65,7 @@ PullToRefreshView *pull;
     return cell;
 }
 
-#pragma mark - Managing the asyncronous data download
+#pragma mark - Managing the asynchronous data download
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -110,12 +110,11 @@ PullToRefreshView *pull;
         
         NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
         DealData *deal = 
-        [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
-                          body:[aDeal valueForKey:@"body"]
-                      imageURL:imageURL
-                     imageData:nil
-                     isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
-                    datePosted:datePosted];
+        [[DealData alloc] initWithHeadline:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
+                                      body:[aDeal valueForKey:@"body"]
+                                  imageURL:imageURL
+                                 isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
+                                datePosted:datePosted];
         
         [deals addObject:deal];
         [[self.sections objectForKey:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]] addObject:deal];
@@ -128,7 +127,6 @@ PullToRefreshView *pull;
     
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     [pull finishedLoading];
-
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -200,12 +198,6 @@ PullToRefreshView *pull;
         detailController.detailItem = deal;   
     }
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
         
 - (void)viewDidLoad
 {
@@ -238,8 +230,6 @@ PullToRefreshView *pull;
 {
     [self setSearchButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -248,21 +238,6 @@ PullToRefreshView *pull;
     [self.tableView setRowHeight:85.f];
     [self.tableView reloadData];
 
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{    
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

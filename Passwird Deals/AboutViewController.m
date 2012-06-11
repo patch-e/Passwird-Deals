@@ -10,13 +10,19 @@
 
 @implementation AboutViewController
 
-@synthesize scrollView;
-@synthesize doneButton;
+@synthesize scrollView = _scrollView;
+@synthesize doneButton = _doneButton;
+
+NSString *aboutEmailAddress = @"p.crager@gmail.com";
+NSString *aboutPasswirdURL = @"http://passwird.com";
+NSString *aboutTwitterURL = @"http://twitter.com/mccrager";
+NSString *aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
+NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
 
 #pragma mark - Managing the buttons
 
 - (IBAction)donateLink:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD"];
+    NSURL *url = [NSURL URLWithString:aboutDonateURL];
     [[UIApplication sharedApplication] openURL:url];    
 }
 
@@ -25,17 +31,17 @@
 }
 
 - (IBAction)rateLink:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629"];
+    NSURL *url = [NSURL URLWithString:aboutReviewURL];
     [[UIApplication sharedApplication] openURL:url];  
 }
 
 - (IBAction)twitterLink:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"http://twitter.com/mccrager"];
+    NSURL *url = [NSURL URLWithString:aboutTwitterURL];
     [[UIApplication sharedApplication] openURL:url];  
 }
 
 - (IBAction)passwirdLink:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"http://passwird.com"];
+    NSURL *url = [NSURL URLWithString:aboutPasswirdURL];
     [[UIApplication sharedApplication] openURL:url];  
 }
 
@@ -46,7 +52,7 @@
         
         mailer.mailComposeDelegate = self;
         
-        [mailer setToRecipients:[NSArray arrayWithObject:[NSString stringWithString:@"p.crager@gmail.com"]]];
+        [mailer setToRecipients:[NSArray arrayWithObject:aboutEmailAddress]];
         [mailer setSubject:@"Passwird Deals app feedback"];
         
         [self presentModalViewController:mailer animated:YES];
@@ -106,7 +112,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     [self calculateAndSetScrollViewHeight];
 }
 
@@ -115,7 +121,6 @@
     [self setScrollView:nil];
     [self setDoneButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

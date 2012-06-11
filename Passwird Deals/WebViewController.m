@@ -22,12 +22,6 @@
 @synthesize backButton = _backButton;
 @synthesize forwardButton = _forwardButton;
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - Managing the action sheet
 
 - (void)openMail {
@@ -112,7 +106,7 @@
     }
 }
 
--(IBAction)showActionSheet:(id)sender {
+- (IBAction)showActionSheet:(id)sender {
     UIActionSheet *sheet;
     
 
@@ -123,7 +117,7 @@
     [sheet showInView:self.view];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 
     switch (buttonIndex) {
         case 0:
@@ -143,11 +137,11 @@
 
 #pragma mark - Managing the web view
 
--(IBAction)goBack:(id)sender {
+- (IBAction)goBack:(id)sender {
     [self.webView goBack]; 
 }
 
--(IBAction)goForward:(id)sender {
+- (IBAction)goForward:(id)sender {
     [self.webView goForward]; 
 }
 
@@ -174,7 +168,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
     NSLog(@"Pushed URL: %@", self.pushedURL);
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.pushedURL]];
 }
@@ -186,27 +180,6 @@
     [self setBackButton:nil];
     [self setForwardButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

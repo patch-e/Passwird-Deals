@@ -26,12 +26,6 @@
 @synthesize webView = _webView;
 @synthesize selectedURL = _selectedURL;
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
@@ -123,7 +117,7 @@
     }
 }
 
--(IBAction)showActionSheet:(id)sender {
+- (IBAction)showActionSheet:(id)sender {
     UIActionSheet *sheet;
     
     sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
@@ -137,7 +131,7 @@
     [sheet showInView:self.view];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
             [self tweetDeal];
@@ -153,7 +147,7 @@
 
 #pragma mark - Managing the web view
 
--(BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {    
+- (BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {    
     if( navigationType == UIWebViewNavigationTypeLinkClicked ) {
         self.selectedURL = request.URL;
         [self performSegueWithIdentifier: @"Web" sender: self];
@@ -162,7 +156,7 @@
     return YES; 
 }
 
--(void)loadDealIntoWebView {
+- (void)loadDealIntoWebView {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
     NSString *dateAsString = [formatter stringFromDate:[self.detailItem.datePosted dateByAddingTimeInterval:60*60*24*1]];
@@ -183,7 +177,6 @@
                             (self.detailItem.isExpired ? @"(expired)" : @""), 
                             self.detailItem.imageURL, 
                             self.detailItem.body];
-
         
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSURL *baseURL = [NSURL fileURLWithPath:path];
@@ -210,7 +203,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
     [self configureView];
 }
 
@@ -219,26 +212,6 @@
     [self setWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

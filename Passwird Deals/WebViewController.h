@@ -13,13 +13,13 @@
 
 @interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
-@property (strong, nonatomic) DealData * detailItem;
-@property (strong, nonatomic) NSURL *pushedURL;
-
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
+
+@property (strong, nonatomic) DealData * detailItem;
+@property (strong, nonatomic) NSURL *pushedURL;
 
 - (IBAction)goBack:(id)sender;
 - (IBAction)goForward:(id)sender;

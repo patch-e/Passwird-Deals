@@ -9,15 +9,16 @@
 #import "SearchViewController.h"
 #import "DetailViewController.h"
 
-#import "DealData.h"
 #import "Extensions.h"
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
 #import "UIImageView+WebCache.h"
 
+#import "DealData.h"
+
 @implementation SearchViewController
 
-@synthesize searchBar;
+@synthesize searchBar = _searchBar;
 @synthesize deals = _deals;
 @synthesize sections = _sections;
 
@@ -68,9 +69,9 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
-        NSLog(@"Search input: %@", searchBar.text);
+        NSLog(@"Search input: %@", self.searchBar.text);
         
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@", [searchBar.text urlEncode]]];
+        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@", [self.searchBar.text urlEncode]]];
         
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
@@ -88,12 +89,11 @@
             
             NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
             DealData *deal = 
-            [[DealData alloc] init:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
-                              body:[aDeal valueForKey:@"body"]
-                          imageURL:imageURL
-                         imageData:nil
-                         isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
-                        datePosted:datePosted];
+            [[DealData alloc] initWithHeadline:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
+                                          body:[aDeal valueForKey:@"body"]
+                                      imageURL:imageURL
+                                     isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
+                                    datePosted:datePosted];
             
             [deals addObject:deal];
             [[self.sections objectForKey:@"Search Results"] addObject:deal];
@@ -118,7 +118,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
 {
-    [searchBar resignFirstResponder];
+    [self.searchBar resignFirstResponder];
     
     self.deals = nil;
     self.sections = nil;
@@ -128,7 +128,7 @@
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
-    [searchBar resignFirstResponder];    
+    [self.searchBar resignFirstResponder];    
 }
 
 #pragma mark - View lifecycle
@@ -166,7 +166,7 @@
     }
     
     // Set the keyboard appearance of the search bar
-    for (UIView *searchBarSubview in [searchBar subviews]) {
+    for (UIView *searchBarSubview in [self.searchBar subviews]) {
         if ([searchBarSubview conformsToProtocol:@protocol(UITextInputTraits)]) {
             @try {
                 [(UITextField *)searchBarSubview setKeyboardAppearance:UIKeyboardAppearanceAlert];
@@ -177,15 +177,14 @@
         }
     }
     
-    [searchBar becomeFirstResponder];
-    searchBar.delegate = self;
+    [self.searchBar becomeFirstResponder];
+    self.searchBar.delegate = self;
 }
 
 - (void)viewDidUnload
 {
     [self setSearchBar:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

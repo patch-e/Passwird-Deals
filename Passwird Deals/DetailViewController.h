@@ -13,10 +13,10 @@
 
 @interface DetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @property (strong, nonatomic) DealData *detailItem;
 @property (strong, nonatomic) NSURL *selectedURL;
-
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 - (IBAction)showActionSheet:(id)sender;
 
