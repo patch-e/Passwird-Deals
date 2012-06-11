@@ -1,4 +1,5 @@
-
-Passwird Deals.xcodeproj/project.xcworkspace/xcuserdata/patrick.xcuserdatad/UserInterfaceState.xcuserstate
-
-Passwird Deals.xcodeproj/xcuserdata/patrick.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+.DS_Store
+Passwird Deals.xcodeproj/*.pbxuser
+Passwird Deals.xcodeproj/*.perspectivev3
+Passwird Deals.xcodeproj/*.xcworkspace
+Passwird Deals.xcodeproj/xcuserdata/
