@@ -7,11 +7,11 @@ http://mccrager.com/PasswirdDeals
 
 http://itunes.apple.com/us/app/passwird-deals/id517165629?mt=8
 
-Current Version: 1.5
+Current Version: 1.6
 
 - 1.4 initial release approved to the App Store, May 18, 2012
 - 1.5  update release approved to the App Store, May 31, 2012
-- 1.6  update release approved to the App Store, June ??, 2012
+- 1.6  update release approved to the App Store, June 8, 2012
 
 
 v1.6
@@ -38,4 +38,4 @@ v1.4
 Future enhancements:
 ====================
 - v? Look into allowing the ability to filter out "expired" deals
-- v? Don't clear deals that were previously downloaded after a pull to refresh fails to connect with the remote server
+- v? Update API once passwird.com gets redesigned
