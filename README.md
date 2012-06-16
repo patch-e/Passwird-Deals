@@ -37,5 +37,7 @@ v1.4
 
 Future enhancements:
 ====================
-- v? Look into allowing the ability to filter out "expired" deals
+- v? iOS 6 enhancements, add "Post to Facebook" functionality to action sheets
+- v? Add a settings page to allow the ability to toggle "expired" deals
 - v? Update API once passwird.com gets redesigned
+- v2.0 iPad support, split view to have the table of deals on left, details on right
