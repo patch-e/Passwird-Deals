@@ -23,6 +23,7 @@
 		CD3E97E2152DB0DC003A4EC0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E97E0152DB0DC003A4EC0 /* icon.png */; };
 		CD3E97E3152DB0DC003A4EC0 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */; };
 		CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
+		CD4CE84215898F9200CA7621 /* Facebook.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4CE84115898F9200CA7621 /* Facebook.txt */; };
 		CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD506E96154CFC9400FC2CEC /* Twitter.framework */; };
 		CD506E9E154D01B700FC2CEC /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD506E9D154D01B700FC2CEC /* Tweet.txt */; };
 		CD53E4DC155DF29400EA704D /* Deal.css in Resources */ = {isa = PBXBuildFile; fileRef = CD53E4DB155DF29400EA704D /* Deal.css */; };
@@ -53,6 +54,7 @@
 		CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
 		CDB6DAE115687B6300BFF2B2 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DADF15687B6300BFF2B2 /* blackArrow.png */; };
 		CDB6DAE215687B6300BFF2B2 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */; };
+		CDB8FF181589704D0041EE56 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
 		CDD72AD9153522F40062C1A8 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
@@ -95,6 +97,7 @@
 		CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		CD418A7B153E653200E02F0D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		CD418A7C153E653200E02F0D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		CD4CE84115898F9200CA7621 /* Facebook.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facebook.txt; sourceTree = "<group>"; };
 		CD506E96154CFC9400FC2CEC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		CD506E9D154D01B700FC2CEC /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tweet.txt; sourceTree = "<group>"; };
 		CD53E4DB155DF29400EA704D /* Deal.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Deal.css; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDB6DADF15687B6300BFF2B2 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
 		CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		CDB8FF171589704D0041EE56 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CDD72ABC153522F40062C1A8 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		CDD72ABD153522F40062C1A8 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		CDD72ABE153522F40062C1A8 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB8FF181589704D0041EE56 /* Social.framework in Frameworks */,
 				CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */,
 				CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */,
 				CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */,
@@ -198,6 +203,7 @@
 		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDB8FF171589704D0041EE56 /* Social.framework */,
 				CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */,
 				CD55DF93156DD84400CF4D73 /* CFNetwork.framework */,
 				CD55DF86156B36E800CF4D73 /* MessageUI.framework */,
@@ -288,6 +294,7 @@
 			children = (
 				CD69D9731579272A00BBAB50 /* Images */,
 				CD506E9D154D01B700FC2CEC /* Tweet.txt */,
+				CD4CE84115898F9200CA7621 /* Facebook.txt */,
 				CDD72AE115352E0D0062C1A8 /* Deal.html */,
 				CD53E4DB155DF29400EA704D /* Deal.css */,
 				CD53E4DD155DF3A300EA704D /* Deal.min.css */,
@@ -388,7 +395,7 @@
 		CD2A72AE1516B12F003A4394 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = CD2A72B11516B12F003A4394 /* Build configuration list for PBXProject "Passwird Deals" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -442,6 +449,7 @@
 				CD69D96E1578791200BBAB50 /* banner@2x.png in Resources */,
 				CD69D97115787A9300BBAB50 /* icon-precomposed.png in Resources */,
 				CD69D97215787A9300BBAB50 /* icon-precomposed@2x.png in Resources */,
+				CD4CE84215898F9200CA7621 /* Facebook.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -91,57 +91,128 @@
 }
 
 - (void)tweetDeal {
-    if ([TWTweetComposeViewController canSendTweet])
-    {
-        NSError *error;
-        NSStringEncoding encoding;
-        NSString *tweetFilePath = [[NSBundle mainBundle] pathForResource: @"Tweet" 
-                                                                  ofType: @"txt"];
-        NSString *tweetString = [NSString stringWithContentsOfFile:tweetFilePath 
-                                                      usedEncoding:&encoding 
-                                                             error:&error];
-        NSString *tweet = [NSString stringWithFormat:tweetString, self.detailItem.headline];
-        
-        TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-        [tweetSheet setInitialText:tweet];
-        [self presentModalViewController:tweetSheet animated:YES];
+    NSError *error;
+    NSStringEncoding encoding;
+    NSString *tweetFilePath = [[NSBundle mainBundle] pathForResource: @"Tweet" 
+                                                              ofType: @"txt"];
+    NSString *tweetString = [NSString stringWithContentsOfFile:tweetFilePath 
+                                                  usedEncoding:&encoding 
+                                                         error:&error];
+    NSString *tweet = [NSString stringWithFormat:tweetString, self.detailItem.headline];
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+            SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            [share setInitialText:tweet];
+            [self presentViewController:share animated:YES completion:nil];
+            
+            return;
+        }
     }
-    else
-    {
+    else {
+#endif
+        if ([TWTweetComposeViewController canSendTweet]) {
+            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+            [tweetSheet setInitialText:tweet];
+            [self presentModalViewController:tweetSheet animated:YES];
+            
+            return;
+        }
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+    }
+#endif
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
+                                                       delegate:self                                              
+                                              cancelButtonTitle:@"OK"                                                   
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)postToFacebook {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+    NSError *error;
+    NSStringEncoding encoding;
+    NSString *facebookFilePath = [[NSBundle mainBundle] pathForResource: @"Facebook"
+                                                                 ofType: @"txt"];
+    NSString *facebookString = [NSString stringWithContentsOfFile:facebookFilePath
+                                                  usedEncoding:&encoding 
+                                                         error:&error];
+    NSString *facebook = [NSString stringWithFormat:facebookString, self.detailItem.headline];
+
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [share setInitialText:facebook];
+        
+        [self presentViewController:share animated:YES completion:nil];
+    }
+    else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                            message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
+                                                            message:@"You can't post to Facebook right now, make sure your device has an internet connection and you have at least one Facebook account setup in Settings."                                                          
                                                            delegate:self                                              
                                                   cancelButtonTitle:@"OK"                                                   
                                                   otherButtonTitles:nil];
         [alertView show];
     }
+#endif
 }
 
 - (IBAction)showActionSheet:(id)sender {
     UIActionSheet *sheet;
-    
-    sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
-                                        delegate:self 
-                               cancelButtonTitle:@"Cancel" 
-                          destructiveButtonTitle:nil 
-                               otherButtonTitles:@"Tweet Deal", @"Email Deal", nil];
-    [sheet setTag:0];
+
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
+                                            delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:nil
+                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", nil];
+    }
+    else {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
+                                            delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:nil
+                                   otherButtonTitles:@"Tweet Deal", @"Email Deal", nil];
+    }
+
+//    [sheet setTag:0];
     
     [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     [sheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            [self tweetDeal];
-            break;
-        case 1:
-            [self openMail];
-            break;
-        default:
-            //NSLog(@"Cancel Button Clicked");
-            break;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+        switch (buttonIndex) {
+            case 0:
+                [self postToFacebook];
+                break;
+            case 1:
+                [self tweetDeal];
+                break;
+            case 2:
+                [self openMail];
+                break;
+            default:
+                //NSLog(@"Cancel Button Clicked");
+                break;
+        }
+    }
+    else {
+        switch (buttonIndex) {
+            case 0:
+                [self tweetDeal];
+                break;
+            case 1:
+                [self openMail];
+                break;
+            default:
+                //NSLog(@"Cancel Button Clicked");
+                break;
+        }
     }
 }
 
@@ -211,7 +282,6 @@
 {
     [self setWebView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
