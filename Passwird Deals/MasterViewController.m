@@ -203,12 +203,12 @@ PullToRefreshView *pull;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] 
-                                    animated:NO 
-                              scrollPosition:UITableViewScrollPositionMiddle];
-    }
-    
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] 
+//                                    animated:NO 
+//                              scrollPosition:UITableViewScrollPositionMiddle];
+//    }
+
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     [pull setDelegate:self];
     [self.tableView addSubview:pull];

@@ -23,6 +23,7 @@
 		CD3E97E2152DB0DC003A4EC0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E97E0152DB0DC003A4EC0 /* icon.png */; };
 		CD3E97E3152DB0DC003A4EC0 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */; };
 		CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
+		CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */; };
 		CD4CE84215898F9200CA7621 /* Facebook.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4CE84115898F9200CA7621 /* Facebook.txt */; };
 		CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD506E96154CFC9400FC2CEC /* Twitter.framework */; };
 		CD506E9E154D01B700FC2CEC /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD506E9D154D01B700FC2CEC /* Tweet.txt */; };
@@ -53,7 +54,6 @@
 		CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
 		CDB6DAE115687B6300BFF2B2 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DADF15687B6300BFF2B2 /* blackArrow.png */; };
 		CDB6DAE215687B6300BFF2B2 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */; };
-		CDB8FF181589704D0041EE56 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
 		CDD72AD9153522F40062C1A8 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
@@ -96,6 +96,7 @@
 		CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		CD418A7B153E653200E02F0D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		CD418A7C153E653200E02F0D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		CD4CE84115898F9200CA7621 /* Facebook.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facebook.txt; sourceTree = "<group>"; };
 		CD506E96154CFC9400FC2CEC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		CD506E9D154D01B700FC2CEC /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tweet.txt; sourceTree = "<group>"; };
@@ -165,7 +166,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDB8FF181589704D0041EE56 /* Social.framework in Frameworks */,
 				CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */,
 				CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */,
 				CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */,
@@ -242,6 +242,7 @@
 				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
 				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
 				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
+				CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */,
 				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
 				CD2A72D41516B12F003A4394 /* MasterViewController.m */,
 				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
@@ -445,6 +446,7 @@
 				CD69D97115787A9300BBAB50 /* icon-precomposed.png in Resources */,
 				CD69D97215787A9300BBAB50 /* icon-precomposed@2x.png in Resources */,
 				CD4CE84215898F9200CA7621 /* Facebook.txt in Resources */,
+				CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,12 +557,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -574,13 +576,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

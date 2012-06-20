@@ -11,7 +11,7 @@
 
 @class DealData;
 
-@interface DetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface DetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UISplitViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 

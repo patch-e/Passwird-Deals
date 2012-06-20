@@ -159,11 +159,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] 
-                                    animated:NO 
-                              scrollPosition:UITableViewScrollPositionMiddle];
-    }
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] 
+//                                    animated:NO 
+//                              scrollPosition:UITableViewScrollPositionMiddle];
+//    }
     
     // Set the keyboard appearance of the search bar
     for (UIView *searchBarSubview in [self.searchBar subviews]) {
