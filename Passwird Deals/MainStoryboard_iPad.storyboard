@@ -25,13 +25,13 @@
         <scene sceneID="7Ba-9m-dWy">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoL-b9-DET" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="" title="Detail" wantsFullScreenLayout="YES" id="QVO-FX-4IC" customClass="DetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="04W-Ir-8ZH">
-                        <rect key="frame" x="0.0" y="20" width="703" height="748"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <viewController storyboardIdentifier="" title="Detail" id="QVO-FX-4IC" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="82K-u5-Xyb">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="Jw9-yL-Lhi">
-                                <rect key="frame" x="0.0" y="44" width="703" height="704"/>
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="704"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
@@ -39,30 +39,25 @@
                                     <outlet property="delegate" destination="QVO-FX-4IC" id="YoH-k9-Gdm"/>
                                 </connections>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="hrK-A8-dm9">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Kic-Tl-F9u"/>
-                                    <barButtonItem systemItem="action" id="68s-Na-UuC">
-                                        <connections>
-                                            <action selector="showActionSheet:" destination="QVO-FX-4IC" id="Uzd-MQ-6V3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tQ2-C1-M9A">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="68s-Na-UuC">
+                            <connections>
+                                <action selector="showActionSheet:" destination="QVO-FX-4IC" id="Uzd-MQ-6V3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="Jw9-yL-Lhi" id="3eK-92-Aa4"/>
-                        <segue destination="WS4-V6-9HE" kind="replace" identifier="Web" splitViewControllerTargetIndex="1" id="3fM-QO-2aR"/>
+                        <segue destination="WS4-V6-9HE" kind="push" identifier="Web" id="3fM-QO-2aR"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1678" y="322"/>
+            <point key="canvasLocation" x="966" y="322"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="JGU-bl-0fa">
@@ -120,9 +115,6 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="QVO-FX-4IC" kind="replace" identifier="Detail" splitViewControllerTargetIndex="1" id="1SJ-Pg-afC"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -159,6 +151,9 @@
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="QVO-FX-4IC" kind="relationship" relationship="rootViewController" id="dVZ-9H-VHh"/>
+                    </connections>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="92" y="322"/>
@@ -369,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGY-Jf-Wdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="322"/>
+            <point key="canvasLocation" x="957" y="-1478"/>
         </scene>
         <!--Search View Controller - Search-->
         <scene sceneID="sMf-a2-cFM">
@@ -415,9 +410,6 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="QVO-FX-4IC" kind="replace" identifier="Detail" splitViewControllerTargetIndex="1" id="vmR-Uc-KUF"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -436,12 +428,12 @@
         <scene sceneID="PBI-EW-njj">
             <objects>
                 <viewController storyboardIdentifier="" title="Web" id="WS4-V6-9HE" customClass="WebViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qJm-V5-eLk">
-                        <rect key="frame" x="0.0" y="20" width="703" height="748"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="view" contentMode="scaleToFill" id="CDH-UX-l3D">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="xLa-GU-kDG">
-                                <rect key="frame" x="0.0" y="44" width="703" height="704"/>
+                                <rect key="frame" x="-1" y="43" width="703" height="660"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
@@ -449,8 +441,12 @@
                                     <outlet property="delegate" destination="WS4-V6-9HE" id="gDs-S7-5tZ"/>
                                 </connections>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="Ybe-xg-RDy">
+                                <rect key="frame" x="120" y="12" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="tRk-m7-b8B">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="44"/>
+                                <rect key="frame" x="0.0" y="-1" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem enabled="NO" image="left.png" width="44" style="plain" id="Goc-A4-YDk">
@@ -463,7 +459,7 @@
                                             <action selector="goForward:" destination="WS4-V6-9HE" id="j8u-0L-vK0"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="TNp-XN-oKp"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gzt-lD-ZwD"/>
                                     <barButtonItem systemItem="action" id="QnZ-G9-iFK">
                                         <connections>
                                             <action selector="showActionSheet:" destination="WS4-V6-9HE" id="XdY-C2-Rzm"/>
@@ -471,12 +467,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="Ybe-xg-RDy">
-                                <rect key="frame" x="131" y="11" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
@@ -488,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E35-6R-7nn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2556" y="322"/>
+            <point key="canvasLocation" x="1844" y="322"/>
         </scene>
     </scenes>
     <resources>
@@ -553,7 +545,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="1SJ-Pg-afC"/>
-    </inferredMetricsTieBreakers>
 </document>

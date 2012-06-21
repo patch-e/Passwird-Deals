@@ -19,6 +19,7 @@
 
 @implementation MasterViewController
 
+@synthesize detailViewController = _detailViewController;
 @synthesize searchButton = _searchButton;
 @synthesize responseData = _responseData;
 @synthesize deals = _deals;
@@ -63,6 +64,15 @@ PullToRefreshView *pull;
         [cell.detailTextLabel setText:@"(expired)"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)]                          objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+        self.detailViewController.detailItem = deal;
+    }
 }
 
 #pragma mark - Managing the asynchronous data download
@@ -187,7 +197,8 @@ PullToRefreshView *pull;
 {
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
-        DetailViewController *detailController = segue.destinationViewController;
+        //DetailViewController *detailController = segue.destinationViewController;
+        self.detailViewController = segue.destinationViewController;
         
         //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
@@ -195,19 +206,15 @@ PullToRefreshView *pull;
                                                       objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
                           objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
-        detailController.detailItem = deal;   
+        self.detailViewController.detailItem = deal;   
     }
 }
         
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] 
-//                                    animated:NO 
-//                              scrollPosition:UITableViewScrollPositionMiddle];
-//    }
+    
+    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     [pull setDelegate:self];

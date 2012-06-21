@@ -14,6 +14,8 @@
 
 @interface MasterViewController : UITableViewController <PullToRefreshViewDelegate>
 
+@property (strong, nonatomic) DetailViewController *detailViewController;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 
 @property (strong) NSMutableData *responseData;

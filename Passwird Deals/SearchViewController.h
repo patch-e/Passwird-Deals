@@ -12,6 +12,8 @@
 
 @interface SearchViewController : UITableViewController <UISearchBarDelegate>
 
+@property (strong, nonatomic) DetailViewController *detailViewController;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong) NSMutableArray *deals;

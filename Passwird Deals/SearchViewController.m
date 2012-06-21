@@ -18,13 +18,15 @@
 
 @implementation SearchViewController
 
+@synthesize detailViewController = _detailViewController;
 @synthesize searchBar = _searchBar;
 @synthesize deals = _deals;
 @synthesize sections = _sections;
 
 #pragma mark - Managing the table view
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 85;
 }
 
@@ -33,7 +35,8 @@
     return [[self.sections allKeys] count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
+{
     return [[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section];
 }
 
@@ -62,7 +65,17 @@
     return cell;
 }
 
-- (void)fetchAndParseDataIntoTableView {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)]                          objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+        self.detailViewController.detailItem = deal;
+    }
+}
+
+- (void)fetchAndParseDataIntoTableView 
+{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = @"Loading";
     
@@ -127,7 +140,8 @@
     [self fetchAndParseDataIntoTableView];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
+- (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar 
+{
     [self.searchBar resignFirstResponder];    
 }
 
@@ -137,7 +151,8 @@
 {
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
-        DetailViewController *detailController = segue.destinationViewController;
+        //DetailViewController *detailController = segue.destinationViewController;
+        self.detailViewController = segue.destinationViewController;
         
         //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
@@ -145,7 +160,7 @@
                                                       objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
                           objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
-        detailController.detailItem = deal;   
+        self.detailViewController.detailItem = deal;   
     }
 }
 
@@ -158,12 +173,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] 
-//                                    animated:NO 
-//                              scrollPosition:UITableViewScrollPositionMiddle];
-//    }
+    
+    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     // Set the keyboard appearance of the search bar
     for (UIView *searchBarSubview in [self.searchBar subviews]) {
