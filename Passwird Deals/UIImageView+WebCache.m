@@ -54,8 +54,12 @@
     // Remove in progress downloader from queue
     [manager cancelForDelegate:self];
 
-    //force placeholder to be 57x57 with UIImage extension
-    self.image = [placeholder makeThumbnailOfSize:CGSizeMake(57,57)];
+    //force image to be 57x57 (iPhone), or 72x72 (iPad) with UIImage extension
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.image = [placeholder makeThumbnailOfSize:CGSizeMake(57,57)];
+    } else {
+        self.image = [placeholder makeThumbnailOfSize:CGSizeMake(72,72)];
+    }
 
     if (url)
     {
@@ -71,8 +75,12 @@
 
 - (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
 {
-    //force image to be 57x57 with UIImage extension
-    self.image = [image makeThumbnailOfSize:CGSizeMake(57,57)];
+    //force image to be 57x57 (iPhone), or 72x72 (iPad) with UIImage extension
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.image = [image makeThumbnailOfSize:CGSizeMake(57,57)];
+    } else {
+        self.image = [image makeThumbnailOfSize:CGSizeMake(72,72)];
+    }    
 }
 
 @end
