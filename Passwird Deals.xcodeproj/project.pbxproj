@@ -66,6 +66,12 @@
 		CDDFC85B154F6BF2000A65B4 /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDFC857154F6BF2000A65B4 /* left@2x.png */; };
 		CDDFC85C154F6BF2000A65B4 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDFC858154F6BF2000A65B4 /* right.png */; };
 		CDDFC85D154F6BF2000A65B4 /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDFC859154F6BF2000A65B4 /* right@2x.png */; };
+		CDFF9080159428CF00ACE534 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFF907F159428CF00ACE534 /* Default-Portrait~ipad.png */; };
+		CDFF9083159428DD00ACE534 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFF9082159428DD00ACE534 /* Default-Portrait@2x~ipad.png */; };
+		CDFF9085159428EE00ACE534 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFF9084159428EE00ACE534 /* Default-Landscape~ipad.png */; };
+		CDFF90871594292300ACE534 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFF90861594292300ACE534 /* Default-Landscape@2x~ipad.png */; };
+		CDFF90891594297000ACE534 /* icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFF90881594297000ACE534 /* icon~ipad.png */; };
+		CDFF908B1594297800ACE534 /* icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFF908A1594297800ACE534 /* icon@2x~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +165,12 @@
 		CDDFC857154F6BF2000A65B4 /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
 		CDDFC858154F6BF2000A65B4 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		CDDFC859154F6BF2000A65B4 /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
+		CDFF907F159428CF00ACE534 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		CDFF9082159428DD00ACE534 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		CDFF9084159428EE00ACE534 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		CDFF90861594292300ACE534 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		CDFF90881594297000ACE534 /* icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon~ipad.png"; sourceTree = "<group>"; };
+		CDFF908A1594297800ACE534 /* icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,8 +344,14 @@
 			children = (
 				CD3E97E0152DB0DC003A4EC0 /* icon.png */,
 				CD3E97E1152DB0DC003A4EC0 /* icon@2x.png */,
+				CDFF90881594297000ACE534 /* icon~ipad.png */,
+				CDFF908A1594297800ACE534 /* icon@2x~ipad.png */,
 				CD3E97D3152D3EE6003A4EC0 /* Default.png */,
 				CD3E97D5152D3EED003A4EC0 /* Default@2x.png */,
+				CDFF9084159428EE00ACE534 /* Default-Landscape~ipad.png */,
+				CDFF90861594292300ACE534 /* Default-Landscape@2x~ipad.png */,
+				CDFF907F159428CF00ACE534 /* Default-Portrait~ipad.png */,
+				CDFF9082159428DD00ACE534 /* Default-Portrait@2x~ipad.png */,
 				CD3E97CE152D3E7F003A4EC0 /* pd-icon-appstore-512.png */,
 				CD3E97CF152D3E7F003A4EC0 /* pd-icon-appstore-1024.png */,
 			);
@@ -447,6 +465,12 @@
 				CD69D97215787A9300BBAB50 /* icon-precomposed@2x.png in Resources */,
 				CD4CE84215898F9200CA7621 /* Facebook.txt in Resources */,
 				CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */,
+				CDFF9080159428CF00ACE534 /* Default-Portrait~ipad.png in Resources */,
+				CDFF9083159428DD00ACE534 /* Default-Portrait@2x~ipad.png in Resources */,
+				CDFF9085159428EE00ACE534 /* Default-Landscape~ipad.png in Resources */,
+				CDFF90871594292300ACE534 /* Default-Landscape@2x~ipad.png in Resources */,
+				CDFF90891594297000ACE534 /* icon~ipad.png in Resources */,
+				CDFF908B1594297800ACE534 /* icon@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
