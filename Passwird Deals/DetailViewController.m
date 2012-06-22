@@ -268,6 +268,10 @@
 
 - (void)configureView
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
     [self loadDealIntoWebView];
 }
 

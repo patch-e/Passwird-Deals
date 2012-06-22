@@ -44,7 +44,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="tQ2-C1-M9A">
+                    <navigationItem key="navigationItem" title="Deal" id="tQ2-C1-M9A">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="68s-Na-UuC">
                             <connections>
                                 <action selector="showActionSheet:" destination="QVO-FX-4IC" id="Uzd-MQ-6V3"/>
@@ -441,11 +441,11 @@
                                     <outlet property="delegate" destination="WS4-V6-9HE" id="gDs-S7-5tZ"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="Ybe-xg-RDy">
-                                <rect key="frame" x="120" y="12" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="Ybe-xg-RDy">
+                                <rect key="frame" x="663" y="11" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="tRk-m7-b8B">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="tRk-m7-b8B">
                                 <rect key="frame" x="0.0" y="-1" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -459,18 +459,19 @@
                                             <action selector="goForward:" destination="WS4-V6-9HE" id="j8u-0L-vK0"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gzt-lD-ZwD"/>
-                                    <barButtonItem systemItem="action" id="QnZ-G9-iFK">
-                                        <connections>
-                                            <action selector="showActionSheet:" destination="WS4-V6-9HE" id="XdY-C2-Rzm"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Browser" id="qQu-CU-e7f">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="QnZ-G9-iFK">
+                            <connections>
+                                <action selector="showActionSheet:" destination="WS4-V6-9HE" id="XdY-C2-Rzm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="Ybe-xg-RDy" id="wCf-3x-6tN"/>
                         <outlet property="backButton" destination="Goc-A4-YDk" id="Tu0-2F-dHo"/>
