@@ -16,6 +16,7 @@ img {
     z-index: 1;
     top: -25;
     margin-bottom: -25px;
+    padding-bottom: 5px;
 }
 
 /* LAYOUT */
@@ -27,7 +28,7 @@ img {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#8F9EA9), to(#B7C0C7));
     font-size: 18px;
     font-weight: bold;
-    color: white;
+    color: #fff;
     line-height: 18px;
     text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
 }
@@ -51,14 +52,41 @@ img {
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 .image {
-    min-height: 20px;
+    min-height: 33px;
 }
 .spinner {
     margin: 0px auto;
     width: 25px;
     height: 25px;
+    margin-top: 5px;
 }
 
 /* CLASSES */
 .expired { color: #f90602; }
 .center { text-align: center; }
+
+/* iPad (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .date {
+        display: none;
+    }
+    .headline {
+        font-size: 28px;
+    }
+    .body {
+        font-size: 24px;
+    }
+    img { 
+        min-width: 100px; 
+        min-height: 50px;
+        top: -50;
+        margin-bottom: -50px; 
+    }    
+    .image {
+        min-height: 58px;
+    }    
+    .spinner {
+        width: 50px;
+        height: 50px;
+    }
+}
