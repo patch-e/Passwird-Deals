@@ -69,6 +69,12 @@ PullToRefreshView *pull;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        //hide view via alpha, and animate in over 1 sec
+        [self.detailViewController.webView setAlpha:0];
+        [UIView animateWithDuration:1.0 animations:^() {
+            [self.detailViewController.webView setAlpha:1];
+        }];
+        
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
         self.detailViewController.detailItem = deal;
