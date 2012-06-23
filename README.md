@@ -16,7 +16,7 @@ Current Version: 1.6
 
 v1.7
 ====
-- iPad support, split view to have the table of deals on left, details on right
+- iPad support
 - Add a settings page to allow the ability to toggle "expired" deals
 
 v1.6
