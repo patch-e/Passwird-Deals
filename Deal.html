@@ -3,15 +3,18 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no" />
         <meta name="format-detection" content="telephone=no">
         <link type="text/css" rel="stylesheet" href="Deal.min.css">
-        <script type="text/javascript" src="spin.min.js"></script>
+        <script src="spin.min.js"></script>
     </head>
     <body>
         <div class="date">%@</div>
         <h1 class="headline">%@ <span class="expired">%@</span></h1>
         <div class="image center body">
             <div id="spinner" class="spinner"></div>
-            <script type="text/javascript">spinner();</script>
-            <img src="%@"/>
+            <script>spinner();</script>
+            <img id="image" style="visibility: hidden;" src="%@"/>
+            <script>
+                if(navigator.userAgent.indexOf('iPad')>0){setTimeout(function(){document.getElementById('image').style.visibility="visible";},1000);}else{document.getElementById('image').style.visibility="visible";}
+            </script>
         </div>
         <div class="body">%@</div>
     </body>
