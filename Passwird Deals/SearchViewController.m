@@ -70,7 +70,7 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         //hide view via alpha, and animate in over 1 sec
         [self.detailViewController.webView setAlpha:0];
-        [UIView animateWithDuration:1.0 animations:^() {
+        [UIView animateWithDuration:0.8 animations:^() {
             [self.detailViewController.webView setAlpha:1];
         }];        
         

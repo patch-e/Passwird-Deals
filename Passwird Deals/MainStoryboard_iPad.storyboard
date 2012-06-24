@@ -30,7 +30,11 @@
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="Jw9-yL-Lhi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="aIR-6b-vb4">
+                                <rect key="frame" x="0.0" y="0.0" width="708" height="704"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <webView alpha="0.0" contentMode="scaleToFill" scalesPageToFit="YES" id="Jw9-yL-Lhi">
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="704"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -44,14 +48,15 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Deal" id="tQ2-C1-M9A">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="68s-Na-UuC">
+                    <navigationItem key="navigationItem" title="Passwird Deals" id="tQ2-C1-M9A">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="68s-Na-UuC">
                             <connections>
                                 <action selector="showActionSheet:" destination="QVO-FX-4IC" id="Uzd-MQ-6V3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="shareButton" destination="68s-Na-UuC" id="SjU-cw-bfs"/>
                         <outlet property="webView" destination="Jw9-yL-Lhi" id="3eK-92-Aa4"/>
                         <segue destination="WS4-V6-9HE" kind="push" identifier="Web" id="3fM-QO-2aR"/>
                     </connections>
@@ -123,7 +128,7 @@
                             <outlet property="delegate" destination="ijQ-TP-skY" id="Pnm-GT-EP5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Passwird Deals" id="R0H-Lz-wnT">
+                    <navigationItem key="navigationItem" title="Front Page" id="R0H-Lz-wnT">
                         <barButtonItem key="leftBarButtonItem" id="QtV-aG-74I">
                             <connections>
                                 <segue destination="vj2-RJ-oUl" kind="modal" identifier="About" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="NW9-0i-a0k"/>
@@ -481,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E35-6R-7nn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="322"/>
+            <point key="canvasLocation" x="1838" y="322"/>
         </scene>
     </scenes>
     <resources>
@@ -513,6 +518,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
                 <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>

@@ -14,6 +14,7 @@
 @interface DetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UISplitViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 
 @property (strong, nonatomic) DealData *detailItem;
 @property (strong, nonatomic) NSURL *selectedURL;

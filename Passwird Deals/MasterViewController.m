@@ -71,9 +71,11 @@ PullToRefreshView *pull;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         //hide view via alpha, and animate in over 1 sec
         [self.detailViewController.webView setAlpha:0];
-        [UIView animateWithDuration:1.0 animations:^() {
+        [UIView animateWithDuration:0.8 animations:^() {
             [self.detailViewController.webView setAlpha:1];
         }];
+        //enable the share button if it isn't already
+        [self.detailViewController.shareButton setEnabled:YES];
         
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
