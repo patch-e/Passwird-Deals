@@ -12,9 +12,7 @@
             <div id="spinner" class="spinner"></div>
             <script>spinner();</script>
             <img id="image" style="visibility: hidden;" src="%@"/>
-            <script>
-                if(navigator.userAgent.indexOf('iPad')>0){setTimeout(function(){document.getElementById('image').style.visibility="visible";},1000);}else{document.getElementById('image').style.visibility="visible";}
-            </script>
+            <script>setTimeout(function(){document.getElementById('image').style.visibility="visible";},(navigator.userAgent.indexOf('iPad')>0?1000:500));</script>
         </div>
         <div class="body">%@</div>
     </body>
