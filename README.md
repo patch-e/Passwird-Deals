@@ -9,7 +9,7 @@ http://itunes.apple.com/us/app/passwird-deals/id517165629?mt=8
 
 Current Version: 1.6
 
-- 1.7  Update release approvied to the App Store
+- 1.7  Update release approved to the App Store, July ?, 2012
 - 1.6  Update release approved to the App Store, June 8, 2012
 - 1.5  Update release approved to the App Store, May 31, 2012
 - 1.4  Initial release approved to the App Store, May 18, 2012
