@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="dKm-Lk-U1e">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="GfQ-q7-7j0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FX6-UW-pRr" sceneMemberID="firstResponder"/>
                 <navigationController id="bwl-S8-LqE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="Lju-vg-CZ8">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
@@ -18,13 +16,13 @@
                         <segue destination="ijQ-TP-skY" kind="relationship" relationship="rootViewController" id="Yw5-i5-3K6"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FX6-UW-pRr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="475" y="-638"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="7Ba-9m-dWy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yoL-b9-DET" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" title="Detail" id="QVO-FX-4IC" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="82K-u5-Xyb">
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
@@ -61,13 +59,13 @@
                         <segue destination="WS4-V6-9HE" kind="push" identifier="Web" id="3fM-QO-2aR"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yoL-b9-DET" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="966" y="322"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="JGU-bl-0fa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Va9-IB-xTl" sceneMemberID="firstResponder"/>
                 <splitViewController id="dKm-Lk-U1e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
@@ -77,13 +75,13 @@
                         <segue destination="857-64-Brv" kind="relationship" relationship="detailViewController" id="aIh-ZC-zlf"/>
                     </connections>
                 </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Va9-IB-xTl" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-721" y="-638"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="mPs-dG-PLS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cNN-CW-mzQ" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="ijQ-TP-skY" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vtD-nL-iCD">
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
@@ -144,13 +142,13 @@
                         <outlet property="searchButton" destination="ghI-yO-aMy" id="Y47-N3-T5I"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cNN-CW-mzQ" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="957" y="-638"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yt2-qO-0f7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dQd-Qh-CRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="857-64-Brv" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="Yee-1v-Vpm">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
@@ -160,6 +158,7 @@
                         <segue destination="QVO-FX-4IC" kind="relationship" relationship="rootViewController" id="dVZ-9H-VHh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQd-Qh-CRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="92" y="322"/>
         </scene>
@@ -500,53 +499,6 @@
         <image name="twitter.png" width="24" height="24"/>
         <image name="usd.png" width="17" height="26"/>
     </resources>
-    <classes>
-        <class className="AboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissView:"/>
-                <relationship kind="action" name="donateLink:"/>
-                <relationship kind="action" name="emailLink:"/>
-                <relationship kind="action" name="passwirdLink:"/>
-                <relationship kind="action" name="rateLink:"/>
-                <relationship kind="action" name="twitterLink:"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showActionSheet:"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="WebViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="action" name="goForward:"/>
-                <relationship kind="action" name="showActionSheet:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
