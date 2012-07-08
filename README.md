@@ -7,13 +7,17 @@ http://mccrager.com/PasswirdDeals
 
 http://itunes.apple.com/us/app/passwird-deals/id517165629?mt=8
 
-Current Version: 1.6
+Current Version: 1.7
 
-- 1.7  Update release approved to the App Store, July ?, 2012
+- 1.7  Update release approved to the App Store, July 5, 2012
 - 1.6  Update release approved to the App Store, June 8, 2012
 - 1.5  Update release approved to the App Store, May 31, 2012
 - 1.4  Initial release approved to the App Store, May 18, 2012
 
+v1.7.1
+======
+- Fixed a bug that limited the app to only iOS 5.1 users, iOS 5.0 couldn't download or update to the new version
+- Added a toggle to the  to allow the ability to toggle "expired" deals
 
 v1.7
 ====
@@ -42,6 +46,5 @@ v1.4
 
 Future enhancements:
 ====================
-- v? Add a settings page to allow the ability to toggle "expired" deals
 - v? iOS 6 enhancements, add "Post to Facebook" functionality to action sheets
 - v? Update API once passwird.com gets redesigned
