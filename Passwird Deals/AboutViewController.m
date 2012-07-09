@@ -30,8 +30,8 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
         
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    [prefs setBool:appDelegate.showExpiredDeals forKey:@"hideExpiredDeals"];
-    [prefs synchronize];
+    [prefs setBool:appDelegate.showExpiredDeals forKey:@"showExpiredDeals"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Settings"
                                                         message:@"Expired deals setting will be applied during the next refresh or search."
