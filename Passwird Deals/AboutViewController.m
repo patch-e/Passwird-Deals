@@ -6,12 +6,14 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "AboutViewController.h"
 
 @implementation AboutViewController
 
 @synthesize scrollView = _scrollView;
 @synthesize doneButton = _doneButton;
+@synthesize expiredSwitch = _expiredSwitch;
 
 NSString *aboutEmailAddress = @"p.crager@gmail.com";
 NSString *aboutPasswirdURL = @"http://passwird.com";
@@ -20,6 +22,24 @@ NSString *aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.
 NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
 
 #pragma mark - Managing the buttons
+
+- (IBAction)saveSettings:(id)sender {
+    //get expired deals setting from app delegate
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.showExpiredDeals = self.expiredSwitch.on;
+        
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    [prefs setBool:appDelegate.showExpiredDeals forKey:@"hideExpiredDeals"];
+    [prefs synchronize];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Settings"
+                                                        message:@"Expired deals setting will be applied during the next refresh or search."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+    [alertView show];
+}
 
 - (IBAction)donateLink:(id)sender {
     NSURL *url = [NSURL URLWithString:aboutDonateURL];
@@ -114,12 +134,17 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
     [super viewDidLoad];
 
     [self calculateAndSetScrollViewHeight];
+    
+    //get expired deals setting from app delegate
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [self.expiredSwitch setOn:appDelegate.showExpiredDeals];
 }
 
 - (void)viewDidUnload
 {
     [self setScrollView:nil];
     [self setDoneButton:nil];
+    [self setExpiredSwitch:nil];
     [super viewDidUnload];
 }
 

@@ -15,6 +15,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize showExpiredDeals = _hideExpiredDeals;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,6 +26,8 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
+    [self loadSettings];
+    
     [Appirater appLaunched:YES];
     
     return YES;
@@ -33,6 +36,15 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [Appirater appEnteredForeground:YES];
+}
+
+-(void)loadSettings 
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    self.showExpiredDeals = [prefs boolForKey:@"showExpiredDeals"];
+    
+    NSLog(@"pref-showExpiredDeals: %d", self.showExpiredDeals);
 }
 
 @end

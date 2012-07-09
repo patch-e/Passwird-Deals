@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "SearchViewController.h"
 #import "DetailViewController.h"
 
@@ -90,7 +91,10 @@
         // Build dictionary from JSON at URL
         NSLog(@"Search input: %@", self.searchBar.text);
         
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@", [self.searchBar.text urlEncode]]];
+        //get expired deals setting from app delegate
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        
+        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], appDelegate.showExpiredDeals]];
         
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
