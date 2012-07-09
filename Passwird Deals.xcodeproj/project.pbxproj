@@ -50,6 +50,8 @@
 		CD69D97215787A9300BBAB50 /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD69D97015787A9200BBAB50 /* icon-precomposed@2x.png */; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
+		CDA3F4A415A9F19200F52CA4 /* pdBlackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA3F4A215A9F19200F52CA4 /* pdBlackArrow.png */; };
+		CDA3F4A515A9F19200F52CA4 /* pdBlackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA3F4A315A9F19200F52CA4 /* pdBlackArrow@2x.png */; };
 		CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */; };
 		CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
 		CDB6DAE115687B6300BFF2B2 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DADF15687B6300BFF2B2 /* blackArrow.png */; };
@@ -135,6 +137,8 @@
 		CD779FB9152BDFC900580633 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		CDA3F4A215A9F19200F52CA4 /* pdBlackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdBlackArrow.png; sourceTree = "<group>"; };
+		CDA3F4A315A9F19200F52CA4 /* pdBlackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pdBlackArrow@2x.png"; sourceTree = "<group>"; };
 		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
 		CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 				CD69D9621577D62A00BBAB50 /* star@2x.png */,
 				CDB6DADF15687B6300BFF2B2 /* blackArrow.png */,
 				CDB6DAE015687B6300BFF2B2 /* blackArrow@2x.png */,
+				CDA3F4A215A9F19200F52CA4 /* pdBlackArrow.png */,
+				CDA3F4A315A9F19200F52CA4 /* pdBlackArrow@2x.png */,
 				CDDFC856154F6BF2000A65B4 /* left.png */,
 				CDDFC857154F6BF2000A65B4 /* left@2x.png */,
 				CDDFC858154F6BF2000A65B4 /* right.png */,
@@ -471,6 +477,8 @@
 				CDFF90871594292300ACE534 /* Default-Landscape@2x~ipad.png in Resources */,
 				CDFF90891594297000ACE534 /* icon~ipad.png in Resources */,
 				CDFF908B1594297800ACE534 /* icon@2x~ipad.png in Resources */,
+				CDA3F4A415A9F19200F52CA4 /* pdBlackArrow.png in Resources */,
+				CDA3F4A515A9F19200F52CA4 /* pdBlackArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
