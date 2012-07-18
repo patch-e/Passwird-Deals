@@ -18,8 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 
-@property (strong) NSMutableData *responseData;
-@property (strong) NSMutableArray *deals;
-@property (strong) NSMutableDictionary *sections;
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSMutableArray *deals;
+@property (strong, nonatomic) NSMutableDictionary *sections;
 
 @end

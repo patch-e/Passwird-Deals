@@ -141,7 +141,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
 {
-    [self.searchBar resignFirstResponder];
+    [self.view endEditing:YES];
     
     self.deals = nil;
     self.sections = nil;

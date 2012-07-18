@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property (strong) NSMutableArray *deals;
-@property (strong) NSMutableDictionary *sections;
+@property (strong, nonatomic) NSMutableArray *deals;
+@property (strong, nonatomic) NSMutableDictionary *sections;
 
 @end

@@ -76,6 +76,8 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
         [mailer setSubject:@"Passwird Deals app feedback"];
         
         [self presentModalViewController:mailer animated:YES];
+        
+        mailer = nil;
     }
     else
     {

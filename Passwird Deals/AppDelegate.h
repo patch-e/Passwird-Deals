@@ -11,6 +11,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (assign) BOOL showExpiredDeals;
+@property (assign, nonatomic) BOOL showExpiredDeals;
 
 @end

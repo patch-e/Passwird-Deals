@@ -37,6 +37,8 @@
         [mailer setMessageBody:emailBody isHTML:YES];
         
         [self presentModalViewController:mailer animated:YES];
+        
+        mailer = nil;
     }
     else
     {
