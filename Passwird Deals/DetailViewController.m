@@ -47,7 +47,7 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
         mailer.mailComposeDelegate = self;
-        
+        mailer.navigationBar.tintColor = [UIColor blackColor];
         [mailer setSubject:@"Check out this deal on passwird.com"];
         
         NSString *emailBody = [NSString stringWithFormat:@"<html><body><strong>%@</strong><br/><br/><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
@@ -116,8 +116,10 @@
         if ([TWTweetComposeViewController canSendTweet]) {
             TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
             [tweetSheet setInitialText:tweet];
+                        
             [self presentModalViewController:tweetSheet animated:YES];
             
+            tweetSheet = nil;
             return;
         }
     
