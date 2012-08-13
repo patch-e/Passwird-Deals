@@ -101,18 +101,18 @@
                                                          error:&error];
     NSString *tweet = [NSString stringWithFormat:tweetString, self.detailItem.headline];
 
-//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-//        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-//            SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-//            [share setInitialText:tweet];
-//            [self presentViewController:share animated:YES completion:nil];
-//            
-//            return;
-//        }
-//    }
-//    else {
-//#endif
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+            SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            [share setInitialText:tweet];
+            [self presentViewController:share animated:YES completion:nil];
+            
+            return;
+        }
+    }
+    else {
+#endif
         if ([TWTweetComposeViewController canSendTweet]) {
             TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
             [tweetSheet setInitialText:tweet];
@@ -123,9 +123,9 @@
             return;
         }
     
-//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
-//    }
-//#endif
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+    }
+#endif
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
@@ -136,51 +136,51 @@
 }
 
 - (void)postToFacebook {
-//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
-//    NSError *error;
-//    NSStringEncoding encoding;
-//    NSString *facebookFilePath = [[NSBundle mainBundle] pathForResource: @"Facebook"
-//                                                                 ofType: @"txt"];
-//    NSString *facebookString = [NSString stringWithContentsOfFile:facebookFilePath
-//                                                  usedEncoding:&encoding 
-//                                                         error:&error];
-//    NSString *facebook = [NSString stringWithFormat:facebookString, self.detailItem.headline];
-//
-//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-//        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-//        
-//        [share setInitialText:facebook];
-//        
-//        [self presentViewController:share animated:YES completion:nil];
-//    }
-//    else {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-//                                                            message:@"You can't post to Facebook right now, make sure your device has an internet connection and you have at least one Facebook account setup in Settings."                                                          
-//                                                           delegate:self                                              
-//                                                  cancelButtonTitle:@"OK"                                                   
-//                                                  otherButtonTitles:nil];
-//        [alertView show];
-//    }
-//#endif
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+    NSError *error;
+    NSStringEncoding encoding;
+    NSString *facebookFilePath = [[NSBundle mainBundle] pathForResource: @"Facebook"
+                                                                 ofType: @"txt"];
+    NSString *facebookString = [NSString stringWithContentsOfFile:facebookFilePath
+                                                  usedEncoding:&encoding 
+                                                         error:&error];
+    NSString *facebook = [NSString stringWithFormat:facebookString, self.detailItem.headline];
+
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [share setInitialText:facebook];
+        
+        [self presentViewController:share animated:YES completion:nil];
+    }
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                            message:@"You can't post to Facebook right now, make sure your device has an internet connection and you have at least one Facebook account setup in Settings."                                                          
+                                                           delegate:self                                              
+                                                  cancelButtonTitle:@"OK"                                                   
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+#endif
 }
 
 - (IBAction)showActionSheet:(id)sender {
     UIActionSheet *sheet;
 
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-//        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
-//                                            delegate:self 
-//                                   cancelButtonTitle:@"Cancel" 
-//                              destructiveButtonTitle:nil
-//                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", nil];
-//    }
-//    else {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
         sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
                                             delegate:self 
                                    cancelButtonTitle:@"Cancel" 
                               destructiveButtonTitle:nil
+                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", nil];
+    }
+    else {
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
+                                            delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:nil
                                    otherButtonTitles:@"Tweet Deal", @"Email Deal", nil];
-//    }
+    }
 
     [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     
@@ -193,23 +193,23 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-//        switch (buttonIndex) {
-//            case 0:
-//                [self postToFacebook];
-//                break;
-//            case 1:
-//                [self tweetDeal];
-//                break;
-//            case 2:
-//                [self openMail];
-//                break;
-//            default:
-//                //NSLog(@"Cancel Button Clicked");
-//                break;
-//        }
-//    }
-//    else {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+        switch (buttonIndex) {
+            case 0:
+                [self postToFacebook];
+                break;
+            case 1:
+                [self tweetDeal];
+                break;
+            case 2:
+                [self openMail];
+                break;
+            default:
+                //NSLog(@"Cancel Button Clicked");
+                break;
+        }
+    }
+    else {
         switch (buttonIndex) {
             case 0:
                 [self tweetDeal];
@@ -221,7 +221,7 @@
                 //NSLog(@"Cancel Button Clicked");
                 break;
         }
-//    }
+    }
 }
 
 #pragma mark - Managing the web view
