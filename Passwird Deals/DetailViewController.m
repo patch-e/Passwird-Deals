@@ -183,7 +183,13 @@
 //    }
 
     [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [sheet showInView:self.view];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [sheet showFromBarButtonItem:sender animated:YES];
+    }
+    else {
+        [sheet showInView:self.view];
+    }
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
