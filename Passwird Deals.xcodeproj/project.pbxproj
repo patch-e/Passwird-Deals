@@ -50,6 +50,8 @@
 		CD69D97215787A9300BBAB50 /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD69D97015787A9200BBAB50 /* icon-precomposed@2x.png */; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
+		CDA25B1715D9DFBC002AD0AC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; };
+		CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
 		CDA3F4A415A9F19200F52CA4 /* pdBlackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA3F4A215A9F19200F52CA4 /* pdBlackArrow.png */; };
 		CDA3F4A515A9F19200F52CA4 /* pdBlackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA3F4A315A9F19200F52CA4 /* pdBlackArrow@2x.png */; };
 		CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */; };
@@ -115,6 +117,8 @@
 		CD55DF91156DD82D00CF4D73 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		CD55DF93156DD84400CF4D73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CD5A907F15D9C9AC00FF1959 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		CD5A908015D9C9AC00FF1959 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */,
+				CDA25B1715D9DFBC002AD0AC /* Social.framework in Frameworks */,
 				CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */,
 				CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */,
 				CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */,
@@ -289,6 +295,8 @@
 				CD55DF91156DD82D00CF4D73 /* Appirater.m */,
 				CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */,
 				CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */,
+				CD5A907F15D9C9AC00FF1959 /* Flurry.h */,
+				CD5A908015D9C9AC00FF1959 /* libFlurry.a */,
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
 				CD779FB8152BDFC900580633 /* MBProgressHUD.h */,
 				CD779FB9152BDFC900580633 /* MBProgressHUD.m */,
@@ -590,6 +598,10 @@
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Passwird Deals\"",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -609,6 +621,10 @@
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Passwird Deals\"",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

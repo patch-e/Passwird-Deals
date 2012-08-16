@@ -15,6 +15,7 @@
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
 #import "UIImageView+WebCache.h"
+#import "Flurry.h"
 
 #import "PullToRefreshView.h"
 
@@ -194,6 +195,7 @@ PullToRefreshView *pull;
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
 {
+    [Flurry logEvent:@"Pull to Refresh"];
     [self fetchAndParseDataIntoTableView:NO];
 }
 
@@ -226,6 +228,7 @@ PullToRefreshView *pull;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [Flurry logPageView];
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 

@@ -12,6 +12,8 @@
 #import <Twitter/Twitter.h>
 #import <MessageUI/MessageUI.h>
 
+#import "Flurry.h"
+
 #import "DealData.h"
 
 @interface DetailViewController ()
@@ -165,6 +167,8 @@
 }
 
 - (IBAction)showActionSheet:(id)sender {
+    [Flurry logEvent:@"Action Sheet"];
+    
     UIActionSheet *sheet;
 
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
@@ -196,12 +200,15 @@
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
         switch (buttonIndex) {
             case 0:
+                [Flurry logEvent:@"Post to Facebook"];
                 [self postToFacebook];
                 break;
             case 1:
+                [Flurry logEvent:@"Tweet Deal"];
                 [self tweetDeal];
                 break;
             case 2:
+                [Flurry logEvent:@"Email Deal"];
                 [self openMail];
                 break;
             default:
@@ -212,9 +219,11 @@
     else {
         switch (buttonIndex) {
             case 0:
+                [Flurry logEvent:@"Tweet Deal"];
                 [self tweetDeal];
                 break;
             case 1:
+                [Flurry logEvent:@"Email Deal"];
                 [self openMail];
                 break;
             default:
@@ -286,6 +295,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [Flurry logPageView];
+    
     [self configureView];
 }
 

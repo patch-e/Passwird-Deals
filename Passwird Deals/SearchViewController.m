@@ -14,6 +14,7 @@
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
 #import "UIImageView+WebCache.h"
+#import "Flurry.h"
 
 #import "DealData.h"
 
@@ -90,6 +91,13 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         // Build dictionary from JSON at URL
         NSLog(@"Search input: %@", self.searchBar.text);
+        
+        NSDictionary *searchInputDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               self.searchBar.text,
+                                               @"Query",
+                                               nil];
+        [Flurry logEvent:@"Search" withParameters:searchInputDictionary];
+        searchInputDictionary = nil;
         
         //get expired deals setting from app delegate
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -183,6 +191,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [Flurry logPageView];
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     

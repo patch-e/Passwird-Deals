@@ -12,6 +12,8 @@
 
 #import "Appirater.h"
 
+#import "Flurry.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -29,6 +31,8 @@
     [self loadSettings];
     
     [Appirater appLaunched:YES];
+    
+    [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
     
     return YES;
 }

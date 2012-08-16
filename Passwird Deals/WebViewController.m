@@ -11,6 +11,8 @@
 #import <Twitter/Twitter.h>
 #import <MessageUI/MessageUI.h>
 
+#import "Flurry.h"
+
 #import "DealData.h"
 
 @implementation WebViewController
@@ -153,6 +155,8 @@
 }
 
 - (IBAction)showActionSheet:(id)sender {
+    [Flurry logEvent:@"Action Sheet"];
+    
     UIActionSheet *sheet;
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
@@ -184,15 +188,19 @@
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
         switch (buttonIndex) {
             case 0:
+                [Flurry logEvent:@"Post to Facebook"];
                 [self postToFacebook];
                 break;
             case 1:
+                [Flurry logEvent:@"Tweet Deal"];
                 [self tweetDeal];
                 break;
             case 2:
+                [Flurry logEvent:@"Email Deal"];
                 [self openMail];
                 break;
             case 3:
+                [Flurry logEvent:@"Open in Safari"];
                 [self openInSafari];
                 break;
             default:
@@ -203,12 +211,15 @@
     else {
         switch (buttonIndex) {
             case 0:
+                [Flurry logEvent:@"Tweet Deal"];
                 [self tweetDeal];
                 break;
             case 1:
+                [Flurry logEvent:@"Email Deal"];
                 [self openMail];
                 break;
             case 2:
+                [Flurry logEvent:@"Open in Safari"];
                 [self openInSafari];
                 break;
             default:
@@ -251,7 +262,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [Flurry logPageView];
+    
     NSLog(@"Pushed URL: %@", self.pushedURL);
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.pushedURL]];
 }

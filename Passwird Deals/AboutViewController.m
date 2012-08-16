@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "AboutViewController.h"
 
+#import "Flurry.h"
+
 @implementation AboutViewController
 
 @synthesize scrollView = _scrollView;
@@ -24,6 +26,7 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
 #pragma mark - Managing the buttons
 
 - (IBAction)saveSettings:(id)sender {
+    [Flurry logEvent:@"Save Settings"];
     //get expired deals setting from app delegate
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.showExpiredDeals = self.expiredSwitch.on;
@@ -42,25 +45,30 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
 }
 
 - (IBAction)donateLink:(id)sender {
+    [Flurry logEvent:@"Donate Button"];
     NSURL *url = [NSURL URLWithString:aboutDonateURL];
     [[UIApplication sharedApplication] openURL:url];    
 }
 
 - (IBAction)emailLink:(id)sender {
+    [Flurry logEvent:@"Email Button"];
     [self openMail];
 }
 
 - (IBAction)rateLink:(id)sender {
+    [Flurry logEvent:@"Rate Button"];
     NSURL *url = [NSURL URLWithString:aboutReviewURL];
     [[UIApplication sharedApplication] openURL:url];  
 }
 
 - (IBAction)twitterLink:(id)sender {
+    [Flurry logEvent:@"Twitter Button"];
     NSURL *url = [NSURL URLWithString:aboutTwitterURL];
     [[UIApplication sharedApplication] openURL:url];  
 }
 
 - (IBAction)passwirdLink:(id)sender {
+    [Flurry logEvent:@"Passwird Button"];
     NSURL *url = [NSURL URLWithString:aboutPasswirdURL];
     [[UIApplication sharedApplication] openURL:url];  
 }
@@ -134,6 +142,7 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [Flurry logPageView];
 
     [self calculateAndSetScrollViewHeight];
     
