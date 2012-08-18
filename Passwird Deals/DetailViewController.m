@@ -247,6 +247,8 @@
 - (void)loadDealIntoWebView {    
     // Update the user interface for the detail item.
     if (self.detailItem) {
+        [self.navigationItem setTitle:@"Deal"];
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
         NSString *dateAsString = [formatter stringFromDate:[self.detailItem.datePosted dateByAddingTimeInterval:60*60*24*1]];
