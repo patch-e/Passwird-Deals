@@ -78,6 +78,11 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)copyURL {
+    NSURL *currentURL = [self.webView.request URL];
+    [[UIPasteboard generalPasteboard] setString: [currentURL absoluteString]];
+}
+
 - (void)openInSafari {
     NSURL *currentURL = [self.webView.request URL];
     [[UIApplication sharedApplication] openURL:currentURL];
@@ -164,14 +169,14 @@
                                             delegate:self 
                                    cancelButtonTitle:@"Cancel" 
                               destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Open in Safari", nil];
+                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
     }
     else {
         sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
                                             delegate:self
                                    cancelButtonTitle:@"Cancel"
                               destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Tweet Deal", @"Email Deal", @"Open in Safari", nil];
+                                   otherButtonTitles:@"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
     }
     
     [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
@@ -200,6 +205,10 @@
                 [self openMail];
                 break;
             case 3:
+                [Flurry logEvent:@"Copy URL"];
+                [self copyURL];
+                break;
+            case 4:
                 [Flurry logEvent:@"Open in Safari"];
                 [self openInSafari];
                 break;
@@ -219,6 +228,10 @@
                 [self openMail];
                 break;
             case 2:
+                [Flurry logEvent:@"Copy URL"];
+                [self copyURL];
+                break;
+            case 3:
                 [Flurry logEvent:@"Open in Safari"];
                 [self openInSafari];
                 break;
