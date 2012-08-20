@@ -19,6 +19,8 @@
 @property (strong, nonatomic) DealData *detailItem;
 @property (strong, nonatomic) NSURL *selectedURL;
 
+@property (weak, nonatomic) UIActionSheet *actionSheet;
+
 - (IBAction)showActionSheet:(id)sender;
 
 @end

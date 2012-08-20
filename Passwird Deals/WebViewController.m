@@ -23,6 +23,7 @@
 @synthesize activityIndicator = _activityIndicator;
 @synthesize backButton = _backButton;
 @synthesize forwardButton = _forwardButton;
+@synthesize actionSheet = _actionSheet;
 
 #pragma mark - Managing the action sheet
 
@@ -162,30 +163,36 @@
 - (IBAction)showActionSheet:(id)sender {
     [Flurry logEvent:@"Action Sheet"];
     
-    UIActionSheet *sheet;
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
-                                            delegate:self 
-                                   cancelButtonTitle:@"Cancel" 
-                              destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
-    }
-    else {
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
-                                            delegate:self
-                                   cancelButtonTitle:@"Cancel"
-                              destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
-    }
-    
-    [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    if (self.actionSheet == nil) {
+        UIActionSheet *sheet;
+        
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
+                                                delegate:self 
+                                       cancelButtonTitle:@"Cancel" 
+                                  destructiveButtonTitle:nil
+                                       otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
+        }
+        else {
+            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
+                                                delegate:self
+                                       cancelButtonTitle:@"Cancel"
+                                  destructiveButtonTitle:nil
+                                       otherButtonTitles:@"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
+        }
+        
+        [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
 
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [sheet showFromBarButtonItem:sender animated:YES];
-    }
-    else {
-        [sheet showInView:self.view];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            [sheet showFromBarButtonItem:sender animated:YES];
+        }
+        else {
+            [sheet showInView:self.view];
+        }
+        
+        [self setActionSheet:sheet];
+    } else {
+        [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     }
 }
 
@@ -287,7 +294,14 @@
     [self setActivityIndicator:nil];
     [self setBackButton:nil];
     [self setForwardButton:nil];
+    [self setActionSheet:nil];
     [super viewDidUnload];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:NO];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
