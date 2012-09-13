@@ -29,10 +29,16 @@
     }
     
     [self loadSettings];
-    
-    [Appirater appLaunched:YES];
-    
+
     [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
+    
+    [Appirater setAppId:@"517165629"];
+    [Appirater setDaysUntilPrompt:15];
+    [Appirater setUsesUntilPrompt:10];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+//    [Appirater setDebug:YES];
+    [Appirater appLaunched:YES];
     
     return YES;
 }
