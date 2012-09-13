@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BB1516B12F003A4394 /* UIKit.framework */; };
 		CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BD1516B12F003A4394 /* Foundation.framework */; };
 		CD2A72C01516B12F003A4394 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */; };
@@ -53,6 +54,7 @@
 		CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
 		CDA3F4A415A9F19200F52CA4 /* pdBlackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA3F4A215A9F19200F52CA4 /* pdBlackArrow.png */; };
 		CDA3F4A515A9F19200F52CA4 /* pdBlackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA3F4A315A9F19200F52CA4 /* pdBlackArrow@2x.png */; };
+		CDAB2D161601621F00688772 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDAB2D151601621F00688772 /* Default-568h@2x.png */; };
 		CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */; };
 		CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
 		CDB6DAE115687B6300BFF2B2 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB6DADF15687B6300BFF2B2 /* blackArrow.png */; };
@@ -142,6 +144,7 @@
 		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CDA3F4A215A9F19200F52CA4 /* pdBlackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdBlackArrow.png; sourceTree = "<group>"; };
 		CDA3F4A315A9F19200F52CA4 /* pdBlackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pdBlackArrow@2x.png"; sourceTree = "<group>"; };
+		CDAB2D151601621F00688772 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
 		CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */,
+				CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */,
 				CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */,
 				CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */,
 				CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */,
@@ -360,6 +364,7 @@
 				CDFF908A1594297800ACE534 /* icon@2x~ipad.png */,
 				CD3E97D3152D3EE6003A4EC0 /* Default.png */,
 				CD3E97D5152D3EED003A4EC0 /* Default@2x.png */,
+				CDAB2D151601621F00688772 /* Default-568h@2x.png */,
 				CDFF9084159428EE00ACE534 /* Default-Landscape~ipad.png */,
 				CDFF90861594292300ACE534 /* Default-Landscape@2x~ipad.png */,
 				CDFF907F159428CF00ACE534 /* Default-Portrait~ipad.png */,
@@ -485,6 +490,7 @@
 				CDFF908B1594297800ACE534 /* icon@2x~ipad.png in Resources */,
 				CDA3F4A415A9F19200F52CA4 /* pdBlackArrow.png in Resources */,
 				CDA3F4A515A9F19200F52CA4 /* pdBlackArrow@2x.png in Resources */,
+				CDAB2D161601621F00688772 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
