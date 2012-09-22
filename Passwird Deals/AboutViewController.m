@@ -21,7 +21,7 @@ NSString *aboutEmailAddress = @"p.crager@gmail.com";
 NSString *aboutPasswirdURL = @"http://passwird.com";
 NSString *aboutTwitterURL = @"http://twitter.com/mccrager";
 NSString *aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
-NSString *aboutReviewURLiOS6 = @"itms-apps://itunes.apple.com/LANGUAGE/app/id517165629";
+//NSString *aboutReviewURLiOS6 = @"itms-apps://itunes.apple.com/LANGUAGE/app/id517165629";
 NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
 
 #pragma mark - Managing the buttons
@@ -59,21 +59,21 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
 - (IBAction)rateLink:(id)sender {
     [Flurry logEvent:@"Rate Button"];
     
-    //iOS 6 review link workaround
-	NSString *reviewURL;
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-        reviewURL = aboutReviewURLiOS6;
-        
-        reviewURL = [reviewURL stringByReplacingOccurrencesOfString:@"LANGUAGE"
-                                                         withString:[NSString stringWithFormat:@"%@", [[NSLocale currentLocale] objectForKey: NSLocaleCountryCode]]];
-	} else {
-        reviewURL = aboutReviewURL;
-	}
+//  iOS 6 review link workaround
+//	NSString *reviewURL;
+//	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+//        reviewURL = aboutReviewURLiOS6;
+//        
+//        reviewURL = [reviewURL stringByReplacingOccurrencesOfString:@"LANGUAGE"
+//                                                         withString:[NSString stringWithFormat:@"%@", [[NSLocale currentLocale] objectForKey: NSLocaleCountryCode]]];
+//	} else {
+//        reviewURL = aboutReviewURL;
+//	}
     
-    NSURL *url = [NSURL URLWithString:reviewURL];
+    NSURL *url = [NSURL URLWithString:aboutReviewURL];
     [[UIApplication sharedApplication] openURL:url];
     
-    reviewURL = nil;
+//    reviewURL = nil;
     url = nil;
 }
 
