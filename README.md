@@ -61,6 +61,5 @@ v1.4
 
 Future enhancements:
 ====================
-- v? iOS 6 enhancements, add "Post to Facebook" functionality to action sheets
 - v? Update API once passwird.com gets redesigned
 - v? Complete visual redesign for the new passwird.com
