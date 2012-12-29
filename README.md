@@ -10,13 +10,20 @@ http://itunes.com/apps/PasswirdDeals
 
 Current Version: 1.9.1
 
-- 1.9.1  Update release approved to the App Store, September 20, 2012
-- 1.9  Update release approved to the App Store, August 30, 2012
-- 1.8  Update release approved to the App Store, July 20, 2012
-- 1.7  Update release approved to the App Store, July 5, 2012
-- 1.6  Update release approved to the App Store, June 8, 2012
-- 1.5  Update release approved to the App Store, May 31, 2012
-- 1.4  Initial release approved to the App Store, May 18, 2012
+- 2.0 Update release approved to the App Store, ?
+- 1.9.1 Update release approved to the App Store, September 20, 2012
+- 1.9 Update release approved to the App Store, August 30, 2012
+- 1.8 Update release approved to the App Store, July 20, 2012
+- 1.7 Update release approved to the App Store, July 5, 2012
+- 1.6 Update release approved to the App Store, June 8, 2012
+- 1.5 Update release approved to the App Store, May 31, 2012
+- 1.4 Initial release approved to the App Store, May 18, 2012
+
+v2.0
+====
+- Deal thumbnails are no longer stretched disproportionately
+- Redesigned color scheme and graphics
+- iOS 6 only sharing features
 
 v1.9.1
 ====
@@ -62,4 +69,4 @@ v1.4
 Future enhancements:
 ====================
 - v? Update API once passwird.com gets redesigned
-- v? Complete visual redesign for the new passwird.com
+- v? Complete visual redesign for the new.passwird.com
