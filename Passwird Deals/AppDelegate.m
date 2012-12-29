@@ -16,9 +16,6 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize showExpiredDeals = _hideExpiredDeals;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

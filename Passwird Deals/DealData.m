@@ -10,12 +10,6 @@
 
 @implementation DealData
 
-@synthesize headline = _headline;
-@synthesize body = _body;
-@synthesize imageURL = _imageURL;
-@synthesize isExpired = _isExpired;
-@synthesize datePosted = _datePosted;
-
 - (id)init {
     return [self initWithHeadline:@"" 
                              body:@"" 

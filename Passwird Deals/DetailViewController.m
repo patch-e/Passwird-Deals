@@ -24,12 +24,6 @@
 
 @implementation DetailViewController
 
-@synthesize detailItem = _detailItem;
-@synthesize webView = _webView;
-@synthesize shareButton = _shareButton;
-@synthesize selectedURL = _selectedURL;
-@synthesize actionSheet = _actionSheet;
-
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem

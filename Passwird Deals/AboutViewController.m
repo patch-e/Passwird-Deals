@@ -13,10 +13,6 @@
 
 @implementation AboutViewController
 
-@synthesize scrollView = _scrollView;
-@synthesize doneButton = _doneButton;
-@synthesize expiredSwitch = _expiredSwitch;
-
 NSString *aboutEmailAddress = @"p.crager@gmail.com";
 NSString *aboutPasswirdURL = @"http://passwird.com";
 NSString *aboutTwitterURL = @"http://twitter.com/mccrager";

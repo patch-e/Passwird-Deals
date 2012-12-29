@@ -22,11 +22,6 @@
 
 @implementation MasterViewController
 
-@synthesize detailViewController = _detailViewController;
-@synthesize searchButton = _searchButton;
-@synthesize responseData = _responseData;
-@synthesize deals = _deals;
-@synthesize sections = _sections;
 PullToRefreshView *pull;
 
 #pragma mark - Managing the table view

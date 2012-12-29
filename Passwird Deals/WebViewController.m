@@ -17,14 +17,6 @@
 
 @implementation WebViewController
 
-@synthesize detailItem = _detailItem;
-@synthesize pushedURL = _passedURL;
-@synthesize webView = _webView;
-@synthesize activityIndicator = _activityIndicator;
-@synthesize backButton = _backButton;
-@synthesize forwardButton = _forwardButton;
-@synthesize actionSheet = _actionSheet;
-
 #pragma mark - Managing the action sheet
 
 - (void)openMail {
@@ -32,11 +24,11 @@
     {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
-        mailer.mailComposeDelegate = self;
-        mailer.navigationBar.tintColor = [UIColor blackColor];
+        [mailer setMailComposeDelegate:self];
+        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setSubject:@"Check out this deal on passwird.com"];
 
-        NSString *emailBody = [NSString stringWithFormat:@"<html><body><h3>%@</h3><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
+        NSString *emailBody = [NSString stringWithFormat:@"<html><body><strong>%@</strong><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
         [mailer setMessageBody:emailBody isHTML:YES];
         
         [self presentModalViewController:mailer animated:YES];

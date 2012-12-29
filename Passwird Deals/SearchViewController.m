@@ -20,11 +20,6 @@
 
 @implementation SearchViewController
 
-@synthesize detailViewController = _detailViewController;
-@synthesize searchBar = _searchBar;
-@synthesize deals = _deals;
-@synthesize sections = _sections;
-
 #pragma mark - Managing the table view
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
