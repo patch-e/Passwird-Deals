@@ -7,7 +7,7 @@ body {
 }
 a {
     color: #004875;
-    -webkit-tap-highlight-color: rgba(255, 0, 0, 0.5);
+    -webkit-tap-highlight-color: rgba(203, 13, 38, 0.5);
 }
 img { 
     min-width: 50px; 
@@ -21,16 +21,16 @@ img {
 
 /* LAYOUT */
 .date {
-    padding: 1px 12px 1px 12px;
-    height: 18px;
-    border-top: 1px solid #A4B0B9;
-    border-bottom: 1px solid #979DA3;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#8F9EA9), to(#B7C0C7));
-    font-size: 18px;
+    padding: 3px 12px 0px 12px;
+    height: 19px;
+    /*border-top: 1px solid #A4B0B9;
+    border-bottom: 1px solid #979DA3;*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cf253b), to(#cf253b));
+    font-size: 15px;
     font-weight: bold;
     color: #fff;
-    line-height: 18px;
-    text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+    line-height: 15px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 0px;
 }
 .headline {
     clear: both;
@@ -62,7 +62,7 @@ img {
 }
 
 /* CLASSES */
-.expired { color: #f90602; }
+.expired { color: #cf253b; }
 .center { text-align: center; }
 
 /* iPad (portrait and landscape) */

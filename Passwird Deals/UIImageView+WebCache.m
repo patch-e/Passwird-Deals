@@ -76,11 +76,12 @@
 - (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
 {
     //force image to be 57x57 (iPhone), or 72x72 (iPad) with UIImage extension
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.image = [image makeThumbnailOfSize:CGSizeMake(57,57)];
-    } else {
-        self.image = [image makeThumbnailOfSize:CGSizeMake(72,72)];
-    }    
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//        self.image = [image makeThumbnailOfSize:CGSizeMake(57,57)];
+//    } else {
+//        self.image = [image makeThumbnailOfSize:CGSizeMake(72,72)];
+//    }
+    self.image = image;
 }
 
 @end

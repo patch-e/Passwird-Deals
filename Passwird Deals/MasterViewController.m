@@ -10,6 +10,7 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 
+#import "DealCell.h"
 #import "DealData.h"
 #import "Extensions.h"
 #import "MBProgressHUD.h"
@@ -30,17 +31,37 @@ PullToRefreshView *pull;
 
 #pragma mark - Managing the table view
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 85;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 85;
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [[self.sections allKeys] count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section] substringFromIndex:1];
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return [[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section] substringFromIndex:1];
+//}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    [headerView setBackgroundColor:[UIColor colorWithRed:202.0/255.0 green:13.0/255.0 blue:38.0/255.0 alpha:0.90]];
+    
+    UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, tableView.bounds.size.width, 20)];
+    [labelView setBackgroundColor:[UIColor clearColor]];
+    [labelView setFont:[UIFont boldSystemFontOfSize:15]];
+    [labelView setTextColor:[UIColor whiteColor]];
+    [labelView setShadowColor:[UIColor darkGrayColor]];
+    [labelView setShadowOffset:CGSizeMake(0, 1)];
+    [labelView setText:[[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section] substringFromIndex:1]];
+
+    [headerView addSubview:labelView];
+    
+    return headerView;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -48,10 +69,10 @@ PullToRefreshView *pull;
     return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section]] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (DealCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Set the deal into the DealCell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
+    DealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
     //DealData *deal = [self.deals objectAtIndex:indexPath.row];
     DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
@@ -238,8 +259,9 @@ PullToRefreshView *pull;
     
     //create the info button and replace the info button on the storyboard, this
     //button will use that modal segue linked from the replaced info button
-    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    infoButton.frame = CGRectMake(-10, -10, 56, 56);
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    [infoButton setTintColor:[UIColor darkGrayColor]];
+    [infoButton setFrame:CGRectMake(-10, -10, 56, 56)];
     [infoButton addTarget:self 
                    action:@selector(showAboutModal:) 
          forControlEvents:UIControlEventTouchUpInside];
@@ -258,7 +280,7 @@ PullToRefreshView *pull;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView setRowHeight:85.f];
+//    [self.tableView setRowHeight:85.f];
     [self.tableView reloadData];
 
 }
