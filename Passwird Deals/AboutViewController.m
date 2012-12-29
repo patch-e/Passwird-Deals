@@ -90,8 +90,8 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
     {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
-        mailer.mailComposeDelegate = self;
-        mailer.navigationBar.tintColor = [UIColor blackColor];
+        [mailer setMailComposeDelegate:self];
+        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setToRecipients:[NSArray arrayWithObject:aboutEmailAddress]];
         [mailer setSubject:@"Passwird Deals app feedback"];
         

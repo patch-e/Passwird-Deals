@@ -28,7 +28,7 @@
         [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setSubject:@"Check out this deal on passwird.com"];
 
-        NSString *emailBody = [NSString stringWithFormat:@"<html><body><strong>%@</strong><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
+        NSString *emailBody = [NSString stringWithFormat:@"<html><body><strong>%@</strong><br/><br/><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
         [mailer setMessageBody:emailBody isHTML:YES];
         
         [self presentModalViewController:mailer animated:YES];
