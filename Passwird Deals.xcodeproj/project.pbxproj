@@ -79,6 +79,7 @@
 		CDD72ADB153522F40062C1A8 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACC153522F40062C1A8 /* SDWebImagePrefetcher.m */; };
 		CDD72ADC153522F40062C1A8 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACE153522F40062C1A8 /* UIButton+WebCache.m */; };
 		CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */; };
+		CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* DealCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +184,8 @@
 		CDD72ACE153522F40062C1A8 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		CDD72ACF153522F40062C1A8 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		CDE37C3E168D6C2300C48DF0 /* DealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealCell.h; sourceTree = "<group>"; };
+		CDE37C3F168D6C2300C48DF0 /* DealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +291,8 @@
 			children = (
 				CD2A72E01516B329003A4394 /* DealData.h */,
 				CD2A72E11516B329003A4394 /* DealData.m */,
+				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
+				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */,
 				CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */,
 				CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */,
+				CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
