@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface UIImage(Extension)
 
 - (UIImage *) makeThumbnailOfSize:(CGSize)size;

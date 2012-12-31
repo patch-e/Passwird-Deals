@@ -20,23 +20,21 @@
 #pragma mark - Managing the action sheet
 
 - (void)openMail {
-    if ([MFMailComposeViewController canSendMail])
-    {
+    if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
         [mailer setMailComposeDelegate:self];
         [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setSubject:@"Check out this deal on passwird.com"];
 
-        NSString *emailBody = [NSString stringWithFormat:@"<html><body><strong>%@</strong><br/><br/><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
+        NSString *emailBody = [NSString stringWithFormat:@"<html><body><p>&nbsp;</p><strong>%@</strong><br/><br/><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
         [mailer setMessageBody:emailBody isHTML:YES];
         
         [self presentModalViewController:mailer animated:YES];
         
         mailer = nil;
     }
-    else
-    {
+    else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"Your device doesn't support composing of emails."
                                                        delegate:nil
@@ -91,8 +89,7 @@
                                                          error:&error];
     NSString *tweet = [NSString stringWithFormat:tweetString, self.detailItem.headline];
     
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+    if ([SLComposeViewController class]) {
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
             SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
             [share setInitialText:tweet];
@@ -100,20 +97,16 @@
             
             return;
         }
-    }
-    else {
-#endif
+    } else {
         if ([TWTweetComposeViewController canSendTweet]) {
             TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-            [tweetSheet setInitialText:tweet];            
+            [tweetSheet setInitialText:tweet];
             [self presentModalViewController:tweetSheet animated:YES];
             
             tweetSheet = nil;
             return;
         }
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
     }
-#endif
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
@@ -124,32 +117,32 @@
 }
 
 - (void)postToFacebook {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
-    NSError *error;
-    NSStringEncoding encoding;
-    NSString *facebookFilePath = [[NSBundle mainBundle] pathForResource: @"Facebook"
-                                                                 ofType: @"txt"];
-    NSString *facebookString = [NSString stringWithContentsOfFile:facebookFilePath
-                                                     usedEncoding:&encoding 
-                                                            error:&error];
-    NSString *facebook = [NSString stringWithFormat:facebookString, self.detailItem.headline];
-    
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    if ([SLComposeViewController class]) {
+        NSError *error;
+        NSStringEncoding encoding;
+        NSString *facebookFilePath = [[NSBundle mainBundle] pathForResource: @"Facebook"
+                                                                     ofType: @"txt"];
+        NSString *facebookString = [NSString stringWithContentsOfFile:facebookFilePath
+                                                         usedEncoding:&encoding 
+                                                                error:&error];
+        NSString *facebook = [NSString stringWithFormat:facebookString, self.detailItem.headline];
         
-        [share setInitialText:facebook];
-        
-        [self presentViewController:share animated:YES completion:nil];
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+            SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            
+            [share setInitialText:facebook];
+            
+            [self presentViewController:share animated:YES completion:nil];
+        }
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                                message:@"You can't post to Facebook right now, make sure your device has an internet connection and you have at least one Facebook account setup in Settings."                                                          
+                                                               delegate:self                                              
+                                                      cancelButtonTitle:@"OK"                                                   
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        }
     }
-    else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                            message:@"You can't post to Facebook right now, make sure your device has an internet connection and you have at least one Facebook account setup in Settings."                                                          
-                                                           delegate:self                                              
-                                                  cancelButtonTitle:@"OK"                                                   
-                                                  otherButtonTitles:nil];
-        [alertView show];
-    }
-#endif
 }
 
 - (IBAction)showActionSheet:(id)sender {
@@ -158,8 +151,8 @@
     if (self.actionSheet == nil) {
         UIActionSheet *sheet;
         
-        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options" 
+        if ([SLComposeViewController class]) {
+            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
                                                 delegate:self 
                                        cancelButtonTitle:@"Cancel" 
                                   destructiveButtonTitle:nil
@@ -189,7 +182,7 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+    if ([SLComposeViewController class]) {
         switch (buttonIndex) {
             case 0:
                 [Flurry logEvent:@"Post to Facebook"];
@@ -271,8 +264,7 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
     
@@ -280,8 +272,7 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.pushedURL]];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [self setWebView:nil];
     [self setActivityIndicator:nil];
     [self setBackButton:nil];
@@ -296,8 +287,7 @@
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:NO];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);

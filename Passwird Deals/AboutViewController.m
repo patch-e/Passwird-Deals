@@ -151,8 +151,7 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
 
@@ -163,16 +162,14 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
     [self.expiredSwitch setOn:appDelegate.showExpiredDeals];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [self setScrollView:nil];
     [self setDoneButton:nil];
     [self setExpiredSwitch:nil];
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     [self calculateAndSetScrollViewHeight];
     
     // Return YES for supported orientations

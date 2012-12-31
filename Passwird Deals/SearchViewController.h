@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @class DetailViewController;
 
 @interface SearchViewController : UITableViewController <UISearchBarDelegate>

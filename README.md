@@ -23,7 +23,7 @@ v2.0
 ====
 - Deal thumbnails are no longer stretched disproportionately
 - Redesigned color scheme and graphics
-- iOS 6 only sharing features
+- Bug fixes
 
 v1.9.1
 ====

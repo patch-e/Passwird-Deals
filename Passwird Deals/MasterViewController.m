@@ -26,23 +26,11 @@ PullToRefreshView *pull;
 
 #pragma mark - Managing the table view
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 85;
-//}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.sections allKeys] count];
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return [[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section] substringFromIndex:1];
-//}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
     [headerView setBackgroundColor:[UIColor colorWithRed:202.0/255.0 green:13.0/255.0 blue:38.0/255.0 alpha:0.90]];
     
@@ -59,13 +47,11 @@ PullToRefreshView *pull;
     return headerView;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section]] count];
 }
 
-- (DealCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (DealCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Set the deal into the DealCell
     DealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
@@ -84,8 +70,7 @@ PullToRefreshView *pull;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         //hide view via alpha, and animate in over 1 sec
         [self.detailViewController.webView setAlpha:0];
@@ -103,13 +88,11 @@ PullToRefreshView *pull;
 
 #pragma mark - Managing the asynchronous data download
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     [self.responseData setLength:0];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.responseData appendData:data];
     
     NSError* error = nil;
@@ -165,8 +148,7 @@ PullToRefreshView *pull;
     [pull finishedLoading];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"connection error");
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"Could not connect to the remote server at this time."
@@ -179,8 +161,7 @@ PullToRefreshView *pull;
     [pull finishedLoading];
 }
 
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection
-{
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connection success");
 }
 
@@ -209,23 +190,20 @@ PullToRefreshView *pull;
 
 #pragma mark - Managing PullToRefresh
 
-- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
-{
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view; {
     [Flurry logEvent:@"Pull to Refresh"];
     [self fetchAndParseDataIntoTableView:NO];
 }
 
 #pragma mark - Managing the About modal view
 
-- (IBAction)showAboutModal:(id)sender
-{
+- (void)showAboutModal:(id)sender {
     [self performSegueWithIdentifier: @"About" sender: self];
 }
 
 #pragma mark - View lifecycle
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
         //DetailViewController *detailController = segue.destinationViewController;
@@ -241,8 +219,7 @@ PullToRefreshView *pull;
     }
 }
         
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
     
@@ -266,22 +243,18 @@ PullToRefreshView *pull;
     [self fetchAndParseDataIntoTableView:YES];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [self setSearchButton:nil];
     [super viewDidUnload];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.tableView setRowHeight:85.f];
     [self.tableView reloadData];
 
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);

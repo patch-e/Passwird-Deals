@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
 @interface AboutViewController : UIViewController <UIScrollViewDelegate, MFMailComposeViewControllerDelegate>

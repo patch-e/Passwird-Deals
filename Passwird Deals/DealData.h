@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface DealData : NSObject
 
 @property (strong) NSString *headline;

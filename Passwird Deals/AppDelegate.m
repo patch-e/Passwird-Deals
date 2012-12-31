@@ -16,9 +16,12 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 6.0) {
+        [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    }
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
@@ -40,13 +43,11 @@
     return YES;
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+- (void)applicationWillEnterForeground:(UIApplication *)application {
     [Appirater appEnteredForeground:YES];
 }
 
--(void)loadSettings 
-{
+-(void)loadSettings {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     self.showExpiredDeals = [prefs boolForKey:@"showExpiredDeals"];

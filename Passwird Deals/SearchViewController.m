@@ -22,23 +22,11 @@
 
 #pragma mark - Managing the table view
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 85;
-//}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.sections allKeys] count];
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
-//{
-//    return [[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section];
-//}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
     [headerView setBackgroundColor:[UIColor colorWithRed:202.0/255.0 green:13.0/255.0 blue:38.0/255.0 alpha:0.90]];
     
@@ -55,13 +43,11 @@
     return headerView;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section]] count];
 }
 
-- (DealCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (DealCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Set the deal into the DealCell
     DealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
@@ -80,8 +66,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         //hide view via alpha, and animate in over 1 sec
         [self.detailViewController.webView setAlpha:0];
@@ -95,8 +80,7 @@
     }
 }
 
-- (void)fetchAndParseDataIntoTableView 
-{
+- (void)fetchAndParseDataIntoTableView {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     hud.labelText = @"Loading";
     
@@ -160,8 +144,7 @@
 
 #pragma mark - Managing the search bar
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
-{
+- (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
     [self.view endEditing:YES];
     
     self.deals = nil;
@@ -171,15 +154,13 @@
     [self fetchAndParseDataIntoTableView];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar 
-{
+- (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
     [self.searchBar resignFirstResponder];    
 }
 
 #pragma mark - View lifecycle
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
         //DetailViewController *detailController = segue.destinationViewController;
@@ -195,16 +176,17 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.tableView setRowHeight:85.f];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [[self.navigationController.splitViewController.viewControllers lastObject] popViewControllerAnimated:YES];
+    }
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
@@ -224,14 +206,12 @@
     self.searchBar.delegate = self;
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [self setSearchBar:nil];
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
