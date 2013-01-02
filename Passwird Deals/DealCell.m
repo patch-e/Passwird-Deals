@@ -23,11 +23,10 @@
     NSInteger offset = 13;
     [self.imageView setFrame:CGRectMake(5, offset, imageViewSize, imageViewSize)];
     
-    float imageWidth =  self.imageView.image.size.width;
-    if (imageWidth > 0) {
+    if (self.imageView.image.size.width > 0) {
         [self.textLabel setFrame:CGRectMake(imageViewSize+offset,
                                             self.textLabel.frame.origin.y,
-                                            self.textLabel.frame.size.width-offset,
+                                            self.textLabel.frame.size.width,
                                             self.textLabel.frame.size.height)];
         [self.detailTextLabel setFrame:CGRectMake(imageViewSize+offset,
                                                   self.detailTextLabel.frame.origin.y,
