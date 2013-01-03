@@ -13,20 +13,23 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    NSInteger imageViewSize;
+    CGFloat imageViewSize;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        imageViewSize = 57;
+        imageViewSize = 57.0;
     } else {
-        imageViewSize = 72;
+        imageViewSize = 72.0;
     }
     
-    NSInteger offset = 13;
-    [self.imageView setFrame:CGRectMake(5, offset, imageViewSize, imageViewSize)];
+    CGFloat offset = 15.0;
+    [self.imageView setFrame:CGRectMake(5.0, offset, imageViewSize, imageViewSize)];
     
+    CGFloat textLabelSize = self.frame.size.width - (self.imageView.frame.size.width + offset + 30);
+    NSLog(@"%f", textLabelSize);
+
     if (self.imageView.image.size.width > 0) {
         [self.textLabel setFrame:CGRectMake(imageViewSize+offset,
                                             self.textLabel.frame.origin.y,
-                                            self.textLabel.frame.size.width,
+                                            textLabelSize,
                                             self.textLabel.frame.size.height)];
         [self.detailTextLabel setFrame:CGRectMake(imageViewSize+offset,
                                                   self.detailTextLabel.frame.origin.y,

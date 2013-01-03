@@ -93,7 +93,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Deal Headline, up to three lines long. Some extra text to get to three lines. Will middle truncate." lineBreakMode="middleTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mGI-dz-n6X">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Deal Headline, up to three lines long. Some extra text to get to three lines. Will end truncate." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mGI-dz-n6X">
                                             <rect key="frame" x="77" y="15" width="213" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -404,8 +404,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Deal Headline, up to three lines long. Some extra text to get to three lines. Will middle truncate." lineBreakMode="middleTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6a-pB-AgT">
-                                            <rect key="frame" x="77" y="15" width="213" height="54"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Deal Headline, up to three lines long. Some extra text to get to three lines. Will end truncate." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6a-pB-AgT">
+                                            <rect key="frame" x="77" y="15" width="212" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

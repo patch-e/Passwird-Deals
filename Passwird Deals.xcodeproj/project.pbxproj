@@ -270,6 +270,8 @@
 			children = (
 				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
 				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
+				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
+				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
 				CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */,
 				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
@@ -291,8 +293,6 @@
 			children = (
 				CD2A72E01516B329003A4394 /* DealData.h */,
 				CD2A72E11516B329003A4394 /* DealData.m */,
-				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
-				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
