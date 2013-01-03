@@ -24,7 +24,6 @@
     [self.imageView setFrame:CGRectMake(5.0, offset, imageViewSize, imageViewSize)];
     
     CGFloat textLabelSize = self.frame.size.width - (self.imageView.frame.size.width + offset + 30);
-    NSLog(@"%f", textLabelSize);
 
     if (self.imageView.image.size.width > 0) {
         [self.textLabel setFrame:CGRectMake(imageViewSize+offset,
