@@ -8,9 +8,10 @@ http://mccrager.com/PasswirdDeals
 iTunes:
 http://itunes.com/apps/PasswirdDeals
 
-Current Version: 1.9.1
+Current Version: 2.0
 
-- 2.0 Update release approved to the App Store, ?
+- 2.1 Update release approved to the App Store, ?
+- 2.0 Update release approved to the App Store, January 8, 2013
 - 1.9.1 Update release approved to the App Store, September 20, 2012
 - 1.9 Update release approved to the App Store, August 30, 2012
 - 1.8 Update release approved to the App Store, July 20, 2012
@@ -21,7 +22,11 @@ Current Version: 1.9.1
 
 v2.0
 ====
-- Deal thumbnails are no longer stretched disproportionately
+- Push notifications
+
+v2.0
+====
+- Deal thumbnails are no longer stretched disproportionately with SDWebImage library
 - Redesigned color scheme and graphics
 - Bug fixes
 
