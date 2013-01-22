@@ -51,11 +51,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>20.0</string>
+	<string>21.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
@@ -81,11 +81,11 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.3333333333333333</real>
+				<real>0.33333333333333331</real>
 				<key>Green</key>
-				<real>0.3333333333333333</real>
+				<real>0.33333333333333331</real>
 				<key>Red</key>
-				<real>0.3333333333333333</real>
+				<real>0.33333333333333331</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>
