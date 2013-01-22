@@ -14,6 +14,8 @@
 
 #import "Flurry.h"
 
+#import "ASIFormDataRequest.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -38,9 +40,52 @@
     [Appirater setSignificantEventsUntilPrompt:-1];
     [Appirater setTimeBeforeReminding:2];
     [Appirater appLaunched:YES];
-//    [Appirater setDebug:YES];
+    //[Appirater setDebug:YES];
+    
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    if (launchOptions != nil) {
+		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+		if (dictionary != nil) {
+			NSLog(@"Launched from push notification: %@", dictionary);
+		}
+	}
     
     return YES;
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+	NSLog(@"My token is: %@", deviceToken);
+    
+	NSString* formattedToken = [deviceToken description];
+	formattedToken = [formattedToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+	formattedToken = [formattedToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    [self postDeviceToken:formattedToken];
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
+	NSLog(@"Failed to get token, error: %@", error);
+}
+
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
+	NSLog(@"Received notification: %@", userInfo);
+    
+    if (application.applicationState == UIApplicationStateActive) {
+        [application setApplicationIconBadgeNumber:0];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"New Deal"
+                                                            message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [application setApplicationIconBadgeNumber:0];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -55,4 +100,27 @@
     NSLog(@"pref-showExpiredDeals: %d", self.showExpiredDeals);
 }
 
+- (void)postDeviceToken:(NSString *)formattedToken {
+	NSURL* url = [NSURL URLWithString:@"http://api.mccrager.com/RegisterDeviceToken"];
+    
+	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+    
+	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
+	[request setPostValue:formattedToken forKey:@"token"];
+    [request setPostValue:@"True" forKey:@"dev"];
+	[request setDelegate:self];
+	[request startAsynchronous];
+}
+
 @end
+
+//    UIStoryboard *storyboard;
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//        storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPad" bundle:nil];
+//    } else {
+//        storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+//    }
+//
+//    MasterViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MasterView"];
+//    [self.window setRootViewController:rootViewController];
+//    //            [rootViewController fetchAndParseDataIntoTableView:YES];
