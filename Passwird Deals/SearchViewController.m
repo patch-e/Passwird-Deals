@@ -99,7 +99,7 @@
         //get expired deals setting from app delegate
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://mccrager.com/api/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], appDelegate.showExpiredDeals]];
+        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://api.mccrager.com/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], appDelegate.showExpiredDeals]];
         
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];

@@ -175,7 +175,7 @@ PullToRefreshView *pull;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     //build the connection for async data downloading, 10 second timeout
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://mccrager.com/api/passwird?e=%d", appDelegate.showExpiredDeals]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.mccrager.com/passwird?e=%d", appDelegate.showExpiredDeals]];
 
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];                                
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
