@@ -13,12 +13,12 @@
 
 @implementation AboutViewController
 
-NSString *aboutEmailAddress = @"p.crager@gmail.com";
-NSString *aboutPasswirdURL = @"http://passwird.com";
-NSString *aboutTwitterURL = @"http://twitter.com/mccrager";
-NSString *aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
-//NSString *aboutReviewURLiOS6 = @"itms-apps://itunes.apple.com/LANGUAGE/app/id517165629";
-NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
+NSString *const aboutEmailAddress = @"p.crager@gmail.com";
+NSString *const aboutPasswirdURL = @"http://passwird.com";
+NSString *const aboutTwitterURL = @"http://twitter.com/mccrager";
+NSString *const aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
+//NSString *const aboutReviewURLiOS6 = @"itms-apps://itunes.apple.com/LANGUAGE/app/id517165629";
+NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
 
 #pragma mark - Managing the buttons
 

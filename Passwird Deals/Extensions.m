@@ -10,7 +10,7 @@
 
 @implementation UIImage(Extension)
 
-- (UIImage *) makeThumbnailOfSize:(CGSize)size {
+- (UIImage*)makeThumbnailOfSize:(CGSize)size {
     UIGraphicsBeginImageContext(size);  
     
     // draw scaled image into thumbnail context
@@ -30,7 +30,7 @@
 
 @implementation NSDictionary(Extension)
 
-+(NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress {
++ (NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress {
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlAddress]];
     
     if (data == nil) {
@@ -45,7 +45,7 @@
     return result;
 }
 
--(NSData*)toJSON {
+- (NSData*)toJSON {
     NSError* error = nil;
     id result = [NSJSONSerialization dataWithJSONObject:self 
                                                 options:kNilOptions 
@@ -59,7 +59,7 @@
 
 @implementation NSString(Extension)
 
--(NSString *)urlEncode {
+- (NSString *)urlEncode {
 	return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(
                                                                                  NULL,
                                                                                  (__bridge_retained CFStringRef)self,

@@ -24,11 +24,11 @@
              isExpired:(BOOL)isExpired 
             datePosted:(NSDate *)datePosted {
     if (self = [super init]) {
-        self.headline = headline;
-        self.body = body;
-        self.imageURL = imageURL;
-        self.isExpired = isExpired;
-        self.datePosted = datePosted;
+        [self setHeadline:headline];
+        [self setBody:body];
+        [self setImageURL:imageURL];
+        [self setIsExpired:isExpired];
+        [self setDatePosted:datePosted];
     }
     return self;
 }
