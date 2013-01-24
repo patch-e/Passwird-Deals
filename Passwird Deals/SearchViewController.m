@@ -76,13 +76,14 @@
         
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)]                          objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
-        self.detailViewController.detailItem = deal;
+        [self.detailViewController setDetailItem:deal];
     }
 }
 
 - (void)fetchAndParseDataIntoTableView {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.labelText = @"Loading";
+    [hud setLabelText:@"Loading"];
+    [hud setDimBackground:YES];
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -103,7 +104,7 @@
         
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
-        self.sections = [NSMutableDictionary dictionary];
+        [self setSections:[NSMutableDictionary dictionary]];
         
         [self.sections setValue:[NSMutableArray array] forKey:@"Search Results"];
         // Loop through the array of JSON deals and create Deal objects added to a mutable array
@@ -128,11 +129,10 @@
         };
         
         // Set the created mutable array to the controller's property
-        self.deals = deals;
+        [self setDeals:deals];
         [self.tableView reloadData];
         
-        if ( [self.tableView numberOfRowsInSection:0] == 0 )
-        {
+        if ( [self.tableView numberOfRowsInSection:0] == 0 ) {
             NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
             [self.sections setObject: [self.sections objectForKey: @"Search Results"] forKey: @"No Results Found"];
             [self.sections removeObjectForKey: @"Search Results"];
@@ -147,8 +147,8 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
     [self.view endEditing:YES];
     
-    self.deals = nil;
-    self.sections = nil;
+    [self setDeals:nil];
+    [self setSections:nil];
     [self.tableView reloadData]; 
     
     [self fetchAndParseDataIntoTableView];
@@ -164,7 +164,7 @@
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
         //DetailViewController *detailController = segue.destinationViewController;
-        self.detailViewController = segue.destinationViewController;
+        [self setDetailViewController:segue.destinationViewController];
         
         //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
@@ -172,7 +172,7 @@
                                                       objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
                           objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
-        self.detailViewController.detailItem = deal;   
+        [self.detailViewController setDetailItem:deal];
     }
 }
 
@@ -188,7 +188,7 @@
         [[self.navigationController.splitViewController.viewControllers lastObject] popViewControllerAnimated:YES];
     }
     
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    [self setDetailViewController:(DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController]];
     
     // Set the keyboard appearance of the search bar
     for (UIView *searchBarSubview in [self.searchBar subviews]) {
@@ -203,7 +203,7 @@
     }
     
     [self.searchBar becomeFirstResponder];
-    self.searchBar.delegate = self;
+    [self.searchBar setDelegate:self];
 }
 
 - (void)viewDidUnload {

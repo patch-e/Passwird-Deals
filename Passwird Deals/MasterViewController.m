@@ -59,7 +59,7 @@ PullToRefreshView *pull;
     DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 
     [cell.textLabel setText:deal.headline];
-    [cell.imageView setImageWithURL:deal.imageURL 
+    [cell.imageView setImageWithURL:deal.imageURL
                    placeholderImage:[UIImage imageNamed:@"icon.png"]];
     
     if ( !deal.isExpired )
@@ -82,7 +82,7 @@ PullToRefreshView *pull;
         
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
-        self.detailViewController.detailItem = deal;
+        [self.detailViewController setDetailItem:deal];
     }
 }
 
@@ -97,12 +97,13 @@ PullToRefreshView *pull;
     
     NSError* error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:self.responseData
-                                                options:kNilOptions error:&error];    
+                                                options:kNilOptions
+                                                  error:&error];
     
     NSDictionary* dealsDictionary = result;  
     NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
     NSMutableArray *deals = [NSMutableArray array];
-    self.sections = [NSMutableDictionary dictionary];
+    [self setSections:[NSMutableDictionary dictionary]];
     
     BOOL sectionExists;
     NSInteger sectionCount = 0;
@@ -117,8 +118,7 @@ PullToRefreshView *pull;
         NSString *stringFromDate = [formatter stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
         
         sectionExists = NO;
-        for (NSString *str in [self.sections allKeys])
-        {
+        for (NSString *str in [self.sections allKeys]) {
             if ([str isEqualToString:[NSString stringWithFormat:@"%d%@", sectionCount, stringFromDate]])
                 sectionExists = YES;
         }
@@ -140,9 +140,9 @@ PullToRefreshView *pull;
     };
     
     // Set the created mutable array to the controller's property
-    self.deals = deals;
+    [self setDeals:deals];
     [self.tableView reloadData];
-    self.searchButton.enabled = YES;
+    [self.searchButton setEnabled:YES];
     
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     [pull finishedLoading];
@@ -161,14 +161,15 @@ PullToRefreshView *pull;
     [pull finishedLoading];
 }
 
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connection success");
 }
 
 - (void)fetchAndParseDataIntoTableView:(BOOL)showHUD {
     if ( showHUD ) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        hud.labelText = @"Loading";
+        [hud setLabelText:@"Loading"];
+        [hud setDimBackground:YES];
     }
     
     //get expired deals setting from app delegate
@@ -182,7 +183,7 @@ PullToRefreshView *pull;
     
     //on good connection, fill responseData, delegate will fire connection:didReceiveData:
     if ( connection ) {
-        self.responseData = [[NSMutableData alloc] init];
+        [self setResponseData:[[NSMutableData alloc] init]];
     } else {
         NSLog(@"connection failed");  
     }    
@@ -207,7 +208,7 @@ PullToRefreshView *pull;
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
         //DetailViewController *detailController = segue.destinationViewController;
-        self.detailViewController = segue.destinationViewController;
+        [self setDetailViewController:segue.destinationViewController];
         
         //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
@@ -215,7 +216,7 @@ PullToRefreshView *pull;
                                                       objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
                           objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
-        self.detailViewController.detailItem = deal;   
+        [self.detailViewController setDetailItem:deal];
     }
 }
         
@@ -238,9 +239,23 @@ PullToRefreshView *pull;
                    action:@selector(showAboutModal:) 
          forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-    self.navigationItem.leftBarButtonItem = infoBarButtonItem;
+    [self.navigationItem setLeftBarButtonItem:infoBarButtonItem];
     
     [self fetchAndParseDataIntoTableView:YES];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pushNotificationReceived:)
+                                                 name:@"pushNotification"
+                                               object:nil];
+}
+
+- (void)pushNotificationReceived:(NSNotification*)aNotification {
+    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    [self fetchAndParseDataIntoTableView:YES];
+    
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 
 - (void)viewDidUnload {
@@ -251,7 +266,6 @@ PullToRefreshView *pull;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

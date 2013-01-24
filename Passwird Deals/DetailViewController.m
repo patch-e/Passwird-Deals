@@ -229,7 +229,7 @@
 
 - (BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {    
     if( navigationType == UIWebViewNavigationTypeLinkClicked ) {
-        self.selectedURL = request.URL;
+        [self setSelectedURL:request.URL];
         [self performSegueWithIdentifier: @"Web" sender: self];
         return NO;
     } 
@@ -272,8 +272,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass selected URL and deal to web controller
     WebViewController *webController = segue.destinationViewController;
-    webController.pushedURL = self.selectedURL;
-    webController.detailItem = self.detailItem;
+    [webController setPushedURL:self.selectedURL];
+    [webController setDetailItem:self.detailItem];
 }
 
 - (void)configureView {

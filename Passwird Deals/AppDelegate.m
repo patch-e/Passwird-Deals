@@ -81,6 +81,8 @@
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
         [alertView show];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     }
 }
 
@@ -95,7 +97,7 @@
 -(void)loadSettings {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    self.showExpiredDeals = [prefs boolForKey:@"showExpiredDeals"];
+    [self setShowExpiredDeals:[prefs boolForKey:@"showExpiredDeals"]];
     
     NSLog(@"pref-showExpiredDeals: %d", self.showExpiredDeals);
 }
@@ -113,14 +115,3 @@
 }
 
 @end
-
-//    UIStoryboard *storyboard;
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPad" bundle:nil];
-//    } else {
-//        storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-//    }
-//
-//    MasterViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MasterView"];
-//    [self.window setRootViewController:rootViewController];
-//    //            [rootViewController fetchAndParseDataIntoTableView:YES];

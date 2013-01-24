@@ -26,7 +26,7 @@ NSString *aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donation
     [Flurry logEvent:@"Save Settings"];
     //get expired deals setting from app delegate
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.showExpiredDeals = self.expiredSwitch.on;
+    [appDelegate setShowExpiredDeals:self.expiredSwitch.on];
         
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
