@@ -175,7 +175,7 @@ PullToRefreshView *pull;
     //get expired deals setting from app delegate
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    //build the connection for async data downloading, 10 second timeout
+    //build the connection for async data downloading, 20 second timeout
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.mccrager.com/passwird?e=%d", appDelegate.showExpiredDeals]];
 
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];                                

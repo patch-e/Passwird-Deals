@@ -32,16 +32,6 @@
     
     [self loadSettings];
 
-    [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
-    
-    [Appirater setAppId:@"517165629"];
-    [Appirater setDaysUntilPrompt:15];
-    [Appirater setUsesUntilPrompt:10];
-    [Appirater setSignificantEventsUntilPrompt:-1];
-    [Appirater setTimeBeforeReminding:2];
-    [Appirater appLaunched:YES];
-    //[Appirater setDebug:YES];
-    
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
@@ -51,6 +41,16 @@
 			NSLog(@"Launched from push notification: %@", dictionary);
 		}
 	}
+    
+    [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
+    
+    [Appirater setAppId:@"517165629"];
+    [Appirater setDaysUntilPrompt:15];
+    [Appirater setUsesUntilPrompt:10];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+    [Appirater appLaunched:YES];
+    //[Appirater setDebug:YES];
     
     return YES;
 }
@@ -109,7 +109,7 @@
     
 	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
 	[request setPostValue:formattedToken forKey:@"token"];
-    [request setPostValue:@"True" forKey:@"dev"];
+    [request setPostValue:@"False" forKey:@"dev"];
 	[request setDelegate:self];
 	[request startAsynchronous];
 }
