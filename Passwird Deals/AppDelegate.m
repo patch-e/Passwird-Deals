@@ -29,18 +29,24 @@
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
     }
-    
-    [self loadSettings];
 
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
+    //not currently using this, but could in the future
     if (launchOptions != nil) {
 		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
 		if (dictionary != nil) {
 			NSLog(@"Launched from push notification: %@", dictionary);
 		}
-	}
+    }
+    
+    // Settings defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *defaultSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     [NSNumber numberWithBool:NO],  @"showExpiredDeals",
+                                     nil];
+    [defaults registerDefaults:defaultSettings];
     
     [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
     
@@ -52,6 +58,9 @@
     [Appirater appLaunched:YES];
     //[Appirater setDebug:YES];
     
+    defaults = nil;
+    defaultSettings = nil;
+    
     return YES;
 }
 
@@ -62,7 +71,8 @@
 	formattedToken = [formattedToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 	formattedToken = [formattedToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    [self postDeviceToken:formattedToken];
+    [AppDelegate postRegisterDeviceToken:formattedToken];
+    [[NSUserDefaults standardUserDefaults] setObject:formattedToken forKey:@"deviceToken"];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
@@ -73,8 +83,6 @@
 	NSLog(@"Received notification: %@", userInfo);
     
     if (application.applicationState == UIApplicationStateActive) {
-        [application setApplicationIconBadgeNumber:0];
-        
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"New Deal"
                                                             message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
                                                            delegate:nil
@@ -82,31 +90,36 @@
                                                   otherButtonTitles: nil];
         [alertView show];
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"receivedPushNotification" object:nil userInfo:userInfo];
     }
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [application setApplicationIconBadgeNumber:0];
-}
+//- (void)applicationDidBecomeActive:(UIApplication *)application {
+//    [application setApplicationIconBadgeNumber:0];
+//    [AppDelegate postResetBadgeCount];
+//}
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [Appirater appEnteredForeground:YES];
 }
 
--(void)loadSettings {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
++ (void)postResetBadgeCount {
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
-    [self setShowExpiredDeals:[prefs boolForKey:@"showExpiredDeals"]];
+    NSURL* url = [NSURL URLWithString:@"http://api.mccrager.com/ResetBadgeCount"];
     
-    NSLog(@"pref-showExpiredDeals: %d", self.showExpiredDeals);
+    NSLog(@"token to reset: '%@'", [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"]);
+    
+	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+	[request setPostValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"] forKey:@"token"];
+	[request setDelegate:self];
+	[request startAsynchronous];
 }
 
-- (void)postDeviceToken:(NSString *)formattedToken {
++ (void)postRegisterDeviceToken:(NSString *)formattedToken {
 	NSURL* url = [NSURL URLWithString:@"http://api.mccrager.com/RegisterDeviceToken"];
     
 	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-    
 	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
 	[request setPostValue:formattedToken forKey:@"token"];
     [request setPostValue:@"False" forKey:@"dev"];

@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "SearchViewController.h"
 #import "DetailViewController.h"
 
 #import "DealCell.h"
 #import "DealData.h"
+
 #import "Extensions.h"
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
@@ -51,7 +51,6 @@
     // Set the deal into the DealCell
     DealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
-    //DealData *deal = [self.deals objectAtIndex:indexPath.row];
     DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     [cell.textLabel setText:deal.headline];
@@ -97,10 +96,7 @@
         [Flurry logEvent:@"Search" withParameters:searchInputDictionary];
         searchInputDictionary = nil;
         
-        //get expired deals setting from app delegate
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://api.mccrager.com/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], appDelegate.showExpiredDeals]];
+        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://api.mccrager.com/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], [[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]]];
         
         NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
         NSMutableArray *deals = [NSMutableArray array];
@@ -163,10 +159,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
-        //DetailViewController *detailController = segue.destinationViewController;
         [self setDetailViewController:segue.destinationViewController];
         
-        //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
                                                        sortedArrayUsingSelector:@selector(compare:)] 
                                                       objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 

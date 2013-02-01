@@ -12,13 +12,14 @@
 
 #import "DealCell.h"
 #import "DealData.h"
+
 #import "Extensions.h"
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
 #import "UIImageView+WebCache.h"
 #import "Flurry.h"
-
 #import "PullToRefreshView.h"
+#import "ASIFormDataRequest.h"
 
 @implementation MasterViewController
 
@@ -55,7 +56,6 @@ PullToRefreshView *pull;
     // Set the deal into the DealCell
     DealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
-    //DealData *deal = [self.deals objectAtIndex:indexPath.row];
     DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 
     [cell.textLabel setText:deal.headline];
@@ -143,7 +143,7 @@ PullToRefreshView *pull;
     [self setDeals:deals];
     [self.tableView reloadData];
     [self.searchButton setEnabled:YES];
-    
+
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     [pull finishedLoading];
 }
@@ -163,6 +163,7 @@ PullToRefreshView *pull;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connection success");
+    [AppDelegate postResetBadgeCount];
 }
 
 - (void)fetchAndParseDataIntoTableView:(BOOL)showHUD {
@@ -172,11 +173,8 @@ PullToRefreshView *pull;
         [hud setDimBackground:YES];
     }
     
-    //get expired deals setting from app delegate
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
     //build the connection for async data downloading, 20 second timeout
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.mccrager.com/passwird?e=%d", appDelegate.showExpiredDeals]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.mccrager.com/passwird?e=%d", [[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]]];
 
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];                                
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
@@ -207,10 +205,8 @@ PullToRefreshView *pull;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
-        //DetailViewController *detailController = segue.destinationViewController;
         [self setDetailViewController:segue.destinationViewController];
         
-        //DealData *deal = [self.deals objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] 
                                                        sortedArrayUsingSelector:@selector(compare:)] 
                                                       objectAtIndex:self.tableView.indexPathForSelectedRow.section]] 
@@ -244,12 +240,12 @@ PullToRefreshView *pull;
     [self fetchAndParseDataIntoTableView:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(pushNotificationReceived:)
-                                                 name:@"pushNotification"
+                                             selector:@selector(receivedPushNotification:)
+                                                 name:@"receivedPushNotification"
                                                object:nil];
 }
 
-- (void)pushNotificationReceived:(NSNotification*)aNotification {
+- (void)receivedPushNotification:(NSNotification*)aNotification {
     [self.navigationController dismissModalViewControllerAnimated:YES];
     [self.navigationController popToRootViewControllerAnimated:YES];
     

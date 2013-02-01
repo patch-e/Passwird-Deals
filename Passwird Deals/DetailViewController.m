@@ -9,12 +9,11 @@
 #import "DetailViewController.h"
 #import "WebViewController.h"
 
-#import <Twitter/Twitter.h>
-#import <MessageUI/MessageUI.h>
+#import "DealData.h"
 
 #import "Flurry.h"
-
-#import "DealData.h"
+#import <Twitter/Twitter.h>
+#import <MessageUI/MessageUI.h>
 
 @interface DetailViewController ()
 
@@ -203,8 +202,7 @@
                 [Flurry logEvent:@"Email Deal"];
                 [self openMail];
                 break;
-            default:
-                //NSLog(@"Cancel Button Clicked");
+            default: //cancel button
                 break;
         }
     }
@@ -218,8 +216,7 @@
                 [Flurry logEvent:@"Email Deal"];
                 [self openMail];
                 break;
-            default:
-                //NSLog(@"Cancel Button Clicked");
+            default: //cancel button
                 break;
         }
     }

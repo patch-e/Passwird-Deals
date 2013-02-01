@@ -8,12 +8,11 @@
 
 #import "WebViewController.h"
 
-#import <Twitter/Twitter.h>
-#import <MessageUI/MessageUI.h>
+#import "DealData.h"
 
 #import "Flurry.h"
-
-#import "DealData.h"
+#import <Twitter/Twitter.h>
+#import <MessageUI/MessageUI.h>
 
 @implementation WebViewController
 
@@ -204,8 +203,7 @@
                 [Flurry logEvent:@"Open in Safari"];
                 [self openInSafari];
                 break;
-            default:
-                //NSLog(@"Cancel Button Clicked");
+            default: //cancel button
                 break;
         }
     }
@@ -227,8 +225,7 @@
                 [Flurry logEvent:@"Open in Safari"];
                 [self openInSafari];
                 break;
-            default:
-                //NSLog(@"Cancel Button Clicked");
+            default: //cancel button
                 break;
         }
     }

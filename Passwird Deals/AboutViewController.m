@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "AboutViewController.h"
 
 #import "Flurry.h"
@@ -17,20 +16,14 @@ NSString *const aboutEmailAddress = @"p.crager@gmail.com";
 NSString *const aboutPasswirdURL = @"http://passwird.com";
 NSString *const aboutTwitterURL = @"http://twitter.com/mccrager";
 NSString *const aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
-//NSString *const aboutReviewURLiOS6 = @"itms-apps://itunes.apple.com/LANGUAGE/app/id517165629";
 NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
 
 #pragma mark - Managing the buttons
 
 - (IBAction)saveSettings:(id)sender {
     [Flurry logEvent:@"Save Settings"];
-    //get expired deals setting from app delegate
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate setShowExpiredDeals:self.expiredSwitch.on];
-        
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    [prefs setBool:appDelegate.showExpiredDeals forKey:@"showExpiredDeals"];
+    [[NSUserDefaults standardUserDefaults] setBool:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"] forKey:@"showExpiredDeals"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Settings"
@@ -55,21 +48,9 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 - (IBAction)rateLink:(id)sender {
     [Flurry logEvent:@"Rate Button"];
     
-//  iOS 6 review link workaround
-//	NSString *reviewURL;
-//	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-//        reviewURL = aboutReviewURLiOS6;
-//        
-//        reviewURL = [reviewURL stringByReplacingOccurrencesOfString:@"LANGUAGE"
-//                                                         withString:[NSString stringWithFormat:@"%@", [[NSLocale currentLocale] objectForKey: NSLocaleCountryCode]]];
-//	} else {
-//        reviewURL = aboutReviewURL;
-//	}
-    
     NSURL *url = [NSURL URLWithString:aboutReviewURL];
     [[UIApplication sharedApplication] openURL:url];
     
-//    reviewURL = nil;
     url = nil;
 }
 
@@ -158,8 +139,7 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
     [self calculateAndSetScrollViewHeight];
     
     //get expired deals setting from app delegate
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [self.expiredSwitch setOn:appDelegate.showExpiredDeals];
+    [self.expiredSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]];
 }
 
 - (void)viewDidUnload {
