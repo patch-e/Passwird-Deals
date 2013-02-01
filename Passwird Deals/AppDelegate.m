@@ -29,22 +29,29 @@
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
     }
+    
+    // Performance caching settings 
+    int cacheSizeMemory = 4*1024*1024; // 4MB
+    int cacheSizeDisk = 32*1024*1024; // 32MB
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
+    [NSURLCache setSharedURLCache:sharedCache];
 
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
-    //not currently using this, but could in the future
-    if (launchOptions != nil) {
-		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-		if (dictionary != nil) {
-			NSLog(@"Launched from push notification: %@", dictionary);
-		}
-    }
+//    not currently using this, but could in the future
+//    if (launchOptions != nil) {
+//		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+//		if (dictionary != nil) {
+//			NSLog(@"Launched from push notification: %@", dictionary);
+//		}
+//    }
     
     // Settings defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *defaultSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                      [NSNumber numberWithBool:NO],  @"showExpiredDeals",
+                                     @"",  @"deviceToken",
                                      nil];
     [defaults registerDefaults:defaultSettings];
     
@@ -101,6 +108,11 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [Appirater appEnteredForeground:YES];
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    //clear UIWebView cache
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 + (void)postResetBadgeCount {
