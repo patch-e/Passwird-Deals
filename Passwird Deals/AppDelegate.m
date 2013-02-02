@@ -134,7 +134,7 @@
 	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
 	[request setPostValue:formattedToken forKey:@"token"];
-    [request setPostValue:@"False" forKey:@"dev"];
+    [request setPostValue:@"0" forKey:@"dev"];
 	[request setDelegate:self];
 	[request startAsynchronous];
 }
