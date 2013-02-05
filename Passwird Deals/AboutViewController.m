@@ -23,7 +23,7 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 - (IBAction)saveSettings:(id)sender {
     [Flurry logEvent:@"Save Settings"];
     
-    [[NSUserDefaults standardUserDefaults] setBool:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"] forKey:@"showExpiredDeals"];
+    [[NSUserDefaults standardUserDefaults] setBool:self.expiredSwitch.on forKey:@"showExpiredDeals"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Settings"
