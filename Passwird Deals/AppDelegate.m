@@ -90,7 +90,7 @@
 	NSLog(@"Received notification: %@", userInfo);
     
     if (application.applicationState == UIApplicationStateActive) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"New Deal"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Deal Alert"
                                                             message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
@@ -134,7 +134,6 @@
 	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
 	[request setPostValue:formattedToken forKey:@"token"];
-    [request setPostValue:@"0" forKey:@"dev"];
 	[request setDelegate:self];
 	[request startAsynchronous];
 }
