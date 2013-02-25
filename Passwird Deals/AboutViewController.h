@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UISwitch *expiredSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *legalLabel;
 
 - (IBAction)saveSettings:(id)sender;
 - (IBAction)dismissView:(id)sender;

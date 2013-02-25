@@ -121,7 +121,8 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 - (void)calculateAndSetScrollViewHeight {
     CGFloat scrollViewHeight = 0.0f;
     for (UIView *view in self.scrollView.subviews){
-        if (scrollViewHeight < view.frame.origin.y + view.frame.size.height) scrollViewHeight = view.frame.origin.y + view.frame.size.height;
+        if (scrollViewHeight < view.frame.origin.y + view.frame.size.height)
+            scrollViewHeight = view.frame.origin.y + view.frame.size.height;
     }
     [self.scrollView setContentSize:CGSizeMake(0, scrollViewHeight)];
 }
@@ -132,11 +133,14 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
     [self dismissModalViewControllerAnimated:YES];
 }
 
+-(void)viewWillLayoutSubviews {
+    [self.legalLabel sizeToFit];
+    [self calculateAndSetScrollViewHeight];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
-
-    [self calculateAndSetScrollViewHeight];
     
     //get expired deals setting from app delegate
     [self.expiredSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]];
@@ -146,12 +150,20 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
     [self setScrollView:nil];
     [self setDoneButton:nil];
     [self setExpiredSwitch:nil];
+    [self setLegalLabel:nil];
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self.legalLabel sizeToFit];
     [self calculateAndSetScrollViewHeight];
-    
+}
+
+- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.scrollView setContentOffset:CGPointZero animated:NO];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
