@@ -91,6 +91,7 @@
 		CDD72ADC153522F40062C1A8 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACE153522F40062C1A8 /* UIButton+WebCache.m */; };
 		CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */; };
 		CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* DealCell.m */; };
+		CDE9582116DA4D820034C27B /* Licensing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDE9582016DA4D820034C27B /* Licensing.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +222,7 @@
 		CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		CDE37C3E168D6C2300C48DF0 /* DealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealCell.h; sourceTree = "<group>"; };
 		CDE37C3F168D6C2300C48DF0 /* DealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealCell.m; sourceTree = "<group>"; };
+		CDE9582016DA4D820034C27B /* Licensing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Licensing.txt; path = Resources/Licensing.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,8 @@
 		CD2A72C21516B12F003A4394 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
+				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
 				CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */,
 				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
 				CD2A72C71516B12F003A4394 /* main.m */,
@@ -307,8 +311,6 @@
 		CD2A72DE1516B2AD003A4394 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
-				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
-				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
 				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
 				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
@@ -362,12 +364,13 @@
 			isa = PBXGroup;
 			children = (
 				CD69D9731579272A00BBAB50 /* Images */,
-				CDA927B216546BD600A9D006 /* Deal.css */,
 				CDA927B316546BD600A9D006 /* Deal.html */,
+				CDA927B216546BD600A9D006 /* Deal.css */,
 				CDA927B416546BD600A9D006 /* Deal.min.css */,
-				CDA927B516546BD600A9D006 /* Facebook.txt */,
 				CDA927B616546BD600A9D006 /* spin.min.js */,
+				CDA927B516546BD600A9D006 /* Facebook.txt */,
 				CDA927B716546BD600A9D006 /* Tweet.txt */,
+				CDE9582016DA4D820034C27B /* Licensing.txt */,
 				CDB6DABF1564105400BFF2B2 /* README.md */,
 			);
 			name = Resources;
@@ -569,6 +572,7 @@
 				CDA927BA16546BD600A9D006 /* Deal.min.css in Resources */,
 				CDA927BB16546BD600A9D006 /* Facebook.txt in Resources */,
 				CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */,
+				CDE9582116DA4D820034C27B /* Licensing.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

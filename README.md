@@ -10,6 +10,7 @@ http://itunes.com/apps/PasswirdDeals
 
 Current Version: 2.1
 
+- 2.2 Update release approved to the App Store, ?, 2013
 - 2.1 Update release approved to the App Store, February 15, 2013
 - 2.0 Update release approved to the App Store, January 8, 2013
 - 1.9.1 Update release approved to the App Store, September 20, 2012
@@ -19,6 +20,11 @@ Current Version: 2.1
 - 1.6 Update release approved to the App Store, June 8, 2012
 - 1.5 Update release approved to the App Store, May 31, 2012
 - 1.4 Initial release approved to the App Store, May 18, 2012
+
+v2.2
+====
+- 3rd party component licenses added to the About view
+- Consistent text shadowing added to black text on top of gray background colors
 
 v2.1
 ====
