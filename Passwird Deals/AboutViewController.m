@@ -14,7 +14,7 @@
 
 NSString *const aboutEmailAddress = @"p.crager@gmail.com";
 NSString *const aboutPasswirdURL = @"http://passwird.com";
-NSString *const aboutTwitterURL = @"http://twitter.com/mccrager";
+NSString *const aboutGithubURL = @"https://github.com/patch-e/Passwird-Deals";
 NSString *const aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
 NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
 
@@ -37,7 +37,7 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 - (IBAction)donateLink:(id)sender {
     [Flurry logEvent:@"Donate Button"];
     NSURL *url = [NSURL URLWithString:aboutDonateURL];
-    [[UIApplication sharedApplication] openURL:url];    
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (IBAction)emailLink:(id)sender {
@@ -54,9 +54,9 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
     url = nil;
 }
 
-- (IBAction)twitterLink:(id)sender {
+- (IBAction)githubLink:(id)sender {
     [Flurry logEvent:@"Twitter Button"];
-    NSURL *url = [NSURL URLWithString:aboutTwitterURL];
+    NSURL *url = [NSURL URLWithString:aboutGithubURL];
     [[UIApplication sharedApplication] openURL:url];  
 }
 

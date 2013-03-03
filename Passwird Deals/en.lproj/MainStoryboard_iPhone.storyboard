@@ -221,7 +221,7 @@
                                                 <rect key="frame" x="256" y="36" width="44" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" image="twitter.png">
+                                                <state key="normal" image="github.png">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -229,10 +229,10 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="twitterLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="lWQ-ku-gos"/>
+                                                    <action selector="githubLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="cAJ-Lw-7he"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="BAu-8q-Y9T">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="BAu-8q-Y9T">
                                                 <rect key="frame" x="64" y="1" width="59" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -248,7 +248,7 @@
                                                     <action selector="donateLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="RVF-hI-JiS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tat-Rh-ic7">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tat-Rh-ic7">
                                                 <rect key="frame" x="176" y="1" width="80" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -264,12 +264,12 @@
                                                     <action selector="emailLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="0UB-VQ-oD7"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FrQ-Ht-b2W">
-                                                <rect key="frame" x="199" y="39" width="57" height="37"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FrQ-Ht-b2W">
+                                                <rect key="frame" x="176" y="39" width="80" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Twitter">
+                                                <state key="normal" title="Github">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </state>
@@ -277,11 +277,11 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="twitterLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="9N8-FW-vWb"/>
+                                                    <action selector="githubLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="TEd-LX-Scg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="oOg-nN-csv">
-                                                <rect key="frame" x="64" y="39" width="38" height="37"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="oOg-nN-csv">
+                                                <rect key="frame" x="64" y="39" width="59" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -748,11 +748,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <resources>
         <image name="banner.png" width="300" height="80"/>
         <image name="envelope.png" width="24" height="16"/>
+        <image name="github.png" width="25" height="25"/>
         <image name="icon-precomposed.png" width="57" height="57"/>
         <image name="left.png" width="16" height="18"/>
         <image name="right.png" width="16" height="18"/>
         <image name="star.png" width="25" height="24"/>
-        <image name="twitter.png" width="24" height="24"/>
         <image name="usd.png" width="17" height="26"/>
     </resources>
     <classes>

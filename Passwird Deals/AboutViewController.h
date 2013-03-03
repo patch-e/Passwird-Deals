@@ -20,7 +20,7 @@
 - (IBAction)donateLink:(id)sender;
 - (IBAction)emailLink:(id)sender;
 - (IBAction)rateLink:(id)sender;
-- (IBAction)twitterLink:(id)sender;
+- (IBAction)githubLink:(id)sender;
 - (IBAction)passwirdLink:(id)sender;
 
 @end

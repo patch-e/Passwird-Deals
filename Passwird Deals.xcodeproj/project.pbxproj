@@ -26,6 +26,8 @@
 		CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD55DF91156DD82D00CF4D73 /* Appirater.m */; };
 		CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF93156DD84400CF4D73 /* CFNetwork.framework */; };
 		CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */; };
+		CD5B3CE416E2413C004BD9FD /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE216E2413C004BD9FD /* github.png */; };
+		CD5B3CE516E2413C004BD9FD /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE316E2413C004BD9FD /* github@2x.png */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
 		CD7552B516A8F18C002FDAA0 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A016A8F169002FDAA0 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -124,7 +126,9 @@
 		CD55DF93156DD84400CF4D73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CD5A907F15D9C9AC00FF1959 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		CD5A908015D9C9AC00FF1959 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		CD5A908015D9C9AC00FF1959 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = "Passwird Deals/libFlurry.a"; sourceTree = "<group>"; };
+		CD5B3CE216E2413C004BD9FD /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = github.png; path = Resources/Images/github.png; sourceTree = "<group>"; };
+		CD5B3CE316E2413C004BD9FD /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "github@2x.png"; path = "Resources/Images/github@2x.png"; sourceTree = "<group>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD5A908015D9C9AC00FF1959 /* libFlurry.a */,
 				CD7552C016A8F243002FDAA0 /* libz.dylib */,
 				CD7552BE16A8F22B002FDAA0 /* MobileCoreServices.framework */,
 				CDB8FF171589704D0041EE56 /* Social.framework */,
@@ -348,7 +353,6 @@
 				CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */,
 				CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */,
 				CD5A907F15D9C9AC00FF1959 /* Flurry.h */,
-				CD5A908015D9C9AC00FF1959 /* libFlurry.a */,
 				CD779FB8152BDFC900580633 /* MBProgressHUD.h */,
 				CD779FB9152BDFC900580633 /* MBProgressHUD.m */,
 				CD65EACC1529547200102C14 /* GTMNSString+HTML.h */,
@@ -387,6 +391,8 @@
 				CDA9279116546ABE00A9D006 /* blackArrow@2x.png */,
 				CDA9279216546ABE00A9D006 /* envelope.png */,
 				CDA9279316546ABE00A9D006 /* envelope@2x.png */,
+				CD5B3CE216E2413C004BD9FD /* github.png */,
+				CD5B3CE316E2413C004BD9FD /* github@2x.png */,
 				CDA9279416546ABE00A9D006 /* left.png */,
 				CDA9279516546ABE00A9D006 /* left@2x.png */,
 				CDA9279616546ABE00A9D006 /* pdBlackArrow.png */,
@@ -573,6 +579,8 @@
 				CDA927BB16546BD600A9D006 /* Facebook.txt in Resources */,
 				CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */,
 				CDE9582116DA4D820034C27B /* Licensing.txt in Resources */,
+				CD5B3CE416E2413C004BD9FD /* github.png in Resources */,
+				CD5B3CE516E2413C004BD9FD /* github@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
