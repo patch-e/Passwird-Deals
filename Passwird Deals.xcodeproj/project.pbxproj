@@ -28,6 +28,93 @@
 		CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */; };
 		CD5B3CE416E2413C004BD9FD /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE216E2413C004BD9FD /* github.png */; };
 		CD5B3CE516E2413C004BD9FD /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE316E2413C004BD9FD /* github@2x.png */; };
+		CD5B3CE816E5131B004BD9FD /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A016A8F169002FDAA0 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CE916E5131B004BD9FD /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A316A8F169002FDAA0 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CEA16E5131B004BD9FD /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A516A8F169002FDAA0 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CEB16E5131B004BD9FD /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A716A8F169002FDAA0 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CEC16E5131B004BD9FD /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A916A8F169002FDAA0 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CED16E5131B004BD9FD /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552AB16A8F169002FDAA0 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CEE16E5131B004BD9FD /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552AF16A8F169002FDAA0 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CEF16E5131B004BD9FD /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552B116A8F169002FDAA0 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CF016E5131B004BD9FD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552B416A8F169002FDAA0 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CF116E5131B004BD9FD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
+		CD5B3CF216E5131B004BD9FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72C71516B12F003A4394 /* main.m */; };
+		CD5B3CF316E5131B004BD9FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72CB1516B12F003A4394 /* AppDelegate.m */; };
+		CD5B3CF416E5131B004BD9FD /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72D41516B12F003A4394 /* MasterViewController.m */; };
+		CD5B3CF516E5131B004BD9FD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72D71516B12F003A4394 /* DetailViewController.m */; };
+		CD5B3CF616E5131B004BD9FD /* DealData.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2A72E11516B329003A4394 /* DealData.m */; };
+		CD5B3CF716E5131B004BD9FD /* Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B2E78151DF841004A222C /* Extensions.m */; };
+		CD5B3CF816E5131B004BD9FD /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD5B3CF916E5131B004BD9FD /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
+		CD5B3CFA16E5131B004BD9FD /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
+		CD5B3CFB16E5131B004BD9FD /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
+		CD5B3CFC16E5131B004BD9FD /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC9153522F40062C1A8 /* SDWebImageManager.m */; };
+		CD5B3CFD16E5131B004BD9FD /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACC153522F40062C1A8 /* SDWebImagePrefetcher.m */; };
+		CD5B3CFE16E5131B004BD9FD /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACE153522F40062C1A8 /* UIButton+WebCache.m */; };
+		CD5B3CFF16E5131B004BD9FD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */; };
+		CD5B3D0016E5131B004BD9FD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
+		CD5B3D0116E5131B004BD9FD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
+		CD5B3D0216E5131B004BD9FD /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */; };
+		CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD55DF91156DD82D00CF4D73 /* Appirater.m */; };
+		CD5B3D0416E5131B004BD9FD /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
+		CD5B3D0516E5131B004BD9FD /* DealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* DealCell.m */; };
+		CD5B3D0716E5131B004BD9FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552C016A8F243002FDAA0 /* libz.dylib */; };
+		CD5B3D0816E5131B004BD9FD /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
+		CD5B3D0916E5131B004BD9FD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552BE16A8F22B002FDAA0 /* MobileCoreServices.framework */; };
+		CD5B3D0A16E5131B004BD9FD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CD5B3D0B16E5131B004BD9FD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */; };
+		CD5B3D0C16E5131B004BD9FD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF93156DD84400CF4D73 /* CFNetwork.framework */; };
+		CD5B3D0D16E5131B004BD9FD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF86156B36E800CF4D73 /* MessageUI.framework */; };
+		CD5B3D0E16E5131B004BD9FD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
+		CD5B3D0F16E5131B004BD9FD /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD506E96154CFC9400FC2CEC /* Twitter.framework */; };
+		CD5B3D1016E5131B004BD9FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BB1516B12F003A4394 /* UIKit.framework */; };
+		CD5B3D1116E5131B004BD9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BD1516B12F003A4394 /* Foundation.framework */; };
+		CD5B3D1216E5131B004BD9FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */; };
+		CD5B3D1416E5131B004BD9FD /* spin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B616546BD600A9D006 /* spin.min.js */; };
+		CD5B3D1516E5131B004BD9FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72C41516B12F003A4394 /* InfoPlist.strings */; };
+		CD5B3D1616E5131B004BD9FD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */; };
+		CD5B3D1716E5131B004BD9FD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */; };
+		CD5B3D1816E5131B004BD9FD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927701651E55C00A9D006 /* Default-568h@2x.png */; };
+		CD5B3D1916E5131B004BD9FD /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927711651E55C00A9D006 /* Default-Landscape@2x~ipad.png */; };
+		CD5B3D1A16E5131B004BD9FD /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927721651E55C00A9D006 /* Default-Landscape~ipad.png */; };
+		CD5B3D1B16E5131B004BD9FD /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927731651E55C00A9D006 /* Default-Portrait@2x~ipad.png */; };
+		CD5B3D1C16E5131B004BD9FD /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927741651E55C00A9D006 /* Default-Portrait~ipad.png */; };
+		CD5B3D1D16E5131B004BD9FD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927751651E55C00A9D006 /* Default.png */; };
+		CD5B3D1E16E5131B004BD9FD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927761651E55C00A9D006 /* Default@2x.png */; };
+		CD5B3D1F16E5131B004BD9FD /* icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277E1651E66700A9D006 /* icon-precomposed.png */; };
+		CD5B3D2016E5131B004BD9FD /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */; };
+		CD5B3D2116E5131B004BD9FD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927801651E66700A9D006 /* icon.png */; };
+		CD5B3D2216E5131B004BD9FD /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927811651E66800A9D006 /* icon@2x.png */; };
+		CD5B3D2316E5131B004BD9FD /* icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927821651E66800A9D006 /* icon@2x~ipad.png */; };
+		CD5B3D2416E5131B004BD9FD /* icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927831651E66800A9D006 /* icon~ipad.png */; };
+		CD5B3D2516E5131B004BD9FD /* pd-icon-appstore-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */; };
+		CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */; };
+		CD5B3D2716E5131B004BD9FD /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278E16546ABE00A9D006 /* banner.png */; };
+		CD5B3D2816E5131B004BD9FD /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278F16546ABE00A9D006 /* banner@2x.png */; };
+		CD5B3D2916E5131B004BD9FD /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279016546ABE00A9D006 /* blackArrow.png */; };
+		CD5B3D2A16E5131B004BD9FD /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279116546ABE00A9D006 /* blackArrow@2x.png */; };
+		CD5B3D2B16E5131B004BD9FD /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279216546ABE00A9D006 /* envelope.png */; };
+		CD5B3D2C16E5131B004BD9FD /* envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279316546ABE00A9D006 /* envelope@2x.png */; };
+		CD5B3D2D16E5131B004BD9FD /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279416546ABE00A9D006 /* left.png */; };
+		CD5B3D2E16E5131B004BD9FD /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279516546ABE00A9D006 /* left@2x.png */; };
+		CD5B3D2F16E5131B004BD9FD /* pdBlackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279616546ABE00A9D006 /* pdBlackArrow.png */; };
+		CD5B3D3016E5131B004BD9FD /* pdBlackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279716546ABE00A9D006 /* pdBlackArrow@2x.png */; };
+		CD5B3D3116E5131B004BD9FD /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279816546ABE00A9D006 /* right.png */; };
+		CD5B3D3216E5131B004BD9FD /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279916546ABE00A9D006 /* right@2x.png */; };
+		CD5B3D3316E5131B004BD9FD /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279A16546ABE00A9D006 /* star.png */; };
+		CD5B3D3416E5131B004BD9FD /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279B16546ABE00A9D006 /* star@2x.png */; };
+		CD5B3D3516E5131B004BD9FD /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279C16546ABE00A9D006 /* twitter.png */; };
+		CD5B3D3616E5131B004BD9FD /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279D16546ABE00A9D006 /* twitter@2x.png */; };
+		CD5B3D3716E5131B004BD9FD /* usd.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279E16546ABE00A9D006 /* usd.png */; };
+		CD5B3D3816E5131B004BD9FD /* usd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279F16546ABE00A9D006 /* usd@2x.png */; };
+		CD5B3D3916E5131B004BD9FD /* Deal.css in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B216546BD600A9D006 /* Deal.css */; };
+		CD5B3D3A16E5131B004BD9FD /* Deal.html in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B316546BD600A9D006 /* Deal.html */; };
+		CD5B3D3B16E5131B004BD9FD /* Deal.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B416546BD600A9D006 /* Deal.min.css */; };
+		CD5B3D3C16E5131B004BD9FD /* Facebook.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B516546BD600A9D006 /* Facebook.txt */; };
+		CD5B3D3D16E5131B004BD9FD /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B716546BD600A9D006 /* Tweet.txt */; };
+		CD5B3D3E16E5131B004BD9FD /* Licensing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDE9582016DA4D820034C27B /* Licensing.txt */; };
+		CD5B3D3F16E5131B004BD9FD /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE216E2413C004BD9FD /* github.png */; };
+		CD5B3D4016E5131B004BD9FD /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE316E2413C004BD9FD /* github@2x.png */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
 		CD7552B516A8F18C002FDAA0 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A016A8F169002FDAA0 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -129,6 +216,8 @@
 		CD5A908015D9C9AC00FF1959 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = "Passwird Deals/libFlurry.a"; sourceTree = "<group>"; };
 		CD5B3CE216E2413C004BD9FD /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = github.png; path = Resources/Images/github.png; sourceTree = "<group>"; };
 		CD5B3CE316E2413C004BD9FD /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "github@2x.png"; path = "Resources/Images/github@2x.png"; sourceTree = "<group>"; };
+		CD5B3D4416E5131B004BD9FD /* Passwird Deals beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD5B3D4516E5131B004BD9FD /* Passwird Deals beta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Passwird Deals beta-Info.plist"; path = "/Users/patrick/Documents/Passwird Deals/Passwird Deals/Passwird Deals beta-Info.plist"; sourceTree = "<absolute>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -249,6 +338,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD5B3D0616E5131B004BD9FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD5B3D0716E5131B004BD9FD /* libz.dylib in Frameworks */,
+				CD5B3D0816E5131B004BD9FD /* libFlurry.a in Frameworks */,
+				CD5B3D0916E5131B004BD9FD /* MobileCoreServices.framework in Frameworks */,
+				CD5B3D0A16E5131B004BD9FD /* Social.framework in Frameworks */,
+				CD5B3D0B16E5131B004BD9FD /* SystemConfiguration.framework in Frameworks */,
+				CD5B3D0C16E5131B004BD9FD /* CFNetwork.framework in Frameworks */,
+				CD5B3D0D16E5131B004BD9FD /* MessageUI.framework in Frameworks */,
+				CD5B3D0E16E5131B004BD9FD /* QuartzCore.framework in Frameworks */,
+				CD5B3D0F16E5131B004BD9FD /* Twitter.framework in Frameworks */,
+				CD5B3D1016E5131B004BD9FD /* UIKit.framework in Frameworks */,
+				CD5B3D1116E5131B004BD9FD /* Foundation.framework in Frameworks */,
+				CD5B3D1216E5131B004BD9FD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -265,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				CD2A72B71516B12F003A4394 /* Passwird Deals.app */,
+				CD5B3D4416E5131B004BD9FD /* Passwird Deals beta.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -306,6 +415,7 @@
 				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
 				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
 				CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */,
+				CD5B3D4516E5131B004BD9FD /* Passwird Deals beta-Info.plist */,
 				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
 				CD2A72C71516B12F003A4394 /* main.m */,
 				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
@@ -505,6 +615,23 @@
 			productReference = CD2A72B71516B12F003A4394 /* Passwird Deals.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CD5B3CE616E5131B004BD9FD /* Passwird Deals beta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD5B3D4116E5131B004BD9FD /* Build configuration list for PBXNativeTarget "Passwird Deals beta" */;
+			buildPhases = (
+				CD5B3CE716E5131B004BD9FD /* Sources */,
+				CD5B3D0616E5131B004BD9FD /* Frameworks */,
+				CD5B3D1316E5131B004BD9FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Passwird Deals beta";
+			productName = "Passwird Deals";
+			productReference = CD5B3D4416E5131B004BD9FD /* Passwird Deals beta.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -527,6 +654,7 @@
 			projectRoot = "";
 			targets = (
 				CD2A72B61516B12F003A4394 /* Passwird Deals */,
+				CD5B3CE616E5131B004BD9FD /* Passwird Deals beta */,
 			);
 		};
 /* End PBXProject section */
@@ -584,6 +712,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD5B3D1316E5131B004BD9FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD5B3D1416E5131B004BD9FD /* spin.min.js in Resources */,
+				CD5B3D1516E5131B004BD9FD /* InfoPlist.strings in Resources */,
+				CD5B3D1616E5131B004BD9FD /* MainStoryboard_iPhone.storyboard in Resources */,
+				CD5B3D1716E5131B004BD9FD /* MainStoryboard_iPad.storyboard in Resources */,
+				CD5B3D1816E5131B004BD9FD /* Default-568h@2x.png in Resources */,
+				CD5B3D1916E5131B004BD9FD /* Default-Landscape@2x~ipad.png in Resources */,
+				CD5B3D1A16E5131B004BD9FD /* Default-Landscape~ipad.png in Resources */,
+				CD5B3D1B16E5131B004BD9FD /* Default-Portrait@2x~ipad.png in Resources */,
+				CD5B3D1C16E5131B004BD9FD /* Default-Portrait~ipad.png in Resources */,
+				CD5B3D1D16E5131B004BD9FD /* Default.png in Resources */,
+				CD5B3D1E16E5131B004BD9FD /* Default@2x.png in Resources */,
+				CD5B3D1F16E5131B004BD9FD /* icon-precomposed.png in Resources */,
+				CD5B3D2016E5131B004BD9FD /* icon-precomposed@2x.png in Resources */,
+				CD5B3D2116E5131B004BD9FD /* icon.png in Resources */,
+				CD5B3D2216E5131B004BD9FD /* icon@2x.png in Resources */,
+				CD5B3D2316E5131B004BD9FD /* icon@2x~ipad.png in Resources */,
+				CD5B3D2416E5131B004BD9FD /* icon~ipad.png in Resources */,
+				CD5B3D2516E5131B004BD9FD /* pd-icon-appstore-512.png in Resources */,
+				CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */,
+				CD5B3D2716E5131B004BD9FD /* banner.png in Resources */,
+				CD5B3D2816E5131B004BD9FD /* banner@2x.png in Resources */,
+				CD5B3D2916E5131B004BD9FD /* blackArrow.png in Resources */,
+				CD5B3D2A16E5131B004BD9FD /* blackArrow@2x.png in Resources */,
+				CD5B3D2B16E5131B004BD9FD /* envelope.png in Resources */,
+				CD5B3D2C16E5131B004BD9FD /* envelope@2x.png in Resources */,
+				CD5B3D2D16E5131B004BD9FD /* left.png in Resources */,
+				CD5B3D2E16E5131B004BD9FD /* left@2x.png in Resources */,
+				CD5B3D2F16E5131B004BD9FD /* pdBlackArrow.png in Resources */,
+				CD5B3D3016E5131B004BD9FD /* pdBlackArrow@2x.png in Resources */,
+				CD5B3D3116E5131B004BD9FD /* right.png in Resources */,
+				CD5B3D3216E5131B004BD9FD /* right@2x.png in Resources */,
+				CD5B3D3316E5131B004BD9FD /* star.png in Resources */,
+				CD5B3D3416E5131B004BD9FD /* star@2x.png in Resources */,
+				CD5B3D3516E5131B004BD9FD /* twitter.png in Resources */,
+				CD5B3D3616E5131B004BD9FD /* twitter@2x.png in Resources */,
+				CD5B3D3716E5131B004BD9FD /* usd.png in Resources */,
+				CD5B3D3816E5131B004BD9FD /* usd@2x.png in Resources */,
+				CD5B3D3916E5131B004BD9FD /* Deal.css in Resources */,
+				CD5B3D3A16E5131B004BD9FD /* Deal.html in Resources */,
+				CD5B3D3B16E5131B004BD9FD /* Deal.min.css in Resources */,
+				CD5B3D3C16E5131B004BD9FD /* Facebook.txt in Resources */,
+				CD5B3D3D16E5131B004BD9FD /* Tweet.txt in Resources */,
+				CD5B3D3E16E5131B004BD9FD /* Licensing.txt in Resources */,
+				CD5B3D3F16E5131B004BD9FD /* github.png in Resources */,
+				CD5B3D4016E5131B004BD9FD /* github@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -621,6 +801,43 @@
 				CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */,
 				CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */,
 				CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD5B3CE716E5131B004BD9FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD5B3CE816E5131B004BD9FD /* ASIAuthenticationDialog.m in Sources */,
+				CD5B3CE916E5131B004BD9FD /* ASIDataCompressor.m in Sources */,
+				CD5B3CEA16E5131B004BD9FD /* ASIDataDecompressor.m in Sources */,
+				CD5B3CEB16E5131B004BD9FD /* ASIDownloadCache.m in Sources */,
+				CD5B3CEC16E5131B004BD9FD /* ASIFormDataRequest.m in Sources */,
+				CD5B3CED16E5131B004BD9FD /* ASIHTTPRequest.m in Sources */,
+				CD5B3CEE16E5131B004BD9FD /* ASIInputStream.m in Sources */,
+				CD5B3CEF16E5131B004BD9FD /* ASINetworkQueue.m in Sources */,
+				CD5B3CF016E5131B004BD9FD /* Reachability.m in Sources */,
+				CD5B3CF116E5131B004BD9FD /* MBProgressHUD.m in Sources */,
+				CD5B3CF216E5131B004BD9FD /* main.m in Sources */,
+				CD5B3CF316E5131B004BD9FD /* AppDelegate.m in Sources */,
+				CD5B3CF416E5131B004BD9FD /* MasterViewController.m in Sources */,
+				CD5B3CF516E5131B004BD9FD /* DetailViewController.m in Sources */,
+				CD5B3CF616E5131B004BD9FD /* DealData.m in Sources */,
+				CD5B3CF716E5131B004BD9FD /* Extensions.m in Sources */,
+				CD5B3CF816E5131B004BD9FD /* GTMNSString+HTML.m in Sources */,
+				CD5B3CF916E5131B004BD9FD /* SDImageCache.m in Sources */,
+				CD5B3CFA16E5131B004BD9FD /* SDWebImageDecoder.m in Sources */,
+				CD5B3CFB16E5131B004BD9FD /* SDWebImageDownloader.m in Sources */,
+				CD5B3CFC16E5131B004BD9FD /* SDWebImageManager.m in Sources */,
+				CD5B3CFD16E5131B004BD9FD /* SDWebImagePrefetcher.m in Sources */,
+				CD5B3CFE16E5131B004BD9FD /* UIButton+WebCache.m in Sources */,
+				CD5B3CFF16E5131B004BD9FD /* UIImageView+WebCache.m in Sources */,
+				CD5B3D0016E5131B004BD9FD /* SearchViewController.m in Sources */,
+				CD5B3D0116E5131B004BD9FD /* WebViewController.m in Sources */,
+				CD5B3D0216E5131B004BD9FD /* PullToRefreshView.m in Sources */,
+				CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */,
+				CD5B3D0416E5131B004BD9FD /* AboutViewController.m in Sources */,
+				CD5B3D0516E5131B004BD9FD /* DealCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +969,55 @@
 			};
 			name = Release;
 		};
+		CD5B3D4216E5131B004BD9FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
+				INFOPLIST_FILE = "Passwird Deals beta-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Passwird Deals\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "Passwird Deals beta";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CD5B3D4316E5131B004BD9FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
+				INFOPLIST_FILE = "Passwird Deals beta-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Passwird Deals\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "Passwird Deals beta";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -769,6 +1035,15 @@
 			buildConfigurations = (
 				CD2A72DC1516B12F003A4394 /* Debug */,
 				CD2A72DD1516B12F003A4394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD5B3D4116E5131B004BD9FD /* Build configuration list for PBXNativeTarget "Passwird Deals beta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD5B3D4216E5131B004BD9FD /* Debug */,
+				CD5B3D4316E5131B004BD9FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
