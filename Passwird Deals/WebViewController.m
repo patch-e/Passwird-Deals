@@ -32,8 +32,7 @@
         [self presentModalViewController:mailer animated:YES];
         
         mailer = nil;
-    }
-    else {
+    } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"Your device doesn't support composing of emails."
                                                        delegate:nil
