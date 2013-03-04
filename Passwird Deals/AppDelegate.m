@@ -20,8 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 6.0) {
-        [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
+        [application setStatusBarStyle:UIStatusBarStyleDefault];
     }
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {

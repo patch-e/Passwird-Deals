@@ -71,7 +71,7 @@
 	<key>UIStatusBarHidden</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
+	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>
@@ -81,11 +81,11 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.33333333333333331</real>
+				<real>0.3333333333333333</real>
 				<key>Green</key>
-				<real>0.33333333333333331</real>
+				<real>0.3333333333333333</real>
 				<key>Red</key>
-				<real>0.33333333333333331</real>
+				<real>0.3333333333333333</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>
