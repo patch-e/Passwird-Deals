@@ -145,7 +145,13 @@ PullToRefreshView *pull;
     [self.searchButton setEnabled:YES];
 
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-    [pull finishedLoading];
+
+    //send the finished message to the current pull-to-refresh control
+    if ([UIRefreshControl class]) {
+        [self.refreshControl endRefreshing];
+    } else {
+        [pull finishedLoading];
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -158,7 +164,13 @@ PullToRefreshView *pull;
     [alertView show];
     
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-    [pull finishedLoading];
+
+    //send the finished message to the current pull-to-refresh control
+    if ([UIRefreshControl class]) {
+        [self.refreshControl endRefreshing];
+    } else {
+        [pull finishedLoading];
+    }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -194,6 +206,11 @@ PullToRefreshView *pull;
     [self fetchAndParseDataIntoTableView:NO];
 }
 
+- (void)refresh {
+    [Flurry logEvent:@"Pull to Refresh"];
+    [self fetchAndParseDataIntoTableView:NO];
+}
+
 #pragma mark - Managing the About modal view
 
 - (void)showAboutModal:(id)sender {
@@ -222,9 +239,32 @@ PullToRefreshView *pull;
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
-    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
-    [pull setDelegate:self];
-    [self.tableView addSubview:pull];
+    //if the iOS6+ Apple pull-to-refresh class is available, use it
+    //otherwise use the open source PullToRefresh implementation
+    if ([UIRefreshControl class]) {
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        
+        UIColor *bgColor = [UIColor colorWithRed:(171.0/255.0) green:(171.0/255.0) blue:(171.0/255.0) alpha:1.0];
+        
+        //add the refresh control to the table
+        [refreshControl addTarget:self
+                           action:@selector(refresh)
+                 forControlEvents:UIControlEventValueChanged];
+        [refreshControl setTintColor:[UIColor darkGrayColor]];
+        [refreshControl setBackgroundColor:bgColor];
+        [self setRefreshControl:refreshControl];
+
+        //create a colored background view to place behind the refresh control
+        CGRect frame = self.tableView.bounds;
+        frame.origin.y = -frame.size.height;
+        UIView* bgView = [[UIView alloc] initWithFrame:frame];
+        [bgView setBackgroundColor: bgColor];
+        [self.tableView insertSubview:bgView atIndex:0];
+    } else {
+        pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
+        [pull setDelegate:self];
+        [self.tableView addSubview:pull];
+    }
     
     //create the info button and replace the info button on the storyboard, this
     //button will use that modal segue linked from the replaced info button
