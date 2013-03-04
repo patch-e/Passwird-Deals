@@ -67,8 +67,7 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 }
 
 - (void)openMail {
-    if ([MFMailComposeViewController canSendMail])
-    {
+    if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
         [mailer setMailComposeDelegate:self];
@@ -79,9 +78,7 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
         [self presentModalViewController:mailer animated:YES];
         
         mailer = nil;
-    }
-    else
-    {
+    } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                             message:@"Your device doesn't support composing of emails."
                                                            delegate:nil
@@ -138,11 +135,18 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
     [self calculateAndSetScrollViewHeight];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 6.0) {
+        [self.legalLabel setTextAlignment:NSTextAlignmentLeft];
+        [self.legalLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
     
-    //get expired deals setting from app delegate
+    //get expired deals setting from user defaults
     [self.expiredSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]];
 }
 
