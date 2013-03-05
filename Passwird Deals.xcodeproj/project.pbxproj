@@ -115,6 +115,10 @@
 		CD5B3D3E16E5131B004BD9FD /* Licensing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDE9582016DA4D820034C27B /* Licensing.txt */; };
 		CD5B3D3F16E5131B004BD9FD /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE216E2413C004BD9FD /* github.png */; };
 		CD5B3D4016E5131B004BD9FD /* github@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3CE316E2413C004BD9FD /* github@2x.png */; };
+		CD5B3D4816E58FA4004BD9FD /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3D4616E58FA4004BD9FD /* share.png */; };
+		CD5B3D4916E58FA4004BD9FD /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3D4616E58FA4004BD9FD /* share.png */; };
+		CD5B3D4A16E58FA4004BD9FD /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3D4716E58FA4004BD9FD /* share@2x.png */; };
+		CD5B3D4B16E58FA4004BD9FD /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3D4716E58FA4004BD9FD /* share@2x.png */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
 		CD7552B516A8F18C002FDAA0 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A016A8F169002FDAA0 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -218,6 +222,8 @@
 		CD5B3CE316E2413C004BD9FD /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "github@2x.png"; path = "Resources/Images/github@2x.png"; sourceTree = "<group>"; };
 		CD5B3D4416E5131B004BD9FD /* Passwird Deals beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5B3D4516E5131B004BD9FD /* Passwird Deals beta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Passwird Deals beta-Info.plist"; path = "/Users/patrick/Documents/Passwird Deals/Passwird Deals/Passwird Deals beta-Info.plist"; sourceTree = "<absolute>"; };
+		CD5B3D4616E58FA4004BD9FD /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = share.png; path = Resources/Images/share.png; sourceTree = "<group>"; };
+		CD5B3D4716E58FA4004BD9FD /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share@2x.png"; path = "Resources/Images/share@2x.png"; sourceTree = "<group>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -509,6 +515,8 @@
 				CDA9279716546ABE00A9D006 /* pdBlackArrow@2x.png */,
 				CDA9279816546ABE00A9D006 /* right.png */,
 				CDA9279916546ABE00A9D006 /* right@2x.png */,
+				CD5B3D4616E58FA4004BD9FD /* share.png */,
+				CD5B3D4716E58FA4004BD9FD /* share@2x.png */,
 				CDA9279A16546ABE00A9D006 /* star.png */,
 				CDA9279B16546ABE00A9D006 /* star@2x.png */,
 				CDA9279C16546ABE00A9D006 /* twitter.png */,
@@ -709,6 +717,8 @@
 				CDE9582116DA4D820034C27B /* Licensing.txt in Resources */,
 				CD5B3CE416E2413C004BD9FD /* github.png in Resources */,
 				CD5B3CE516E2413C004BD9FD /* github@2x.png in Resources */,
+				CD5B3D4816E58FA4004BD9FD /* share.png in Resources */,
+				CD5B3D4A16E58FA4004BD9FD /* share@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +771,8 @@
 				CD5B3D3E16E5131B004BD9FD /* Licensing.txt in Resources */,
 				CD5B3D3F16E5131B004BD9FD /* github.png in Resources */,
 				CD5B3D4016E5131B004BD9FD /* github@2x.png in Resources */,
+				CD5B3D4916E58FA4004BD9FD /* share.png in Resources */,
+				CD5B3D4B16E58FA4004BD9FD /* share@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
