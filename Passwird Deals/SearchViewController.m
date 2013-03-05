@@ -82,7 +82,9 @@
 - (void)fetchAndParseDataIntoTableView {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [hud setLabelText:@"Loading"];
-    [hud setDimBackground:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [hud setDimBackground:YES];
+    }
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
