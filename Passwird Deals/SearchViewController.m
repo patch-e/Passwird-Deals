@@ -17,8 +17,11 @@
 #import "GTMNSString+HTML.h"
 #import "UIImageView+WebCache.h"
 #import "Flurry.h"
+#import "PullToRefreshView.h"
 
 @implementation SearchViewController
+
+PullToRefreshView *pull;
 
 #pragma mark - Managing the table view
 
@@ -79,65 +82,122 @@
     }
 }
 
-- (void)fetchAndParseDataIntoTableView {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    [hud setLabelText:@"Loading"];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [hud setDimBackground:YES];
+#pragma mark - Managing the asynchronous data download
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [self.responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.responseData appendData:data];
+    
+    NSError *error = nil;
+    id result = [NSJSONSerialization JSONObjectWithData:self.responseData
+                                                options:kNilOptions
+                                                  error:&error];
+    
+    // Build dictionary from JSON at URL
+    NSLog(@"Search input: %@", self.searchBar.text);
+    
+    NSDictionary *searchInputDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           self.searchBar.text,
+                                           @"Query",
+                                           nil];
+    [Flurry logEvent:@"Search" withParameters:searchInputDictionary];
+    searchInputDictionary = nil;
+    
+    NSDictionary *dealsDictionary = result;
+    NSArray *dealsArray = [dealsDictionary objectForKey:@"deals"];
+    NSMutableArray *deals = [NSMutableArray array];
+    
+    [self setSections:[NSMutableDictionary dictionary]];
+    [self.sections setValue:[NSMutableArray array] forKey:@"Search Results"];
+    
+    // Loop through the array of JSON deals and create Deal objects added to a mutable array
+    for (id aDeal in dealsArray) {
+        NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
+        NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
+        NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
+        
+        NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
+        DealData *deal =
+        [[DealData alloc] initWithHeadline:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
+                                      body:[aDeal valueForKey:@"body"]
+                                  imageURL:imageURL
+                                 isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
+                                datePosted:datePosted];
+        
+        [deals addObject:deal];
+        [[self.sections objectForKey:@"Search Results"] addObject:deal];
+    };
+    
+    // Set the created mutable array to the controller's property
+    [self setDeals:deals];
+    [self.tableView reloadData];
+    
+    if ( [self.tableView numberOfRowsInSection:0] == 0 ) {
+        NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
+        [self.sections setObject: [self.sections objectForKey: @"Search Results"] forKey: @"No Results Found"];
+        [self.sections removeObjectForKey: @"Search Results"];
     }
     
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        // Build dictionary from JSON at URL
-        NSLog(@"Search input: %@", self.searchBar.text);
-        
-        NSDictionary *searchInputDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               self.searchBar.text,
-                                               @"Query",
-                                               nil];
-        [Flurry logEvent:@"Search" withParameters:searchInputDictionary];
-        searchInputDictionary = nil;
-        
-        NSDictionary* dealsDictionary = [NSDictionary dictionaryWithContentsOfJSONURLString:[NSString stringWithFormat:@"http://api.mccrager.com/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], [[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]]];
-        
-        NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
-        NSMutableArray *deals = [NSMutableArray array];
-        [self setSections:[NSMutableDictionary dictionary]];
-        
-        [self.sections setValue:[NSMutableArray array] forKey:@"Search Results"];
-        // Loop through the array of JSON deals and create Deal objects added to a mutable array
-        for (id aDeal in dealsArray) {
-            NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
-            NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
-            NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
-            
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
-            
-            NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
-            DealData *deal = 
-            [[DealData alloc] initWithHeadline:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
-                                          body:[aDeal valueForKey:@"body"]
-                                      imageURL:imageURL
-                                     isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
-                                    datePosted:datePosted];
-            
-            [deals addObject:deal];
-            [[self.sections objectForKey:@"Search Results"] addObject:deal];
-        };
-        
-        // Set the created mutable array to the controller's property
-        [self setDeals:deals];
-        [self.tableView reloadData];
-        
-        if ( [self.tableView numberOfRowsInSection:0] == 0 ) {
-            NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
-            [self.sections setObject: [self.sections objectForKey: @"Search Results"] forKey: @"No Results Found"];
-            [self.sections removeObjectForKey: @"Search Results"];
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    
+    //send the finished message to the current pull-to-refresh control
+    if ([UIRefreshControl class]) {
+        [self.refreshControl endRefreshing];
+    } else {
+        [pull finishedLoading];
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"connection error");
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"Could not connect to the remote server at this time."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+    [alertView show];
+    
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    
+    //send the finished message to the current pull-to-refresh control
+    if ([UIRefreshControl class]) {
+        [self.refreshControl endRefreshing];
+    } else {
+        [pull finishedLoading];
+    }
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSLog(@"connection success");
+}
+
+- (void)fetchAndParseDataIntoTableView:(BOOL)showHUD {
+    if ( showHUD ) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        [hud setLabelText:@"Searching"];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+            [hud setDimBackground:YES];
         }
-        
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-    });    
+    }
+    
+    //build the connection for async data downloading, 20 second timeout
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.mccrager.com/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], [[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]]];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    
+    //on good connection, fill responseData, delegate will fire connection:didReceiveData:
+    if ( connection ) {
+        [self setResponseData:[[NSMutableData alloc] init]];
+    } else {
+        NSLog(@"connection failed");
+    }
 }
 
 #pragma mark - Managing the search bar
@@ -149,11 +209,23 @@
     [self setSections:nil];
     [self.tableView reloadData]; 
     
-    [self fetchAndParseDataIntoTableView];
+    [self fetchAndParseDataIntoTableView:YES];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
     [self.searchBar resignFirstResponder];    
+}
+
+#pragma mark - Managing PullToRefresh
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view; {
+    [Flurry logEvent:@"Pull to Refresh"];
+    [self fetchAndParseDataIntoTableView:NO];
+}
+
+- (void)refresh {
+    [Flurry logEvent:@"Pull to Refresh"];
+    [self fetchAndParseDataIntoTableView:NO];
 }
 
 #pragma mark - View lifecycle
@@ -192,10 +264,37 @@
             @try {
                 [(UITextField *)searchBarSubview setKeyboardAppearance:UIKeyboardAppearanceAlert];
             }
-            @catch (NSException * e) {
+            @catch (NSException *e) {
                 // ignore exception
             }
         }
+    }
+    
+    //if the iOS6+ Apple pull-to-refresh class is available, use it
+    //otherwise use the open source PullToRefresh implementation
+    if ([UIRefreshControl class]) {
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        
+        UIColor *bgColor = [UIColor colorWithRed:(171.0/255.0) green:(171.0/255.0) blue:(171.0/255.0) alpha:1.0];
+        
+        //add the refresh control to the table
+        [refreshControl addTarget:self
+                           action:@selector(refresh)
+                 forControlEvents:UIControlEventValueChanged];
+        [refreshControl setTintColor:[UIColor darkGrayColor]];
+        [refreshControl setBackgroundColor:bgColor];
+        [self setRefreshControl:refreshControl];
+        
+        //create a colored background view to place behind the refresh control
+        CGRect frame = self.tableView.bounds;
+        frame.origin.y = -frame.size.height;
+        UIView *bgView = [[UIView alloc] initWithFrame:frame];
+        [bgView setBackgroundColor: bgColor];
+        [self.tableView insertSubview:bgView atIndex:0];
+    } else {
+        pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
+        [pull setDelegate:self];
+        [self.tableView addSubview:pull];
     }
     
     [self.searchBar becomeFirstResponder];

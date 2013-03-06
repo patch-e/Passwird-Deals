@@ -6,14 +6,17 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import "PullToRefreshView.h"
+
 @class DetailViewController;
 
-@interface SearchViewController : UITableViewController <UISearchBarDelegate>
+@interface SearchViewController : UITableViewController <UISearchBarDelegate, PullToRefreshViewDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+@property (strong, nonatomic) NSMutableData *responseData;
 @property (strong, nonatomic) NSMutableArray *deals;
 @property (strong, nonatomic) NSMutableDictionary *sections;
 
