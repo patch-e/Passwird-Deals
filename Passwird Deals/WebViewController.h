@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 
-@property (strong, nonatomic) DealData * detailItem;
+@property (strong, nonatomic) DealData *detailItem;
 @property (strong, nonatomic) NSURL *pushedURL;
 
 @property (weak, nonatomic) UIActionSheet *actionSheet;

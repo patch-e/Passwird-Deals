@@ -74,7 +74,7 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
 	NSLog(@"My token is: %@", deviceToken);
     
-	NSString* formattedToken = [deviceToken description];
+	NSString *formattedToken = [deviceToken description];
 	formattedToken = [formattedToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 	formattedToken = [formattedToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
@@ -118,20 +118,20 @@
 + (void)postResetBadgeCount {
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
-    NSURL* url = [NSURL URLWithString:@"http://api.mccrager.com/ResetBadgeCount"];
+    NSURL *url = [NSURL URLWithString:@"http://api.mccrager.com/ResetBadgeCount"];
     
     NSLog(@"token to reset: '%@'", [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"]);
     
-	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"] forKey:@"token"];
 	[request setDelegate:self];
 	[request startAsynchronous];
 }
 
 + (void)postRegisterDeviceToken:(NSString *)formattedToken {
-	NSURL* url = [NSURL URLWithString:@"http://api.mccrager.com/RegisterDeviceToken"];
+	NSURL *url = [NSURL URLWithString:@"http://api.mccrager.com/RegisterDeviceToken"];
     
-	ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
 	[request setPostValue:formattedToken forKey:@"token"];
 	[request setDelegate:self];

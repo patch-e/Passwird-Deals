@@ -95,13 +95,13 @@ PullToRefreshView *pull;
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.responseData appendData:data];
     
-    NSError* error = nil;
+    NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:self.responseData
                                                 options:kNilOptions
                                                   error:&error];
     
-    NSDictionary* dealsDictionary = result;  
-    NSArray* dealsArray = [dealsDictionary objectForKey:@"deals"];
+    NSDictionary *dealsDictionary = result;
+    NSArray *dealsArray = [dealsDictionary objectForKey:@"deals"];
     NSMutableArray *deals = [NSMutableArray array];
     [self setSections:[NSMutableDictionary dictionary]];
     
@@ -259,7 +259,7 @@ PullToRefreshView *pull;
         //create a colored background view to place behind the refresh control
         CGRect frame = self.tableView.bounds;
         frame.origin.y = -frame.size.height;
-        UIView* bgView = [[UIView alloc] initWithFrame:frame];
+        UIView *bgView = [[UIView alloc] initWithFrame:frame];
         [bgView setBackgroundColor: bgColor];
         [self.tableView insertSubview:bgView atIndex:0];
     } else {

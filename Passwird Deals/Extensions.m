@@ -31,13 +31,13 @@
 @implementation NSDictionary(Extension)
 
 + (NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress {
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlAddress]];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlAddress]];
     
     if (data == nil) {
         return nil;
     }
         
-    NSError* error = nil;
+    NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:data 
                                                 options:kNilOptions error:&error];
     if (error != nil) return nil;
@@ -46,7 +46,7 @@
 }
 
 - (NSData*)toJSON {
-    NSError* error = nil;
+    NSError *error = nil;
     id result = [NSJSONSerialization dataWithJSONObject:self 
                                                 options:kNilOptions 
                                                   error:&error];
