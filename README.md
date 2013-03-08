@@ -6,7 +6,7 @@ Support:
 http://mccrager.com/PasswirdDeals
 
 iTunes:
-http://itunes.com/apps/PasswirdDeals
+http://appstore.com/PasswirdDeals
 
 Current Version: 2.1
 
@@ -25,6 +25,10 @@ v2.2
 ====
 - 3rd party component licenses added to the About view
 - Consistent text shadowing added to black text on top of gray background colors
+- Swapped PullToRefreshView for ISRefreshControl
+- Revamped About view
+- Added Github link to About view
+- Bug fixes
 
 v2.1
 ====
