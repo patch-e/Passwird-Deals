@@ -17,11 +17,9 @@
 #import "GTMNSString+HTML.h"
 #import "UIImageView+WebCache.h"
 #import "Flurry.h"
-#import "PullToRefreshView.h"
+#import "ISRefreshControl.h"
 
 @implementation SearchViewController
-
-PullToRefreshView *pull;
 
 #pragma mark - Managing the table view
 
@@ -147,11 +145,7 @@ PullToRefreshView *pull;
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     
     //send the finished message to the current pull-to-refresh control
-    if ([UIRefreshControl class]) {
-        [self.refreshControl endRefreshing];
-    } else {
-        [pull finishedLoading];
-    }
+    [self.refreshControl endRefreshing];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -166,11 +160,7 @@ PullToRefreshView *pull;
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     
     //send the finished message to the current pull-to-refresh control
-    if ([UIRefreshControl class]) {
-        [self.refreshControl endRefreshing];
-    } else {
-        [pull finishedLoading];
-    }
+    [self.refreshControl endRefreshing];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -217,11 +207,6 @@ PullToRefreshView *pull;
 }
 
 #pragma mark - Managing PullToRefresh
-
-- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view; {
-    [Flurry logEvent:@"Pull to Refresh"];
-    [self fetchAndParseDataIntoTableView:NO];
-}
 
 - (void)refresh {
     [Flurry logEvent:@"Pull to Refresh"];
@@ -270,32 +255,21 @@ PullToRefreshView *pull;
         }
     }
     
-    //if the iOS6+ Apple pull-to-refresh class is available, use it
-    //otherwise use the open source PullToRefresh implementation
-    if ([UIRefreshControl class]) {
-        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-        
-        UIColor *bgColor = [UIColor colorWithRed:(171.0/255.0) green:(171.0/255.0) blue:(171.0/255.0) alpha:1.0];
-        
-        //add the refresh control to the table
-        [refreshControl addTarget:self
-                           action:@selector(refresh)
-                 forControlEvents:UIControlEventValueChanged];
-        [refreshControl setTintColor:[UIColor darkGrayColor]];
-        [refreshControl setBackgroundColor:bgColor];
-        [self setRefreshControl:refreshControl];
-        
-        //create a colored background view to place behind the refresh control
-        CGRect frame = self.tableView.bounds;
-        frame.origin.y = -frame.size.height;
-        UIView *bgView = [[UIView alloc] initWithFrame:frame];
-        [bgView setBackgroundColor: bgColor];
-        [self.tableView insertSubview:bgView atIndex:0];
-    } else {
-        pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
-        [pull setDelegate:self];
-        [self.tableView addSubview:pull];
-    }
+    //ISRefreshControl logic for iOS6 style pull to refresh for both iOS5 and 6
+    UIColor *bgColor = [UIColor colorWithRed:(171.0/255.0) green:(171.0/255.0) blue:(171.0/255.0) alpha:1.0];
+    self.refreshControl = (id)[[ISRefreshControl alloc] init];
+    [self.refreshControl setTintColor:[UIColor darkGrayColor]];
+    [self.refreshControl setBackgroundColor:bgColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(refresh)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    //create a colored background view to place behind the refresh control
+    CGRect frame = self.tableView.bounds;
+    frame.origin.y = -frame.size.height;
+    UIView *bgView = [[UIView alloc] initWithFrame:frame];
+    [bgView setBackgroundColor: bgColor];
+    [self.tableView insertSubview:bgView atIndex:0];
     
     [self.searchBar becomeFirstResponder];
     [self.searchBar setDelegate:self];

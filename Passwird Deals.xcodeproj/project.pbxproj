@@ -133,6 +133,20 @@
 		CD7552BF16A8F22B002FDAA0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552BE16A8F22B002FDAA0 /* MobileCoreServices.framework */; };
 		CD7552C116A8F243002FDAA0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552C016A8F243002FDAA0 /* libz.dylib */; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
+		CD82B1EC16E85684006472EE /* ISRefresgControlIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD82B1E016E85684006472EE /* ISRefresgControlIcon.png */; };
+		CD82B1ED16E85684006472EE /* ISRefresgControlIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD82B1E016E85684006472EE /* ISRefresgControlIcon.png */; };
+		CD82B1EE16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD82B1E116E85684006472EE /* ISRefresgControlIcon@2x.png */; };
+		CD82B1EF16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD82B1E116E85684006472EE /* ISRefresgControlIcon@2x.png */; };
+		CD82B1F016E85684006472EE /* ISGumView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E316E85684006472EE /* ISGumView.m */; };
+		CD82B1F116E85684006472EE /* ISGumView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E316E85684006472EE /* ISGumView.m */; };
+		CD82B1F216E85684006472EE /* ISRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E516E85684006472EE /* ISRefreshControl.m */; };
+		CD82B1F316E85684006472EE /* ISRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E516E85684006472EE /* ISRefreshControl.m */; };
+		CD82B1F416E85684006472EE /* ISUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E716E85684006472EE /* ISUtility.m */; };
+		CD82B1F516E85684006472EE /* ISUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E716E85684006472EE /* ISUtility.m */; };
+		CD82B1F616E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E916E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m */; };
+		CD82B1F716E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1E916E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m */; };
+		CD82B1F816E85684006472EE /* UITableViewController+RefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1EB16E85684006472EE /* UITableViewController+RefreshControl.m */; };
+		CD82B1F916E85684006472EE /* UITableViewController+RefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1EB16E85684006472EE /* UITableViewController+RefreshControl.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
 		CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
 		CDA927771651E55C00A9D006 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927701651E55C00A9D006 /* Default-568h@2x.png */; };
@@ -255,6 +269,18 @@
 		CD7552C016A8F243002FDAA0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CD779FB8152BDFC900580633 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		CD779FB9152BDFC900580633 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		CD82B1E016E85684006472EE /* ISRefresgControlIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ISRefresgControlIcon.png; sourceTree = "<group>"; };
+		CD82B1E116E85684006472EE /* ISRefresgControlIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ISRefresgControlIcon@2x.png"; sourceTree = "<group>"; };
+		CD82B1E216E85684006472EE /* ISGumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISGumView.h; sourceTree = "<group>"; };
+		CD82B1E316E85684006472EE /* ISGumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISGumView.m; sourceTree = "<group>"; };
+		CD82B1E416E85684006472EE /* ISRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRefreshControl.h; sourceTree = "<group>"; };
+		CD82B1E516E85684006472EE /* ISRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISRefreshControl.m; sourceTree = "<group>"; };
+		CD82B1E616E85684006472EE /* ISUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUtility.h; sourceTree = "<group>"; };
+		CD82B1E716E85684006472EE /* ISUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUtility.m; sourceTree = "<group>"; };
+		CD82B1E816E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+ScaleAnimation.h"; sourceTree = "<group>"; };
+		CD82B1E916E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+ScaleAnimation.m"; sourceTree = "<group>"; };
+		CD82B1EA16E85684006472EE /* UITableViewController+RefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+RefreshControl.h"; sourceTree = "<group>"; };
+		CD82B1EB16E85684006472EE /* UITableViewController+RefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+RefreshControl.m"; sourceTree = "<group>"; };
 		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CDA927701651E55C00A9D006 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Images/App Store/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -462,6 +488,7 @@
 		CD2B2E7D1520CF51004A222C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CD82B1DE16E85684006472EE /* ISRefreshControl */,
 				CD7552C216A8F5C5002FDAA0 /* ASIHTTPRequest */,
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
 				CD55DF90156DD82D00CF4D73 /* Appirater.h */,
@@ -576,6 +603,33 @@
 				CD7552B416A8F169002FDAA0 /* Reachability.m */,
 			);
 			name = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		CD82B1DE16E85684006472EE /* ISRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				CD82B1DF16E85684006472EE /* Images */,
+				CD82B1E216E85684006472EE /* ISGumView.h */,
+				CD82B1E316E85684006472EE /* ISGumView.m */,
+				CD82B1E416E85684006472EE /* ISRefreshControl.h */,
+				CD82B1E516E85684006472EE /* ISRefreshControl.m */,
+				CD82B1E616E85684006472EE /* ISUtility.h */,
+				CD82B1E716E85684006472EE /* ISUtility.m */,
+				CD82B1E816E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.h */,
+				CD82B1E916E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m */,
+				CD82B1EA16E85684006472EE /* UITableViewController+RefreshControl.h */,
+				CD82B1EB16E85684006472EE /* UITableViewController+RefreshControl.m */,
+			);
+			path = ISRefreshControl;
+			sourceTree = "<group>";
+		};
+		CD82B1DF16E85684006472EE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CD82B1E016E85684006472EE /* ISRefresgControlIcon.png */,
+				CD82B1E116E85684006472EE /* ISRefresgControlIcon@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		CDD72AB7153522CA0062C1A8 /* SDWebImage */ = {
@@ -719,6 +773,8 @@
 				CD5B3CE516E2413C004BD9FD /* github@2x.png in Resources */,
 				CD5B3D4816E58FA4004BD9FD /* share.png in Resources */,
 				CD5B3D4A16E58FA4004BD9FD /* share@2x.png in Resources */,
+				CD82B1EC16E85684006472EE /* ISRefresgControlIcon.png in Resources */,
+				CD82B1EE16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +829,8 @@
 				CD5B3D4016E5131B004BD9FD /* github@2x.png in Resources */,
 				CD5B3D4916E58FA4004BD9FD /* share.png in Resources */,
 				CD5B3D4B16E58FA4004BD9FD /* share@2x.png in Resources */,
+				CD82B1ED16E85684006472EE /* ISRefresgControlIcon.png in Resources */,
+				CD82B1EF16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +871,11 @@
 				CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */,
 				CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */,
 				CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */,
+				CD82B1F016E85684006472EE /* ISGumView.m in Sources */,
+				CD82B1F216E85684006472EE /* ISRefreshControl.m in Sources */,
+				CD82B1F416E85684006472EE /* ISUtility.m in Sources */,
+				CD82B1F616E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m in Sources */,
+				CD82B1F816E85684006472EE /* UITableViewController+RefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,6 +913,11 @@
 				CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */,
 				CD5B3D0416E5131B004BD9FD /* AboutViewController.m in Sources */,
 				CD5B3D0516E5131B004BD9FD /* DealCell.m in Sources */,
+				CD82B1F116E85684006472EE /* ISGumView.m in Sources */,
+				CD82B1F316E85684006472EE /* ISRefreshControl.m in Sources */,
+				CD82B1F516E85684006472EE /* ISUtility.m in Sources */,
+				CD82B1F716E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m in Sources */,
+				CD82B1F916E85684006472EE /* UITableViewController+RefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

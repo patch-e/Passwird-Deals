@@ -6,11 +6,9 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import "PullToRefreshView.h"
-
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <PullToRefreshViewDelegate>
+@interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
