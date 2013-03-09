@@ -172,9 +172,9 @@
     if ( showHUD ) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         [hud setLabelText:@"Loading"];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            [hud setDimBackground:YES];
-        }
+//        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//            [hud setDimBackground:YES];
+//        }
     }
     
     //build the connection for async data downloading, 20 second timeout
