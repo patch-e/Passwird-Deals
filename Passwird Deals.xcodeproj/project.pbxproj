@@ -54,7 +54,6 @@
 		CD5B3CFF16E5131B004BD9FD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */; };
 		CD5B3D0016E5131B004BD9FD /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
 		CD5B3D0116E5131B004BD9FD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
-		CD5B3D0216E5131B004BD9FD /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */; };
 		CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD55DF91156DD82D00CF4D73 /* Appirater.m */; };
 		CD5B3D0416E5131B004BD9FD /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
 		CD5B3D0516E5131B004BD9FD /* DealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* DealCell.m */; };
@@ -91,14 +90,10 @@
 		CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */; };
 		CD5B3D2716E5131B004BD9FD /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278E16546ABE00A9D006 /* banner.png */; };
 		CD5B3D2816E5131B004BD9FD /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278F16546ABE00A9D006 /* banner@2x.png */; };
-		CD5B3D2916E5131B004BD9FD /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279016546ABE00A9D006 /* blackArrow.png */; };
-		CD5B3D2A16E5131B004BD9FD /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279116546ABE00A9D006 /* blackArrow@2x.png */; };
 		CD5B3D2B16E5131B004BD9FD /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279216546ABE00A9D006 /* envelope.png */; };
 		CD5B3D2C16E5131B004BD9FD /* envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279316546ABE00A9D006 /* envelope@2x.png */; };
 		CD5B3D2D16E5131B004BD9FD /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279416546ABE00A9D006 /* left.png */; };
 		CD5B3D2E16E5131B004BD9FD /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279516546ABE00A9D006 /* left@2x.png */; };
-		CD5B3D2F16E5131B004BD9FD /* pdBlackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279616546ABE00A9D006 /* pdBlackArrow.png */; };
-		CD5B3D3016E5131B004BD9FD /* pdBlackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279716546ABE00A9D006 /* pdBlackArrow@2x.png */; };
 		CD5B3D3116E5131B004BD9FD /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279816546ABE00A9D006 /* right.png */; };
 		CD5B3D3216E5131B004BD9FD /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279916546ABE00A9D006 /* right@2x.png */; };
 		CD5B3D3316E5131B004BD9FD /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279A16546ABE00A9D006 /* star.png */; };
@@ -166,14 +161,10 @@
 		CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */; };
 		CDA927A016546ABE00A9D006 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278E16546ABE00A9D006 /* banner.png */; };
 		CDA927A116546ABE00A9D006 /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278F16546ABE00A9D006 /* banner@2x.png */; };
-		CDA927A216546ABE00A9D006 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279016546ABE00A9D006 /* blackArrow.png */; };
-		CDA927A316546ABE00A9D006 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279116546ABE00A9D006 /* blackArrow@2x.png */; };
 		CDA927A416546ABE00A9D006 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279216546ABE00A9D006 /* envelope.png */; };
 		CDA927A516546ABE00A9D006 /* envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279316546ABE00A9D006 /* envelope@2x.png */; };
 		CDA927A616546ABE00A9D006 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279416546ABE00A9D006 /* left.png */; };
 		CDA927A716546ABE00A9D006 /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279516546ABE00A9D006 /* left@2x.png */; };
-		CDA927A816546ABE00A9D006 /* pdBlackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279616546ABE00A9D006 /* pdBlackArrow.png */; };
-		CDA927A916546ABE00A9D006 /* pdBlackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279716546ABE00A9D006 /* pdBlackArrow@2x.png */; };
 		CDA927AA16546ABE00A9D006 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279816546ABE00A9D006 /* right.png */; };
 		CDA927AB16546ABE00A9D006 /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279916546ABE00A9D006 /* right@2x.png */; };
 		CDA927AC16546ABE00A9D006 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279A16546ABE00A9D006 /* star.png */; };
@@ -188,7 +179,6 @@
 		CDA927BB16546BD600A9D006 /* Facebook.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B516546BD600A9D006 /* Facebook.txt */; };
 		CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B716546BD600A9D006 /* Tweet.txt */; };
 		CDA927BE16546D1600A9D006 /* spin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B616546BD600A9D006 /* spin.min.js */; };
-		CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */; };
 		CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
@@ -300,14 +290,10 @@
 		CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pd-icon-appstore-1024.png"; path = "Resources/Images/App Store/pd-icon-appstore-1024.png"; sourceTree = "<group>"; };
 		CDA9278E16546ABE00A9D006 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = Resources/Images/banner.png; sourceTree = "<group>"; };
 		CDA9278F16546ABE00A9D006 /* banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner@2x.png"; path = "Resources/Images/banner@2x.png"; sourceTree = "<group>"; };
-		CDA9279016546ABE00A9D006 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackArrow.png; path = Resources/Images/blackArrow.png; sourceTree = "<group>"; };
-		CDA9279116546ABE00A9D006 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blackArrow@2x.png"; path = "Resources/Images/blackArrow@2x.png"; sourceTree = "<group>"; };
 		CDA9279216546ABE00A9D006 /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = envelope.png; path = Resources/Images/envelope.png; sourceTree = "<group>"; };
 		CDA9279316546ABE00A9D006 /* envelope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "envelope@2x.png"; path = "Resources/Images/envelope@2x.png"; sourceTree = "<group>"; };
 		CDA9279416546ABE00A9D006 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = Resources/Images/left.png; sourceTree = "<group>"; };
 		CDA9279516546ABE00A9D006 /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "left@2x.png"; path = "Resources/Images/left@2x.png"; sourceTree = "<group>"; };
-		CDA9279616546ABE00A9D006 /* pdBlackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pdBlackArrow.png; path = Resources/Images/pdBlackArrow.png; sourceTree = "<group>"; };
-		CDA9279716546ABE00A9D006 /* pdBlackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pdBlackArrow@2x.png"; path = "Resources/Images/pdBlackArrow@2x.png"; sourceTree = "<group>"; };
 		CDA9279816546ABE00A9D006 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right.png; path = Resources/Images/right.png; sourceTree = "<group>"; };
 		CDA9279916546ABE00A9D006 /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "right@2x.png"; path = "Resources/Images/right@2x.png"; sourceTree = "<group>"; };
 		CDA9279A16546ABE00A9D006 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = Resources/Images/star.png; sourceTree = "<group>"; };
@@ -323,8 +309,6 @@
 		CDA927B616546BD600A9D006 /* spin.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = spin.min.js; path = Resources/spin.min.js; sourceTree = "<group>"; };
 		CDA927B716546BD600A9D006 /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Tweet.txt; path = Resources/Tweet.txt; sourceTree = "<group>"; };
 		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
-		CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDB8FF171589704D0041EE56 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CDD72ABC153522F40062C1A8 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
@@ -493,8 +477,6 @@
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
 				CD55DF90156DD82D00CF4D73 /* Appirater.h */,
 				CD55DF91156DD82D00CF4D73 /* Appirater.m */,
-				CDB6DAD815682F8300BFF2B2 /* PullToRefreshView.h */,
-				CDB6DAD915682F8300BFF2B2 /* PullToRefreshView.m */,
 				CD5A907F15D9C9AC00FF1959 /* Flurry.h */,
 				CD779FB8152BDFC900580633 /* MBProgressHUD.h */,
 				CD779FB9152BDFC900580633 /* MBProgressHUD.m */,
@@ -530,16 +512,12 @@
 				CD69D9741579278500BBAB50 /* App Store */,
 				CDA9278E16546ABE00A9D006 /* banner.png */,
 				CDA9278F16546ABE00A9D006 /* banner@2x.png */,
-				CDA9279016546ABE00A9D006 /* blackArrow.png */,
-				CDA9279116546ABE00A9D006 /* blackArrow@2x.png */,
 				CDA9279216546ABE00A9D006 /* envelope.png */,
 				CDA9279316546ABE00A9D006 /* envelope@2x.png */,
 				CD5B3CE216E2413C004BD9FD /* github.png */,
 				CD5B3CE316E2413C004BD9FD /* github@2x.png */,
 				CDA9279416546ABE00A9D006 /* left.png */,
 				CDA9279516546ABE00A9D006 /* left@2x.png */,
-				CDA9279616546ABE00A9D006 /* pdBlackArrow.png */,
-				CDA9279716546ABE00A9D006 /* pdBlackArrow@2x.png */,
 				CDA9279816546ABE00A9D006 /* right.png */,
 				CDA9279916546ABE00A9D006 /* right@2x.png */,
 				CD5B3D4616E58FA4004BD9FD /* share.png */,
@@ -747,14 +725,10 @@
 				CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */,
 				CDA927A016546ABE00A9D006 /* banner.png in Resources */,
 				CDA927A116546ABE00A9D006 /* banner@2x.png in Resources */,
-				CDA927A216546ABE00A9D006 /* blackArrow.png in Resources */,
-				CDA927A316546ABE00A9D006 /* blackArrow@2x.png in Resources */,
 				CDA927A416546ABE00A9D006 /* envelope.png in Resources */,
 				CDA927A516546ABE00A9D006 /* envelope@2x.png in Resources */,
 				CDA927A616546ABE00A9D006 /* left.png in Resources */,
 				CDA927A716546ABE00A9D006 /* left@2x.png in Resources */,
-				CDA927A816546ABE00A9D006 /* pdBlackArrow.png in Resources */,
-				CDA927A916546ABE00A9D006 /* pdBlackArrow@2x.png in Resources */,
 				CDA927AA16546ABE00A9D006 /* right.png in Resources */,
 				CDA927AB16546ABE00A9D006 /* right@2x.png in Resources */,
 				CDA927AC16546ABE00A9D006 /* star.png in Resources */,
@@ -803,14 +777,10 @@
 				CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */,
 				CD5B3D2716E5131B004BD9FD /* banner.png in Resources */,
 				CD5B3D2816E5131B004BD9FD /* banner@2x.png in Resources */,
-				CD5B3D2916E5131B004BD9FD /* blackArrow.png in Resources */,
-				CD5B3D2A16E5131B004BD9FD /* blackArrow@2x.png in Resources */,
 				CD5B3D2B16E5131B004BD9FD /* envelope.png in Resources */,
 				CD5B3D2C16E5131B004BD9FD /* envelope@2x.png in Resources */,
 				CD5B3D2D16E5131B004BD9FD /* left.png in Resources */,
 				CD5B3D2E16E5131B004BD9FD /* left@2x.png in Resources */,
-				CD5B3D2F16E5131B004BD9FD /* pdBlackArrow.png in Resources */,
-				CD5B3D3016E5131B004BD9FD /* pdBlackArrow@2x.png in Resources */,
 				CD5B3D3116E5131B004BD9FD /* right.png in Resources */,
 				CD5B3D3216E5131B004BD9FD /* right@2x.png in Resources */,
 				CD5B3D3316E5131B004BD9FD /* star.png in Resources */,
@@ -867,7 +837,6 @@
 				CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */,
 				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
 				CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */,
-				CDB6DADA15682F8300BFF2B2 /* PullToRefreshView.m in Sources */,
 				CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */,
 				CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */,
 				CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */,
@@ -909,7 +878,6 @@
 				CD5B3CFF16E5131B004BD9FD /* UIImageView+WebCache.m in Sources */,
 				CD5B3D0016E5131B004BD9FD /* SearchViewController.m in Sources */,
 				CD5B3D0116E5131B004BD9FD /* WebViewController.m in Sources */,
-				CD5B3D0216E5131B004BD9FD /* PullToRefreshView.m in Sources */,
 				CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */,
 				CD5B3D0416E5131B004BD9FD /* AboutViewController.m in Sources */,
 				CD5B3D0516E5131B004BD9FD /* DealCell.m in Sources */,
