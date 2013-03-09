@@ -39,7 +39,7 @@ img {
     font-size: 20px;
     color: #000;
     text-overflow: inherit;
-    text-shadow: rgba(191, 191, 191, 1) 1px 1px 0px;
+    text-shadow: rgb(191, 191, 191) 1px 1px 0px;
     white-space: normal;
     overflow: visible;
 }
@@ -63,7 +63,10 @@ img {
 }
 
 /* CLASSES */
-.expired { color: #cf253b; text-shadow: none; }
+.expired {
+    color: #cf253b;
+    text-shadow: rgba(0, 0, 0, 0.25) 0px 1px 0px;
+}
 .center { text-align: center; }
 
 /* iPad (portrait and landscape) */
