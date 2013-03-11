@@ -269,6 +269,7 @@
     frame.origin.y = -frame.size.height;
     UIView *bgView = [[UIView alloc] initWithFrame:frame];
     [bgView setBackgroundColor: bgColor];
+    [bgView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     [self.tableView insertSubview:bgView atIndex:0];
     
     [self.searchBar becomeFirstResponder];
