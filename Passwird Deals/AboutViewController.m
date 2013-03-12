@@ -36,8 +36,11 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 
 - (IBAction)donateLink:(id)sender {
     [Flurry logEvent:@"Donate Button"];
+    
     NSURL *url = [NSURL URLWithString:aboutDonateURL];
     [[UIApplication sharedApplication] openURL:url];
+    
+    url = nil;
 }
 
 - (IBAction)emailLink:(id)sender {
@@ -56,14 +59,20 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 
 - (IBAction)githubLink:(id)sender {
     [Flurry logEvent:@"Twitter Button"];
+    
     NSURL *url = [NSURL URLWithString:aboutGithubURL];
-    [[UIApplication sharedApplication] openURL:url];  
+    [[UIApplication sharedApplication] openURL:url];
+    
+    url = nil;
 }
 
 - (IBAction)passwirdLink:(id)sender {
     [Flurry logEvent:@"Passwird Button"];
+    
     NSURL *url = [NSURL URLWithString:aboutPasswirdURL];
-    [[UIApplication sharedApplication] openURL:url];  
+    [[UIApplication sharedApplication] openURL:url];
+    
+    url = nil;
 }
 
 - (void)openMail {
