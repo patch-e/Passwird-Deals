@@ -241,10 +241,12 @@
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self.activityIndicator startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self.activityIndicator stopAnimating];
     
     if ([self.webView canGoBack])
@@ -256,6 +258,10 @@
         [self.forwardButton setEnabled:YES];   
     else
         [self.forwardButton setEnabled:NO];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 #pragma mark - View lifecycle
