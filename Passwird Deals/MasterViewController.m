@@ -92,6 +92,27 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSLog(@"connection error");
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"Could not connect to the remote server at this time."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+    [alertView show];
+    
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+
+    //send the finished message to the current pull-to-refresh control
+    [self.refreshControl endRefreshing];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSLog(@"connection success");
     
     NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:self.responseData
@@ -109,7 +130,7 @@
     for (id aDeal in dealsArray) {
         NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
         NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
-        NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset]; 
+        NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
@@ -126,7 +147,7 @@
         }
         
         NSURL *imageURL = [NSURL URLWithString:[aDeal objectForKey:@"image"]];
-        DealData *deal = 
+        DealData *deal =
         [[DealData alloc] initWithHeadline:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
                                       body:[aDeal valueForKey:@"body"]
                                   imageURL:imageURL
@@ -141,30 +162,12 @@
     [self setDeals:deals];
     [self.tableView reloadData];
     [self.searchButton setEnabled:YES];
-
-    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-
-    //send the finished message to the current pull-to-refresh control
-    [self.refreshControl endRefreshing];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"connection error");
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                        message:@"Could not connect to the remote server at this time."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles: nil];
-    [alertView show];
     
     [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-
+    
     //send the finished message to the current pull-to-refresh control
     [self.refreshControl endRefreshing];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"connection success");
+    
     [AppDelegate postResetBadgeCount];
 }
 
@@ -180,15 +183,17 @@
     //build the connection for async data downloading, 20 second timeout
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.mccrager.com/passwird?e=%d", [[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]]];
 
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];                                
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
     //on good connection, fill responseData, delegate will fire connection:didReceiveData:
     if ( connection ) {
         [self setResponseData:[[NSMutableData alloc] init]];
     } else {
-        NSLog(@"connection failed");  
-    }    
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"connection failed");
+    }
 }
 
 #pragma mark - Managing PullToRefresh
