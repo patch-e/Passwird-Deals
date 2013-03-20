@@ -442,8 +442,6 @@
 		CD2A72DE1516B2AD003A4394 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
-				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
-				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
 				CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */,
 				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
@@ -456,6 +454,8 @@
 				CD89BBD5155A10CB00747FD5 /* WebViewController.m */,
 				CD69D958157711C600BBAB50 /* AboutViewController.h */,
 				CD69D959157711C700BBAB50 /* AboutViewController.m */,
+				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
+				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
