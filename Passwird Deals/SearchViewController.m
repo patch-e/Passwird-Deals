@@ -88,6 +88,28 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSLog(@"connection error");
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"Could not connect to the remote server at this time."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+    [alertView show];
+    
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    
+    //send the finished message to the current pull-to-refresh control
+    [self.refreshControl endRefreshing];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSLog(@"connection success");
+    
     
     NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:self.responseData
@@ -137,7 +159,6 @@
     [self.tableView reloadData];
     
     if ( [self.tableView numberOfRowsInSection:0] == 0 ) {
-        NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
         [self.sections setObject: [self.sections objectForKey: @"Search Results"] forKey: @"No Results Found"];
         [self.sections removeObjectForKey: @"Search Results"];
     }
@@ -146,25 +167,6 @@
     
     //send the finished message to the current pull-to-refresh control
     [self.refreshControl endRefreshing];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"connection error");
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                        message:@"Could not connect to the remote server at this time."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles: nil];
-    [alertView show];
-    
-    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-    
-    //send the finished message to the current pull-to-refresh control
-    [self.refreshControl endRefreshing];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"connection success");
 }
 
 - (void)fetchAndParseDataIntoTableView:(BOOL)showHUD {
@@ -179,6 +181,7 @@
     //build the connection for async data downloading, 20 second timeout
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.mccrager.com/passwirdsearch?q=%@&e=%d", [self.searchBar.text urlEncode], [[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]]];
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
@@ -186,6 +189,7 @@
     if ( connection ) {
         [self setResponseData:[[NSMutableData alloc] init]];
     } else {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         NSLog(@"connection failed");
     }
 }
@@ -210,6 +214,7 @@
 
 - (void)refresh {
     [Flurry logEvent:@"Pull to Refresh"];
+    [self.searchBar resignFirstResponder];   
     [self fetchAndParseDataIntoTableView:NO];
 }
 
