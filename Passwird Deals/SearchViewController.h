@@ -6,16 +6,12 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import "PDTableViewController.h"
+
 @class DetailViewController;
 
-@interface SearchViewController : UITableViewController <UISearchBarDelegate>
-
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@interface SearchViewController : PDTableViewController <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
-@property (strong, nonatomic) NSMutableData *responseData;
-@property (strong, nonatomic) NSMutableArray *deals;
-@property (strong, nonatomic) NSMutableDictionary *sections;
 
 @end
