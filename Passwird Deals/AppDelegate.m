@@ -10,11 +10,10 @@
 
 #import "MasterViewController.h"
 
+#import "Constants.h"
 #import "Appirater.h"
-
-#import "Flurry.h"
-
 #import "ASIFormDataRequest.h"
+#import "Flurry.h"
 
 @implementation AppDelegate
 
@@ -57,13 +56,13 @@
     
     [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
     
-    [Appirater setAppId:@"517165629"];
+    [Appirater setAppId:PASSWIRD_APP_ID];
     [Appirater setDaysUntilPrompt:15];
     [Appirater setUsesUntilPrompt:10];
     [Appirater setSignificantEventsUntilPrompt:-1];
     [Appirater setTimeBeforeReminding:2];
     [Appirater appLaunched:YES];
-    //[Appirater setDebug:YES];
+//    [Appirater setDebug:YES];
     
     defaults = nil;
     defaultSettings = nil;
@@ -107,10 +106,10 @@
     }
 }
 
-//- (void)applicationDidBecomeActive:(UIApplication *)application {
-//    [application setApplicationIconBadgeNumber:0];
-//    [AppDelegate postResetBadgeCount];
-//}
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [application setApplicationIconBadgeNumber:0];
+    [AppDelegate postResetBadgeCount];
+}
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [Appirater appEnteredForeground:YES];
@@ -126,7 +125,7 @@
     
     NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
     if ((deviceToken != nil) && (![deviceToken isEqual: @""])) {
-        NSURL *url = [NSURL URLWithString:@"http://api.mccrager.com/ResetBadgeCount"];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/ResetBadgeCount", PASSWIRD_API_URL]];
         
         NSLog(@"token to reset: '%@'", deviceToken);
         
@@ -140,7 +139,7 @@
 }
 
 + (void)postRegisterDeviceToken:(NSString *)formattedToken {
-	NSURL *url = [NSURL URLWithString:@"http://api.mccrager.com/RegisterDeviceToken"];
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/RegisterDeviceToken", PASSWIRD_API_URL]];
     
 	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
@@ -151,7 +150,7 @@
 }
 
 + (void)postUnregisterDeviceToken:(NSString *)formattedToken {
-	NSURL *url = [NSURL URLWithString:@"http://api.mccrager.com/UnregisterDeviceToken"];
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/UnregisterDeviceToken", PASSWIRD_API_URL]];
     
 	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
