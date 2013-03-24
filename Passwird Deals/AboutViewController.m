@@ -8,26 +8,22 @@
 
 #import "AboutViewController.h"
 
+#import "Constants.h"
+#import "MBProgressHUD.h"
 #import "Flurry.h"
 
 @implementation AboutViewController
 
-NSString *const aboutEmailAddress = @"p.crager@gmail.com";
-NSString *const aboutPasswirdURL = @"http://passwird.com";
-NSString *const aboutGithubURL = @"https://github.com/patch-e/Passwird-Deals";
-NSString *const aboutReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
-NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
-
 #pragma mark - Managing the buttons
 
 - (IBAction)saveSettings:(id)sender {
-    [Flurry logEvent:@"Save Settings"];
+    [Flurry logEvent:FLURRY_SAVE];
     
     [[NSUserDefaults standardUserDefaults] setBool:self.expiredSwitch.on forKey:@"showExpiredDeals"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Settings"
-                                                        message:@"Expired deals setting will be applied during the next refresh or search."
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ABOUT_SETTINGS_TITLE
+                                                        message:ABOUT_SETTINGS_MESSAGE
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
@@ -35,41 +31,59 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 }
 
 - (IBAction)donateLink:(id)sender {
-    [Flurry logEvent:@"Donate Button"];
+    [Flurry logEvent:FLURRY_DONATE_BUTTON];
     
-    NSURL *url = [NSURL URLWithString:aboutDonateURL];
+    NSURL *url = [NSURL URLWithString:ABOUT_DONATE_URL];
     [[UIApplication sharedApplication] openURL:url];
     
     url = nil;
 }
 
 - (IBAction)emailLink:(id)sender {
-    [Flurry logEvent:@"Email Button"];
+    [Flurry logEvent:FLURRY_EMAIL_BUTTON];
     [self openMail];
 }
 
 - (IBAction)rateLink:(id)sender {
-    [Flurry logEvent:@"Rate Button"];
+    [Flurry logEvent:FLURRY_RATE_BUTTON];
     
-    NSURL *url = [NSURL URLWithString:aboutReviewURL];
-    [[UIApplication sharedApplication] openURL:url];
-    
-    url = nil;
+    if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) && [SKStoreProductViewController class]) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [hud setLabelText:@"Loading"];
+        
+        NSDictionary *appParameters = [NSDictionary dictionaryWithObject:PASSWIRD_APP_ID
+                                                                  forKey:SKStoreProductParameterITunesItemIdentifier];
+        
+        SKStoreProductViewController *productViewController = [[SKStoreProductViewController alloc] init];
+        [productViewController setDelegate:self];
+        [productViewController loadProductWithParameters:appParameters
+                                         completionBlock:^(BOOL result, NSError *error) {
+                                             [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                             if (result) {
+                                                 [self presentViewController:productViewController animated:YES completion:^{}];
+                                             }
+                                         }];
+    } else {
+        NSURL *url = [NSURL URLWithString:ABOUT_REVIEW_URL];
+        [[UIApplication sharedApplication] openURL:url];
+        
+        url = nil;
+    }
 }
 
 - (IBAction)githubLink:(id)sender {
-    [Flurry logEvent:@"Twitter Button"];
+    [Flurry logEvent:FLURRY_TWITTER_BUTTON];
     
-    NSURL *url = [NSURL URLWithString:aboutGithubURL];
+    NSURL *url = [NSURL URLWithString:ABOUT_GITHUB_URL];
     [[UIApplication sharedApplication] openURL:url];
     
     url = nil;
 }
 
 - (IBAction)passwirdLink:(id)sender {
-    [Flurry logEvent:@"Passwird Button"];
+    [Flurry logEvent:FLURRY_PASSWIRD_BUTTON];
     
-    NSURL *url = [NSURL URLWithString:aboutPasswirdURL];
+    NSURL *url = [NSURL URLWithString:ABOUT_PASSWIRD_URL];
     [[UIApplication sharedApplication] openURL:url];
     
     url = nil;
@@ -81,15 +95,15 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
         
         [mailer setMailComposeDelegate:self];
         [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
-        [mailer setToRecipients:[NSArray arrayWithObject:aboutEmailAddress]];
-        [mailer setSubject:@"Passwird Deals app feedback"];
+        [mailer setToRecipients:[NSArray arrayWithObject:ABOUT_EMAIL_ADDRESS]];
+        [mailer setSubject:EMAIL_SUBJECT_FEEDBACK];
         
         [self presentModalViewController:mailer animated:YES];
         
         mailer = nil;
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                            message:@"Your device doesn't support composing of emails."
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                            message:ERROR_MAIL_SUPPORT
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
@@ -100,26 +114,23 @@ NSString *const aboutDonateURL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_do
 - (void)mailComposeController:(MFMailComposeViewController*)controller 
           didFinishWithResult:(MFMailComposeResult)result 
                         error:(NSError*)error {
-    switch (result) {
-        case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
-            break;
-        case MFMailComposeResultSaved:
-            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
-            break;
-        case MFMailComposeResultSent:
-            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
-            break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
-            break;
-        default:
-            NSLog(@"Mail not sent.");
-            break;
+    if (result) {
+        //error occured sending mail
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                            message:ERROR_MAIL_SEND
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+    } else {
+        // Remove the mail view
+        [self dismissModalViewControllerAnimated:YES];
     }
-    
-    // Remove the mail view
-    [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - Managing the StoreKit view
+-(void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Managing the scroll view

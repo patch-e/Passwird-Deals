@@ -7,8 +7,9 @@
 //
 
 #import <MessageUI/MessageUI.h>
+#import <StoreKit/StoreKit.h>
 
-@interface AboutViewController : UIViewController <UIScrollViewDelegate, MFMailComposeViewControllerDelegate>
+@interface AboutViewController : UIViewController <UIScrollViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
