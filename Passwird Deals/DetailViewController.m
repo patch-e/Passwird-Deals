@@ -11,7 +11,9 @@
 
 #import "DealData.h"
 
+#import "Constants.h"
 #import "Flurry.h"
+
 #import <Twitter/Twitter.h>
 #import <MessageUI/MessageUI.h>
 
@@ -42,15 +44,15 @@
         
         [mailer setMailComposeDelegate:self];
         [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
-        [mailer setSubject:@"Check out this deal on passwird.com"];
+        [mailer setSubject:EMAIL_SUBJECT_SHARE];
         
-        NSString *emailBody = [NSString stringWithFormat:@"<html><body><p>&nbsp;</p><strong>%@</strong><br/><br/><div>%@</div></body></html>", self.detailItem.headline, self.detailItem.body];
+        NSString *emailBody = [NSString stringWithFormat:EMAIL_BODY_SHARE, self.detailItem.headline, self.detailItem.body];
         [mailer setMessageBody:emailBody isHTML:YES];
         
         [self presentModalViewController:mailer animated:YES];
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                            message:@"Your device doesn't support composing of emails."
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                            message:ERROR_MAIL_SUPPORT
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
@@ -61,26 +63,18 @@
 - (void)mailComposeController:(MFMailComposeViewController*)controller 
           didFinishWithResult:(MFMailComposeResult)result 
                         error:(NSError*)error {
-    switch (result) {
-        case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
-            break;
-        case MFMailComposeResultSaved:
-            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
-            break;
-        case MFMailComposeResultSent:
-            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
-            break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
-            break;
-        default:
-            NSLog(@"Mail not sent.");
-            break;
+    if (result) {
+        //error occured sending mail
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                            message:ERROR_MAIL_SEND
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+    } else {
+        // Remove the mail view
+        [self dismissModalViewControllerAnimated:YES];
     }
-    
-    // Remove the mail view
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)tweetDeal {
@@ -113,8 +107,8 @@
         }
     }
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                        message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup in Settings."                                                          
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                        message:ERROR_TWITTER
                                                        delegate:self                                              
                                               cancelButtonTitle:@"OK"                                                   
                                               otherButtonTitles:nil];
@@ -140,8 +134,8 @@
             [self presentViewController:share animated:YES completion:nil];
         }
         else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                                message:@"You can't post to Facebook right now, make sure your device has an internet connection and you have at least one Facebook account setup in Settings."                                                          
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                                message:ERROR_FACEBOOK
                                                                delegate:self                                              
                                                       cancelButtonTitle:@"OK"                                                   
                                                       otherButtonTitles:nil];
@@ -151,7 +145,7 @@
 }
 
 - (IBAction)showActionSheet:(id)sender {
-    [Flurry logEvent:@"Action Sheet"];
+    [Flurry logEvent:FLURRY_ACTION];
  
     if (self.actionSheet == nil) {
         UIActionSheet *sheet;
@@ -190,15 +184,15 @@
     if ([SLComposeViewController class]) {
         switch (buttonIndex) {
             case 0:
-                [Flurry logEvent:@"Post to Facebook"];
+                [Flurry logEvent:FLURRY_FACEBOOK];
                 [self postToFacebook];
                 break;
             case 1:
-                [Flurry logEvent:@"Tweet Deal"];
+                [Flurry logEvent:FLURRY_TWITTER];
                 [self tweetDeal];
                 break;
             case 2:
-                [Flurry logEvent:@"Email Deal"];
+                [Flurry logEvent:FLURRY_EMAIL];
                 [self openMail];
                 break;
             default: //cancel button
@@ -208,11 +202,11 @@
     else {
         switch (buttonIndex) {
             case 0:
-                [Flurry logEvent:@"Tweet Deal"];
+                [Flurry logEvent:FLURRY_TWITTER];
                 [self tweetDeal];
                 break;
             case 1:
-                [Flurry logEvent:@"Email Deal"];
+                [Flurry logEvent:FLURRY_EMAIL];
                 [self openMail];
                 break;
             default: //cancel button
