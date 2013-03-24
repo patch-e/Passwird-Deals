@@ -180,6 +180,11 @@
 		CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B716546BD600A9D006 /* Tweet.txt */; };
 		CDA927BE16546D1600A9D006 /* spin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B616546BD600A9D006 /* spin.min.js */; };
 		CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
+		CDBABD0D16FA63740008A613 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBABD0C16FA63740008A613 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1116FBF1BB0008A613 /* Constants.m */; };
+		CDBABD1316FBF1BB0008A613 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1116FBF1BB0008A613 /* Constants.m */; };
+		CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1516FC616B0008A613 /* PDTableViewController.m */; };
+		CDBABD1716FC616B0008A613 /* PDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1516FC616B0008A613 /* PDTableViewController.m */; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
 		CDD72AD9153522F40062C1A8 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
@@ -311,6 +316,12 @@
 		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDB8FF171589704D0041EE56 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CDBABD0C16FA63740008A613 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CDBABD0F16FA6CAA0008A613 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		CDBABD1016FBF1BB0008A613 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CDBABD1116FBF1BB0008A613 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		CDBABD1416FC616B0008A613 /* PDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDTableViewController.h; sourceTree = "<group>"; };
+		CDBABD1516FC616B0008A613 /* PDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTableViewController.m; sourceTree = "<group>"; };
 		CDD72ABC153522F40062C1A8 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		CDD72ABD153522F40062C1A8 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		CDD72ABE153522F40062C1A8 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -341,6 +352,7 @@
 			files = (
 				CD7552C116A8F243002FDAA0 /* libz.dylib in Frameworks */,
 				CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */,
+				CDBABD0D16FA63740008A613 /* StoreKit.framework in Frameworks */,
 				CD7552BF16A8F22B002FDAA0 /* MobileCoreServices.framework in Frameworks */,
 				CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */,
 				CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */,
@@ -399,6 +411,7 @@
 			children = (
 				CD5A908015D9C9AC00FF1959 /* libFlurry.a */,
 				CD7552C016A8F243002FDAA0 /* libz.dylib */,
+				CDBABD0C16FA63740008A613 /* StoreKit.framework */,
 				CD7552BE16A8F22B002FDAA0 /* MobileCoreServices.framework */,
 				CDB8FF171589704D0041EE56 /* Social.framework */,
 				CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */,
@@ -435,6 +448,8 @@
 				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
 				CD2A72C71516B12F003A4394 /* main.m */,
 				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
+				CDBABD1016FBF1BB0008A613 /* Constants.h */,
+				CDBABD1116FBF1BB0008A613 /* Constants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -456,6 +471,8 @@
 				CD69D959157711C700BBAB50 /* AboutViewController.m */,
 				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
 				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
+				CDBABD1416FC616B0008A613 /* PDTableViewController.h */,
+				CDBABD1516FC616B0008A613 /* PDTableViewController.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -475,6 +492,7 @@
 				CD82B1DE16E85684006472EE /* ISRefreshControl */,
 				CD7552C216A8F5C5002FDAA0 /* ASIHTTPRequest */,
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
+				CDBABD0F16FA6CAA0008A613 /* AppiraterDelegate.h */,
 				CD55DF90156DD82D00CF4D73 /* Appirater.h */,
 				CD55DF91156DD82D00CF4D73 /* Appirater.m */,
 				CD5A907F15D9C9AC00FF1959 /* Flurry.h */,
@@ -845,6 +863,8 @@
 				CD82B1F416E85684006472EE /* ISUtility.m in Sources */,
 				CD82B1F616E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m in Sources */,
 				CD82B1F816E85684006472EE /* UITableViewController+RefreshControl.m in Sources */,
+				CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */,
+				CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,6 +906,8 @@
 				CD82B1F516E85684006472EE /* ISUtility.m in Sources */,
 				CD82B1F716E85684006472EE /* UIActivityIndicatorView+ScaleAnimation.m in Sources */,
 				CD82B1F916E85684006472EE /* UITableViewController+RefreshControl.m in Sources */,
+				CDBABD1316FBF1BB0008A613 /* Constants.m in Sources */,
+				CDBABD1716FC616B0008A613 /* PDTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
