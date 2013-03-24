@@ -2,15 +2,15 @@ Passwird Deals
 ======================
 Unofficial passwird.com iOS app.
 
+App Store:
+http://appstore.com/PasswirdDeals
+
 Support:
 http://mccrager.com/PasswirdDeals
 
-iTunes:
-http://appstore.com/PasswirdDeals
+Current Version: 2.2
 
-Current Version: 2.1
-
-- 2.2 Update release approved to the App Store, ?, 2013
+- 2.2 Update release approved to the App Store, March 17,, 2013
 - 2.1 Update release approved to the App Store, February 15, 2013
 - 2.0 Update release approved to the App Store, January 8, 2013
 - 1.9.1 Update release approved to the App Store, September 20, 2012
@@ -20,6 +20,11 @@ Current Version: 2.1
 - 1.6 Update release approved to the App Store, June 8, 2012
 - 1.5 Update release approved to the App Store, May 31, 2012
 - 1.4 Initial release approved to the App Store, May 18, 2012
+
+v2.3
+====
+- Major code refactoring underneath
+- Search view now puts search results into dated sections
 
 v2.2
 ====
