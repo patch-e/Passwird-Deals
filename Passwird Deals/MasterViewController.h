@@ -8,8 +8,6 @@
 
 #import "PDTableViewController.h"
 
-@class DetailViewController;
-
 @interface MasterViewController : PDTableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;

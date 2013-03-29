@@ -13,6 +13,7 @@
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) NSMutableData *responseData;
 @property (strong, nonatomic) NSMutableDictionary *sections;
+@property (strong, nonatomic) NSSortDescriptor *sortDescriptor;
 
 - (void)createInfoBarButtonItem;
 - (void)createRefreshControls;

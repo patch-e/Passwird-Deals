@@ -8,10 +8,7 @@
 
 #import "PDTableViewController.h"
 
-#import "AppDelegate.h"
-
 #import "DealCell.h"
-#import "DealData.h"
 
 #import "Constants.h"
 #import "UIImageView+WebCache.h"
@@ -37,11 +34,7 @@
     [labelView setTextColor:[UIColor whiteColor]];
     [labelView setShadowColor:[UIColor darkGrayColor]];
     [labelView setShadowOffset:CGSizeMake(0, 1)];
-    
-    NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];    
-    [labelView setText:[[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]] objectAtIndex:section] substringFromIndex:9]];
-//    [labelView setText:[[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section] substringFromIndex:0]];
-//    [labelView setText:[[[self.sections allKeys] objectAtIndex:section] substringFromIndex:0]];
+    [labelView setText:[[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section] substringFromIndex:9]];
     
     [headerView addSubview:labelView];
     
@@ -49,20 +42,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];    
-    return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]] objectAtIndex:section]] count];
-//    return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:section]] count];
-//    return [[self.sections valueForKey:[[self.sections allKeys] objectAtIndex:section]] count];
+    return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section]] count];
 }
 
 - (DealCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Set the deal into the DealCell
     DealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
-    NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];  
-    DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-//    DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-//    DealData *deal = [[self.sections valueForKey:[[self.sections allKeys] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     [cell.textLabel setText:deal.headline];
     [cell.imageView setImageWithURL:deal.imageURL
@@ -86,10 +73,7 @@
         //enable the share button if it isn't already
         [self.detailViewController.shareButton setEnabled:YES];
         
-        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];
-        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-//    DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-//        DealData *deal = [[self.sections valueForKey:[[self.sections allKeys] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
         [self.detailViewController setDetailItem:deal];
     }
@@ -136,10 +120,10 @@
     [self setSections:[NSMutableDictionary dictionary]];
     
     BOOL sectionExists;
-    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
-    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
-    [formatter1 setDateFormat:@"EEEE, MMMM d yyyy"];
-    [formatter2 setDateFormat:@"MMddyyyy"];
+    NSDateFormatter *longFormat = [[NSDateFormatter alloc] init];
+    NSDateFormatter *shortFormat = [[NSDateFormatter alloc] init];
+    [longFormat setDateFormat:@"EEEE, MMMM d yyyy"];
+    [shortFormat setDateFormat:@"MMddyyyy"];
     
     // Loop through the array of JSON deals and create Deal objects added to a mutable array
     for (id aDeal in dealsArray) {
@@ -147,9 +131,9 @@
         NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
         NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset];
         
-        NSString *stringFromDate1 = [formatter1 stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
-        NSString *stringFromDate2 = [formatter2 stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
-        NSString *joinedDates = [NSString stringWithFormat:@"%@,%@", stringFromDate2, stringFromDate1];
+        NSString *stringFromLongDate = [longFormat stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
+        NSString *stringFromShortDate = [shortFormat stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
+        NSString *joinedDates = [NSString stringWithFormat:@"%@,%@", stringFromShortDate, stringFromLongDate];
         
         sectionExists = NO;
         for (NSString *str in [self.sections allKeys]) {
@@ -171,8 +155,8 @@
         
         //clear up
         jsonDateString = nil;
-        stringFromDate1 = nil;
-        stringFromDate2 = nil;
+        stringFromLongDate = nil;
+        stringFromShortDate = nil;
         joinedDates = nil;
         datePosted = nil;
         deal = nil;
@@ -187,8 +171,8 @@
     
     dealsDictionary = nil;
     dealsArray = nil;
-    formatter1 = nil;
-    formatter2 = nil;
+    longFormat = nil;
+    shortFormat = nil;
 }
 
 #pragma mark - Control creation
@@ -227,6 +211,10 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewDidLoad {
+    [self setSortDescriptor:[NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)]];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
@@ -237,12 +225,7 @@
     if ([segue.identifier isEqualToString:@"Detail"]) {
         [self setDetailViewController:segue.destinationViewController];
         
-        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];
-        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-//        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys]
-//                                                       sortedArrayUsingSelector:@selector(compare:)]
-//                                                      objectAtIndex:self.tableView.indexPathForSelectedRow.section]]
-//                          objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
         [self.detailViewController setDetailItem:deal];
     }

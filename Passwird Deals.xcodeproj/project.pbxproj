@@ -185,6 +185,9 @@
 		CDBABD1316FBF1BB0008A613 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1116FBF1BB0008A613 /* Constants.m */; };
 		CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1516FC616B0008A613 /* PDTableViewController.m */; };
 		CDBABD1716FC616B0008A613 /* PDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1516FC616B0008A613 /* PDTableViewController.m */; };
+		CDBABD1B16FFE9FB0008A613 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBABD0C16FA63740008A613 /* StoreKit.framework */; };
+		CDBABD1E16FFEC550008A613 /* PDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1D16FFEC550008A613 /* PDViewController.m */; };
+		CDBABD1F16FFEC550008A613 /* PDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1D16FFEC550008A613 /* PDViewController.m */; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
 		CDD72AD9153522F40062C1A8 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
@@ -322,6 +325,8 @@
 		CDBABD1116FBF1BB0008A613 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		CDBABD1416FC616B0008A613 /* PDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDTableViewController.h; sourceTree = "<group>"; };
 		CDBABD1516FC616B0008A613 /* PDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTableViewController.m; sourceTree = "<group>"; };
+		CDBABD1C16FFEC540008A613 /* PDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDViewController.h; sourceTree = "<group>"; };
+		CDBABD1D16FFEC550008A613 /* PDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDViewController.m; sourceTree = "<group>"; };
 		CDD72ABC153522F40062C1A8 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		CDD72ABD153522F40062C1A8 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		CDD72ABE153522F40062C1A8 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -372,6 +377,7 @@
 			files = (
 				CD5B3D0716E5131B004BD9FD /* libz.dylib in Frameworks */,
 				CD5B3D0816E5131B004BD9FD /* libFlurry.a in Frameworks */,
+				CDBABD1B16FFE9FB0008A613 /* StoreKit.framework in Frameworks */,
 				CD5B3D0916E5131B004BD9FD /* MobileCoreServices.framework in Frameworks */,
 				CD5B3D0A16E5131B004BD9FD /* Social.framework in Frameworks */,
 				CD5B3D0B16E5131B004BD9FD /* SystemConfiguration.framework in Frameworks */,
@@ -461,18 +467,20 @@
 				CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */,
 				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
 				CD2A72D41516B12F003A4394 /* MasterViewController.m */,
-				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
-				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
 				CD418A7B153E653200E02F0D /* SearchViewController.h */,
 				CD418A7C153E653200E02F0D /* SearchViewController.m */,
+				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
+				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
 				CD89BBD4155A10CB00747FD5 /* WebViewController.h */,
 				CD89BBD5155A10CB00747FD5 /* WebViewController.m */,
 				CD69D958157711C600BBAB50 /* AboutViewController.h */,
 				CD69D959157711C700BBAB50 /* AboutViewController.m */,
-				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
-				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 				CDBABD1416FC616B0008A613 /* PDTableViewController.h */,
 				CDBABD1516FC616B0008A613 /* PDTableViewController.m */,
+				CDBABD1C16FFEC540008A613 /* PDViewController.h */,
+				CDBABD1D16FFEC550008A613 /* PDViewController.m */,
+				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
+				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -865,6 +873,7 @@
 				CD82B1F816E85684006472EE /* UITableViewController+RefreshControl.m in Sources */,
 				CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */,
 				CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */,
+				CDBABD1E16FFEC550008A613 /* PDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +917,7 @@
 				CD82B1F916E85684006472EE /* UITableViewController+RefreshControl.m in Sources */,
 				CDBABD1316FBF1BB0008A613 /* Constants.m in Sources */,
 				CDBABD1716FC616B0008A613 /* PDTableViewController.m in Sources */,
+				CDBABD1F16FFEC550008A613 /* PDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

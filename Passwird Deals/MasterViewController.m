@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 
 #import "Constants.h"
-#import "Extensions.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 
@@ -48,7 +47,7 @@
     [AppDelegate postResetBadgeCount];
 }
 
-#pragma mark - Managing PullToRefresh
+#pragma mark - Managing the refresh control
 
 - (void)refresh {
     [Flurry logEvent:FLURRY_REFRESH];
@@ -62,6 +61,15 @@
 }
 
 #pragma mark - View lifecycle
+
+- (void)receivedPushNotification:(NSNotification*)aNotification {
+    [self.navigationController dismissModalViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    [self createConnectionWithHUD:YES];
+    
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,15 +86,6 @@
                                              selector:@selector(receivedPushNotification:)
                                                  name:@"receivedPushNotification"
                                                object:nil];
-}
-
-- (void)receivedPushNotification:(NSNotification*)aNotification {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    
-    [self createConnectionWithHUD:YES];
-    
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 
 - (void)viewDidUnload {

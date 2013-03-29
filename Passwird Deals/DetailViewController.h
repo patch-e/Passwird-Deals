@@ -6,11 +6,13 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import "PDViewController.h"
+
+#import "DealData.h"
+
 #import <MessageUI/MessageUI.h>
 
-@class DealData;
-
-@interface DetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UISplitViewControllerDelegate>
+@interface DetailViewController : PDViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UISplitViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
@@ -21,5 +23,7 @@
 @property (weak, nonatomic) UIActionSheet *actionSheet;
 
 - (IBAction)showActionSheet:(id)sender;
+
+- (void)configureView;
 
 @end

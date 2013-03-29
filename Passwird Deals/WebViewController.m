@@ -8,13 +8,10 @@
 
 #import "WebViewController.h"
 
-#import "DealData.h"
-
 #import "Constants.h"
 #import "Flurry.h"
 
 #import <Twitter/Twitter.h>
-#import <MessageUI/MessageUI.h>
 
 @implementation WebViewController
 
@@ -164,7 +161,7 @@
             [sheet showFromBarButtonItem:sender animated:YES];
         }
         else {
-            [sheet showInView:self.view];
+            [sheet showInView:self.parentViewController.view];
         }
         
         [self setActionSheet:sheet];
@@ -260,6 +257,12 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
@@ -275,21 +278,6 @@
     [self setForwardButton:nil];
     [self setActionSheet:nil];
     [super viewDidUnload];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
-    [self.actionSheet dismissWithClickedButtonIndex:0 animated:NO];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 @end

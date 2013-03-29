@@ -129,7 +129,8 @@
 }
 
 #pragma mark - Managing the StoreKit view
--(void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -150,7 +151,25 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
--(void)viewWillLayoutSubviews {
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self.legalLabel sizeToFit];
+    [self calculateAndSetScrollViewHeight];
+}
+
+- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.scrollView setContentOffset:CGPointZero animated:NO];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
+
+- (void)viewWillLayoutSubviews {
     [self.legalLabel sizeToFit];
     [self calculateAndSetScrollViewHeight];
 }
@@ -176,24 +195,6 @@
     [self setExpiredSwitch:nil];
     [self setLegalLabel:nil];
     [super viewDidUnload];
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self.legalLabel sizeToFit];
-    [self calculateAndSetScrollViewHeight];
-}
-
-- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [self.scrollView setContentOffset:CGPointZero animated:NO];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 @end

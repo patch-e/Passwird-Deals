@@ -6,11 +6,13 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import "PDViewController.h"
+
+#import "DealData.h"
+
 #import <MessageUI/MessageUI.h>
 
-@class DealData;
-
-@interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface WebViewController : PDViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

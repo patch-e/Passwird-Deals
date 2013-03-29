@@ -54,7 +54,7 @@
     [self.searchBar resignFirstResponder];    
 }
 
-#pragma mark - Managing PullToRefresh
+#pragma mark - Managing the refresh control
 
 - (void)refresh {
     [Flurry logEvent:FLURRY_REFRESH];

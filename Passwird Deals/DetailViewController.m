@@ -9,19 +9,10 @@
 #import "DetailViewController.h"
 #import "WebViewController.h"
 
-#import "DealData.h"
-
 #import "Constants.h"
 #import "Flurry.h"
 
 #import <Twitter/Twitter.h>
-#import <MessageUI/MessageUI.h>
-
-@interface DetailViewController ()
-
-- (void)configureView;
-
-@end
 
 @implementation DetailViewController
 
@@ -171,7 +162,7 @@
             [sheet showFromBarButtonItem:sender animated:YES];
         }
         else {
-            [sheet showInView:self.view];
+            [sheet showInView:self.parentViewController.view];
         }
         
         [self setActionSheet:sheet];
@@ -257,6 +248,14 @@
     }
 }
 
+#pragma mark - Managing the split view
+
+- (BOOL)splitViewController:(UISplitViewController *)svc
+   shouldHideViewController:(UIViewController *)vc
+              inOrientation:(UIInterfaceOrientation)orientation {
+    return NO;
+}
+
 #pragma mark - View lifecycle
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -274,6 +273,12 @@
     [self loadDealIntoWebView];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
@@ -286,29 +291,6 @@
     [self setShareButton:nil];
     [self setActionSheet:nil];
     [super viewDidUnload];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
-    [self.actionSheet dismissWithClickedButtonIndex:0 animated:NO];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
-
-#pragma mark - Managing the split view
-
-- (BOOL)splitViewController:(UISplitViewController *)svc
-   shouldHideViewController:(UIViewController *)vc
-              inOrientation:(UIInterfaceOrientation)orientation {
-    return NO;
 }
 
 @end

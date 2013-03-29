@@ -8,8 +8,6 @@
 
 #import "PDTableViewController.h"
 
-@class DetailViewController;
-
 @interface SearchViewController : PDTableViewController <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
