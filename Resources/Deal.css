@@ -53,6 +53,17 @@ img {
     -webkit-border-radius: 8px;
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
+.body ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+    list-style-image: url('bullet.png');
+}
+.body ol {
+    margin-bottom: 0;
+}
+.body li {
+    margin-bottom: 5px;    
+}
 .image {
     min-height: 33px;
 }
