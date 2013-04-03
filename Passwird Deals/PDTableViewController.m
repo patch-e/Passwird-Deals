@@ -53,12 +53,16 @@
     
     [cell.textLabel setText:deal.headline];
     [cell.imageView setImageWithURL:deal.imageURL
-                   placeholderImage:[UIImage imageNamed:@"icon.png"]];
+                   placeholderImage:[UIImage imageNamed:@"icon-precomposed.png"]];
     
     if ( !deal.isExpired )
         [cell.detailTextLabel setText:nil];
     else
         [cell.detailTextLabel setText:@"(expired)"];
+    
+    UIView *selectedBgView = [[UIView alloc] init];
+    [selectedBgView setBackgroundColor:[UIColor colorWithRed:(0.0/255.0) green:(72.0/255.0) blue:(117.0/255.0) alpha:1.0]];
+    [cell setSelectedBackgroundView:selectedBgView];
     
     return cell;
 }
@@ -181,7 +185,7 @@
     //ISRefreshControl logic for iOS6 style pull to refresh for both iOS5 and 6
     UIColor *bgColor = [UIColor colorWithRed:(171.0/255.0) green:(171.0/255.0) blue:(171.0/255.0) alpha:1.0];
     self.refreshControl = (id)[[ISRefreshControl alloc] init];
-    [self.refreshControl setTintColor:[UIColor darkGrayColor]];
+    [self.refreshControl setTintColor:[UIColor colorWithRed:(0.0/255.0) green:(72.0/255.0) blue:(117.0/255.0) alpha:1.0]];
     [self.refreshControl setBackgroundColor:bgColor];
     [self.refreshControl addTarget:self
                             action:@selector(refresh)
