@@ -1,62 +1,62 @@
 /* ELEMENTS */
 body {
     background-color: #ababab;
+    color: #303030;
     font-family: Helvetica;
     margin: 0px;
     padding-bottom: 5px;
 }
 a {
-    color: #cf253b;
-    -webkit-tap-highlight-color: rgba(203, 13, 38, 0.5);
+    color: #004875;
+    font-weight: bold;
     text-decoration: none;
+    -webkit-tap-highlight-color: rgba(203, 13, 38, 0.5);
 }
 img { 
-    min-width: 50px; 
-    min-height: 25px;
-    position: relative; 
-    z-index: 1;
-    top: -25;
     margin-bottom: -25px;
+    min-width: 50px;
+    min-height: 25px;
     padding-bottom: 5px;
+    position: relative;
+    top: -25;
+    z-index: 1;    
 }
 
 /* LAYOUT */
 .date {
-    padding: 3px 12px 0px 12px;
-    height: 19px;
-    /*border-top: 1px solid #A4B0B9;
-    border-bottom: 1px solid #979DA3;*/
     background-image: -webkit-gradient(linear, left top, left bottom, from(#cf253b), to(#cf253b));
+    color: #fff;
     font-size: 15px;
     font-weight: bold;
-    color: #fff;
+    height: 19px;
     line-height: 15px;
+    padding: 3px 12px 0px 12px;
     text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 0px;
 }
 .headline {
     clear: both;
+    color: #303030;
+    font-size: 20px;    
     margin: 10px 0px 0px 0px;
+    overflow: visible;
     padding: 0px 10px;
-    font-size: 20px;
-    color: #000;
     text-overflow: inherit;
     text-shadow: rgb(191, 191, 191) 1px 1px 0px;
     white-space: normal;
-    overflow: visible;
 }
 .body {
     background-color: #fff;
     border: 1px solid #ADAAAD;
     margin: 15px;
+    font-size: 16px;    
     padding: 8px;
-    font-size: 16px;
     -webkit-border-radius: 8px;
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 .body ul {
+    list-style-image: url('bullet.png');    
     padding-left: 20px;
     margin-bottom: 0;
-    list-style-image: url('bullet.png');
 }
 .body ol {
     margin-bottom: 0;
@@ -68,10 +68,10 @@ img {
     min-height: 33px;
 }
 .spinner {
-    margin: 0px auto;
-    width: 25px;
     height: 25px;
+    margin: 0px auto;
     margin-top: 5px;
+    width: 25px;    
 }
 
 /* CLASSES */
@@ -89,17 +89,17 @@ img {
     .body {
         font-size: 24px;
     }
-    img { 
+    img {
+        margin-bottom: -50px;         
         min-width: 100px; 
         min-height: 50px;
         top: -50;
-        margin-bottom: -50px; 
     }    
     .image {
         min-height: 58px;
     }    
     .spinner {
+        height: 50px;        
         width: 50px;
-        height: 50px;
     }
 }
