@@ -1,6 +1,13 @@
 Passwird Deals
-======================
-Unofficial passwird.com iOS app.
+====
+Passwird Deals is the unofficial iOS app for passwird.com. Get this app for easy browsing of deals on the go and instant up-to-date deal notifications!
+
+- Browse the great deals posted to the front page of passwird.com
+- Search for deals
+- Share deals via email or to your followers on Twitter and Facebook
+- Subscribe to push notifications to get new deals delivered to your device and never miss a hot deal again
+
+Deals on electronics, household items, online deals, brick & mortar deals, and other shopping deals are all available through this app. Free stuff and coupons are frequently available too!
 
 App Store:
 http://appstore.com/PasswirdDeals
@@ -8,26 +15,21 @@ http://appstore.com/PasswirdDeals
 Support:
 http://mccrager.com/PasswirdDeals
 
-Current Version: 2.2
 
-- 2.2 Update release approved to the App Store, March 17,, 2013
-- 2.1 Update release approved to the App Store, February 15, 2013
-- 2.0 Update release approved to the App Store, January 8, 2013
-- 1.9.1 Update release approved to the App Store, September 20, 2012
-- 1.9 Update release approved to the App Store, August 30, 2012
-- 1.8 Update release approved to the App Store, July 20, 2012
-- 1.7 Update release approved to the App Store, July 5, 2012
-- 1.6 Update release approved to the App Store, June 8, 2012
-- 1.5 Update release approved to the App Store, May 31, 2012
-- 1.4 Initial release approved to the App Store, May 18, 2012
-
-v2.3
+v2.3 (under development)
 ====
-- Major code refactoring underneath
-- Search view now puts search results into dated sections
+- Major refactoring under the covers, code re-use throughout
+- Search results are now sectioned by date rather than dumped into a single section
+- StoreKit integration in Appirater and About view
+- Minor graphic updates, added use of the blue color from passwird.com as an accent color
+- Deal detail view styling changes, including new bullet graphic for list items, bolded and re-colored all links
+- Revised push token tracking
+- Bug fixes
+
 
 v2.2
 ====
+Release approved to the App Store, March 17, 2013
 - 3rd party component licenses added to the About view
 - Consistent text shadowing added to black text on top of gray background colors
 - Swapped PullToRefreshView for ISRefreshControl
@@ -35,44 +37,60 @@ v2.2
 - Added Github link to About view
 - Bug fixes
 
+
 v2.1
 ====
+Release approved to the App Store, February 15, 2013
 - Push notifications
+
 
 v2.0
 ====
+Release approved to the App Store, January 8, 2013
 - Deal thumbnails are no longer stretched disproportionately with SDWebImage library
 - Redesigned color scheme and graphics
 - Bug fixes
 
+
 v1.9.1
 ====
+Release approved to the App Store, September 20, 2012
 - iPhone 5 Retina 4" screen support
 - Facebook sharing on iOS 6
 
+
 v1.9
 ====
+Release approved to the App Store, August 30, 2012
 - Changed UIActionSheet on detail and web views to be popover on iPad
 - Memory leak plugs
 - Added Flurry app analytics
 
+
 v1.8
 ====
+Release approved to the App Store, July 20, 2012
 - Fixed a bug that limited the app to only iOS 5.1 users, iOS 5.0 couldn't download or update to the new version
 - Added a toggle to the About page to allow the ability to toggle "expired" deals
 
+
 v1.7
 ====
+Release approved to the App Store, July 5, 2012
 - iPad support
+
 
 v1.6
 ====
+Release approved to the App Store, June 8, 2012
 - Increased the cell prototype's size to show more of the deal headline and a larger thumbnail
 - Changed the image loading indicator to use spin.js
 - Add "About" modal view for support, donations, and to credit passwird.com and owner, Irwin
 
+
 v1.5
 ====
+Release approved to the App Store, May 31, 2012
 - Added pull to refresh functionality to the main table view, removed refresh button
 - Added "Email Deal" action to the action sheets
 - Bug fixed for searching where >1 search term should crash the app
@@ -81,12 +99,8 @@ v1.5
 - Main view changed to download JSON data asynchronously, the search view still downloads synchronously, but there isn't a need to change it there. Pull to refresh should be asynchronous so that the view isn't blocked from being able to dragged.
 - Appirater app review plugin implemented into the app
 
+
 v1.4
 ====
+Release approved to the App Store, May 18, 2012
 - Initial release
-
-
-Future enhancements:
-====================
-- v? Update API once passwird.com gets redesigned
-- v? Complete visual redesign for the new.passwird.com
