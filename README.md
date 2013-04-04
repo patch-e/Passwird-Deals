@@ -1,4 +1,4 @@
-Passwird Deals
+Passwird Deals iOS
 ====
 Passwird Deals is the unofficial iOS app for passwird.com. Get this app for easy browsing of deals on the go and instant up-to-date deal notifications!
 
@@ -14,6 +14,9 @@ http://appstore.com/PasswirdDeals
 
 Support:
 http://mccrager.com/PasswirdDeals
+
+Frequently Asked Questions:
+https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
 v2.3 (under development)
