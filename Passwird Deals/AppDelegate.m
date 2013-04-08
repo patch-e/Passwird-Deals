@@ -10,6 +10,7 @@
 
 #import "MasterViewController.h"
 
+#import "Extensions.h"
 #import "Constants.h"
 #import "Appirater.h"
 #import "ASIFormDataRequest.h"
@@ -18,24 +19,23 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) {
-        [application setStatusBarStyle:UIStatusBarStyleDefault];
-    }
+    //override point for customization after application launch.
+    [self customizeAppearance];
     
+    //iPad controller settings
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
-    // Performance caching settings 
+    //performance caching settings 
     int cacheSizeMemory = 4*1024*1024; // 4MB
     int cacheSizeDisk = 32*1024*1024; // 32MB
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
     [NSURLCache setSharedURLCache:sharedCache];
 
-    // Let the device know we want to receive push notifications
+    //let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
 //    not currently using this, but could in the future
@@ -46,7 +46,7 @@
 //		}
 //    }
     
-    // Settings defaults
+    //settings defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *defaultSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                      [NSNumber numberWithBool:NO],  @"showExpiredDeals",
@@ -66,8 +66,27 @@
     
     defaults = nil;
     defaultSettings = nil;
+//    titleTextAttributes = nil;
     
     return YES;
+}
+
+- (void)customizeAppearance {
+    //custom appearance settings for UIKit items
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor pdLightGrayColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+    [[UINavigationBar appearanceWhenContainedIn:[SKStoreProductViewController class], nil] setTintColor:[UIColor pdDarkGrayColor]];
+    
+    [[UIToolbar appearance] setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setTintColor:[UIColor pdLightGrayColor]];
+    [[UIToolbar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+    
+    [[UISearchBar appearance] setBackgroundImage:[[UIImage alloc] init]];
+    [[UISearchBar appearance] setTintColor:[UIColor pdLightGrayColor]];
+    [[UISearchBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+    
+    [[UIActionSheet appearance] setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
