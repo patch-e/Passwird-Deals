@@ -49,7 +49,7 @@
                                   destructiveButtonTitle:nil
                                        otherButtonTitles:@"Tweet Deal", @"Email Deal", nil];
         }
-
+        
         [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
         
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -114,7 +114,8 @@
 - (void)loadDealIntoWebView {    
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        [self.navigationItem setTitle:@"Deal"];
+        [self.navigationItem setTitle:@"deal"];
+        [self.navigationController.navigationBar layoutSubviews];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"EEEE, MMMM d yyyy"];
