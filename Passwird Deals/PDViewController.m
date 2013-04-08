@@ -23,7 +23,7 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
         [mailer setMailComposeDelegate:self];
-        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
+//        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setSubject:EMAIL_SUBJECT_SHARE];
         
         NSString *emailBody = [NSString stringWithFormat:EMAIL_BODY_SHARE, headline, body];

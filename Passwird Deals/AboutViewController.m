@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
+#import "Extensions.h"
 
 @implementation AboutViewController
 
@@ -94,7 +95,7 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
         [mailer setMailComposeDelegate:self];
-        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
+//        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setToRecipients:[NSArray arrayWithObject:ABOUT_EMAIL_ADDRESS]];
         [mailer setSubject:EMAIL_SUBJECT_FEEDBACK];
         
@@ -179,6 +180,8 @@
         [self.legalLabel setTextAlignment:NSTextAlignmentLeft];
         [self.legalLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
     }
+    
+    [self.appNameLabel setFont:[UIFont fontWithName:@"Amelia" size:24]];
 }
 
 - (void)viewDidLoad {
@@ -194,6 +197,7 @@
     [self setDoneButton:nil];
     [self setExpiredSwitch:nil];
     [self setLegalLabel:nil];
+    [self setAppNameLabel:nil];
     [super viewDidUnload];
 }
 

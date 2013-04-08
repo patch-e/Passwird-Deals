@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UISwitch *expiredSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *legalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 
 - (IBAction)saveSettings:(id)sender;
 - (IBAction)dismissView:(id)sender;
