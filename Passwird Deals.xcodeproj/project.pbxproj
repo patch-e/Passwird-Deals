@@ -114,6 +114,10 @@
 		CD5B3D4916E58FA4004BD9FD /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3D4616E58FA4004BD9FD /* share.png */; };
 		CD5B3D4A16E58FA4004BD9FD /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3D4716E58FA4004BD9FD /* share@2x.png */; };
 		CD5B3D4B16E58FA4004BD9FD /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5B3D4716E58FA4004BD9FD /* share@2x.png */; };
+		CD5E8AF1171108D2000CCC04 /* PDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */; };
+		CD5E8AF2171108D2000CCC04 /* PDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */; };
+		CD5E8AF417110CFC000CCC04 /* Amelia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD5E8AF317110CFC000CCC04 /* Amelia.ttf */; };
+		CD5E8AF517110CFC000CCC04 /* Amelia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD5E8AF317110CFC000CCC04 /* Amelia.ttf */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
 		CD7552B516A8F18C002FDAA0 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7552A016A8F169002FDAA0 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -235,9 +239,11 @@
 		CD5B3CE216E2413C004BD9FD /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = github.png; path = Resources/Images/github.png; sourceTree = "<group>"; };
 		CD5B3CE316E2413C004BD9FD /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "github@2x.png"; path = "Resources/Images/github@2x.png"; sourceTree = "<group>"; };
 		CD5B3D4416E5131B004BD9FD /* Passwird Deals beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD5B3D4516E5131B004BD9FD /* Passwird Deals beta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Passwird Deals beta-Info.plist"; path = "/Users/patrick/Documents/Passwird Deals/Passwird Deals/Passwird Deals beta-Info.plist"; sourceTree = "<absolute>"; };
 		CD5B3D4616E58FA4004BD9FD /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = share.png; path = Resources/Images/share.png; sourceTree = "<group>"; };
 		CD5B3D4716E58FA4004BD9FD /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share@2x.png"; path = "Resources/Images/share@2x.png"; sourceTree = "<group>"; };
+		CD5E8AEF171108D2000CCC04 /* PDNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDNavigationBar.h; sourceTree = "<group>"; };
+		CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDNavigationBar.m; sourceTree = "<group>"; };
+		CD5E8AF317110CFC000CCC04 /* Amelia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Amelia.ttf; path = Resources/Amelia.ttf; sourceTree = "<group>"; };
 		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 		CD82B1EB16E85684006472EE /* UITableViewController+RefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+RefreshControl.m"; sourceTree = "<group>"; };
 		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		CD8EAA89170D0DE000BB9807 /* Passwird Deals beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Passwird Deals beta-Info.plist"; sourceTree = "<group>"; };
 		CDA927701651E55C00A9D006 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Images/App Store/Default-568h@2x.png"; sourceTree = "<group>"; };
 		CDA927711651E55C00A9D006 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "Resources/Images/App Store/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		CDA927721651E55C00A9D006 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Images/App Store/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -453,7 +460,7 @@
 				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
 				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
 				CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */,
-				CD5B3D4516E5131B004BD9FD /* Passwird Deals beta-Info.plist */,
+				CD8EAA89170D0DE000BB9807 /* Passwird Deals beta-Info.plist */,
 				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
 				CD2A72C71516B12F003A4394 /* main.m */,
 				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
@@ -482,6 +489,8 @@
 				CDBABD1516FC616B0008A613 /* PDTableViewController.m */,
 				CDBABD1C16FFEC540008A613 /* PDViewController.h */,
 				CDBABD1D16FFEC550008A613 /* PDViewController.m */,
+				CD5E8AEF171108D2000CCC04 /* PDNavigationBar.h */,
+				CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */,
 				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
 				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
 			);
@@ -522,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				CD69D9731579272A00BBAB50 /* Images */,
+				CD5E8AF317110CFC000CCC04 /* Amelia.ttf */,
 				CDA927B316546BD600A9D006 /* Deal.html */,
 				CDA927B216546BD600A9D006 /* Deal.css */,
 				CDA927B416546BD600A9D006 /* Deal.min.css */,
@@ -780,6 +790,7 @@
 				CD82B1EC16E85684006472EE /* ISRefresgControlIcon.png in Resources */,
 				CD82B1EE16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */,
 				CDC21B0D170679EA00C144B4 /* bullet.png in Resources */,
+				CD5E8AF417110CFC000CCC04 /* Amelia.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +844,7 @@
 				CD82B1ED16E85684006472EE /* ISRefresgControlIcon.png in Resources */,
 				CD82B1EF16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */,
 				CDC21B0E170679EA00C144B4 /* bullet.png in Resources */,
+				CD5E8AF517110CFC000CCC04 /* Amelia.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,6 +892,7 @@
 				CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */,
 				CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */,
 				CDBABD1E16FFEC550008A613 /* PDViewController.m in Sources */,
+				CD5E8AF1171108D2000CCC04 /* PDNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,6 +937,7 @@
 				CDBABD1316FBF1BB0008A613 /* Constants.m in Sources */,
 				CDBABD1716FC616B0008A613 /* PDTableViewController.m in Sources */,
 				CDBABD1F16FFEC550008A613 /* PDViewController.m in Sources */,
+				CD5E8AF2171108D2000CCC04 /* PDNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,7 +1076,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
-				INFOPLIST_FILE = "Passwird Deals beta-Info.plist";
+				INFOPLIST_FILE = "Passwird Deals/Passwird Deals beta-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1086,7 +1100,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
-				INFOPLIST_FILE = "Passwird Deals beta-Info.plist";
+				INFOPLIST_FILE = "Passwird Deals/Passwird Deals beta-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
