@@ -55,9 +55,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>23.2</string>
+	<string>23.3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Amelia.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
@@ -81,11 +85,11 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.3333333333333333</real>
+				<real>0.33333333333333331</real>
 				<key>Green</key>
-				<real>0.3333333333333333</real>
+				<real>0.33333333333333331</real>
 				<key>Red</key>
-				<real>0.3333333333333333</real>
+				<real>0.33333333333333331</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>
@@ -103,10 +107,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Amelia.ttf</string>
 	</array>
 </dict>
 </plist>
