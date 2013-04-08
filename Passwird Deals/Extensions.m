@@ -69,3 +69,42 @@
 }
 
 @end
+
+@implementation UIColor (colors)
+
++ (UIColor *)pdRedColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [[UIColor alloc] initWithRed:(202.0/255.0) green:(13.0/255.0) blue:(38.0/255.0) alpha:0.90];
+    return color;
+}
+
++ (UIColor *)pdBlueColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [[UIColor alloc] initWithRed:(0.0/255.0) green:(72.0/255.0) blue:(117.0/255.0) alpha:1.0];
+    return color;
+}
+
++ (UIColor *)pdLightGrayColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [[UIColor alloc] initWithRed:(170.0/255.0) green:(170.0/255.0) blue:(170.0/255.0) alpha:1.0];
+    return color;
+}
+
++ (UIColor *)pdDarkGrayColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [[UIColor alloc] initWithRed:(85.0/255.0) green:(85.0/255.0) blue:(85.0/255.0) alpha:1.0];
+    return color;
+}
+
++ (UIColor *)pdOffWhiteColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [[UIColor alloc] initWithRed:(230.0/255.0) green:(230.0/255.0) blue:(230.0/255.0) alpha:1.0];
+    return color;
+}
+
+@end

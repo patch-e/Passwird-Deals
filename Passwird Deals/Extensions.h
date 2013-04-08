@@ -14,13 +14,23 @@
 
 @interface NSDictionary(Extension)
 
-+(NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress;
--(NSData*)toJSON;
++ (NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress;
+- (NSData*)toJSON;
 
 @end
 
 @interface NSString(Extension)
 
--(NSString *)urlEncode;
+- (NSString *)urlEncode;
+
+@end
+
+@interface UIColor(Extension)
+
++ (UIColor *)pdRedColor;
++ (UIColor *)pdBlueColor;
++ (UIColor *)pdLightGrayColor;
++ (UIColor *)pdDarkGrayColor;
++ (UIColor *)pdOffWhiteColor;
 
 @end
