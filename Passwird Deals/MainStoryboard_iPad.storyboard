@@ -87,7 +87,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="mGI-dz-n6X" detailTextLabel="6pF-fG-6BO" imageView="ptc-h0-UlZ" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="YN7-Gd-VHv" customClass="DealCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="mGI-dz-n6X" detailTextLabel="6pF-fG-6BO" imageView="ptc-h0-UlZ" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="YN7-Gd-VHv" customClass="PDTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -686,7 +686,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="y6a-pB-AgT" detailTextLabel="2Ob-yP-Tdx" imageView="ER3-9K-DU3" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="lVW-MZ-Dfn" customClass="DealCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="y6a-pB-AgT" detailTextLabel="2Ob-yP-Tdx" imageView="ER3-9K-DU3" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="lVW-MZ-Dfn" customClass="PDTableViewCell">
                                 <rect key="frame" x="0.0" y="66" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -831,9 +831,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
-        <class className="DealCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DealCell.h"/>
-        </class>
         <class className="DetailViewController" superclassName="PDViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
@@ -850,6 +847,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         </class>
         <class className="PDNavigationBar" superclassName="UINavigationBar">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PDNavigationBar.h"/>
+        </class>
+        <class className="PDTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PDTableViewCell.h"/>
         </class>
         <class className="PDTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PDTableViewController.h"/>

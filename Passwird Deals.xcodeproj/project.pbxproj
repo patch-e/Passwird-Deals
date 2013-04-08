@@ -56,7 +56,7 @@
 		CD5B3D0116E5131B004BD9FD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
 		CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD55DF91156DD82D00CF4D73 /* Appirater.m */; };
 		CD5B3D0416E5131B004BD9FD /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* AboutViewController.m */; };
-		CD5B3D0516E5131B004BD9FD /* DealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* DealCell.m */; };
+		CD5B3D0516E5131B004BD9FD /* PDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* PDTableViewCell.m */; };
 		CD5B3D0716E5131B004BD9FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552C016A8F243002FDAA0 /* libz.dylib */; };
 		CD5B3D0816E5131B004BD9FD /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
 		CD5B3D0916E5131B004BD9FD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552BE16A8F22B002FDAA0 /* MobileCoreServices.framework */; };
@@ -201,7 +201,7 @@
 		CDD72ADB153522F40062C1A8 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACC153522F40062C1A8 /* SDWebImagePrefetcher.m */; };
 		CDD72ADC153522F40062C1A8 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ACE153522F40062C1A8 /* UIButton+WebCache.m */; };
 		CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */; };
-		CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* DealCell.m */; };
+		CDE37C40168D6C2300C48DF0 /* PDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* PDTableViewCell.m */; };
 		CDE9582116DA4D820034C27B /* Licensing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDE9582016DA4D820034C27B /* Licensing.txt */; };
 /* End PBXBuildFile section */
 
@@ -355,8 +355,8 @@
 		CDD72ACE153522F40062C1A8 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		CDD72ACF153522F40062C1A8 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		CDD72AD0153522F40062C1A8 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		CDE37C3E168D6C2300C48DF0 /* DealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealCell.h; sourceTree = "<group>"; };
-		CDE37C3F168D6C2300C48DF0 /* DealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealCell.m; sourceTree = "<group>"; };
+		CDE37C3E168D6C2300C48DF0 /* PDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDTableViewCell.h; sourceTree = "<group>"; };
+		CDE37C3F168D6C2300C48DF0 /* PDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTableViewCell.m; sourceTree = "<group>"; };
 		CDE9582016DA4D820034C27B /* Licensing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Licensing.txt; path = Resources/Licensing.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -491,8 +491,8 @@
 				CDBABD1D16FFEC550008A613 /* PDViewController.m */,
 				CD5E8AEF171108D2000CCC04 /* PDNavigationBar.h */,
 				CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */,
-				CDE37C3E168D6C2300C48DF0 /* DealCell.h */,
-				CDE37C3F168D6C2300C48DF0 /* DealCell.m */,
+				CDE37C3E168D6C2300C48DF0 /* PDTableViewCell.h */,
+				CDE37C3F168D6C2300C48DF0 /* PDTableViewCell.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -883,7 +883,7 @@
 				CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */,
 				CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */,
 				CD69D95A157711C700BBAB50 /* AboutViewController.m in Sources */,
-				CDE37C40168D6C2300C48DF0 /* DealCell.m in Sources */,
+				CDE37C40168D6C2300C48DF0 /* PDTableViewCell.m in Sources */,
 				CD82B1F016E85684006472EE /* ISGumView.m in Sources */,
 				CD82B1F216E85684006472EE /* ISRefreshControl.m in Sources */,
 				CD82B1F416E85684006472EE /* ISUtility.m in Sources */,
@@ -928,7 +928,7 @@
 				CD5B3D0116E5131B004BD9FD /* WebViewController.m in Sources */,
 				CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */,
 				CD5B3D0416E5131B004BD9FD /* AboutViewController.m in Sources */,
-				CD5B3D0516E5131B004BD9FD /* DealCell.m in Sources */,
+				CD5B3D0516E5131B004BD9FD /* PDTableViewCell.m in Sources */,
 				CD82B1F116E85684006472EE /* ISGumView.m in Sources */,
 				CD82B1F316E85684006472EE /* ISRefreshControl.m in Sources */,
 				CD82B1F516E85684006472EE /* ISUtility.m in Sources */,

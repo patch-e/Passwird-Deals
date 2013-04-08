@@ -8,7 +8,7 @@
 
 #import "PDTableViewController.h"
 
-#import "DealCell.h"
+#import "PDTableViewCell.h"
 
 #import "Extensions.h"
 #import "Constants.h"
@@ -46,9 +46,9 @@
     return [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section]] count];
 }
 
-- (DealCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Set the deal into the DealCell
-    DealCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
+- (PDTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Set the deal into the PDTableViewCell
+    PDTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
     
     DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
