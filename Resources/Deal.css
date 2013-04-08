@@ -1,16 +1,20 @@
 /* ELEMENTS */
+html {
+    -webkit-text-size-adjust: none;
+}
 body {
     background-color: #ababab;
     color: #303030;
     font-family: Helvetica;
     margin: 0px;
-    padding-bottom: 5px;
+    padding: 19px 0 5px 0;
 }
 a {
     color: #004875;
     font-weight: bold;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(203, 13, 38, 0.5);
+    -webkit-tap-highlight-color: rgba(0, 72, 117, 0.5);
+    /*-webkit-tap-highlight-color: rgba(203, 13, 38, 0.5);*/
 }
 img { 
     margin-bottom: -25px;
@@ -26,12 +30,17 @@ img {
 .date {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#cf253b), to(#cf253b));
     color: #fff;
-    font-size: 15px;
+    font-size: 15.2px;
     font-weight: bold;
     height: 19px;
     line-height: 15px;
     padding: 3px 12px 0px 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
     text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 0px;
+    width: 100%;
+    z-index: 100;
 }
 .headline {
     clear: both;
@@ -47,7 +56,7 @@ img {
 .body {
     background-color: #fff;
     border: 1px solid #ADAAAD;
-    margin: 15px;
+    margin: 15px 20px;
     font-size: 16px;    
     padding: 8px;
     -webkit-border-radius: 8px;
@@ -64,6 +73,12 @@ img {
 .body li {
     margin-bottom: 5px;    
 }
+
+/* CLASSES */
+.expired {
+    color: #cf253b;
+    text-shadow: rgba(0, 0, 0, 0.25) 0px 1px 0px;
+}
 .image {
     min-height: 33px;
 }
@@ -71,15 +86,11 @@ img {
     height: 25px;
     margin: 0px auto;
     margin-top: 5px;
-    width: 25px;    
+    width: 25px;
 }
-
-/* CLASSES */
-.expired {
-    color: #cf253b;
-    text-shadow: rgba(0, 0, 0, 0.25) 0px 1px 0px;
+.center {
+    text-align: center;
 }
-.center { text-align: center; }
 
 /* iPad (portrait and landscape) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
