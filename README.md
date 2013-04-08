@@ -27,7 +27,7 @@ v2.3 (under development)
 - Major refactoring under the covers, code re-use throughout
 - Search results are now sectioned by date rather than dumped into a single section
 - StoreKit integration in Appirater and About view
-- Minor graphic updates, added use of the blue color from passwird.com as an accent color
+- Major graphic/design updates, added use of the blue color from passwird.com as an accent color, and custom UINavigationBar titleView
 - Deal detail view styling changes, including new bullet graphic for list items, bolded and re-colored all links
 - Revised push token tracking
 - Bug fixes
