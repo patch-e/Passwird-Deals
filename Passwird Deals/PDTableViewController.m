@@ -10,6 +10,7 @@
 
 #import "DealCell.h"
 
+#import "Extensions.h"
 #import "Constants.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
@@ -26,7 +27,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
-    [headerView setBackgroundColor:[UIColor colorWithRed:202.0/255.0 green:13.0/255.0 blue:38.0/255.0 alpha:0.90]];
+    [headerView setBackgroundColor:[UIColor pdRedColor]];
     
     UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, tableView.bounds.size.width, 20)];
     [labelView setBackgroundColor:[UIColor clearColor]];
@@ -61,7 +62,7 @@
         [cell.detailTextLabel setText:@"(expired)"];
     
     UIView *selectedBgView = [[UIView alloc] init];
-    [selectedBgView setBackgroundColor:[UIColor colorWithRed:(0.0/255.0) green:(72.0/255.0) blue:(117.0/255.0) alpha:1.0]];
+    [selectedBgView setBackgroundColor:[UIColor pdBlueColor]];
     [cell setSelectedBackgroundView:selectedBgView];
     
     return cell;
@@ -183,9 +184,9 @@
 
 - (void)createRefreshControls {
     //ISRefreshControl logic for iOS6 style pull to refresh for both iOS5 and 6
-    UIColor *bgColor = [UIColor colorWithRed:(171.0/255.0) green:(171.0/255.0) blue:(171.0/255.0) alpha:1.0];
+    UIColor *bgColor = [UIColor pdLightGrayColor];
     self.refreshControl = (id)[[ISRefreshControl alloc] init];
-    [self.refreshControl setTintColor:[UIColor colorWithRed:(0.0/255.0) green:(72.0/255.0) blue:(117.0/255.0) alpha:1.0]];
+    [self.refreshControl setTintColor:[UIColor pdDarkGrayColor]];
     [self.refreshControl setBackgroundColor:bgColor];
     [self.refreshControl addTarget:self
                             action:@selector(refresh)
@@ -203,9 +204,9 @@
 - (void)createInfoBarButtonItem {
     //create the info button and replace the info button on the storyboard, this
     //button will use that modal segue linked from the replaced info button
-    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
-    [infoButton setTintColor:[UIColor darkGrayColor]];
-    [infoButton setFrame:CGRectMake(-10, -10, 56, 56)];
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton setTintColor:[UIColor pdLightGrayColor]];
+    [infoButton setFrame:CGRectMake(0, 0, 44, 44)];
     [infoButton addTarget:self
                    action:@selector(showAboutModal:)
          forControlEvents:UIControlEventTouchUpInside];
