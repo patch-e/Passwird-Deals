@@ -66,28 +66,25 @@
     
     defaults = nil;
     defaultSettings = nil;
-//    titleTextAttributes = nil;
     
     return YES;
 }
 
-- (void)customizeAppearance {
-    //custom appearance settings for UIKit items
-    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTintColor:[UIColor pdLightGrayColor]];
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
-    [[UINavigationBar appearanceWhenContainedIn:[SKStoreProductViewController class], nil] setTintColor:[UIColor pdDarkGrayColor]];
-    
-    [[UIToolbar appearance] setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
-    [[UIToolbar appearance] setTintColor:[UIColor pdLightGrayColor]];
-    [[UIToolbar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
-    
-    [[UISearchBar appearance] setBackgroundImage:[[UIImage alloc] init]];
-    [[UISearchBar appearance] setTintColor:[UIColor pdLightGrayColor]];
-    [[UISearchBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
-    
-    [[UIActionSheet appearance] setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [application setApplicationIconBadgeNumber:0];
+    [AppDelegate postResetBadgeCount];
 }
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [Appirater appEnteredForeground:YES];
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    //clear UIWebView cache
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
+#pragma mark - Notifications
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
 	NSLog(@"My token is: %@", deviceToken);
@@ -99,7 +96,7 @@
     UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
     if (types == UIRemoteNotificationTypeNone) {
         [AppDelegate postUnregisterDeviceToken:formattedToken];
-        //[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"deviceToken"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"deviceToken"];
     } else {
         [AppDelegate postRegisterDeviceToken:formattedToken];
         [[NSUserDefaults standardUserDefaults] setObject:formattedToken forKey:@"deviceToken"];
@@ -123,20 +120,6 @@
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"receivedPushNotification" object:nil userInfo:userInfo];
     }
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [application setApplicationIconBadgeNumber:0];
-    [AppDelegate postResetBadgeCount];
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [Appirater appEnteredForeground:YES];
-}
-
-- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
-    //clear UIWebView cache
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 + (void)postResetBadgeCount {
@@ -177,6 +160,26 @@
 	[request setDelegate:self];
     
 	[request startAsynchronous];
+}
+
+#pragma mark - Customizations
+
+- (void)customizeAppearance {
+    //custom appearance settings for UIKit items
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor pdLightGrayColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+    [[UINavigationBar appearanceWhenContainedIn:[SKStoreProductViewController class], nil] setTintColor:[UIColor pdDarkGrayColor]];
+    
+    [[UIToolbar appearance] setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setTintColor:[UIColor pdLightGrayColor]];
+    [[UIToolbar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+    
+    [[UISearchBar appearance] setBackgroundImage:[[UIImage alloc] init]];
+    [[UISearchBar appearance] setTintColor:[UIColor pdLightGrayColor]];
+    [[UISearchBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+    
+    [[UIActionSheet appearance] setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
 }
 
 @end
