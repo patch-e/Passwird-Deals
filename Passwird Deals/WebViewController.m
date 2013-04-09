@@ -9,6 +9,7 @@
 #import "WebViewController.h"
 
 #import "Constants.h"
+#import "MBProgressHUD.h"
 #import "Flurry.h"
 
 #import <Twitter/Twitter.h>
@@ -20,6 +21,13 @@
 - (void)copyURL {
     NSURL *currentURL = [self.webView.request URL];
     [[UIPasteboard generalPasteboard] setString: [currentURL absoluteString]];
+    
+    //show copied HUD message for 2 seconds
+    NSTimeInterval theTimeInterval = 2;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud setMode:MBProgressHUDModeText];
+    [hud setLabelText:@"URL Copied!"];
+    [hud hide:YES afterDelay:theTimeInterval];
 }
 
 - (void)openInSafari {
