@@ -29,8 +29,9 @@ v2.3 (under development)
 - StoreKit integration in Appirater and About view
 - Major graphic/design updates, added use of the blue color from passwird.com as an accent color, and custom UINavigationBar titleView
 - Deal detail view styling changes, including new bullet graphic for list items, bolded and re-colored all links
-- Revised push token tracking
-- Bug fixes
+- Copy URL action now provides visual feedback that the URL was copied to the clipboard
+- Revised push notifications
+- Bug fixes and performance enhancements
 
 
 v2.2
