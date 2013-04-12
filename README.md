@@ -22,7 +22,7 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
-v2.3 (under development)
+v3.0 (under development)
 ====
 - Major refactoring under the covers, code re-use throughout
 - Search results are now sectioned by date rather than dumped into a single section
