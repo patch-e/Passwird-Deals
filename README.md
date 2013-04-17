@@ -22,12 +22,13 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
-v3.0 (under development)
+v3.0
 ====
+Release approved to the App Store, April 17, 2013
 - Major refactoring under the covers, code re-use throughout
 - Search results are now sectioned by date rather than dumped into a single section
-- StoreKit integration in Appirater and About view
-- Major graphic/design updates, added use of the blue color from passwird.com as an accent color, and custom UINavigationBar titleView
+- StoreKit integration in Appirater (iPhone only) and About view
+- Major graphic/design updates, added use of the blue color from passwird.com as an accent color, and custom UINavigationBar titleView with passwird's Amelia font
 - Deal detail view styling changes, including new bullet graphic for list items, bolded and re-colored all links
 - Copy URL action now provides visual feedback that the URL was copied to the clipboard
 - Revised push notifications
