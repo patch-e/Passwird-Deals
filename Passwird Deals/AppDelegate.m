@@ -38,13 +38,20 @@
     //let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
-//    not currently using this, but could in the future
-//    if (launchOptions != nil) {
-//		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-//		if (dictionary != nil) {
-//			NSLog(@"Launched from push notification: %@", dictionary);
-//		}
-//    }
+    //handle notification tap while app isn't running
+    if (launchOptions != nil) {
+		NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+		if (userInfo != nil) {
+			NSLog(@"Launched from push notification: %@", userInfo);
+            
+            UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+            DetailViewController* detailVc = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+            [detailVc setDetailId:[(NSNumber*)[userInfo objectForKey:@"id"] intValue]];
+            
+            UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+            [navController.visibleViewController.navigationController pushViewController:detailVc animated:YES];
+		}
+    }
     
     //settings defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

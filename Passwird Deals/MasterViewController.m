@@ -63,12 +63,20 @@
 #pragma mark - View lifecycle
 
 - (void)receivedPushNotification:(NSNotification*)aNotification {
-    [self.navigationController dismissModalViewControllerAnimated:YES];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [self.navigationController dismissModalViewControllerAnimated:NO];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//    
+//    [self createConnectionWithHUD:YES];
+//    
+//    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+
+    [self.navigationController dismissModalViewControllerAnimated:NO];
     
-    [self createConnectionWithHUD:YES];
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    DetailViewController* detailVc = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+    [detailVc setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
     
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 - (void)viewDidLoad {

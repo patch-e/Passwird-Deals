@@ -10,11 +10,99 @@
 #import "WebViewController.h"
 
 #import "Constants.h"
+#import "MBProgressHUD.h"
+#import "GTMNSString+HTML.h"
 #import "Flurry.h"
 
 #import <Twitter/Twitter.h>
 
 @implementation DetailViewController
+
+#pragma mark - Managing the asynchronous data download
+
+- (void)createConnectionWithHUD:(BOOL)showHUD {
+    if ( showHUD ) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [hud setLabelText:@"Loading"];
+    }
+    
+    //build the connection for async data downloading, 20 second timeout
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/passwirddeal?id=%d", PASSWIRD_API_URL, self.detailId]];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    
+    //on good connection, fill responseData, delegate will fire connection:didReceiveData:
+    if ( connection ) {
+        [self setResponseData:[[NSMutableData alloc] init]];
+    } else {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"connection failed");
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [self.responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSLog(@"connection error");
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                        message:ERROR_MESSAGE
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+    [alertView show];
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSLog(@"connection success");
+    
+    NSError *error = nil;
+    id result = [NSJSONSerialization JSONObjectWithData:self.responseData
+                                                options:kNilOptions
+                                                  error:&error];
+    
+    NSDictionary *dealsDictionary = result;
+    NSArray *dealsArray = [dealsDictionary objectForKey:@"deals"];
+        
+    // Loop through the array of JSON deals and create Deal objects added to a mutable array
+    for (id aDeal in dealsArray) {
+        NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
+        NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
+        NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset];
+        
+        DealData *deal =
+        [[DealData alloc] initWithHeadline:[[aDeal valueForKey:@"headline"] gtm_stringByUnescapingFromHTML]
+                                      body:[aDeal valueForKey:@"body"]
+                                  imageURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]
+                                 isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
+                                datePosted:datePosted];
+        
+        [self setDetailItem:deal];
+        
+        //clean up
+        jsonDateString = nil;
+        datePosted = nil;
+        deal = nil;
+    };
+    
+    [self configureView];
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+    dealsDictionary = nil;
+    dealsArray = nil;
+}
 
 #pragma mark - Managing the detail item
 
@@ -111,7 +199,7 @@
     return YES; 
 }
 
-- (void)loadDealIntoWebView {    
+- (void)loadDealIntoWebView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
         [self.navigationItem setTitle:@"deal"];
@@ -178,7 +266,11 @@
     [super viewDidLoad];
     [Flurry logPageView];
     
-    [self configureView];
+    if (self.detailItem == nil) {
+        [self createConnectionWithHUD:YES];
+    } else {
+        [self configureView];
+    }
 }
 
 - (void)viewDidUnload {

@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) DealData *detailItem;
 @property (strong, nonatomic) NSURL *selectedURL;
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (assign, nonatomic) NSUInteger detailId;
 
 @property (weak, nonatomic) UIActionSheet *actionSheet;
 

@@ -158,7 +158,7 @@
 
         [[self.sections objectForKey:joinedDates] addObject:deal];
         
-        //clear up
+        //clean up
         jsonDateString = nil;
         stringFromLongDate = nil;
         stringFromShortDate = nil;

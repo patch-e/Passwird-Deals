@@ -22,6 +22,21 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
+v3.2
+====
+Release approved to the App Store, ?, 2013
+- Tap/swipe deal push notifications to go directly to deal details
+- Visual tweaks
+- Bug fixes
+- Important note: the next release will require iOS 7 for future compatibility, it will not be available until after iOS 7 has been officially released
+
+
+v3.1
+====
+Release approved to the App Store, May 3, 2013
+- Bug fix for emailing deals
+
+
 v3.0
 ====
 Release approved to the App Store, April 17, 2013
