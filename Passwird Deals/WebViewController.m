@@ -132,6 +132,10 @@
     [self.webView goForward]; 
 }
 
+- (IBAction)refresh:(id)sender {
+    [self.webView reload];
+}
+
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self.activityIndicator startAnimating];
