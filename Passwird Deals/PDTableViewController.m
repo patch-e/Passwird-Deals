@@ -31,10 +31,10 @@
     
     UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, tableView.bounds.size.width, 20)];
     [labelView setBackgroundColor:[UIColor clearColor]];
-    [labelView setFont:[UIFont boldSystemFontOfSize:15]];
+    [labelView setFont:[UIFont systemFontOfSize:15]];
     [labelView setTextColor:[UIColor whiteColor]];
-    [labelView setShadowColor:[UIColor darkGrayColor]];
-    [labelView setShadowOffset:CGSizeMake(0, 1)];
+//    [labelView setShadowColor:[UIColor darkGrayColor]];
+//    [labelView setShadowOffset:CGSizeMake(0, 1)];
     [labelView setText:[[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section] substringFromIndex:9]];
     
     [headerView addSubview:labelView];
