@@ -13,7 +13,7 @@
 #import "Extensions.h"
 #import "Constants.h"
 #import "Appirater.h"
-#import "ASIFormDataRequest.h"
+#import "AFNetworking.h"
 #import "Flurry.h"
 
 @implementation AppDelegate
@@ -129,44 +129,51 @@
     }
 }
 
+#pragma mark - Notification post operations
+
++ (void)postOperationWithPath:(NSString*)postPath parameters:(NSDictionary*)params {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:PASSWIRD_API_URL]];
+    
+    [httpClient postPath:postPath
+              parameters:params
+                 success:^(AFHTTPRequestOperation *loginOperation, id responseObject) {
+                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                     
+                     NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                     NSLog(@"Request Successful, response '%@'", responseStr);
+                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                 }];
+}
+
 + (void)postResetBadgeCount {
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-    if ((deviceToken != nil) && (![deviceToken isEqual: @""])) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/ResetBadgeCount", PASSWIRD_API_URL]];
-        
-        NSLog(@"token to reset: '%@'", deviceToken);
-        
-        ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-        [request setPostValue:deviceToken forKey:@"token"];
-        [request setDelegate:self];
-        [request startAsynchronous];
-        
-        deviceToken = nil;
+    if ((deviceToken != nil) && (![deviceToken isEqual: @""])) {        
+        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                deviceToken, @"token",
+                                nil];
+        [AppDelegate postOperationWithPath:@"/ResetBadgeCount" parameters:params];
     }
 }
 
 + (void)postRegisterDeviceToken:(NSString *)formattedToken {
-	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/RegisterDeviceToken", PASSWIRD_API_URL]];
-    
-	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
-	[request setPostValue:formattedToken forKey:@"token"];
-	[request setDelegate:self];
-    
-	[request startAsynchronous];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"PasswirdDeals", @"app",
+                            formattedToken, @"token",
+                            nil];
+    [AppDelegate postOperationWithPath:@"/RegisterDeviceToken" parameters:params];
 }
 
 + (void)postUnregisterDeviceToken:(NSString *)formattedToken {
-	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/UnregisterDeviceToken", PASSWIRD_API_URL]];
-    
-	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-	[request setPostValue:@"PasswirdDeals" forKey:@"app"];
-	[request setPostValue:formattedToken forKey:@"token"];
-	[request setDelegate:self];
-    
-	[request startAsynchronous];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"PasswirdDeals", @"app",
+                            formattedToken, @"token",
+                            nil];
+    [AppDelegate postOperationWithPath:@"/UnregisterDeviceToken" parameters:params];
 }
 
 #pragma mark - Customizations
