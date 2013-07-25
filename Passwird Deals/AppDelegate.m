@@ -27,6 +27,10 @@
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
+        
+        self.navigationController = navigationController;
+    } else {
+        self.navigationController = (UINavigationController *)self.window.rootViewController;
     }
     
     //performance caching settings 
@@ -44,12 +48,19 @@
 		if (userInfo != nil) {
 			NSLog(@"Launched from push notification: %@", userInfo);
             
-            UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-            DetailViewController* detailVc = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
-            [detailVc setDetailId:[(NSNumber*)[userInfo objectForKey:@"id"] intValue]];
-            
-            UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
-            [navController.visibleViewController.navigationController pushViewController:detailVc animated:YES];
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+                //set the detailId from the received push, connect and download the deal
+                DetailViewController *detailViewController = (DetailViewController *)self.navigationController.topViewController;
+                [detailViewController setDetailId:[(NSNumber*)[userInfo objectForKey:@"id"] intValue]];
+            } else {
+                //construct a detail view controller, set the detailId from the received push, and push the controller on the stack
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+                
+                DetailViewController* detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+                [detailViewController setDetailId:[(NSNumber*)[userInfo objectForKey:@"id"] intValue]];
+                
+                [self.navigationController pushViewController:detailViewController animated:YES];
+            }
 		}
     }
     
@@ -91,6 +102,10 @@
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
++ (AppDelegate*)delegate {
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
+
 #pragma mark - Notifications
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
@@ -118,6 +133,7 @@
 	NSLog(@"Received notification: %@", userInfo);
     
     if (application.applicationState == UIApplicationStateActive) {
+        //if app is active on screen, just show alert view of deal headline
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Deal Alert"
                                                             message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
                                                            delegate:nil
@@ -125,6 +141,7 @@
                                                   otherButtonTitles: nil];
         [alertView show];
     } else {
+        //if app is running, but in the background fire this notification (handled in master and search) to display the deal from the push
         [[NSNotificationCenter defaultCenter] postNotificationName:@"receivedPushNotification" object:nil userInfo:userInfo];
     }
 }
@@ -141,8 +158,8 @@
                  success:^(AFHTTPRequestOperation *loginOperation, id responseObject) {
                      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                      
-                     NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                     NSLog(@"Request Successful, response '%@'", responseStr);
+                     //NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                     //NSLog(@"Request Successful, response '%@'", responseStr);
                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                  }];

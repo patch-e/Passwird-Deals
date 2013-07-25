@@ -174,7 +174,6 @@
     
     NSLog(@"Pushed URL: %@", self.pushedURL);
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.pushedURL]];
-    self.navigationItem.backBarButtonItem.title = @"Deal";
 }
 
 - (void)viewDidUnload {

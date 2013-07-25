@@ -65,6 +65,13 @@
 
 #pragma mark - View lifecycle
 
+- (void)receivedPushNotification:(NSNotification *)aNotification {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        //deselect the current indexPath
+        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [Flurry logPageView];
@@ -91,6 +98,12 @@
     
     [self.searchBar becomeFirstResponder];
     [self.searchBar setDelegate:self];
+    
+    //register to handle push notifications when running in background
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedPushNotification:)
+                                                 name:@"receivedPushNotification"
+                                               object:nil];
 }
 
 - (void)viewDidUnload {

@@ -198,6 +198,8 @@
 		CDC6A309179CD7F9008C0290 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC6A306179CD7F9008C0290 /* refresh.png */; };
 		CDC6A30A179CD7F9008C0290 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC6A307179CD7F9008C0290 /* refresh@2x.png */; };
 		CDC6A30B179CD7F9008C0290 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC6A307179CD7F9008C0290 /* refresh@2x.png */; };
+		CDC6A30D17A03DFF008C0290 /* bullet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC6A30C17A03DFF008C0290 /* bullet@2x.png */; };
+		CDC6A30E17A03DFF008C0290 /* bullet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC6A30C17A03DFF008C0290 /* bullet@2x.png */; };
 		CDD72AD7153522F40062C1A8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72ABD153522F40062C1A8 /* SDImageCache.m */; };
 		CDD72AD8153522F40062C1A8 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC4153522F40062C1A8 /* SDWebImageDecoder.m */; };
 		CDD72AD9153522F40062C1A8 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72AC6153522F40062C1A8 /* SDWebImageDownloader.m */; };
@@ -340,6 +342,7 @@
 		CDC6A2F3179BFE0E008C0290 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		CDC6A306179CD7F9008C0290 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = refresh.png; path = Resources/Images/refresh.png; sourceTree = "<group>"; };
 		CDC6A307179CD7F9008C0290 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh@2x.png"; path = "Resources/Images/refresh@2x.png"; sourceTree = "<group>"; };
+		CDC6A30C17A03DFF008C0290 /* bullet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bullet@2x.png"; path = "Resources/Images/bullet@2x.png"; sourceTree = "<group>"; };
 		CDD72ABC153522F40062C1A8 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		CDD72ABD153522F40062C1A8 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		CDD72ABE153522F40062C1A8 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -555,6 +558,7 @@
 				CDA9278E16546ABE00A9D006 /* banner.png */,
 				CDA9278F16546ABE00A9D006 /* banner@2x.png */,
 				CDC21B0C170679EA00C144B4 /* bullet.png */,
+				CDC6A30C17A03DFF008C0290 /* bullet@2x.png */,
 				CDA9279216546ABE00A9D006 /* envelope.png */,
 				CDA9279316546ABE00A9D006 /* envelope@2x.png */,
 				CD5B3CE216E2413C004BD9FD /* github.png */,
@@ -795,6 +799,7 @@
 				CD5E8AF417110CFC000CCC04 /* Amelia.ttf in Resources */,
 				CDC6A308179CD7F9008C0290 /* refresh.png in Resources */,
 				CDC6A30A179CD7F9008C0290 /* refresh@2x.png in Resources */,
+				CDC6A30D17A03DFF008C0290 /* bullet@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +856,7 @@
 				CD5E8AF517110CFC000CCC04 /* Amelia.ttf in Resources */,
 				CDC6A309179CD7F9008C0290 /* refresh.png in Resources */,
 				CDC6A30B179CD7F9008C0290 /* refresh@2x.png in Resources */,
+				CDC6A30E17A03DFF008C0290 /* bullet@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

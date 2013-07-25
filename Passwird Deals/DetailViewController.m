@@ -96,7 +96,15 @@
         deal = nil;
     };
     
-    [self configureView];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        //hide view via alpha, and animate in over 1 sec
+        [self.webView setAlpha:0];
+        [UIView animateWithDuration:0.8 animations:^() {
+            [self.webView setAlpha:1];
+        }];
+        //enable the share button if it isn't already
+        [self.shareButton setEnabled:YES];
+    }
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     
@@ -110,7 +118,7 @@
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         
-        // Update the view.
+        //update the view
         [self configureView];
     }
 }
@@ -193,7 +201,7 @@
 - (BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {    
     if( navigationType == UIWebViewNavigationTypeLinkClicked ) {
         [self setSelectedURL:request.URL];
-        [self performSegueWithIdentifier: @"Web" sender: self];
+        [self performSegueWithIdentifier:@"Web" sender:self];
         return NO;
     } 
     return YES; 
@@ -249,10 +257,6 @@
 }
 
 - (void)configureView {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    
     [self loadDealIntoWebView];
 }
 
@@ -266,7 +270,7 @@
     [super viewDidLoad];
     [Flurry logPageView];
     
-    if (self.detailItem == nil) {
+    if (self.detailItem == nil && self.detailId > 0) {
         [self createConnectionWithHUD:YES];
     } else {
         [self configureView];

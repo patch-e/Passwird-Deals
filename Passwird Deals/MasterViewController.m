@@ -57,26 +57,33 @@
 #pragma mark - Managing the About modal view
 
 - (void)showAboutModal:(id)sender {
-    [self performSegueWithIdentifier: @"About" sender: self];
+    [self performSegueWithIdentifier:@"About" sender:self];
 }
 
 #pragma mark - View lifecycle
 
-- (void)receivedPushNotification:(NSNotification*)aNotification {
-//    [self.navigationController dismissModalViewControllerAnimated:NO];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-//    
-//    [self createConnectionWithHUD:YES];
-//    
-//    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
-
+- (void)receivedPushNotification:(NSNotification *)aNotification {
+    //always clear any modal that may be showing
     [self.navigationController dismissModalViewControllerAnimated:NO];
     
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    DetailViewController* detailVc = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
-    [detailVc setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
-    
-    [self.navigationController pushViewController:detailVc animated:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        //pop back to root, clear the current detail item, set the detailId from the received push, connect and download the deal
+        [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];
+        [self.detailViewController setDetailItem:nil];
+        [self.detailViewController setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
+        [self.detailViewController createConnectionWithHUD:YES];
+        
+        //deselect the current indexPath
+        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    } else {
+        //construct a detail view controller, set the detailId from the received push, and push the controller on the stack
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        
+        DetailViewController* detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+        [detailViewController setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
+        
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 - (void)viewDidLoad {
@@ -90,6 +97,7 @@
     
     [self createConnectionWithHUD:YES];
     
+    //register to handle push notifications when running in background
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedPushNotification:)
                                                  name:@"receivedPushNotification"

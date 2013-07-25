@@ -70,6 +70,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];
+        
         //hide view via alpha, and animate in over 1 sec
         [self.detailViewController.webView setAlpha:0];
         [UIView animateWithDuration:0.8 animations:^() {

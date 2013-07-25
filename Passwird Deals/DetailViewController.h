@@ -27,5 +27,6 @@
 - (IBAction)showActionSheet:(id)sender;
 
 - (void)configureView;
+- (void)createConnectionWithHUD:(BOOL)showHUD;
 
 @end
