@@ -628,7 +628,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="tRk-m7-b8B">
                                 <rect key="frame" x="0.0" y="660" width="703" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem enabled="NO" image="left.png" width="44" style="plain" id="Goc-A4-YDk">
                                         <connections>
@@ -678,6 +678,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="browser" id="qQu-CU-e7f">
+                        <barButtonItem key="backBarButtonItem" title="Browser" id="9Bu-Zy-HuJ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="QnZ-G9-iFK">
                             <connections>
                                 <action selector="showActionSheet:" destination="WS4-V6-9HE" id="XdY-C2-Rzm"/>

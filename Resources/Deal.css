@@ -59,7 +59,7 @@ img {
     border-left: none;
     border-right: none;
     margin-top: 15px;
-    font-size: 16px;    
+    font-size: 15.2px;    
     padding: 10px;
 }
 .body ul {
@@ -75,14 +75,14 @@ img {
     margin-bottom: 5px;
 }
 .body ul li {
-    background: transparent url('bullet.png') no-repeat 5px 4px;
+    background: transparent url('bullet.png') no-repeat 5px 3px;
     padding-left: 25px;
 }
 
 /* CLASSES */
 .expired {
     color: #cf253b;
-    text-shadow: rgba(0, 0, 0, 0.25) 0px 1px 0px;
+    text-shadow: rgba(48, 48, 48, 0.75) 0px 1px 0px;
 }
 .image {
     min-height: 33px;
@@ -97,8 +97,17 @@ img {
     text-align: center;
 }
 
+/* RETINA */
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .body ul li {
+        background-image: url('bullet@2x.png');
+        background-size: 10px 13px;
+    }
+}
+
 /* iPad (portrait and landscape) */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     .headline {
         font-size: 28px;
     }
@@ -118,4 +127,4 @@ img {
         height: 50px;        
         width: 50px;
     }
-}
+}*/

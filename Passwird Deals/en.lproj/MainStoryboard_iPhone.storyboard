@@ -803,6 +803,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="browser" id="GbW-ki-6WA">
+                        <barButtonItem key="backBarButtonItem" title="Browser" id="EVc-hw-OPp"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="wsj-Cl-LkB">
                             <connections>
                                 <action selector="showActionSheet:" destination="XfK-CY-JvJ" id="DrA-tY-Gb3"/>
@@ -902,6 +903,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FTD-sn-uHj"/>
+        <segue reference="teQ-Uk-T7m"/>
     </inferredMetricsTieBreakers>
 </document>
