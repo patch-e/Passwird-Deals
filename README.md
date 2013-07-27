@@ -24,11 +24,11 @@ https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 v3.2
 ====
-Release approved to the App Store, ?, 2013
-- Tap/swipe deal push notifications to go directly to deal details
-- Visual tweaks
+Release approved to the App Store, July 26, 2013
+- Tap/swipe deal push notifications to go directly to deal details 
+- Refresh button added to built-in browser 
+- Visual tweaks throughout 
 - Bug fixes
-- Important note: the next release will require iOS 7 for future compatibility, it will not be available until after iOS 7 has been officially released
 
 
 v3.1
