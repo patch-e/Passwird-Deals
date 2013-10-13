@@ -22,6 +22,13 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
+v4.0
+====
+Release in progress
+- Updated UI for iOS 7
+- New features from the new passwird.com
+
+
 v3.2
 ====
 Release approved to the App Store, July 26, 2013
