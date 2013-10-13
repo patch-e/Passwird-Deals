@@ -196,21 +196,24 @@
 #pragma mark - Customizations
 
 - (void)customizeAppearance {
-    //custom appearance settings for UIKit items
-    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTintColor:[UIColor pdLightGrayColor]];
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
-    [[UINavigationBar appearanceWhenContainedIn:[SKStoreProductViewController class], nil] setTintColor:[UIColor pdDarkGrayColor]];
+    // status bar
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
-    [[UIToolbar appearance] setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
-    [[UIToolbar appearance] setTintColor:[UIColor pdLightGrayColor]];
+    //custom appearance settings for UIKit items
+//    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor pdDarkGrayColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+//    [[UINavigationBar appearanceWhenContainedIn:[SKStoreProductViewController class], nil] setTintColor:[UIColor pdDarkGrayColor]];
+    
+//    [[UIToolbar appearance] setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setTintColor:[UIColor pdDarkGrayColor]];
     [[UIToolbar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
     
-    [[UISearchBar appearance] setBackgroundImage:[[UIImage alloc] init]];
-    [[UISearchBar appearance] setTintColor:[UIColor pdLightGrayColor]];
+//    [[UISearchBar appearance] setBackgroundImage:[[UIImage alloc] init]];
+    [[UISearchBar appearance] setTintColor:[UIColor pdDarkGrayColor]];
     [[UISearchBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
     
-    [[UIActionSheet appearance] setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+//    [[UIActionSheet appearance] setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
 }
 
 @end

@@ -29,7 +29,7 @@
         NSString *emailBody = [NSString stringWithFormat:EMAIL_BODY_SHARE, headline, body];
         [mailer setMessageBody:emailBody isHTML:YES];
         
-        [self presentModalViewController:mailer animated:YES];
+        [self presentViewController:mailer animated:YES completion:nil];
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
                                                             message:ERROR_MAIL_SUPPORT
@@ -53,7 +53,7 @@
         [alertView show];
     } else {
         // Remove the mail view
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
@@ -67,26 +67,14 @@
                                                          error:&error];
     NSString *tweet = [NSString stringWithFormat:tweetString, headline];
     
-    if ([SLComposeViewController class]) {
-        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-            SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-            [share setInitialText:tweet];
-            [self presentViewController:share animated:YES completion:nil];
-            
-            return;
-        }
-    } else {
-        if ([TWTweetComposeViewController canSendTweet]) {
-            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-            [tweetSheet setInitialText:tweet];
-            
-            [self presentModalViewController:tweetSheet animated:YES];
-            
-            tweetSheet = nil;
-            return;
-        }
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [share setInitialText:tweet];
+        [self presentViewController:share animated:YES completion:nil];
+        
+        return;
     }
-    
+
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
                                                         message:ERROR_TWITTER
                                                        delegate:self

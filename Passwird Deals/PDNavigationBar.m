@@ -20,7 +20,7 @@
     [label setBackgroundColor:[UIColor clearColor]];
     [label setFont:[UIFont fontWithName:@"Amelia" size:24.0]];
     [label setShadowColor:[UIColor pdDarkGrayColor]];
-    [label setTextAlignment:UITextAlignmentCenter];
+    [label setTextAlignment:NSTextAlignmentCenter];
     [label setTextColor:[UIColor pdRedColor]];
     [label setText:self.topItem.title];
 

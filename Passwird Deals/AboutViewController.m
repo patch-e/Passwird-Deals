@@ -99,7 +99,7 @@
         [mailer setToRecipients:[NSArray arrayWithObject:ABOUT_EMAIL_ADDRESS]];
         [mailer setSubject:EMAIL_SUBJECT_FEEDBACK];
         
-        [self presentModalViewController:mailer animated:YES];
+        [self presentViewController:mailer animated:YES completion:nil];
         
         mailer = nil;
     } else {
@@ -125,7 +125,7 @@
         [alertView show];
     } else {
         // Remove the mail view
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
@@ -149,7 +149,7 @@
 #pragma mark - View lifecycle
 
 - (IBAction)dismissView:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {

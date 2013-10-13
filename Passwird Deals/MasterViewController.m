@@ -64,26 +64,26 @@
 
 - (void)receivedPushNotification:(NSNotification *)aNotification {
     //always clear any modal that may be showing
-    [self.navigationController dismissModalViewControllerAnimated:NO];
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        //pop back to root, clear the current detail item, set the detailId from the received push, connect and download the deal
-        [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];
-        [self.detailViewController setDetailItem:nil];
-        [self.detailViewController setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
-        [self.detailViewController createConnectionWithHUD:YES];
-        
-        //deselect the current indexPath
-        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    } else {
-        //construct a detail view controller, set the detailId from the received push, and push the controller on the stack
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-        
-        DetailViewController* detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
-        [detailViewController setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
-        
-        [self.navigationController pushViewController:detailViewController animated:YES];
-    }
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            //pop back to root, clear the current detail item, set the detailId from the received push, connect and download the deal
+            [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];
+            [self.detailViewController setDetailItem:nil];
+            [self.detailViewController setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
+            [self.detailViewController createConnectionWithHUD:YES];
+            
+            //deselect the current indexPath
+            [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+        } else {
+            //construct a detail view controller, set the detailId from the received push, and push the controller on the stack
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+            
+            DetailViewController* detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+            [detailViewController setDetailId:[(NSNumber*)[aNotification.userInfo objectForKey:@"id"] intValue]];
+            
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
+    }];
 }
 
 - (void)viewDidLoad {
@@ -93,7 +93,7 @@
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     [super createRefreshControls];
-    [super createInfoBarButtonItem];
+//    [super createInfoBarButtonItem];
     
     [self createConnectionWithHUD:YES];
     
