@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
+		CD2770C1180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
 		CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BB1516B12F003A4394 /* UIKit.framework */; };
 		CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BD1516B12F003A4394 /* Foundation.framework */; };
 		CD2A72C01516B12F003A4394 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */; };
@@ -64,19 +66,8 @@
 		CD5B3D1516E5131B004BD9FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72C41516B12F003A4394 /* InfoPlist.strings */; };
 		CD5B3D1616E5131B004BD9FD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */; };
 		CD5B3D1716E5131B004BD9FD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */; };
-		CD5B3D1816E5131B004BD9FD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927701651E55C00A9D006 /* Default-568h@2x.png */; };
-		CD5B3D1916E5131B004BD9FD /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927711651E55C00A9D006 /* Default-Landscape@2x~ipad.png */; };
-		CD5B3D1A16E5131B004BD9FD /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927721651E55C00A9D006 /* Default-Landscape~ipad.png */; };
-		CD5B3D1B16E5131B004BD9FD /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927731651E55C00A9D006 /* Default-Portrait@2x~ipad.png */; };
-		CD5B3D1C16E5131B004BD9FD /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927741651E55C00A9D006 /* Default-Portrait~ipad.png */; };
-		CD5B3D1D16E5131B004BD9FD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927751651E55C00A9D006 /* Default.png */; };
-		CD5B3D1E16E5131B004BD9FD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927761651E55C00A9D006 /* Default@2x.png */; };
 		CD5B3D1F16E5131B004BD9FD /* icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277E1651E66700A9D006 /* icon-precomposed.png */; };
 		CD5B3D2016E5131B004BD9FD /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */; };
-		CD5B3D2116E5131B004BD9FD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927801651E66700A9D006 /* icon.png */; };
-		CD5B3D2216E5131B004BD9FD /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927811651E66800A9D006 /* icon@2x.png */; };
-		CD5B3D2316E5131B004BD9FD /* icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927821651E66800A9D006 /* icon@2x~ipad.png */; };
-		CD5B3D2416E5131B004BD9FD /* icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927831651E66800A9D006 /* icon~ipad.png */; };
 		CD5B3D2516E5131B004BD9FD /* pd-icon-appstore-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */; };
 		CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */; };
 		CD5B3D2716E5131B004BD9FD /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278E16546ABE00A9D006 /* banner.png */; };
@@ -130,19 +121,8 @@
 		CD82B1F916E85684006472EE /* UITableViewController+RefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82B1EB16E85684006472EE /* UITableViewController+RefreshControl.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
 		CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
-		CDA927771651E55C00A9D006 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927701651E55C00A9D006 /* Default-568h@2x.png */; };
-		CDA927781651E55C00A9D006 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927711651E55C00A9D006 /* Default-Landscape@2x~ipad.png */; };
-		CDA927791651E55C00A9D006 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927721651E55C00A9D006 /* Default-Landscape~ipad.png */; };
-		CDA9277A1651E55C00A9D006 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927731651E55C00A9D006 /* Default-Portrait@2x~ipad.png */; };
-		CDA9277B1651E55C00A9D006 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927741651E55C00A9D006 /* Default-Portrait~ipad.png */; };
-		CDA9277C1651E55C00A9D006 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927751651E55C00A9D006 /* Default.png */; };
-		CDA9277D1651E55C00A9D006 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927761651E55C00A9D006 /* Default@2x.png */; };
 		CDA927861651E66800A9D006 /* icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277E1651E66700A9D006 /* icon-precomposed.png */; };
 		CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */; };
-		CDA927881651E66800A9D006 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927801651E66700A9D006 /* icon.png */; };
-		CDA927891651E66800A9D006 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927811651E66800A9D006 /* icon@2x.png */; };
-		CDA9278A1651E66800A9D006 /* icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927821651E66800A9D006 /* icon@2x~ipad.png */; };
-		CDA9278B1651E66800A9D006 /* icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927831651E66800A9D006 /* icon~ipad.png */; };
 		CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */; };
 		CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */; };
 		CDA927A016546ABE00A9D006 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278E16546ABE00A9D006 /* banner.png */; };
@@ -212,6 +192,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD2770BF180A4A2300DD06E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images/Images.xcassets; sourceTree = "<group>"; };
 		CD2A72B71516B12F003A4394 /* Passwird Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD2A72BB1516B12F003A4394 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD2A72BD1516B12F003A4394 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -274,19 +255,8 @@
 		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CD8EAA89170D0DE000BB9807 /* Passwird Deals beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Passwird Deals beta-Info.plist"; sourceTree = "<group>"; };
-		CDA927701651E55C00A9D006 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Images/App Store/Default-568h@2x.png"; sourceTree = "<group>"; };
-		CDA927711651E55C00A9D006 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "Resources/Images/App Store/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		CDA927721651E55C00A9D006 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Images/App Store/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		CDA927731651E55C00A9D006 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "Resources/Images/App Store/Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
-		CDA927741651E55C00A9D006 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "Resources/Images/App Store/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		CDA927751651E55C00A9D006 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Resources/Images/App Store/Default.png"; sourceTree = "<group>"; };
-		CDA927761651E55C00A9D006 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Images/App Store/Default@2x.png"; sourceTree = "<group>"; };
 		CDA9277E1651E66700A9D006 /* icon-precomposed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-precomposed.png"; path = "Resources/Images/App Store/icon-precomposed.png"; sourceTree = "<group>"; };
 		CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-precomposed@2x.png"; path = "Resources/Images/App Store/icon-precomposed@2x.png"; sourceTree = "<group>"; };
-		CDA927801651E66700A9D006 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = "Resources/Images/App Store/icon.png"; sourceTree = "<group>"; };
-		CDA927811651E66800A9D006 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Resources/Images/App Store/icon@2x.png"; sourceTree = "<group>"; };
-		CDA927821651E66800A9D006 /* icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x~ipad.png"; path = "Resources/Images/App Store/icon@2x~ipad.png"; sourceTree = "<group>"; };
-		CDA927831651E66800A9D006 /* icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon~ipad.png"; path = "Resources/Images/App Store/icon~ipad.png"; sourceTree = "<group>"; };
 		CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pd-icon-appstore-512.png"; path = "Resources/Images/App Store/pd-icon-appstore-512.png"; sourceTree = "<group>"; };
 		CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pd-icon-appstore-1024.png"; path = "Resources/Images/App Store/pd-icon-appstore-1024.png"; sourceTree = "<group>"; };
 		CDA9278E16546ABE00A9D006 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = Resources/Images/banner.png; sourceTree = "<group>"; };
@@ -555,6 +525,9 @@
 			isa = PBXGroup;
 			children = (
 				CD69D9741579278500BBAB50 /* App Store */,
+				CD2770BF180A4A2300DD06E1 /* Images.xcassets */,
+				CDA9277E1651E66700A9D006 /* icon-precomposed.png */,
+				CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */,
 				CDA9278E16546ABE00A9D006 /* banner.png */,
 				CDA9278F16546ABE00A9D006 /* banner@2x.png */,
 				CDC21B0C170679EA00C144B4 /* bullet.png */,
@@ -584,19 +557,6 @@
 		CD69D9741579278500BBAB50 /* App Store */ = {
 			isa = PBXGroup;
 			children = (
-				CDA927701651E55C00A9D006 /* Default-568h@2x.png */,
-				CDA927711651E55C00A9D006 /* Default-Landscape@2x~ipad.png */,
-				CDA927721651E55C00A9D006 /* Default-Landscape~ipad.png */,
-				CDA927731651E55C00A9D006 /* Default-Portrait@2x~ipad.png */,
-				CDA927741651E55C00A9D006 /* Default-Portrait~ipad.png */,
-				CDA927751651E55C00A9D006 /* Default.png */,
-				CDA927761651E55C00A9D006 /* Default@2x.png */,
-				CDA9277E1651E66700A9D006 /* icon-precomposed.png */,
-				CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */,
-				CDA927801651E66700A9D006 /* icon.png */,
-				CDA927811651E66800A9D006 /* icon@2x.png */,
-				CDA927821651E66800A9D006 /* icon@2x~ipad.png */,
-				CDA927831651E66800A9D006 /* icon~ipad.png */,
 				CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */,
 				CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */,
 			);
@@ -725,6 +685,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					CD2A72B61516B12F003A4394 = {
+						DevelopmentTeam = JA9LQCT6NB;
+					};
+					CD5B3CE616E5131B004BD9FD = {
+						DevelopmentTeam = JA9LQCT6NB;
+					};
+				};
 			};
 			buildConfigurationList = CD2A72B11516B12F003A4394 /* Build configuration list for PBXProject "Passwird Deals" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -754,19 +722,8 @@
 				CD2A72C61516B12F003A4394 /* InfoPlist.strings in Resources */,
 				CD2A72CF1516B12F003A4394 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */,
-				CDA927771651E55C00A9D006 /* Default-568h@2x.png in Resources */,
-				CDA927781651E55C00A9D006 /* Default-Landscape@2x~ipad.png in Resources */,
-				CDA927791651E55C00A9D006 /* Default-Landscape~ipad.png in Resources */,
-				CDA9277A1651E55C00A9D006 /* Default-Portrait@2x~ipad.png in Resources */,
-				CDA9277B1651E55C00A9D006 /* Default-Portrait~ipad.png in Resources */,
-				CDA9277C1651E55C00A9D006 /* Default.png in Resources */,
-				CDA9277D1651E55C00A9D006 /* Default@2x.png in Resources */,
 				CDA927861651E66800A9D006 /* icon-precomposed.png in Resources */,
 				CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */,
-				CDA927881651E66800A9D006 /* icon.png in Resources */,
-				CDA927891651E66800A9D006 /* icon@2x.png in Resources */,
-				CDA9278A1651E66800A9D006 /* icon@2x~ipad.png in Resources */,
-				CDA9278B1651E66800A9D006 /* icon~ipad.png in Resources */,
 				CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */,
 				CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */,
 				CDA927A016546ABE00A9D006 /* banner.png in Resources */,
@@ -795,6 +752,7 @@
 				CD5B3D4A16E58FA4004BD9FD /* share@2x.png in Resources */,
 				CD82B1EC16E85684006472EE /* ISRefresgControlIcon.png in Resources */,
 				CD82B1EE16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */,
+				CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */,
 				CDC21B0D170679EA00C144B4 /* bullet.png in Resources */,
 				CD5E8AF417110CFC000CCC04 /* Amelia.ttf in Resources */,
 				CDC6A308179CD7F9008C0290 /* refresh.png in Resources */,
@@ -811,19 +769,8 @@
 				CD5B3D1516E5131B004BD9FD /* InfoPlist.strings in Resources */,
 				CD5B3D1616E5131B004BD9FD /* MainStoryboard_iPhone.storyboard in Resources */,
 				CD5B3D1716E5131B004BD9FD /* MainStoryboard_iPad.storyboard in Resources */,
-				CD5B3D1816E5131B004BD9FD /* Default-568h@2x.png in Resources */,
-				CD5B3D1916E5131B004BD9FD /* Default-Landscape@2x~ipad.png in Resources */,
-				CD5B3D1A16E5131B004BD9FD /* Default-Landscape~ipad.png in Resources */,
-				CD5B3D1B16E5131B004BD9FD /* Default-Portrait@2x~ipad.png in Resources */,
-				CD5B3D1C16E5131B004BD9FD /* Default-Portrait~ipad.png in Resources */,
-				CD5B3D1D16E5131B004BD9FD /* Default.png in Resources */,
-				CD5B3D1E16E5131B004BD9FD /* Default@2x.png in Resources */,
 				CD5B3D1F16E5131B004BD9FD /* icon-precomposed.png in Resources */,
 				CD5B3D2016E5131B004BD9FD /* icon-precomposed@2x.png in Resources */,
-				CD5B3D2116E5131B004BD9FD /* icon.png in Resources */,
-				CD5B3D2216E5131B004BD9FD /* icon@2x.png in Resources */,
-				CD5B3D2316E5131B004BD9FD /* icon@2x~ipad.png in Resources */,
-				CD5B3D2416E5131B004BD9FD /* icon~ipad.png in Resources */,
 				CD5B3D2516E5131B004BD9FD /* pd-icon-appstore-512.png in Resources */,
 				CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */,
 				CD5B3D2716E5131B004BD9FD /* banner.png in Resources */,
@@ -852,6 +799,7 @@
 				CD5B3D4B16E58FA4004BD9FD /* share@2x.png in Resources */,
 				CD82B1ED16E85684006472EE /* ISRefresgControlIcon.png in Resources */,
 				CD82B1EF16E85684006472EE /* ISRefresgControlIcon@2x.png in Resources */,
+				CD2770C1180A4A2300DD06E1 /* Images.xcassets in Resources */,
 				CDC21B0E170679EA00C144B4 /* bullet.png in Resources */,
 				CD5E8AF517110CFC000CCC04 /* Amelia.ttf in Resources */,
 				CDC6A309179CD7F9008C0290 /* refresh.png in Resources */,
@@ -1000,7 +948,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1024,7 +972,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1035,12 +983,14 @@
 		CD2A72DC1516B12F003A4394 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Passwird Deals\"",
@@ -1059,12 +1009,14 @@
 		CD2A72DD1516B12F003A4394 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Passwird Deals\"",
@@ -1084,12 +1036,14 @@
 		CD5B3D4216E5131B004BD9FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals beta-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Passwird Deals\"",
@@ -1108,12 +1062,14 @@
 		CD5B3D4316E5131B004BD9FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals beta-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Passwird Deals\"",
