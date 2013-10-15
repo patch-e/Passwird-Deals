@@ -95,7 +95,6 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
         [mailer setMailComposeDelegate:self];
-//        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setToRecipients:[NSArray arrayWithObject:ABOUT_EMAIL_ADDRESS]];
         [mailer setSubject:EMAIL_SUBJECT_FEEDBACK];
         
@@ -153,7 +152,6 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self.legalLabel sizeToFit];
     [self calculateAndSetScrollViewHeight];
 }
 
@@ -171,17 +169,17 @@
 }
 
 - (void)viewWillLayoutSubviews {
-    [self.legalLabel sizeToFit];
     [self calculateAndSetScrollViewHeight];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 6.0) {
-        [self.legalLabel setTextAlignment:NSTextAlignmentLeft];
-        [self.legalLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
-    }
+    [self.appNameLabel setFont:[UIFont fontWithName:@"Arial Black" size:18.0]];
+    [self.appNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.appNameLabel setTextColor:[UIColor pdTitleTextColor]];
     
-    [self.appNameLabel setFont:[UIFont fontWithName:@"Amelia" size:24]];
+    // THLabel specific properties
+    [self.appNameLabel setStrokeColor:[UIColor pdHeaderBarTintColor]];
+	[self.appNameLabel setStrokeSize:2.5f];
 }
 
 - (void)viewDidLoad {
@@ -193,10 +191,10 @@
 }
 
 - (void)viewDidUnload {
+    [self setNavigationBar:nil];
     [self setScrollView:nil];
     [self setDoneButton:nil];
     [self setExpiredSwitch:nil];
-    [self setLegalLabel:nil];
     [self setAppNameLabel:nil];
     [super viewDidUnload];
 }
