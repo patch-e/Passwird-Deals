@@ -8,6 +8,7 @@
 
 #import "PDNavigationBar.h"
 
+#import "THLabel.h"
 #import "Extensions.h"
 
 @implementation PDNavigationBar
@@ -15,15 +16,17 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 3, self.frame.size.width, self.frame.size.height)];
+    THLabel *label = [[THLabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 
-    [label setBackgroundColor:[UIColor clearColor]];
-    [label setFont:[UIFont fontWithName:@"Amelia" size:24.0]];
-    [label setShadowColor:[UIColor pdDarkGrayColor]];
+    [label setFont:[UIFont fontWithName:@"Arial Black" size:18.0]];
     [label setTextAlignment:NSTextAlignmentCenter];
-    [label setTextColor:[UIColor pdRedColor]];
+    [label setTextColor:[UIColor pdTitleTextColor]];
     [label setText:self.topItem.title];
 
+    // THLabel specific properties
+    [label setStrokeColor:[UIColor pdHeaderBarTintColor]];
+	[label setStrokeSize:2.5f];
+    
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.topItem.titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     
