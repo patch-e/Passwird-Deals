@@ -197,23 +197,20 @@
 
 - (void)customizeAppearance {
     // status bar
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     //custom appearance settings for UIKit items
-//    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTintColor:[UIColor pdDarkGrayColor]];
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
-//    [[UINavigationBar appearanceWhenContainedIn:[SKStoreProductViewController class], nil] setTintColor:[UIColor pdDarkGrayColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
+
+    [[UIToolbar appearance] setTintColor:[UIColor pdHeaderTintColor]];
+    [[UIToolbar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
     
-//    [[UIToolbar appearance] setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
-    [[UIToolbar appearance] setTintColor:[UIColor pdDarkGrayColor]];
-    [[UIToolbar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
+    [[UISearchBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
+    [[UISearchBar appearance] setBarTintColor:[UIColor pdTitleTextColor]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdHeaderTintColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     
-//    [[UISearchBar appearance] setBackgroundImage:[[UIImage alloc] init]];
-    [[UISearchBar appearance] setTintColor:[UIColor pdDarkGrayColor]];
-    [[UISearchBar appearance] setBackgroundColor:[UIColor pdLightGrayColor]];
-    
-//    [[UIActionSheet appearance] setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    self.window.backgroundColor = [UIColor pdTitleTextColor];
 }
 
 @end
