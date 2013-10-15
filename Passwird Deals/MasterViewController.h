@@ -11,5 +11,6 @@
 @interface MasterViewController : PDTableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @end

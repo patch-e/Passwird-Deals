@@ -42,8 +42,10 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [super connectionDidFinishLoading:connection];
-    
+
+    [self.settingsButton setEnabled:YES];
     [self.searchButton setEnabled:YES];
+
     [AppDelegate postResetBadgeCount];
 }
 
@@ -93,7 +95,6 @@
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     [super createRefreshControls];
-//    [super createInfoBarButtonItem];
     
     [self createConnectionWithHUD:YES];
     
@@ -105,6 +106,7 @@
 }
 
 - (void)viewDidUnload {
+    [self setSettingsButton:nil];
     [self setSearchButton:nil];
     [super viewDidUnload];
 }
