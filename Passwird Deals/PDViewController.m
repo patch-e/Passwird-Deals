@@ -11,8 +11,9 @@
 #import "Constants.h"
 #import "Flurry.h"
 
-#import <Twitter/Twitter.h>
 #import <MessageUI/MessageUI.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @implementation PDViewController
 
@@ -23,7 +24,6 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         
         [mailer setMailComposeDelegate:self];
-//        [mailer.navigationBar setTintColor:[UIColor darkGrayColor]];
         [mailer setSubject:EMAIL_SUBJECT_SHARE];
         
         NSString *emailBody = [NSString stringWithFormat:EMAIL_BODY_SHARE, headline, body];

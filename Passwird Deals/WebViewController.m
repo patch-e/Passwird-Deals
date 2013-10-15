@@ -12,7 +12,8 @@
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 
-#import <Twitter/Twitter.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @implementation WebViewController
 

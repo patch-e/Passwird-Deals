@@ -14,7 +14,8 @@
 #import "GTMNSString+HTML.h"
 #import "Flurry.h"
 
-#import <Twitter/Twitter.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @implementation DetailViewController
 
