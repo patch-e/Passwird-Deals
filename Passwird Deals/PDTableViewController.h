@@ -15,7 +15,6 @@
 @property (strong, nonatomic) NSMutableDictionary *sections;
 @property (strong, nonatomic) NSSortDescriptor *sortDescriptor;
 
-- (void)createInfoBarButtonItem;
 - (void)createRefreshControls;
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection;
 

@@ -15,7 +15,6 @@
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
-#import "ISRefreshControl.h"
 
 @implementation PDTableViewController
 
@@ -25,14 +24,18 @@
     return [[self.sections allKeys] count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01f;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
-    [headerView setBackgroundColor:[UIColor pdRedColor]];
+    [headerView setBackgroundColor:[UIColor pdSectionBackgroundColor]];
     
     UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, tableView.bounds.size.width, 20)];
     [labelView setBackgroundColor:[UIColor clearColor]];
     [labelView setFont:[UIFont systemFontOfSize:15]];
-    [labelView setTextColor:[UIColor whiteColor]];
+    [labelView setTextColor:[UIColor pdSectionTextColor]];
 //    [labelView setShadowColor:[UIColor darkGrayColor]];
 //    [labelView setShadowOffset:CGSizeMake(0, 1)];
     [labelView setText:[[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section] substringFromIndex:9]];
@@ -62,7 +65,7 @@
         [cell.detailTextLabel setText:@"(expired)"];
     
     UIView *selectedBgView = [[UIView alloc] init];
-    [selectedBgView setBackgroundColor:[UIColor pdBlueColor]];
+    [selectedBgView setBackgroundColor:[UIColor pdHeaderBarTintColor]];
     [cell setSelectedBackgroundView:selectedBgView];
     
     return cell;
@@ -185,35 +188,11 @@
 #pragma mark - Control creation
 
 - (void)createRefreshControls {
-    //ISRefreshControl logic for iOS6 style pull to refresh for both iOS5 and 6
-    UIColor *bgColor = [UIColor pdLightGrayColor];
-    self.refreshControl = (id)[[ISRefreshControl alloc] init];
-    [self.refreshControl setTintColor:[UIColor pdDarkGrayColor]];
-    [self.refreshControl setBackgroundColor:bgColor];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl setTintColor:[UIColor lightGrayColor]];
     [self.refreshControl addTarget:self
                             action:@selector(refresh)
                   forControlEvents:UIControlEventValueChanged];
-    
-    //create a colored background view to place behind the refresh control
-    CGRect frame = self.tableView.bounds;
-    frame.origin.y = -frame.size.height;
-    UIView *bgView = [[UIView alloc] initWithFrame:frame];
-    [bgView setBackgroundColor: bgColor];
-    [bgView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
-    [self.tableView insertSubview:bgView atIndex:0];
-}
-
-- (void)createInfoBarButtonItem {
-    //create the info button and replace the info button on the storyboard, this
-    //button will use that modal segue linked from the replaced info button
-    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [infoButton setTintColor:[UIColor pdLightGrayColor]];
-    [infoButton setFrame:CGRectMake(0, 0, 44, 44)];
-    [infoButton addTarget:self
-                   action:@selector(showAboutModal:)
-         forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-    [self.navigationItem setLeftBarButtonItem:infoBarButtonItem];
 }
 
 #pragma mark - View lifecycle
