@@ -27,10 +27,16 @@
 
 @interface UIColor(Extension)
 
-+ (UIColor *)pdRedColor;
-+ (UIColor *)pdBlueColor;
-+ (UIColor *)pdLightGrayColor;
-+ (UIColor *)pdDarkGrayColor;
-+ (UIColor *)pdOffWhiteColor;
+//+ (UIColor *)pdRedColor;
+//+ (UIColor *)pdBlueColor;
+//+ (UIColor *)pdLightGrayColor;
+//+ (UIColor *)pdDarkGrayColor;
+//+ (UIColor *)pdOffWhiteColor;
+
++ (UIColor *)pdHeaderTintColor;
++ (UIColor *)pdHeaderBarTintColor;
++ (UIColor *)pdTitleTextColor;
++ (UIColor *)pdSectionBackgroundColor;
++ (UIColor *)pdSectionTextColor;
 
 @end
