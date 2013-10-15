@@ -3,14 +3,14 @@ html {
     -webkit-text-size-adjust: none;
 }
 body {
-    background-color: #ababab;
+    background-color: rgb(245, 246, 246);
     color: #303030;
     font-family: sans-serif;
     margin: 0px;
     padding: 19px 0 0 0;
 }
 a {
-    color: #004875;
+    color: rgb(18, 70, 119);
     font-weight: bold;
     text-decoration: none;
     -webkit-tap-highlight-color: rgba(0, 72, 117, 0.5);
@@ -28,8 +28,8 @@ img {
 
 /* LAYOUT */
 .date {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#cf253b), to(#cf253b));
-    color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(218, 239, 255)), to(rgb(218, 239, 255)));
+    color: rgb(174, 19, 18);
     font-size: 15.2px;
     height: 19px;
     line-height: 15px;
@@ -43,19 +43,20 @@ img {
 }
 .headline {
     clear: both;
-    color: #303030;
-    font-size: 20px;    
+    color: rgb(18, 70, 119);
+    font-size: 20px;
+    font-weight: 400;
     margin: 10px 0px 0px 0px;
     overflow: visible;
     padding: 0px 10px;
     text-align: center;
     text-overflow: inherit;
-    text-shadow: rgb(191, 191, 191) 1px 1px 0px;
+    /*text-shadow: rgb(191, 191, 191) 1px 1px 0px;*/
     white-space: normal;
 }
 .body {
     background-color: #fff;
-    border: solid 1px #E0E0E0;
+    border: solid 1px rgb(218, 239, 255);
     border-left: none;
     border-right: none;
     margin-top: 15px;
@@ -81,8 +82,8 @@ img {
 
 /* CLASSES */
 .expired {
-    color: #cf253b;
-    text-shadow: rgba(48, 48, 48, 0.75) 0px 1px 0px;
+    color: rgb(174, 19, 18);
+    /*text-shadow: rgba(48, 48, 48, 0.75) 0px 1px 0px;*/
 }
 .image {
     min-height: 33px;
