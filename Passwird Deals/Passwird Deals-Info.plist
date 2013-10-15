@@ -26,7 +26,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Amelia.ttf</string>
+		<string>ArialBlack.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
