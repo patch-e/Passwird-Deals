@@ -165,7 +165,7 @@
         <!--About View Controller-->
         <scene sceneID="VE4-uv-Cen">
             <objects>
-                <viewController title="About" id="vj2-RJ-oUl" userLabel="About View Controller" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController title="About" id="vj2-RJ-oUl" userLabel="About View Controller" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mUh-gG-3ZO">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
