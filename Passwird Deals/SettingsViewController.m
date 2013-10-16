@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
-#import "AboutViewController.h"
+#import "SettingsViewController.h"
 
 #import "Constants.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 #import "Extensions.h"
 
-@implementation AboutViewController
+@implementation SettingsViewController
 
 #pragma mark - Managing the buttons
 
@@ -173,7 +173,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.appNameLabel setFont:[UIFont fontWithName:@"Arial Black" size:18.0]];
+    [self.appNameLabel setFont:[UIFont fontWithName:@"Arial Black" size:24.0]];
     [self.appNameLabel setTextAlignment:NSTextAlignmentCenter];
     [self.appNameLabel setTextColor:[UIColor pdTitleTextColor]];
     
@@ -188,6 +188,22 @@
     
     //get expired deals setting from user defaults
     [self.expiredSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]];
+    
+    self.donateButton.layer.cornerRadius = 5;
+    self.donateButton.layer.borderWidth = 1;
+    self.donateButton.layer.borderColor = [UIColor pdHeaderTintColor].CGColor;
+    
+    self.feedbackButton.layer.cornerRadius = 5;
+    self.feedbackButton.layer.borderWidth = 1;
+    self.feedbackButton.layer.borderColor = [UIColor pdHeaderTintColor].CGColor;
+    
+    self.rateButton.layer.cornerRadius = 5;
+    self.rateButton.layer.borderWidth = 1;
+    self.rateButton.layer.borderColor = [UIColor pdHeaderTintColor].CGColor;
+    
+    self.githubButton.layer.cornerRadius = 5;
+    self.githubButton.layer.borderWidth = 1;
+    self.githubButton.layer.borderColor = [UIColor pdHeaderTintColor].CGColor;
 }
 
 - (void)viewDidUnload {
@@ -196,6 +212,10 @@
     [self setDoneButton:nil];
     [self setExpiredSwitch:nil];
     [self setAppNameLabel:nil];
+    [self setDoneButton:nil];
+    [self setFeedbackButton:nil];
+    [self setRateButton:nil];
+    [self setGithubButton:nil];
     [super viewDidUnload];
 }
 
