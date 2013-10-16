@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0F8FA4180D54E2001B5808 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCDC27E180C0DD10078C93B /* Accounts.framework */; };
+		CD0F8FA5180D54E8001B5808 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCDC28A180CD3150078C93B /* CoreText.framework */; };
 		CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
 		CD2770C1180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
@@ -23,7 +25,6 @@
 		CD2B2E79151DF841004A222C /* Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B2E78151DF841004A222C /* Extensions.m */; };
 		CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
 		CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */; };
-		CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD506E96154CFC9400FC2CEC /* Twitter.framework */; };
 		CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF86156B36E800CF4D73 /* MessageUI.framework */; };
 		CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD55DF91156DD82D00CF4D73 /* Appirater.m */; };
 		CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF93156DD84400CF4D73 /* CFNetwork.framework */; };
@@ -69,8 +70,6 @@
 		CD5B3D2016E5131B004BD9FD /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */; };
 		CD5B3D2516E5131B004BD9FD /* pd-icon-appstore-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */; };
 		CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */; };
-		CD5B3D2716E5131B004BD9FD /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278E16546ABE00A9D006 /* banner.png */; };
-		CD5B3D2816E5131B004BD9FD /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278F16546ABE00A9D006 /* banner@2x.png */; };
 		CD5B3D2B16E5131B004BD9FD /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279216546ABE00A9D006 /* envelope.png */; };
 		CD5B3D2C16E5131B004BD9FD /* envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279316546ABE00A9D006 /* envelope@2x.png */; };
 		CD5B3D2D16E5131B004BD9FD /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279416546ABE00A9D006 /* left.png */; };
@@ -108,8 +107,6 @@
 		CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */; };
 		CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */; };
 		CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */; };
-		CDA927A016546ABE00A9D006 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278E16546ABE00A9D006 /* banner.png */; };
-		CDA927A116546ABE00A9D006 /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9278F16546ABE00A9D006 /* banner@2x.png */; };
 		CDA927A416546ABE00A9D006 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279216546ABE00A9D006 /* envelope.png */; };
 		CDA927A516546ABE00A9D006 /* envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279316546ABE00A9D006 /* envelope@2x.png */; };
 		CDA927A616546ABE00A9D006 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279416546ABE00A9D006 /* left.png */; };
@@ -239,8 +236,6 @@
 		CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-precomposed@2x.png"; path = "Resources/Images/App Store/icon-precomposed@2x.png"; sourceTree = "<group>"; };
 		CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pd-icon-appstore-512.png"; path = "Resources/Images/App Store/pd-icon-appstore-512.png"; sourceTree = "<group>"; };
 		CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pd-icon-appstore-1024.png"; path = "Resources/Images/App Store/pd-icon-appstore-1024.png"; sourceTree = "<group>"; };
-		CDA9278E16546ABE00A9D006 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banner.png; path = Resources/Images/banner.png; sourceTree = "<group>"; };
-		CDA9278F16546ABE00A9D006 /* banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner@2x.png"; path = "Resources/Images/banner@2x.png"; sourceTree = "<group>"; };
 		CDA9279216546ABE00A9D006 /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = envelope.png; path = Resources/Images/envelope.png; sourceTree = "<group>"; };
 		CDA9279316546ABE00A9D006 /* envelope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "envelope@2x.png"; path = "Resources/Images/envelope@2x.png"; sourceTree = "<group>"; };
 		CDA9279416546ABE00A9D006 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = Resources/Images/left.png; sourceTree = "<group>"; };
@@ -328,6 +323,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0F8FA5180D54E8001B5808 /* CoreText.framework in Frameworks */,
+				CD0F8FA4180D54E2001B5808 /* Accounts.framework in Frameworks */,
 				CD7552C116A8F243002FDAA0 /* libz.dylib in Frameworks */,
 				CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */,
 				CD7552BF16A8F22B002FDAA0 /* MobileCoreServices.framework in Frameworks */,
@@ -336,7 +333,6 @@
 				CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */,
 				CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */,
 				CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */,
-				CD506E97154CFC9400FC2CEC /* Twitter.framework in Frameworks */,
 				CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */,
 				CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */,
 				CDCDC284180C53F70078C93B /* StoreKit.framework in Frameworks */,
@@ -513,8 +509,6 @@
 				CD2770BF180A4A2300DD06E1 /* Images.xcassets */,
 				CDA9277E1651E66700A9D006 /* icon-precomposed.png */,
 				CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */,
-				CDA9278E16546ABE00A9D006 /* banner.png */,
-				CDA9278F16546ABE00A9D006 /* banner@2x.png */,
 				CDC21B0C170679EA00C144B4 /* bullet.png */,
 				CDC6A30C17A03DFF008C0290 /* bullet@2x.png */,
 				CDA9279216546ABE00A9D006 /* envelope.png */,
@@ -742,8 +736,6 @@
 				CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */,
 				CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */,
 				CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */,
-				CDA927A016546ABE00A9D006 /* banner.png in Resources */,
-				CDA927A116546ABE00A9D006 /* banner@2x.png in Resources */,
 				CDA927A416546ABE00A9D006 /* envelope.png in Resources */,
 				CDCDC281180C53840078C93B /* ArialBlack.ttf in Resources */,
 				CDA927A516546ABE00A9D006 /* envelope@2x.png in Resources */,
@@ -789,8 +781,6 @@
 				CD5B3D2016E5131B004BD9FD /* icon-precomposed@2x.png in Resources */,
 				CD5B3D2516E5131B004BD9FD /* pd-icon-appstore-512.png in Resources */,
 				CD5B3D2616E5131B004BD9FD /* pd-icon-appstore-1024.png in Resources */,
-				CD5B3D2716E5131B004BD9FD /* banner.png in Resources */,
-				CD5B3D2816E5131B004BD9FD /* banner@2x.png in Resources */,
 				CD5B3D2B16E5131B004BD9FD /* envelope.png in Resources */,
 				CDCDC282180C53840078C93B /* ArialBlack.ttf in Resources */,
 				CD5B3D2C16E5131B004BD9FD /* envelope@2x.png in Resources */,
