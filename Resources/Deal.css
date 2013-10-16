@@ -13,8 +13,7 @@ a {
     color: rgb(18, 70, 119);
     font-weight: bold;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0, 72, 117, 0.5);
-    /*-webkit-tap-highlight-color: rgba(203, 13, 38, 0.5);*/
+    -webkit-tap-highlight-color: rgba(18, 70, 119, 0.5);
 }
 img { 
     margin-bottom: -25px;
@@ -37,7 +36,6 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    /*text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 0px;*/
     width: 100%;
     z-index: 100;
 }
@@ -51,7 +49,6 @@ img {
     padding: 0px 10px;
     text-align: center;
     text-overflow: inherit;
-    /*text-shadow: rgb(191, 191, 191) 1px 1px 0px;*/
     white-space: normal;
 }
 .body {
@@ -83,7 +80,6 @@ img {
 /* CLASSES */
 .expired {
     color: rgb(174, 19, 18);
-    /*text-shadow: rgba(48, 48, 48, 0.75) 0px 1px 0px;*/
 }
 .image {
     min-height: 33px;
@@ -99,33 +95,9 @@ img {
 }
 
 /* RETINA */
-
 @media (-webkit-min-device-pixel-ratio: 2) {
     .body ul li {
         background-image: url('bullet@2x.png');
         background-size: 10px 13px;
     }
 }
-
-/* iPad (portrait and landscape) */
-/*@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    .headline {
-        font-size: 28px;
-    }
-    .body {
-        font-size: 24px;
-    }
-    img {
-        margin-bottom: -50px;         
-        min-width: 100px; 
-        min-height: 50px;
-        top: -50;
-    }    
-    .image {
-        min-height: 58px;
-    }    
-    .spinner {
-        height: 50px;        
-        width: 50px;
-    }
-}*/
