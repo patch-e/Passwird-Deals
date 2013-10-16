@@ -36,8 +36,6 @@
     [labelView setBackgroundColor:[UIColor clearColor]];
     [labelView setFont:[UIFont systemFontOfSize:15]];
     [labelView setTextColor:[UIColor pdSectionTextColor]];
-//    [labelView setShadowColor:[UIColor darkGrayColor]];
-//    [labelView setShadowOffset:CGSizeMake(0, 1)];
     [labelView setText:[[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section] substringFromIndex:9]];
     
     [headerView addSubview:labelView];
@@ -109,7 +107,7 @@
                                               otherButtonTitles: nil];
     [alertView show];
     
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     
     //send the finished message to the current pull-to-refresh control
     [self.refreshControl endRefreshing];
@@ -174,7 +172,7 @@
     
     [self.tableView reloadData];
     
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     
     //send the finished message to the current pull-to-refresh control
     [self.refreshControl endRefreshing];

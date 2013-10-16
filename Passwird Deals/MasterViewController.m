@@ -20,8 +20,9 @@
 
 - (void)createConnectionWithHUD:(BOOL)showHUD {
     if ( showHUD ) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         [hud setLabelText:@"Loading"];
+//        [hud setYOffset:-64.0f];
     }
     
     //build the connection for async data downloading, 20 second timeout

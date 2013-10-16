@@ -19,7 +19,7 @@
 
 - (void)createConnectionWithHUD:(BOOL)showHUD {
     if ( showHUD ) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         [hud setLabelText:@"Searching"];
     }
     
