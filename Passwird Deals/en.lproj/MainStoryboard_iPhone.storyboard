@@ -74,6 +74,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="passwird deals" id="35">
+                        <barButtonItem key="backBarButtonItem" title="Deals" id="5O4-cv-2XE"/>
                         <barButtonItem key="leftBarButtonItem" enabled="NO" image="settings.png" id="zzJ-ne-Rvv">
                             <connections>
                                 <segue destination="URx-zU-rTN" kind="modal" identifier="About" modalTransitionStyle="coverVertical" id="YS6-xL-8fA"/>
@@ -333,6 +334,7 @@
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="deal" id="26">
+                        <barButtonItem key="backBarButtonItem" title="Deal" id="cSE-B3-ipb"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="L4r-Z8-ZlO">
                             <connections>
                                 <action selector="showActionSheet:" destination="21" id="KuM-XO-VVe"/>
@@ -359,6 +361,8 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="zrD-mn-MYf">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="barTintColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -402,7 +406,9 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="search" id="X6B-Ts-a42"/>
+                    <navigationItem key="navigationItem" title="search" id="X6B-Ts-a42">
+                        <barButtonItem key="backBarButtonItem" title="Search" id="hHl-I7-P1i"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="zrD-mn-MYf" id="0Y7-Uy-pzx"/>
                     </connections>
@@ -452,7 +458,8 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3gG-5D-t8o"/>
                                 </items>
-                                <color key="tintColor" red="0.68235294117647061" green="0.074509803921568626" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.070588235289999995" green="0.27450980390000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -465,7 +472,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="backButton" destination="cCd-vb-zmC" id="Wzo-cD-Jbz"/>
                         <outlet property="forwardButton" destination="TZn-rT-KZ1" id="SlE-ic-KlA"/>
@@ -481,9 +487,9 @@
         <image name="envelope.png" width="24" height="16"/>
         <image name="github.png" width="25" height="25"/>
         <image name="icon-precomposed.png" width="57" height="57"/>
-        <image name="left.png" width="16" height="18"/>
-        <image name="refresh.png" width="16" height="16"/>
-        <image name="right.png" width="16" height="18"/>
+        <image name="left.png" width="24" height="24"/>
+        <image name="refresh.png" width="24" height="24"/>
+        <image name="right.png" width="24" height="24"/>
         <image name="settings.png" width="16" height="16"/>
         <image name="star.png" width="25" height="24"/>
         <image name="usd.png" width="17" height="26"/>
@@ -494,6 +500,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FTD-sn-uHj"/>
+        <segue reference="teQ-Uk-T7m"/>
     </inferredMetricsTieBreakers>
 </document>
