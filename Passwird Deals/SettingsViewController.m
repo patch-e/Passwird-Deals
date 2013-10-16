@@ -56,12 +56,13 @@
                                                                   forKey:SKStoreProductParameterITunesItemIdentifier];
         
         SKStoreProductViewController *productViewController = [[SKStoreProductViewController alloc] init];
+        
         [productViewController setDelegate:self];
         [productViewController loadProductWithParameters:appParameters
                                          completionBlock:^(BOOL result, NSError *error) {
                                              [MBProgressHUD hideHUDForView:self.view animated:YES];
                                              if (result) {
-                                                 [self presentViewController:productViewController animated:YES completion:^{}];
+                                                 [self presentViewController:productViewController animated:YES completion:nil];
                                              }
                                          }];
     } else {
@@ -97,6 +98,9 @@
         [mailer setMailComposeDelegate:self];
         [mailer setToRecipients:[NSArray arrayWithObject:ABOUT_EMAIL_ADDRESS]];
         [mailer setSubject:EMAIL_SUBJECT_FEEDBACK];
+        [mailer.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
+        [mailer.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
+        [mailer.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
         
         [self presentViewController:mailer animated:YES completion:nil];
         

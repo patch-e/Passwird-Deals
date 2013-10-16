@@ -10,6 +10,7 @@
 
 #import "Constants.h"
 #import "Flurry.h"
+#import "Extensions.h"
 
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
@@ -25,6 +26,9 @@
         
         [mailer setMailComposeDelegate:self];
         [mailer setSubject:EMAIL_SUBJECT_SHARE];
+        [mailer.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
+        [mailer.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
+        [mailer.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
         
         NSString *emailBody = [NSString stringWithFormat:EMAIL_BODY_SHARE, headline, body];
         [mailer setMessageBody:emailBody isHTML:YES];
