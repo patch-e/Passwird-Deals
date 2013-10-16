@@ -175,6 +175,9 @@
     
     NSLog(@"Pushed URL: %@", self.pushedURL);
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.pushedURL]];
+    
+    [self.webView.scrollView setContentInset:UIEdgeInsetsMake(0, 0, 44.0, 0)];
+    [self.webView.scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, 44.0, 0)];
 }
 
 - (void)viewDidUnload {
