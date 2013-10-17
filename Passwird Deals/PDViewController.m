@@ -33,7 +33,9 @@
         NSString *emailBody = [NSString stringWithFormat:EMAIL_BODY_SHARE, headline, body];
         [mailer setMessageBody:emailBody isHTML:YES];
         
-        [self presentViewController:mailer animated:YES completion:nil];
+        [self presentViewController:mailer animated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }];
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
                                                             message:ERROR_MAIL_SUPPORT

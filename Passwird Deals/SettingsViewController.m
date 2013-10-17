@@ -107,7 +107,9 @@
         [mailer.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
         [mailer.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
         
-        [self presentViewController:mailer animated:YES completion:nil];
+        [self presentViewController:mailer animated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }];
         
         mailer = nil;
     } else {
