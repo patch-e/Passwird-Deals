@@ -151,7 +151,6 @@
         if (scrollViewHeight < view.frame.origin.y + view.frame.size.height)
             scrollViewHeight = view.frame.origin.y + view.frame.size.height;
     }
-    NSLog(@"%f", scrollViewHeight);
     [self.scrollView setContentSize:CGSizeMake(0, scrollViewHeight)];
 }
 
@@ -163,10 +162,7 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self calculateAndSetScrollViewHeight];
-}
-
-- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [self.scrollView setContentOffset:CGPointZero animated:NO];
+    [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
