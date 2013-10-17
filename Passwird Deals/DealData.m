@@ -15,14 +15,18 @@
                              body:@"" 
                          imageURL:nil
                         isExpired:YES 
-                       datePosted:nil];
+                       datePosted:nil
+                           dealId:@""
+                             slug:@""];
 }
 
-- (id)initWithHeadline:(NSString*)headline 
-                  body:(NSString*)body 
-              imageURL:(NSURL*)imageURL
+- (id)initWithHeadline:(NSString *)headline
+                  body:(NSString *)body
+              imageURL:(NSURL *)imageURL
              isExpired:(BOOL)isExpired 
-            datePosted:(NSDate *)datePosted {
+            datePosted:(NSDate *)datePosted
+                dealId:(NSString *)dealId
+                  slug:(NSString *)slug {
     if (self = [super init]) {
         [self setHeadline:headline];
         [self setBody:body];

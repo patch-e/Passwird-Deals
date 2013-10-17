@@ -87,7 +87,9 @@
                                       body:[aDeal valueForKey:@"body"]
                                   imageURL:[NSURL URLWithString:[aDeal objectForKey:@"image"]]
                                  isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
-                                datePosted:datePosted];
+                                datePosted:datePosted
+                                    dealId:[aDeal valueForKey:@"id"]
+                                      slug:[aDeal valueForKey:@"slug"]];
         
         [self setDetailItem:deal];
         

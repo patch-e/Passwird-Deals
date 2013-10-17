@@ -14,10 +14,23 @@
 @property (assign) BOOL isExpired;
 @property (strong) NSDate *datePosted;
 
-- (id)initWithHeadline:(NSString*)headline 
-                  body:(NSString*)body 
-              imageURL:(NSURL*)imageURL
-             isExpired:(BOOL)isExpired 
-            datePosted:(NSDate*)datePosted;
+@property (strong) NSString *dealId;
+@property (assign) BOOL legacy;
+@property (assign) BOOL hot;
+@property (assign) BOOL free;
+@property (strong) NSString *price;
+@property (strong) NSString *slug;
+@property (strong) NSString *sHeadline;
+@property (strong) NSString *author;
+@property (strong) NSString *expirationDate;
+@property (strong) NSArray *images;
+
+- (id)initWithHeadline:(NSString *)headline
+                  body:(NSString *)body
+              imageURL:(NSURL *)imageURL
+             isExpired:(BOOL)isExpired
+            datePosted:(NSDate *)datePosted
+                dealId:(NSString *)dealId
+                  slug:(NSString *)slug;
 
 @end
