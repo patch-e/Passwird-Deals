@@ -89,28 +89,28 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="mGI-dz-n6X" detailTextLabel="6pF-fG-6BO" imageView="ptc-h0-UlZ" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="YN7-Gd-VHv" customClass="PDTableViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YN7-Gd-VHv" id="pYe-MP-3c4">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Deal Headline, up to three lines long. Some extra text to get to three lines. Will end truncate." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mGI-dz-n6X">
-                                            <rect key="frame" x="77" y="15" width="200" height="54"/>
+                                            <rect key="frame" x="87" y="16" width="198" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="(expired)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6pF-fG-6BO">
-                                            <rect key="frame" x="77" y="69" width="52" height="16"/>
+                                            <rect key="frame" x="87" y="67" width="52" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.050980392159999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="icon-precomposed.png" id="ptc-h0-UlZ">
-                                            <rect key="frame" x="10" y="21" width="57" height="57"/>
+                                            <rect key="frame" x="15" y="21" width="57" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -175,14 +175,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="about" id="4Ff-S2-Jj2">
-                                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="llN-t9-Lt6">
-                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="dismissView:" destination="vj2-RJ-oUl" id="ssJ-cf-SEj"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="about" id="4Ff-S2-Jj2"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" id="iuO-Ox-wT1">
@@ -547,7 +540,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     </view>
                     <connections>
                         <outlet property="appNameLabel" destination="KMN-N5-f53" id="lo7-pb-R0R"/>
-                        <outlet property="doneButton" destination="llN-t9-Lt6" id="pIk-1P-Hnq"/>
                         <outlet property="expiredSwitch" destination="vAI-Ii-s3a" id="9DS-Uo-oLQ"/>
                         <outlet property="legalLabel" destination="chy-dr-bST" id="h94-QD-Odg"/>
                         <outlet property="scrollView" destination="WP6-qr-iNN" id="y4S-Nu-Dc2"/>
@@ -567,35 +559,35 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" showsCancelButton="YES" id="nFP-6L-tQx">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="y6a-pB-AgT" detailTextLabel="2Ob-yP-Tdx" imageView="ER3-9K-DU3" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="lVW-MZ-Dfn" customClass="PDTableViewCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lVW-MZ-Dfn" id="zBD-4G-zUb">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Deal Headline, up to three lines long. Some extra text to get to three lines. Will end truncate." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6a-pB-AgT">
-                                            <rect key="frame" x="77" y="15" width="200" height="54"/>
+                                            <rect key="frame" x="87" y="16" width="198" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="(expired)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Ob-yP-Tdx">
-                                            <rect key="frame" x="77" y="69" width="52" height="16"/>
+                                            <rect key="frame" x="87" y="67" width="52" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.050980392159999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="icon-precomposed.png" id="ER3-9K-DU3">
-                                            <rect key="frame" x="10" y="21" width="57" height="57"/>
+                                            <rect key="frame" x="15" y="21" width="57" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -700,9 +692,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <image name="envelope.png" width="24" height="16"/>
         <image name="github.png" width="25" height="25"/>
         <image name="icon-precomposed.png" width="57" height="57"/>
-        <image name="left.png" width="16" height="18"/>
-        <image name="refresh.png" width="16" height="16"/>
-        <image name="right.png" width="16" height="18"/>
+        <image name="left.png" width="24" height="24"/>
+        <image name="refresh.png" width="24" height="24"/>
+        <image name="right.png" width="24" height="24"/>
         <image name="star.png" width="25" height="24"/>
         <image name="usd.png" width="17" height="26"/>
     </resources>

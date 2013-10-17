@@ -56,12 +56,17 @@
                                                                   forKey:SKStoreProductParameterITunesItemIdentifier];
         
         SKStoreProductViewController *productViewController = [[SKStoreProductViewController alloc] init];
+        [productViewController.navigationController.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
+        [productViewController.navigationController.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
+        [productViewController.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
         
         [productViewController setDelegate:self];
         [productViewController loadProductWithParameters:appParameters
                                          completionBlock:^(BOOL result, NSError *error) {
                                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                             NSLog(@"%hhd", result);
                                              if (result) {
+                                                 NSLog(@"%@", productViewController);
                                                  [self presentViewController:productViewController animated:YES completion:nil];
                                              }
                                          }];
@@ -142,10 +147,11 @@
 
 - (void)calculateAndSetScrollViewHeight {
     CGFloat scrollViewHeight = 0.0f;
-    for (UIView *view in self.scrollView.subviews){
+    for (UIView *view in self.scrollView.subviews) {
         if (scrollViewHeight < view.frame.origin.y + view.frame.size.height)
             scrollViewHeight = view.frame.origin.y + view.frame.size.height;
     }
+    NSLog(@"%f", scrollViewHeight);
     [self.scrollView setContentSize:CGSizeMake(0, scrollViewHeight)];
 }
 
@@ -170,10 +176,6 @@
     } else {
         return YES;
     }
-}
-
-- (void)viewWillLayoutSubviews {
-    [self calculateAndSetScrollViewHeight];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -208,15 +210,14 @@
     self.githubButton.layer.cornerRadius = 5;
     self.githubButton.layer.borderWidth = 1;
     self.githubButton.layer.borderColor = [UIColor pdHeaderTintColor].CGColor;
+    
+    [self calculateAndSetScrollViewHeight];
 }
 
 - (void)viewDidUnload {
-    [self setNavigationBar:nil];
     [self setScrollView:nil];
-    [self setDoneButton:nil];
     [self setExpiredSwitch:nil];
     [self setAppNameLabel:nil];
-    [self setDoneButton:nil];
     [self setFeedbackButton:nil];
     [self setRateButton:nil];
     [self setGithubButton:nil];

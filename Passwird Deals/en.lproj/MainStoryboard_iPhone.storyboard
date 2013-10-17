@@ -64,7 +64,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="21" kind="push" identifier="Detail" id="teQ-Uk-T7m"/>
+                                    <segue destination="21" kind="push" identifier="Detail" id="fD0-CD-sh5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,9 +76,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="passwird deals" id="35">
                         <barButtonItem key="backBarButtonItem" title="Deals" id="5O4-cv-2XE"/>
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="settings.png" id="zzJ-ne-Rvv">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="settings.png" id="zzJ-ne-Rvv" userLabel="Bar Button Item - Settings">
                             <connections>
-                                <segue destination="URx-zU-rTN" kind="modal" identifier="About" modalTransitionStyle="coverVertical" id="YS6-xL-8fA"/>
+                                <segue destination="APQ-yR-PpE" kind="modal" identifier="Settings" id="Mt2-FH-7JY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="search" id="kuV-Hf-HgB">
@@ -96,16 +96,37 @@
             </objects>
             <point key="canvasLocation" x="479" y="80"/>
         </scene>
-        <!--About View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="F81-3n-IF6">
+            <objects>
+                <navigationController id="APQ-yR-PpE" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="cPh-jz-5sJ" customClass="PDNavigationBar">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.070588235289999995" green="0.27450980390000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="URx-zU-rTN" kind="relationship" relationship="rootViewController" id="Bjg-IN-fAQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkA-yD-yUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479" y="722"/>
+        </scene>
+        <!--Settings View Controller-->
         <scene sceneID="Kp8-JF-p1l">
             <objects>
-                <viewController title="About" id="URx-zU-rTN" userLabel="About View Controller" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KUc-9e-2Sq">
+                <viewController title="Settings" id="URx-zU-rTN" userLabel="Settings View Controller" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KUc-9e-2Sq" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="jjX-bc-3ts">
-                                <rect key="frame" x="0.0" y="44" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show expired deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e7c-OB-Ywg">
@@ -127,143 +148,125 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sdL-Z7-8DX">
-                                <rect key="frame" x="0.0" y="99" width="320" height="381"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="jFm-NU-Awr">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="passwird deals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QdS-d9-teF" customClass="THLabel">
-                                                <rect key="frame" x="20" y="15" width="280" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <color key="textColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="-1" height="-1"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="is a fan-made app that is not affiliated with passwird.com" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JuK-8S-FaF">
-                                                <rect key="frame" x="59" y="58" width="203" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="1" height="1"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="9Yv-qp-f2n">
-                                        <rect key="frame" x="0.0" y="111" width="320" height="186"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="BAu-8q-Y9T">
-                                                <rect key="frame" x="34" y="0.0" width="58" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Donate">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="donateLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="RVF-hI-JiS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tat-Rh-ic7">
-                                                <rect key="frame" x="100" y="0.0" width="75" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Feedback">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="emailLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="0UB-VQ-oD7"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="oOg-nN-csv">
-                                                <rect key="frame" x="183" y="0.0" width="41" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Rate">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="rateLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="ClJ-al-fUE"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FrQ-Ht-b2W">
-                                                <rect key="frame" x="232" y="0.0" width="54" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Github">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="githubLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="TEd-LX-Scg"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blingbear.png" id="gyj-AJ-4nE">
-                                                <rect key="frame" x="94" y="30" width="132" height="156"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
-                            <navigationBar contentMode="scaleToFill" id="fsQ-hg-TBy" customClass="PDNavigationBar">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <view contentMode="scaleToFill" id="jFm-NU-Awr">
+                                <rect key="frame" x="0.0" y="63" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="20"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.070588235294117646" green="0.27450980392156865" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="20"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="settings" id="MDD-OF-ePh">
-                                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="bIJ-l4-d6p">
-                                            <connections>
-                                                <action selector="dismissView:" destination="URx-zU-rTN" id="MVM-B0-Ft6"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="passwird deals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QdS-d9-teF" customClass="THLabel">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.070588235289999995" green="0.27450980390000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="-1" height="-1"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="is a fan-made app that is not affiliated with passwird.com" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JuK-8S-FaF">
+                                        <rect key="frame" x="59" y="45" width="203" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="9Yv-qp-f2n">
+                                <rect key="frame" x="0.0" y="161" width="320" height="206"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="BAu-8q-Y9T">
+                                        <rect key="frame" x="34" y="0.0" width="58" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Donate">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="donateLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="RVF-hI-JiS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tat-Rh-ic7">
+                                        <rect key="frame" x="100" y="0.0" width="75" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Feedback">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="emailLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="0UB-VQ-oD7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="oOg-nN-csv">
+                                        <rect key="frame" x="183" y="0.0" width="41" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Rate">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rateLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="ClJ-al-fUE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FrQ-Ht-b2W">
+                                        <rect key="frame" x="232" y="0.0" width="54" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Github">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="githubLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="TEd-LX-Scg"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blingbear.png" id="gyj-AJ-4nE">
+                                        <rect key="frame" x="94" y="50" width="132" height="156"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="settings" id="7Aw-yb-AcX">
+                        <barButtonItem key="backBarButtonItem" title="Settings" id="9Sf-18-pns"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="DyU-fu-fOw">
+                            <connections>
+                                <action selector="dismissView:" destination="URx-zU-rTN" id="FYW-hh-mp4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="appNameLabel" destination="QdS-d9-teF" id="FgS-x0-lyJ"/>
                         <outlet property="donateButton" destination="BAu-8q-Y9T" id="o6k-Zr-uHn"/>
-                        <outlet property="doneButton" destination="BAu-8q-Y9T" id="rD2-Ax-8NK"/>
                         <outlet property="expiredSwitch" destination="E3G-IE-Rh3" id="Djn-65-fWE"/>
                         <outlet property="feedbackButton" destination="tat-Rh-ic7" id="Fze-EN-fJl"/>
                         <outlet property="githubButton" destination="FrQ-Ht-b2W" id="aj6-fW-xcf"/>
-                        <outlet property="navigationBar" destination="fsQ-hg-TBy" id="gaF-NV-eFB"/>
                         <outlet property="rateButton" destination="oOg-nN-csv" id="Xa1-wv-EEn"/>
-                        <outlet property="scrollView" destination="sdL-Z7-8DX" id="ayQ-cm-4HQ"/>
+                        <outlet property="scrollView" destination="KUc-9e-2Sq" id="Dck-Qk-pEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irj-kN-EzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="728"/>
+            <point key="canvasLocation" x="479" y="1360"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -449,6 +452,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="teQ-Uk-T7m"/>
+        <segue reference="fD0-CD-sh5"/>
     </inferredMetricsTieBreakers>
 </document>

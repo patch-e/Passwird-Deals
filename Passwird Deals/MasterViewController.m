@@ -60,7 +60,7 @@
 #pragma mark - Managing the About modal view
 
 - (void)showAboutModal:(id)sender {
-    [self performSegueWithIdentifier:@"About" sender:self];
+    [self performSegueWithIdentifier:@"Settings" sender:self];
 }
 
 #pragma mark - View lifecycle

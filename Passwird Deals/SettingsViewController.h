@@ -15,12 +15,9 @@
 
 @interface SettingsViewController : UIViewController <UIScrollViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet PDNavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UISwitch *expiredSwitch;
 @property (weak, nonatomic) IBOutlet THLabel *appNameLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *donateButton;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UIButton *rateButton;
