@@ -19,6 +19,10 @@
 		CD0F8FB4180F6F65001B5808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FB0180F6F55001B5808 /* AdSupport.framework */; };
 		CD0F8FB5180F6F6F001B5808 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FB2180F6F5F001B5808 /* Security.framework */; };
 		CD0F8FB6180F707F001B5808 /* libFlurry_4.2.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FAD180F6F38001B5808 /* libFlurry_4.2.4.a */; };
+		CD0F8FB8180FFEE6001B5808 /* Email.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FB7180FFEE6001B5808 /* Email.txt */; };
+		CD0F8FB9180FFEE6001B5808 /* Email.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FB7180FFEE6001B5808 /* Email.txt */; };
+		CD0F8FBC18109CFB001B5808 /* StringTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0F8FBB18109CFB001B5808 /* StringTemplate.m */; };
+		CD0F8FBD18109CFB001B5808 /* StringTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0F8FBB18109CFB001B5808 /* StringTemplate.m */; };
 		CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
 		CD2770C1180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
@@ -172,6 +176,9 @@
 		CD0F8FAD180F6F38001B5808 /* libFlurry_4.2.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_4.2.4.a; path = Flurry/libFlurry_4.2.4.a; sourceTree = "<group>"; };
 		CD0F8FB0180F6F55001B5808 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CD0F8FB2180F6F5F001B5808 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CD0F8FB7180FFEE6001B5808 /* Email.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Email.txt; path = Resources/Email.txt; sourceTree = "<group>"; };
+		CD0F8FBA18109CFB001B5808 /* StringTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringTemplate.h; sourceTree = "<group>"; };
+		CD0F8FBB18109CFB001B5808 /* StringTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringTemplate.m; sourceTree = "<group>"; };
 		CD2770BF180A4A2300DD06E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images/Images.xcassets; sourceTree = "<group>"; };
 		CD2A72B71516B12F003A4394 /* Passwird Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD2A72BB1516B12F003A4394 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -345,6 +352,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD0F8FBE1810A8EC001B5808 /* StringTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F8FBA18109CFB001B5808 /* StringTemplate.h */,
+				CD0F8FBB18109CFB001B5808 /* StringTemplate.m */,
+			);
+			name = StringTemplate;
+			sourceTree = "<group>";
+		};
 		CD2A72AC1516B12F003A4394 = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +476,7 @@
 				CDCDC295180CD8BC0078C93B /* GTM */,
 				CDCDC294180CD8990078C93B /* MBProgressHUD */,
 				CDD72AB7153522CA0062C1A8 /* SDWebImage */,
+				CD0F8FBE1810A8EC001B5808 /* StringTemplate */,
 				CDCDC296180CD8C90078C93B /* THLabel */,
 				CD2B2E77151DF841004A222C /* Extensions.h */,
 				CD2B2E78151DF841004A222C /* Extensions.m */,
@@ -476,6 +493,7 @@
 				CDA927B216546BD600A9D006 /* Deal.css */,
 				CDA927B416546BD600A9D006 /* Deal.min.css */,
 				CDA927B616546BD600A9D006 /* spin.min.js */,
+				CD0F8FB7180FFEE6001B5808 /* Email.txt */,
 				CDA927B516546BD600A9D006 /* Facebook.txt */,
 				CDA927B716546BD600A9D006 /* Tweet.txt */,
 				CDE9582016DA4D820034C27B /* Licensing.txt */,
@@ -716,6 +734,7 @@
 				CDA927A716546ABE00A9D006 /* left@2x.png in Resources */,
 				CDA927AA16546ABE00A9D006 /* right.png in Resources */,
 				CDCDC28E180CD4870078C93B /* settings.png in Resources */,
+				CD0F8FB8180FFEE6001B5808 /* Email.txt in Resources */,
 				CDA927AB16546ABE00A9D006 /* right@2x.png in Resources */,
 				CDA927B816546BD600A9D006 /* Deal.css in Resources */,
 				CDCDC290180CD4870078C93B /* settings@2x.png in Resources */,
@@ -751,6 +770,7 @@
 				CD5B3D2E16E5131B004BD9FD /* left@2x.png in Resources */,
 				CD5B3D3116E5131B004BD9FD /* right.png in Resources */,
 				CDCDC28F180CD4870078C93B /* settings.png in Resources */,
+				CD0F8FB9180FFEE6001B5808 /* Email.txt in Resources */,
 				CD5B3D3216E5131B004BD9FD /* right@2x.png in Resources */,
 				CD5B3D3916E5131B004BD9FD /* Deal.css in Resources */,
 				CDCDC291180CD4870078C93B /* settings@2x.png in Resources */,
@@ -791,6 +811,7 @@
 				CDD72ADB153522F40062C1A8 /* SDWebImagePrefetcher.m in Sources */,
 				CDD72ADC153522F40062C1A8 /* UIButton+WebCache.m in Sources */,
 				CDD72ADD153522F40062C1A8 /* UIImageView+WebCache.m in Sources */,
+				CD0F8FBC18109CFB001B5808 /* StringTemplate.m in Sources */,
 				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
 				CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */,
 				CD55DF92156DD82E00CF4D73 /* Appirater.m in Sources */,
@@ -832,6 +853,7 @@
 				CD5B3CFD16E5131B004BD9FD /* SDWebImagePrefetcher.m in Sources */,
 				CD5B3CFE16E5131B004BD9FD /* UIButton+WebCache.m in Sources */,
 				CD5B3CFF16E5131B004BD9FD /* UIImageView+WebCache.m in Sources */,
+				CD0F8FBD18109CFB001B5808 /* StringTemplate.m in Sources */,
 				CD5B3D0016E5131B004BD9FD /* SearchViewController.m in Sources */,
 				CD5B3D0116E5131B004BD9FD /* WebViewController.m in Sources */,
 				CD5B3D0316E5131B004BD9FD /* Appirater.m in Sources */,

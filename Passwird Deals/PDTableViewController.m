@@ -9,9 +9,6 @@
 #import "PDTableViewController.h"
 
 #import "PDTableViewCell.h"
-
-#import "Extensions.h"
-#import "Constants.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
@@ -159,7 +156,8 @@
                                  isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
                                 datePosted:datePosted
                                     dealId:[aDeal valueForKey:@"id"]
-                                      slug:[aDeal valueForKey:@"slug"]];
+                                      slug:[aDeal valueForKey:@"slug"]
+                                 sHeadline:[aDeal valueForKey:@"sHeadline"]];
 
         [[self.sections objectForKey:joinedDates] addObject:deal];
         

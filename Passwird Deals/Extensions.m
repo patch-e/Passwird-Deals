@@ -68,6 +68,11 @@
                                                                                  kCFStringEncodingUTF8 );
 }
 
++ (NSString *)stringFromResource:(NSString*)resourceName {
+    NSString *path = [[NSBundle mainBundle] pathForResource:resourceName ofType:nil];
+    return [NSString stringWithContentsOfFile:path usedEncoding:nil error:nil];
+}
+
 @end
 
 @implementation UIColor (colors)
@@ -105,6 +110,21 @@
     if (!color)
         color = [[UIColor alloc] initWithRed:(174.0/255.0) green:(19.0/255.0) blue:(18.0/255.0) alpha:1.0];
     return color;
+}
+
+@end
+
+@implementation MFMailComposeViewController(Extension)
+
++ (MFMailComposeViewController *)initMFMailComposeViewControllerWithDelegate:(id)delegate {
+    MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+    
+    [mailer setMailComposeDelegate:delegate];
+    [mailer.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
+    [mailer.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
+    [mailer.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
+    
+    return mailer;
 }
 
 @end

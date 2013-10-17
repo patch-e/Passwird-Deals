@@ -8,7 +8,6 @@
 
 #import "WebViewController.h"
 
-#import "Constants.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 
@@ -77,15 +76,15 @@
         switch (buttonIndex) {
             case 0:
                 [Flurry logEvent:FLURRY_FACEBOOK];
-                [self postToFacebookWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [self postToFacebookWithDeal:self.detailItem];
                 break;
             case 1:
                 [Flurry logEvent:FLURRY_TWITTER];
-                [self tweetDealWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [self tweetDealWithDeal:self.detailItem];
                 break;
             case 2:
                 [Flurry logEvent:FLURRY_EMAIL];
-                [self openMailWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [self openMailWithDeal:self.detailItem];
                 break;
             case 3:
                 [Flurry logEvent:FLURRY_COPY];
@@ -103,11 +102,11 @@
         switch (buttonIndex) {
             case 0:
                 [Flurry logEvent:FLURRY_TWITTER];
-                [self tweetDealWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [self tweetDealWithDeal:self.detailItem];
                 break;
             case 1:
                 [Flurry logEvent:FLURRY_EMAIL];
-                [self openMailWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [self openMailWithDeal:self.detailItem];
                 break;
             case 2:
                 [Flurry logEvent:FLURRY_COPY];

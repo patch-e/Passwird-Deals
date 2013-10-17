@@ -8,9 +8,8 @@
 
 #import "PDViewController.h"
 
-#import "Constants.h"
 #import "Flurry.h"
-#import "Extensions.h"
+#import "StringTemplate.h"
 
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
@@ -20,22 +19,24 @@
 
 #pragma mark - Managing the action sheet
 
-- (void)openMailWithHeadline:(NSString *)headline body:(NSString *)body {
+- (void)openMailWithDeal:(DealData *)deal {
     if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
-        
-        [mailer setMailComposeDelegate:self];
+        MFMailComposeViewController *mailer = [MFMailComposeViewController initMFMailComposeViewControllerWithDelegate:self];
         [mailer setSubject:EMAIL_SUBJECT_SHARE];
-        [mailer.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
-        [mailer.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
-        [mailer.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
         
-        NSString *emailBody = [NSString stringWithFormat:EMAIL_BODY_SHARE, headline, body];
-        [mailer setMessageBody:emailBody isHTML:YES];
+        StringTemplate *emailTemplate = [StringTemplate templateWithName:@"Email.txt"];
+        [emailTemplate setString:PASSWIRD_URL forKey:@"baseUrl"];
+        [emailTemplate setString:deal.dealId forKey:@"dealId"];
+        [emailTemplate setString:deal.slug forKey:@"slug"];
+        [emailTemplate setString:deal.headline forKey:@"headline"];
+        [emailTemplate setString:deal.body forKey:@"body"];
+        [mailer setMessageBody:emailTemplate.result isHTML:YES];
         
         [self presentViewController:mailer animated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         }];
+        
+        mailer = nil;
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
                                                             message:ERROR_MAIL_SUPPORT
@@ -63,19 +64,15 @@
     }
 }
 
-- (void)tweetDealWithHeadline:(NSString *)headline body:(NSString *)body {
-    NSError *error;
-    NSStringEncoding encoding;
-    NSString *tweetFilePath = [[NSBundle mainBundle] pathForResource: @"Tweet"
-                                                              ofType: @"txt"];
-    NSString *tweetString = [NSString stringWithContentsOfFile:tweetFilePath
-                                                  usedEncoding:&encoding
-                                                         error:&error];
-    NSString *tweet = [NSString stringWithFormat:tweetString, headline];
+- (void)tweetDealWithDeal:(DealData *)deal {
+    StringTemplate *tweetTemplate = [StringTemplate templateWithName:@"Tweet.txt"];
+    [tweetTemplate setString:PASSWIRD_URL forKey:@"baseUrl"];
+    [tweetTemplate setString:deal.dealId forKey:@"dealId"];
+    [tweetTemplate setString:deal.slug forKey:@"slug"];
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [share setInitialText:tweet];
+        [share setInitialText:tweetTemplate.result];
         [self presentViewController:share animated:YES completion:nil];
         
         return;
@@ -89,21 +86,18 @@
     [alertView show];
 }
 
-- (void)postToFacebookWithHeadline:(NSString *)headline body:(NSString *)body {
+- (void)postToFacebookWithDeal:(DealData *)deal {
     if ([SLComposeViewController class]) {
-        NSError *error;
-        NSStringEncoding encoding;
-        NSString *facebookFilePath = [[NSBundle mainBundle] pathForResource: @"Facebook"
-                                                                     ofType: @"txt"];
-        NSString *facebookString = [NSString stringWithContentsOfFile:facebookFilePath
-                                                         usedEncoding:&encoding
-                                                                error:&error];
-        NSString *facebook = [NSString stringWithFormat:facebookString, headline];
+        StringTemplate *facebookTemplate = [StringTemplate templateWithName:@"Facebook.txt"];
+        [facebookTemplate setString:PASSWIRD_URL forKey:@"baseUrl"];
+        [facebookTemplate setString:deal.dealId forKey:@"dealId"];
+        [facebookTemplate setString:deal.slug forKey:@"slug"];
+        [facebookTemplate setString:deal.sHeadline forKey:@"sHeadline"];
         
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
             SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
             
-            [share setInitialText:facebook];
+            [share setInitialText:facebookTemplate.result];
             
             [self presentViewController:share animated:YES completion:nil];
         }

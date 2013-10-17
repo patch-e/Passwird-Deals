@@ -31,6 +31,7 @@
              isExpired:(BOOL)isExpired
             datePosted:(NSDate *)datePosted
                 dealId:(NSString *)dealId
-                  slug:(NSString *)slug;
+                  slug:(NSString *)slug
+             sHeadline:(NSString *)sHeadline;
 
 @end

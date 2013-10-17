@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
+
 @interface UIImage(Extension)
 
 - (UIImage *) makeThumbnailOfSize:(CGSize)size;
@@ -22,6 +24,7 @@
 @interface NSString(Extension)
 
 - (NSString *)urlEncode;
++ (NSString *)stringFromResource:(NSString*)resourceName;
 
 @end
 
@@ -32,5 +35,11 @@
 + (UIColor *)pdTitleTextColor;
 + (UIColor *)pdSectionBackgroundColor;
 + (UIColor *)pdSectionTextColor;
+
+@end
+
+@interface MFMailComposeViewController(Extension)
+
++ (MFMailComposeViewController *)initMFMailComposeViewControllerWithDelegate:(id)delegate;
 
 @end

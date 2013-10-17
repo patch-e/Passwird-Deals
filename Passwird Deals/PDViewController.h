@@ -12,8 +12,8 @@
 
 @interface PDViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
-- (void)openMailWithHeadline:(NSString *)headline body:(NSString *)body;
-- (void)tweetDealWithHeadline:(NSString *)headline body:(NSString *)body;
-- (void)postToFacebookWithHeadline:(NSString *)headline body:(NSString *)body;
+- (void)openMailWithDeal:(DealData *)deal;
+- (void)tweetDealWithDeal:(DealData *)deal;
+- (void)postToFacebookWithDeal:(DealData *)deal;
 
 @end

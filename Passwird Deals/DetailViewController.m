@@ -9,7 +9,6 @@
 #import "DetailViewController.h"
 #import "WebViewController.h"
 
-#import "Constants.h"
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
 #import "Flurry.h"
@@ -89,7 +88,8 @@
                                  isExpired:[[aDeal valueForKey:@"isExpired"] boolValue]
                                 datePosted:datePosted
                                     dealId:[aDeal valueForKey:@"id"]
-                                      slug:[aDeal valueForKey:@"slug"]];
+                                      slug:[aDeal valueForKey:@"slug"]
+                                 sHeadline:[aDeal valueForKey:@"sHeadline"]];
         
         [self setDetailItem:deal];
         
@@ -169,15 +169,15 @@
         switch (buttonIndex) {
             case 0:
                 [Flurry logEvent:FLURRY_FACEBOOK];
-                [super postToFacebookWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [super postToFacebookWithDeal:self.detailItem];
                 break;
             case 1:
                 [Flurry logEvent:FLURRY_TWITTER];
-                [super tweetDealWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [super tweetDealWithDeal:self.detailItem];
                 break;
             case 2:
                 [Flurry logEvent:FLURRY_EMAIL];
-                [super openMailWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [super openMailWithDeal:self.detailItem];
                 break;
             default: //cancel button
                 break;
@@ -187,11 +187,11 @@
         switch (buttonIndex) {
             case 0:
                 [Flurry logEvent:FLURRY_TWITTER];
-                [super tweetDealWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [super tweetDealWithDeal:self.detailItem];
                 break;
             case 1:
                 [Flurry logEvent:FLURRY_EMAIL];
-                [super openMailWithHeadline:self.detailItem.headline body:self.detailItem.body];
+                [super openMailWithDeal:self.detailItem];
                 break;
             default: //cancel button
                 break;
