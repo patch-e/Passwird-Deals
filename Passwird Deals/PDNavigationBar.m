@@ -9,7 +9,6 @@
 #import "PDNavigationBar.h"
 
 #import "THLabel.h"
-#import "Extensions.h"
 
 @implementation PDNavigationBar
 

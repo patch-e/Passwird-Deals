@@ -10,8 +10,6 @@
 
 #import "MasterViewController.h"
 
-#import "Extensions.h"
-#import "Constants.h"
 #import "Appirater.h"
 #import "AFNetworking.h"
 #import "Flurry.h"

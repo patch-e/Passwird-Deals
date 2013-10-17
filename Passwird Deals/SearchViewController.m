@@ -8,8 +8,6 @@
 
 #import "SearchViewController.h"
 
-#import "Constants.h"
-#import "Extensions.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 
