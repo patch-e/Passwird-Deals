@@ -59,6 +59,7 @@ img {
     margin-top: 15px;
     font-size: 15.2px;    
     padding: 10px;
+    position: relative;
 }
 .body ul {
     list-style-type: none;
@@ -79,7 +80,13 @@ img {
 
 /* CLASSES */
 .expired {
-    color: rgb(174, 19, 18);
+    background-color: rgb(174, 19, 18);
+    box-shadow: 0 0 1em #888;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    text-shadow: 0 0 0.5em #444;
 }
 .image {
     min-height: 33px;
@@ -92,6 +99,9 @@ img {
 }
 .center {
     text-align: center;
+}
+.hide {
+  display: none;
 }
 
 /* RETINA */

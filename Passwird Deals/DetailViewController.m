@@ -229,7 +229,7 @@
         NSString *html = [NSString stringWithFormat:dealHtmlString, 
                             dateAsString, 
                             self.detailItem.headline, 
-                            (self.detailItem.isExpired ? @"(expired)" : @""), 
+                            (self.detailItem.isExpired ? @"expired" : @"hide"), 
                             self.detailItem.imageURL, 
                             self.detailItem.body];
         

@@ -60,7 +60,7 @@
     if ( !deal.isExpired )
         [cell.detailTextLabel setText:nil];
     else
-        [cell.detailTextLabel setText:@"(expired)"];
+        [cell.detailTextLabel setText:@"EXPIRED"];
     
     UIView *selectedBgView = [[UIView alloc] init];
     [selectedBgView setBackgroundColor:[UIColor pdHeaderBarTintColor]];
