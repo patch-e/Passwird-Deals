@@ -13,7 +13,13 @@
 		CD0F8FA9180E2783001B5808 /* blingbear.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA6180E2783001B5808 /* blingbear.png */; };
 		CD0F8FAA180E2783001B5808 /* blingbear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA7180E2783001B5808 /* blingbear@2x.png */; };
 		CD0F8FAB180E2783001B5808 /* blingbear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA7180E2783001B5808 /* blingbear@2x.png */; };
-		CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CD0F8FAE180F6F38001B5808 /* libFlurry_4.2.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FAD180F6F38001B5808 /* libFlurry_4.2.4.a */; };
+		CD0F8FB1180F6F55001B5808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FB0180F6F55001B5808 /* AdSupport.framework */; };
+		CD0F8FB3180F6F5F001B5808 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FB2180F6F5F001B5808 /* Security.framework */; };
+		CD0F8FB4180F6F65001B5808 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FB0180F6F55001B5808 /* AdSupport.framework */; };
+		CD0F8FB5180F6F6F001B5808 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FB2180F6F5F001B5808 /* Security.framework */; };
+		CD0F8FB6180F707F001B5808 /* libFlurry_4.2.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F8FAD180F6F38001B5808 /* libFlurry_4.2.4.a */; };
+		CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
 		CD2770C1180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
 		CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BB1516B12F003A4394 /* UIKit.framework */; };
@@ -54,9 +60,8 @@
 		CD5B3D0416E5131B004BD9FD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* SettingsViewController.m */; };
 		CD5B3D0516E5131B004BD9FD /* PDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* PDTableViewCell.m */; };
 		CD5B3D0716E5131B004BD9FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552C016A8F243002FDAA0 /* libz.dylib */; };
-		CD5B3D0816E5131B004BD9FD /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
 		CD5B3D0916E5131B004BD9FD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552BE16A8F22B002FDAA0 /* MobileCoreServices.framework */; };
-		CD5B3D0A16E5131B004BD9FD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CD5B3D0A16E5131B004BD9FD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8FF171589704D0041EE56 /* Social.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CD5B3D0B16E5131B004BD9FD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */; };
 		CD5B3D0C16E5131B004BD9FD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF93156DD84400CF4D73 /* CFNetwork.framework */; };
 		CD5B3D0D16E5131B004BD9FD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF86156B36E800CF4D73 /* MessageUI.framework */; };
@@ -90,7 +95,6 @@
 		CD7552C116A8F243002FDAA0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7552C016A8F243002FDAA0 /* libz.dylib */; };
 		CD779FBB152BE0D400580633 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CD779FB9152BDFC900580633 /* MBProgressHUD.m */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
-		CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A908015D9C9AC00FF1959 /* libFlurry.a */; };
 		CDA927861651E66800A9D006 /* icon-precomposed.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277E1651E66700A9D006 /* icon-precomposed.png */; };
 		CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */; };
 		CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA927841651E66800A9D006 /* pd-icon-appstore-512.png */; };
@@ -164,6 +168,10 @@
 /* Begin PBXFileReference section */
 		CD0F8FA6180E2783001B5808 /* blingbear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blingbear.png; path = Resources/Images/blingbear.png; sourceTree = "<group>"; };
 		CD0F8FA7180E2783001B5808 /* blingbear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blingbear@2x.png"; path = "Resources/Images/blingbear@2x.png"; sourceTree = "<group>"; };
+		CD0F8FAC180F6F38001B5808 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
+		CD0F8FAD180F6F38001B5808 /* libFlurry_4.2.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_4.2.4.a; path = Flurry/libFlurry_4.2.4.a; sourceTree = "<group>"; };
+		CD0F8FB0180F6F55001B5808 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CD0F8FB2180F6F5F001B5808 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CD2770BF180A4A2300DD06E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images/Images.xcassets; sourceTree = "<group>"; };
 		CD2A72B71516B12F003A4394 /* Passwird Deals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD2A72BB1516B12F003A4394 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -193,7 +201,6 @@
 		CD55DF91156DD82D00CF4D73 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		CD55DF93156DD84400CF4D73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CD55DF95156DD84E00CF4D73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CD5A907F15D9C9AC00FF1959 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		CD5A908015D9C9AC00FF1959 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = "Passwird Deals/libFlurry.a"; sourceTree = "<group>"; };
 		CD5B3D4416E5131B004BD9FD /* Passwird Deals beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passwird Deals beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5E8AEF171108D2000CCC04 /* PDNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDNavigationBar.h; sourceTree = "<group>"; };
@@ -293,15 +300,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0F8FB5180F6F6F001B5808 /* Security.framework in Frameworks */,
+				CD0F8FB4180F6F65001B5808 /* AdSupport.framework in Frameworks */,
 				CD0F8FA5180D54E8001B5808 /* CoreText.framework in Frameworks */,
 				CD0F8FA4180D54E2001B5808 /* Accounts.framework in Frameworks */,
 				CD7552C116A8F243002FDAA0 /* libz.dylib in Frameworks */,
-				CDA25B1915D9E002002AD0AC /* libFlurry.a in Frameworks */,
 				CD7552BF16A8F22B002FDAA0 /* MobileCoreServices.framework in Frameworks */,
 				CD16B6DF15E88BA600FCC935 /* Social.framework in Frameworks */,
 				CD55DF96156DD84E00CF4D73 /* SystemConfiguration.framework in Frameworks */,
 				CD55DF94156DD84400CF4D73 /* CFNetwork.framework in Frameworks */,
 				CD55DF87156B36E800CF4D73 /* MessageUI.framework in Frameworks */,
+				CD0F8FAE180F6F38001B5808 /* libFlurry_4.2.4.a in Frameworks */,
 				CDB6DADC15682F9B00BFF2B2 /* QuartzCore.framework in Frameworks */,
 				CD2A72BC1516B12F003A4394 /* UIKit.framework in Frameworks */,
 				CD2A72BE1516B12F003A4394 /* Foundation.framework in Frameworks */,
@@ -314,10 +323,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0F8FB6180F707F001B5808 /* libFlurry_4.2.4.a in Frameworks */,
+				CD0F8FB3180F6F5F001B5808 /* Security.framework in Frameworks */,
+				CD0F8FB1180F6F55001B5808 /* AdSupport.framework in Frameworks */,
 				CDCDC28B180CD3150078C93B /* CoreText.framework in Frameworks */,
 				CDCDC27F180C0DD10078C93B /* Accounts.framework in Frameworks */,
 				CD5B3D0716E5131B004BD9FD /* libz.dylib in Frameworks */,
-				CD5B3D0816E5131B004BD9FD /* libFlurry.a in Frameworks */,
 				CD5B3D0916E5131B004BD9FD /* MobileCoreServices.framework in Frameworks */,
 				CD5B3D0A16E5131B004BD9FD /* Social.framework in Frameworks */,
 				CD5B3D0B16E5131B004BD9FD /* SystemConfiguration.framework in Frameworks */,
@@ -355,6 +366,8 @@
 		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD0F8FB2180F6F5F001B5808 /* Security.framework */,
+				CD0F8FB0180F6F55001B5808 /* AdSupport.framework */,
 				CDCDC28A180CD3150078C93B /* CoreText.framework */,
 				CDCDC283180C53F70078C93B /* StoreKit.framework */,
 				CDCDC27E180C0DD10078C93B /* Accounts.framework */,
@@ -543,7 +556,8 @@
 		CDCDC293180CD8920078C93B /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
-				CD5A907F15D9C9AC00FF1959 /* Flurry.h */,
+				CD0F8FAC180F6F38001B5808 /* Flurry.h */,
+				CD0F8FAD180F6F38001B5808 /* libFlurry_4.2.4.a */,
 			);
 			name = Flurry;
 			sourceTree = "<group>";
@@ -931,7 +945,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Passwird Deals\"",
+					"\\\"$(SRCROOT)/Passwird\\ Deals\\\"",
+					"/Users/patrick/Documents/Passwird\\ Deals/Passwird\\ Deals/Passwird\\ Deals/Flurry",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -957,7 +972,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Passwird Deals\"",
+					"\\\"$(SRCROOT)/Passwird\\ Deals\\\"",
+					"/Users/patrick/Documents/Passwird\\ Deals/Passwird\\ Deals/Passwird\\ Deals/Flurry",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -984,7 +1000,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Passwird Deals\"",
+					"\\\"$(SRCROOT)/Passwird\\ Deals\\\"",
+					"/Users/patrick/Documents/Passwird\\ Deals/Passwird\\ Deals/Passwird\\ Deals/Flurry",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Passwird Deals beta";
@@ -1010,7 +1027,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Passwird Deals\"",
+					"\\\"$(SRCROOT)/Passwird\\ Deals\\\"",
+					"/Users/patrick/Documents/Passwird\\ Deals/Passwird\\ Deals/Passwird\\ Deals/Flurry",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Passwird Deals beta";

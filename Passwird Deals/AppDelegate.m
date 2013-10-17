@@ -72,6 +72,8 @@
                                      nil];
     [defaults registerDefaults:defaultSettings];
     
+    
+    [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
     
     [Appirater setAppId:PASSWIRD_APP_ID];
