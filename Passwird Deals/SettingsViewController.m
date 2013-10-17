@@ -8,10 +8,9 @@
 
 #import "SettingsViewController.h"
 
-#import "Constants.h"
+#import "StringTemplate.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
-#import "Extensions.h"
 
 @implementation SettingsViewController
 
@@ -23,8 +22,8 @@
     [[NSUserDefaults standardUserDefaults] setBool:self.expiredSwitch.on forKey:@"showExpiredDeals"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ABOUT_SETTINGS_TITLE
-                                                        message:ABOUT_SETTINGS_MESSAGE
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:SETTINGS_TITLE
+                                                        message:SETTINGS_MESSAGE
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
@@ -34,7 +33,7 @@
 - (IBAction)donateLink:(id)sender {
     [Flurry logEvent:FLURRY_DONATE_BUTTON];
     
-    NSURL *url = [NSURL URLWithString:ABOUT_DONATE_URL];
+    NSURL *url = [NSURL URLWithString:SETTINGS_DONATE_URL];
     [[UIApplication sharedApplication] openURL:url];
     
     url = nil;
@@ -71,7 +70,7 @@
                                              }
                                          }];
     } else {
-        NSURL *url = [NSURL URLWithString:ABOUT_REVIEW_URL];
+        NSURL *url = [NSURL URLWithString:SETTINGS_REVIEW_URL];
         [[UIApplication sharedApplication] openURL:url];
         
         url = nil;
@@ -81,7 +80,7 @@
 - (IBAction)githubLink:(id)sender {
     [Flurry logEvent:FLURRY_TWITTER_BUTTON];
     
-    NSURL *url = [NSURL URLWithString:ABOUT_GITHUB_URL];
+    NSURL *url = [NSURL URLWithString:SETTINGS_GITHUB_URL];
     [[UIApplication sharedApplication] openURL:url];
     
     url = nil;
@@ -90,7 +89,7 @@
 - (IBAction)passwirdLink:(id)sender {
     [Flurry logEvent:FLURRY_PASSWIRD_BUTTON];
     
-    NSURL *url = [NSURL URLWithString:ABOUT_PASSWIRD_URL];
+    NSURL *url = [NSURL URLWithString:PASSWIRD_URL];
     [[UIApplication sharedApplication] openURL:url];
     
     url = nil;
@@ -98,14 +97,10 @@
 
 - (void)openMail {
     if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        MFMailComposeViewController *mailer = [MFMailComposeViewController initMFMailComposeViewControllerWithDelegate:self];
         
-        [mailer setMailComposeDelegate:self];
-        [mailer setToRecipients:[NSArray arrayWithObject:ABOUT_EMAIL_ADDRESS]];
+        [mailer setToRecipients:[NSArray arrayWithObject:SETTINGS_EMAIL_ADDRESS]];
         [mailer setSubject:EMAIL_SUBJECT_FEEDBACK];
-        [mailer.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
-        [mailer.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
-        [mailer.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
         
         [self presentViewController:mailer animated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

@@ -10,14 +10,14 @@
 
 extern NSString *const PASSWIRD_APP_ID;
 extern NSString *const PASSWIRD_API_URL;
+extern NSString *const PASSWIRD_URL;
 
-extern NSString *const ABOUT_EMAIL_ADDRESS;
-extern NSString *const ABOUT_PASSWIRD_URL;
-extern NSString *const ABOUT_GITHUB_URL;
-extern NSString *const ABOUT_REVIEW_URL;
-extern NSString *const ABOUT_DONATE_URL;
-extern NSString *const ABOUT_SETTINGS_TITLE;
-extern NSString *const ABOUT_SETTINGS_MESSAGE;
+extern NSString *const SETTINGS_EMAIL_ADDRESS;
+extern NSString *const SETTINGS_GITHUB_URL;
+extern NSString *const SETTINGS_REVIEW_URL;
+extern NSString *const SETTINGS_DONATE_URL;
+extern NSString *const SETTINGS_TITLE;
+extern NSString *const SETTINGS_MESSAGE;
 
 extern NSString *const EMAIL_SUBJECT_SHARE;
 extern NSString *const EMAIL_BODY_SHARE;

@@ -14,21 +14,21 @@
 
 NSString *const PASSWIRD_APP_ID = @"517165629";
 NSString *const PASSWIRD_API_URL = @"http://api.mccrager.com";
+NSString *const PASSWIRD_URL = @"http://passwird.com";
 
 #pragma mark - About
 
-NSString *const ABOUT_EMAIL_ADDRESS = @"p.crager@gmail.com";
-NSString *const ABOUT_PASSWIRD_URL = @"http://passwird.com";
-NSString *const ABOUT_GITHUB_URL = @"https://github.com/patch-e/Passwird-Deals";
-NSString *const ABOUT_REVIEW_URL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
-NSString *const ABOUT_DONATE_URL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
-NSString *const ABOUT_SETTINGS_TITLE = @"Settings";
-NSString *const ABOUT_SETTINGS_MESSAGE = @"Expired deals setting will be applied during the next refresh or search.";
+NSString *const SETTINGS_EMAIL_ADDRESS = @"p.crager@gmail.com";
+
+NSString *const SETTINGS_GITHUB_URL = @"https://github.com/patch-e/Passwird-Deals";
+NSString *const SETTINGS_REVIEW_URL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
+NSString *const SETTINGS_DONATE_URL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
+NSString *const SETTINGS_TITLE = @"Settings";
+NSString *const SETTINGS_MESSAGE = @"Expired deals setting will be applied during the next refresh or search.";
 
 #pragma mark - Email
 
 NSString *const EMAIL_SUBJECT_SHARE = @"Check out this deal on passwird.com";
-NSString *const EMAIL_BODY_SHARE = @"<html><body><p>&nbsp;</p><strong>%@</strong><br/><br/><div>%@</div></body></html>";
 NSString *const EMAIL_SUBJECT_FEEDBACK = @"Passwird Deals app feedback";
 
 #pragma mark - Flurry Actions
