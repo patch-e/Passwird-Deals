@@ -130,23 +130,28 @@
     [longFormat setDateFormat:@"EEEE, MMMM d yyyy"];
     [shortFormat setDateFormat:@"MMddyyyy"];
     
+    int index = 10000000;
     // Loop through the array of JSON deals and create Deal objects added to a mutable array
     for (id aDeal in dealsArray) {
         NSString *jsonDateString = [aDeal objectForKey:@"datePosted"];
         NSInteger dateOffset = [[NSTimeZone defaultTimeZone] secondsFromGMT];
         NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset];
-        
+    
         NSString *stringFromLongDate = [longFormat stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
-        NSString *stringFromShortDate = [shortFormat stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
-        NSString *joinedDates = [NSString stringWithFormat:@"%@,%@", stringFromShortDate, stringFromLongDate];
+//        NSString *stringFromShortDate = [shortFormat stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
+        NSString *joinedSectionKey = [NSString stringWithFormat:@"%d,%@", index, stringFromLongDate];
         
         sectionExists = NO;
         for (NSString *str in [self.sections allKeys]) {
-            if ([str isEqualToString:joinedDates])
+            if ([str isEqualToString:joinedSectionKey]) {
                 sectionExists = YES;
+            }
         }
+        
         if (!sectionExists) {
-            [self.sections setValue:[NSMutableArray array] forKey:joinedDates];
+            index++;
+            joinedSectionKey = [NSString stringWithFormat:@"%d,%@", index, stringFromLongDate];
+            [self.sections setValue:[NSMutableArray array] forKey:joinedSectionKey];
         }
         
         DealData *deal =
@@ -159,13 +164,13 @@
                                       slug:[aDeal valueForKey:@"slug"]
                                  sHeadline:[aDeal valueForKey:@"sHeadline"]];
 
-        [[self.sections objectForKey:joinedDates] addObject:deal];
+        [[self.sections objectForKey:joinedSectionKey] addObject:deal];
         
         //clean up
         jsonDateString = nil;
         stringFromLongDate = nil;
-        stringFromShortDate = nil;
-        joinedDates = nil;
+//        stringFromShortDate = nil;
+        joinedSectionKey = nil;
         datePosted = nil;
         deal = nil;
     };
@@ -196,7 +201,7 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
-    [self setSortDescriptor:[NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)]];
+    [self setSortDescriptor:[NSSortDescriptor sortDescriptorWithKey:nil ascending:YES selector:@selector(compare:)]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
