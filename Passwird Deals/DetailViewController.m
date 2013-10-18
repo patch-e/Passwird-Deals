@@ -128,26 +128,32 @@
 
 #pragma mark - Managing the action sheet
 
+- (void)copyURL {
+    [[UIPasteboard generalPasteboard] setString: [[self.detailItem getURL] absoluteString]];
+    
+    //show copied HUD message for 2 seconds
+    NSTimeInterval theTimeInterval = 2;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud setMode:MBProgressHUDModeText];
+    [hud setLabelText:@"URL Copied!"];
+    [hud hide:YES afterDelay:theTimeInterval];
+}
+
+- (void)openInSafari {
+    [[UIApplication sharedApplication] openURL:[self.detailItem getURL]];
+}
+
 - (IBAction)showActionSheet:(id)sender {
     [Flurry logEvent:FLURRY_ACTION];
  
     if (self.actionSheet == nil) {
         UIActionSheet *sheet;
 
-        if ([SLComposeViewController class]) {
-            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
-                                                delegate:self 
-                                       cancelButtonTitle:@"Cancel" 
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", nil];
-        }
-        else {
-            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
-                                                delegate:self 
-                                       cancelButtonTitle:@"Cancel" 
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:@"Tweet Deal", @"Email Deal", nil];
-        }
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
+                                            delegate:self
+                                   cancelButtonTitle:@"Cancel"
+                              destructiveButtonTitle:nil
+                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
         
         [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
         
@@ -165,37 +171,29 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([SLComposeViewController class]) {
-        switch (buttonIndex) {
-            case 0:
-                [Flurry logEvent:FLURRY_FACEBOOK];
-                [super postToFacebookWithDeal:self.detailItem];
-                break;
-            case 1:
-                [Flurry logEvent:FLURRY_TWITTER];
-                [super tweetDealWithDeal:self.detailItem];
-                break;
-            case 2:
-                [Flurry logEvent:FLURRY_EMAIL];
-                [super openMailWithDeal:self.detailItem];
-                break;
-            default: //cancel button
-                break;
-        }
-    }
-    else {
-        switch (buttonIndex) {
-            case 0:
-                [Flurry logEvent:FLURRY_TWITTER];
-                [super tweetDealWithDeal:self.detailItem];
-                break;
-            case 1:
-                [Flurry logEvent:FLURRY_EMAIL];
-                [super openMailWithDeal:self.detailItem];
-                break;
-            default: //cancel button
-                break;
-        }
+    switch (buttonIndex) {
+        case 0:
+            [Flurry logEvent:FLURRY_FACEBOOK];
+            [super postToFacebookWithDeal:self.detailItem];
+            break;
+        case 1:
+            [Flurry logEvent:FLURRY_TWITTER];
+            [super tweetDealWithDeal:self.detailItem];
+            break;
+        case 2:
+            [Flurry logEvent:FLURRY_EMAIL];
+            [super openMailWithDeal:self.detailItem];
+            break;
+        case 3:
+            [Flurry logEvent:FLURRY_COPY];
+            [self copyURL];
+            break;
+        case 4:
+            [Flurry logEvent:FLURRY_SAFARI];
+            [self openInSafari];
+            break;
+        default: //cancel button
+            break;
     }
 }
 

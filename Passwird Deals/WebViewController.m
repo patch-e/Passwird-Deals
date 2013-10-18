@@ -41,20 +41,11 @@
     if (self.actionSheet == nil) {
         UIActionSheet *sheet;
         
-        if ([SLComposeViewController class]) {
-            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
-                                                delegate:self 
-                                       cancelButtonTitle:@"Cancel" 
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
-        }
-        else {
-            sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
-                                                delegate:self
-                                       cancelButtonTitle:@"Cancel"
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:@"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
-        }
+        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
+                                            delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:nil
+                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
         
         [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
 
@@ -72,53 +63,29 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([SLComposeViewController class]) {
-        switch (buttonIndex) {
-            case 0:
-                [Flurry logEvent:FLURRY_FACEBOOK];
-                [self postToFacebookWithDeal:self.detailItem];
-                break;
-            case 1:
-                [Flurry logEvent:FLURRY_TWITTER];
-                [self tweetDealWithDeal:self.detailItem];
-                break;
-            case 2:
-                [Flurry logEvent:FLURRY_EMAIL];
-                [self openMailWithDeal:self.detailItem];
-                break;
-            case 3:
-                [Flurry logEvent:FLURRY_COPY];
-                [self copyURL];
-                break;
-            case 4:
-                [Flurry logEvent:FLURRY_SAFARI];
-                [self openInSafari];
-                break;
-            default: //cancel button
-                break;
-        }
-    }
-    else {
-        switch (buttonIndex) {
-            case 0:
-                [Flurry logEvent:FLURRY_TWITTER];
-                [self tweetDealWithDeal:self.detailItem];
-                break;
-            case 1:
-                [Flurry logEvent:FLURRY_EMAIL];
-                [self openMailWithDeal:self.detailItem];
-                break;
-            case 2:
-                [Flurry logEvent:FLURRY_COPY];
-                [self copyURL];
-                break;
-            case 3:
-                [Flurry logEvent:FLURRY_SAFARI];
-                [self openInSafari];
-                break;
-            default: //cancel button
-                break;
-        }
+    switch (buttonIndex) {
+        case 0:
+            [Flurry logEvent:FLURRY_FACEBOOK];
+            [super postToFacebookWithDeal:self.detailItem];
+            break;
+        case 1:
+            [Flurry logEvent:FLURRY_TWITTER];
+            [super tweetDealWithDeal:self.detailItem];
+            break;
+        case 2:
+            [Flurry logEvent:FLURRY_EMAIL];
+            [super openMailWithDeal:self.detailItem];
+            break;
+        case 3:
+            [Flurry logEvent:FLURRY_COPY];
+            [self copyURL];
+            break;
+        case 4:
+            [Flurry logEvent:FLURRY_SAFARI];
+            [self openInSafari];
+            break;
+        default: //cancel button
+            break;
     }
 }
 

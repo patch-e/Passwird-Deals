@@ -42,4 +42,8 @@
     return self;
 }
 
+- (NSURL *)getURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@/deals/%@/%@", PASSWIRD_URL, self.dealId, self.slug]];
+}
+
 @end

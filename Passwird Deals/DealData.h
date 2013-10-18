@@ -34,4 +34,6 @@
                   slug:(NSString *)slug
              sHeadline:(NSString *)sHeadline;
 
+- (NSURL *)getURL;
+
 @end

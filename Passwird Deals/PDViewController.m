@@ -8,6 +8,7 @@
 
 #import "PDViewController.h"
 
+#import "MBProgressHUD.h"
 #import "Flurry.h"
 #import "StringTemplate.h"
 
@@ -25,9 +26,7 @@
         [mailer setSubject:EMAIL_SUBJECT_SHARE];
         
         StringTemplate *emailTemplate = [StringTemplate templateWithName:@"Email.txt"];
-        [emailTemplate setString:PASSWIRD_URL forKey:@"baseUrl"];
-        [emailTemplate setString:deal.dealId forKey:@"dealId"];
-        [emailTemplate setString:deal.slug forKey:@"slug"];
+        [emailTemplate setString:[deal getURL].absoluteString forKey:@"url"];
         [emailTemplate setString:deal.headline forKey:@"headline"];
         [emailTemplate setString:deal.body forKey:@"body"];
         [mailer setMessageBody:emailTemplate.result isHTML:YES];
@@ -66,9 +65,7 @@
 
 - (void)tweetDealWithDeal:(DealData *)deal {
     StringTemplate *tweetTemplate = [StringTemplate templateWithName:@"Tweet.txt"];
-    [tweetTemplate setString:PASSWIRD_URL forKey:@"baseUrl"];
-    [tweetTemplate setString:deal.dealId forKey:@"dealId"];
-    [tweetTemplate setString:deal.slug forKey:@"slug"];
+    [tweetTemplate setString:[deal getURL].absoluteString forKey:@"url"];
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -87,28 +84,24 @@
 }
 
 - (void)postToFacebookWithDeal:(DealData *)deal {
-    if ([SLComposeViewController class]) {
-        StringTemplate *facebookTemplate = [StringTemplate templateWithName:@"Facebook.txt"];
-        [facebookTemplate setString:PASSWIRD_URL forKey:@"baseUrl"];
-        [facebookTemplate setString:deal.dealId forKey:@"dealId"];
-        [facebookTemplate setString:deal.slug forKey:@"slug"];
-        [facebookTemplate setString:deal.sHeadline forKey:@"sHeadline"];
+    StringTemplate *facebookTemplate = [StringTemplate templateWithName:@"Facebook.txt"];
+    [facebookTemplate setString:[deal getURL].absoluteString forKey:@"url"];
+    [facebookTemplate setString:deal.sHeadline forKey:@"sHeadline"];
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-            SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-            
-            [share setInitialText:facebookTemplate.result];
-            
-            [self presentViewController:share animated:YES completion:nil];
-        }
-        else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
-                                                                message:ERROR_FACEBOOK
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-        }
+        [share setInitialText:facebookTemplate.result];
+        
+        [self presentViewController:share animated:YES completion:nil];
+    }
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
+                                                            message:ERROR_FACEBOOK
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
     }
 }
 

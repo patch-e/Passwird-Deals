@@ -1,14 +1,8 @@
 <html>
-    <body>
-        <br/><br/>
-    <div>
-          <a href="<%= baseUrl %>/deals/<%= dealId %>/<%= slug %>">
-              <%= baseUrl %>/deals/<%= dealId %>/<%= slug %>
-          </a>
-      </div>
-      <br/>
-      <div><strong><%= headline %></strong></div>
-        <br/>
-        <div><%= body %></div>
+  <body>
+    <br/><br/>
+    <div><a href="<%= url %>"><%= url %></a></div><br/>
+    <div><strong><%= headline %></strong></div><br/>
+    <div><%= body %></div>
     </body>
 </html>
