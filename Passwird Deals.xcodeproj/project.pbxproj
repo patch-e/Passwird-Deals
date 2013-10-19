@@ -330,7 +330,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD0F8FB6180F707F001B5808 /* libFlurry_4.2.4.a in Frameworks */,
 				CD0F8FB3180F6F5F001B5808 /* Security.framework in Frameworks */,
 				CD0F8FB1180F6F55001B5808 /* AdSupport.framework in Frameworks */,
 				CDCDC28B180CD3150078C93B /* CoreText.framework in Frameworks */,
@@ -341,6 +340,7 @@
 				CD5B3D0B16E5131B004BD9FD /* SystemConfiguration.framework in Frameworks */,
 				CD5B3D0C16E5131B004BD9FD /* CFNetwork.framework in Frameworks */,
 				CD5B3D0D16E5131B004BD9FD /* MessageUI.framework in Frameworks */,
+				CD0F8FB6180F707F001B5808 /* libFlurry_4.2.4.a in Frameworks */,
 				CD5B3D0E16E5131B004BD9FD /* QuartzCore.framework in Frameworks */,
 				CD5B3D1016E5131B004BD9FD /* UIKit.framework in Frameworks */,
 				CD5B3D1116E5131B004BD9FD /* Foundation.framework in Frameworks */,
@@ -959,8 +959,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
@@ -972,8 +972,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
@@ -986,8 +986,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
@@ -999,8 +999,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1027,8 +1027,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Passwird Deals beta";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
@@ -1054,8 +1054,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Passwird Deals beta";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "22FACD8B-1ED6-4BCE-9B05-6B83B058D54B";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
