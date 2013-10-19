@@ -21,6 +21,7 @@
     if ( showHUD ) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         [hud setLabelText:@"Loading"];
+        [hud setColor:[UIColor pdHudColor]];        
     }
     
     //build the connection for async data downloading, 20 second timeout

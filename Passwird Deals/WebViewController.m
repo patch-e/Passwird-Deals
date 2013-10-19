@@ -25,6 +25,7 @@
     //show copied HUD message for 2 seconds
     NSTimeInterval theTimeInterval = 2;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud setColor:[UIColor pdHudColor]];    
     [hud setMode:MBProgressHUDModeText];
     [hud setLabelText:@"URL Copied!"];
     [hud hide:YES afterDelay:theTimeInterval];

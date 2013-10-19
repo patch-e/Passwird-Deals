@@ -50,6 +50,7 @@
     if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) && [SKStoreProductViewController class]) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [hud setLabelText:@"Loading"];
+        [hud setColor:[UIColor pdHudColor]];        
         
         NSDictionary *appParameters = [NSDictionary dictionaryWithObject:PASSWIRD_APP_ID
                                                                   forKey:SKStoreProductParameterITunesItemIdentifier];
