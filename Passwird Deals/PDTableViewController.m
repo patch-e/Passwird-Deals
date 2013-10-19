@@ -84,6 +84,13 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.alpha = 0.25;
+    [UIView animateWithDuration:0.25 animations:^{
+        cell.alpha = 1.0;
+    }];
+}
+
 #pragma mark - Managing the asynchronous data download
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
