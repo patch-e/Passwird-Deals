@@ -24,9 +24,10 @@ https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 v4.0
 ====
-Release in progress
-- Updated UI for iOS 7
-- New features from the new passwird.com
+- Fresh new UI for iOS 7 (latest iOS required) and the new passwird.com redesign
+- Better deal sharing, you can now share direct URL links to deals with Facebook friends, Twitter followers, or via email
+- Resolved issue with search results being out of chronological order
+- Bug fixes
 
 
 v3.2
