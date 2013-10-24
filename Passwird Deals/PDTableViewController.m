@@ -60,7 +60,7 @@
         [cell.detailTextLabel setText:@"EXPIRED"];
     
     UIView *selectedBgView = [[UIView alloc] init];
-    [selectedBgView setBackgroundColor:[UIColor pdHeaderBarTintColor]];
+    [selectedBgView setBackgroundColor:[UIColor pdTitleTextStrokeColor]];
     [cell setSelectedBackgroundView:selectedBgView];
     
     return cell;

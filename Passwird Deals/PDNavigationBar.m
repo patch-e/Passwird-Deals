@@ -23,7 +23,7 @@
     [label setText:self.topItem.title];
 
     // THLabel specific properties
-    [label setStrokeColor:[UIColor pdHeaderBarTintColor]];
+    [label setStrokeColor:[UIColor pdTitleTextStrokeColor]];
 	[label setStrokeSize:2.5f];
     
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;

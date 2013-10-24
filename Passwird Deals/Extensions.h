@@ -33,6 +33,7 @@
 + (UIColor *)pdHeaderTintColor;
 + (UIColor *)pdHeaderBarTintColor;
 + (UIColor *)pdTitleTextColor;
++ (UIColor *)pdTitleTextStrokeColor;
 + (UIColor *)pdSectionBackgroundColor;
 + (UIColor *)pdSectionTextColor;
 + (UIColor *)pdHudColor;

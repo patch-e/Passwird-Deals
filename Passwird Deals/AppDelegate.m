@@ -201,10 +201,10 @@
     
     //custom appearance settings for UIKit items
     [[UINavigationBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor pdHudColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
 
     [[UIToolbar appearance] setTintColor:[UIColor pdHeaderTintColor]];
-    [[UIToolbar appearance] setBarTintColor:[UIColor pdHudColor]];
+    [[UIToolbar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
     
     [[UISearchBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UISearchBar appearance] setBarTintColor:[UIColor pdTitleTextColor]];

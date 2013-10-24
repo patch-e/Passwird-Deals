@@ -56,7 +56,7 @@
                                                                   forKey:SKStoreProductParameterITunesItemIdentifier];
         
         SKStoreProductViewController *productViewController = [[SKStoreProductViewController alloc] init];
-        [productViewController.navigationController.navigationBar setBarTintColor:[UIColor pdHudColor]];
+        [productViewController.navigationController.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
         [productViewController.navigationController.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
         [productViewController.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
         
@@ -178,7 +178,7 @@
     [self.appNameLabel setTextColor:[UIColor pdTitleTextColor]];
     
     // THLabel specific properties
-    [self.appNameLabel setStrokeColor:[UIColor pdHeaderBarTintColor]];
+    [self.appNameLabel setStrokeColor:[UIColor pdTitleTextStrokeColor]];
 	[self.appNameLabel setStrokeSize:2.5f];
 }
 

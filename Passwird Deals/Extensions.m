@@ -87,7 +87,7 @@
 + (UIColor *)pdHeaderBarTintColor {
     static UIColor *color = nil;
     if (!color)
-        color = [[UIColor alloc] initWithRed:(18.0/255.0) green:(70.0/255.0) blue:(119.0/255.0) alpha:1.0];
+        color = [[UIColor alloc] initWithRed:(112.0/255.0) green:(143.0/255.0) blue:(172.0/255.0) alpha:1.0];
     return color;
 }
 
@@ -95,6 +95,13 @@
     static UIColor *color = nil;
     if (!color)
         color = [[UIColor alloc] initWithRed:(245.0/255.0) green:(246.0/255.0) blue:(246.0/255.0) alpha:1.0];
+    return color;
+}
+
++ (UIColor *)pdTitleTextStrokeColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [[UIColor alloc] initWithRed:(18.0/255.0) green:(70.0/255.0) blue:(119.0/255.0) alpha:1.0];
     return color;
 }
 
@@ -115,7 +122,7 @@
 + (UIColor *)pdHudColor {
     static UIColor *color = nil;
     if (!color)
-        color = [[UIColor alloc] initWithRed:(18.0/255.0) green:(70.0/255.0) blue:(119.0/255.0) alpha:0.67];
+        color = [[UIColor alloc] initWithRed:(18.0/255.0) green:(70.0/255.0) blue:(119.0/255.0) alpha:0.75];
     return color;
 }
 
