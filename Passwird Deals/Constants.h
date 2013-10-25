@@ -11,6 +11,7 @@
 extern NSString *const PASSWIRD_APP_ID;
 extern NSString *const PASSWIRD_API_URL;
 extern NSString *const PASSWIRD_URL;
+extern NSString *const PASSWIRD_URL_MARK_DEAD;
 
 extern NSString *const SETTINGS_EMAIL_ADDRESS;
 extern NSString *const SETTINGS_GITHUB_URL;
@@ -31,10 +32,11 @@ extern NSString *const FLURRY_EMAIL;
 extern NSString *const FLURRY_COPY;
 extern NSString *const FLURRY_SAFARI;
 extern NSString *const FLURRY_SAVE;
+extern NSString *const FLURRY_MARK_DEAD;
 extern NSString *const FLURRY_DONATE_BUTTON;
 extern NSString *const FLURRY_EMAIL_BUTTON;
 extern NSString *const FLURRY_RATE_BUTTON;
-extern NSString *const FLURRY_TWITTER_BUTTON;
+extern NSString *const FLURRY_GITHUB_BUTTON;
 extern NSString *const FLURRY_PASSWIRD_BUTTON;
 
 extern NSString *const ERROR_TITLE;

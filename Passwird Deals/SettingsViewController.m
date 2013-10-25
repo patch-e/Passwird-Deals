@@ -79,7 +79,7 @@
 }
 
 - (IBAction)githubLink:(id)sender {
-    [Flurry logEvent:FLURRY_TWITTER_BUTTON];
+    [Flurry logEvent:FLURRY_GITHUB_BUTTON];
     
     NSURL *url = [NSURL URLWithString:SETTINGS_GITHUB_URL];
     [[UIApplication sharedApplication] openURL:url];

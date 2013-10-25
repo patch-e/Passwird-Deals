@@ -155,7 +155,7 @@
                                             delegate:self
                                    cancelButtonTitle:@"Cancel"
                               destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", nil];
+                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", @"Mark Deal Dead", nil];
         
         [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
         
@@ -193,6 +193,10 @@
         case 4:
             [Flurry logEvent:FLURRY_SAFARI];
             [self openInSafari];
+            break;
+        case 5:
+            [Flurry logEvent:FLURRY_MARK_DEAD];
+            [super markDeadWithDeal:self.detailItem];
             break;
         default: //cancel button
             break;

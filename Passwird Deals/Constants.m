@@ -14,7 +14,8 @@
 
 NSString *const PASSWIRD_APP_ID = @"517165629";
 NSString *const PASSWIRD_API_URL = @"http://api.mccrager.com";
-NSString *const PASSWIRD_URL = @"http://passwird.com";
+NSString *const PASSWIRD_URL = @"http://www.passwird.com";
+NSString *const PASSWIRD_URL_MARK_DEAD = @"http://www.passwird.com/deals/votedown/%@";
 
 #pragma mark - About
 
@@ -41,10 +42,11 @@ NSString *const FLURRY_EMAIL = @"Email Deal";
 NSString *const FLURRY_COPY = @"Copy URL";
 NSString *const FLURRY_SAFARI = @"Open in Safari";
 NSString *const FLURRY_SAVE = @"Save Settings";
+NSString *const FLURRY_MARK_DEAD = @"Mark Deal Dead";
 NSString *const FLURRY_DONATE_BUTTON = @"Donate Button";
 NSString *const FLURRY_EMAIL_BUTTON = @"Email Button";
 NSString *const FLURRY_RATE_BUTTON = @"Rate Button";
-NSString *const FLURRY_TWITTER_BUTTON = @"Twitter Button";
+NSString *const FLURRY_GITHUB_BUTTON = @"Github Button";
 NSString *const FLURRY_PASSWIRD_BUTTON = @"Passwird Button";
 
 #pragma mark - Errors

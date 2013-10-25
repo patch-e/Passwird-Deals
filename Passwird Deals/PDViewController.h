@@ -15,5 +15,6 @@
 - (void)openMailWithDeal:(DealData *)deal;
 - (void)tweetDealWithDeal:(DealData *)deal;
 - (void)postToFacebookWithDeal:(DealData *)deal;
+- (void)markDeadWithDeal:(DealData *)deal;
 
 @end
