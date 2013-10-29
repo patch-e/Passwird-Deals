@@ -315,11 +315,23 @@
 	CFRelease(frameRef);
 }
 
+- (CTLineBreakMode)lineBreakModeFromUILineBreakMode:(NSLineBreakMode)lineBreakMode {
+    switch (lineBreakMode) {
+        case NSLineBreakByWordWrapping: return kCTLineBreakByWordWrapping;
+        case NSLineBreakByCharWrapping: return kCTLineBreakByCharWrapping;
+        case NSLineBreakByClipping: return kCTLineBreakByClipping;
+        case NSLineBreakByTruncatingHead: return kCTLineBreakByTruncatingHead;
+        case NSLineBreakByTruncatingTail: return kCTLineBreakByWordWrapping; // We handle truncation ourself.
+        case NSLineBreakByTruncatingMiddle: return kCTLineBreakByTruncatingMiddle;
+        default: return 0;
+    }
+}
+
 - (CTFrameRef)setupFrameForDrawingOutTextRect:(CGRect *)textRect {
 	// Set up font.
 	CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)self.font.fontName, self.font.pointSize, NULL);
-	CTTextAlignment alignment = self.textAlignment;
-	CTLineBreakMode lineBreakMode = self.lineBreakMode;
+	CTTextAlignment alignment = NSTextAlignmentToCTTextAlignment(self.textAlignment);
+	CTLineBreakMode lineBreakMode = [self lineBreakModeFromUILineBreakMode:self.lineBreakMode];
 	CTParagraphStyleSetting paragraphStyleSettings[] = {
 		{kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &alignment},
 		{kCTParagraphStyleSpecifierLineBreakMode, sizeof(CTLineBreakMode), &lineBreakMode}
