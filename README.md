@@ -22,6 +22,17 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
+v4.2
+====
+- Bug fix for viewing deals when acting upon a push notification
+- "Mark Deal Dead" feature added to the deal actions list
+
+
+v4.1
+====
+- Fix for iOS 7.0.3 navigation bar coloring change
+
+
 v4.0
 ====
 - Fresh new UI for iOS 7 (latest iOS required) and the new passwird.com redesign
