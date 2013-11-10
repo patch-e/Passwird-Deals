@@ -22,6 +22,11 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
+v4.2.1
+====
+- Bug fix for sending email feedback
+
+
 v4.2
 ====
 - Bug fix for viewing deals when acting upon a push notification
