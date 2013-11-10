@@ -121,7 +121,7 @@
 - (void)mailComposeController:(MFMailComposeViewController*)controller 
           didFinishWithResult:(MFMailComposeResult)result 
                         error:(NSError*)error {
-    if (result) {
+    if (error) {
         //error occured sending mail
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
                                                             message:ERROR_MAIL_SEND
