@@ -105,12 +105,16 @@
     }
 }
 
-- (void)markDeadWithDeal:(DealData *)deal {
+- (void)reportExpiredWithDeal:(DealData *)deal {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    NSString *postUrl = [NSString stringWithFormat:PASSWIRD_URL_MARK_DEAD, deal.dealId];
+    NSString *postUrl = [NSString stringWithFormat:PASSWIRD_URL_REPORT_EXPIRED, deal.dealId];
+    
+    NSLog(@"Posting to '%@'", postUrl);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     [manager POST:postUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
@@ -128,6 +132,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
         NSLog(@"Request Error, response '%ld'", (long)error.code);
+        NSLog(@"Request Error, response.debugDescription '%@'", error.debugDescription);
     }];
 }
 

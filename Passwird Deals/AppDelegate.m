@@ -161,6 +161,8 @@
     NSString *postUrl = [NSString stringWithFormat:@"%@%@", PASSWIRD_API_URL, postPath];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     [manager POST:postUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
