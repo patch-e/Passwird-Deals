@@ -11,7 +11,7 @@
 extern NSString *const PASSWIRD_APP_ID;
 extern NSString *const PASSWIRD_API_URL;
 extern NSString *const PASSWIRD_URL;
-extern NSString *const PASSWIRD_URL_MARK_DEAD;
+extern NSString *const PASSWIRD_URL_REPORT_EXPIRED;
 
 extern NSString *const SETTINGS_EMAIL_ADDRESS;
 extern NSString *const SETTINGS_GITHUB_URL;

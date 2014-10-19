@@ -152,7 +152,7 @@
                                             delegate:self
                                    cancelButtonTitle:@"Cancel"
                               destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", @"Mark Deal Dead", nil];
+                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", @"Report Expired", nil];
         
         [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
         
@@ -187,7 +187,7 @@
             [self openInSafari];
             break;
         case 5:
-            [super markDeadWithDeal:self.detailItem];
+            [super reportExpiredWithDeal:self.detailItem];
             break;
         default: //cancel button
             break;

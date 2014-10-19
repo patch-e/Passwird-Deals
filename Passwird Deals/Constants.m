@@ -15,7 +15,7 @@
 NSString *const PASSWIRD_APP_ID = @"517165629";
 NSString *const PASSWIRD_API_URL = @"http://api.mccrager.com";
 NSString *const PASSWIRD_URL = @"http://www.passwird.com";
-NSString *const PASSWIRD_URL_MARK_DEAD = @"http://www.passwird.com/deals/votedown/%@";
+NSString *const PASSWIRD_URL_REPORT_EXPIRED = @"http://www.passwird.com/deals/votedown/%@";
 
 #pragma mark - About
 
