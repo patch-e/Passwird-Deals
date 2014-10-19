@@ -24,21 +24,6 @@ extern NSString *const EMAIL_SUBJECT_SHARE;
 extern NSString *const EMAIL_BODY_SHARE;
 extern NSString *const EMAIL_SUBJECT_FEEDBACK;
 
-extern NSString *const USAGE_REFRESH;
-extern NSString *const USAGE_ACTION;
-extern NSString *const USAGE_FACEBOOK;
-extern NSString *const USAGE_TWITTER;
-extern NSString *const USAGE_EMAIL;
-extern NSString *const USAGE_COPY;
-extern NSString *const USAGE_SAFARI;
-extern NSString *const USAGE_SAVE;
-extern NSString *const USAGE_MARK_DEAD;
-extern NSString *const USAGE_DONATE_BUTTON;
-extern NSString *const USAGE_EMAIL_BUTTON;
-extern NSString *const USAGE_RATE_BUTTON;
-extern NSString *const USAGE_GITHUB_BUTTON;
-extern NSString *const USAGE_PASSWIRD_BUTTON;
-
 extern NSString *const ERROR_TITLE;
 extern NSString *const ERROR_MESSAGE;
 extern NSString *const ERROR_MAIL_SUPPORT;

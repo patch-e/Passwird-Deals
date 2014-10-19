@@ -16,8 +16,6 @@
 #pragma mark - Managing the buttons
 
 - (IBAction)saveSettings:(id)sender {
-//    [Flurry logEvent:FLURRY_SAVE];
-    
     [[NSUserDefaults standardUserDefaults] setBool:self.expiredSwitch.on forKey:@"showExpiredDeals"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
@@ -30,8 +28,6 @@
 }
 
 - (IBAction)donateLink:(id)sender {
-//    [Flurry logEvent:FLURRY_DONATE_BUTTON];
-    
     NSURL *url = [NSURL URLWithString:SETTINGS_DONATE_URL];
     [[UIApplication sharedApplication] openURL:url];
     
@@ -39,13 +35,10 @@
 }
 
 - (IBAction)emailLink:(id)sender {
-//    [Flurry logEvent:FLURRY_EMAIL_BUTTON];
     [self openMail];
 }
 
 - (IBAction)rateLink:(id)sender {
-//    [Flurry logEvent:FLURRY_RATE_BUTTON];
-    
     if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) && [SKStoreProductViewController class]) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [hud setLabelText:@"Loading"];
@@ -78,8 +71,6 @@
 }
 
 - (IBAction)githubLink:(id)sender {
-//    [Flurry logEvent:FLURRY_GITHUB_BUTTON];
-    
     NSURL *url = [NSURL URLWithString:SETTINGS_GITHUB_URL];
     [[UIApplication sharedApplication] openURL:url];
     
@@ -87,8 +78,6 @@
 }
 
 - (IBAction)passwirdLink:(id)sender {
-//    [Flurry logEvent:FLURRY_PASSWIRD_BUTTON];
-    
     NSURL *url = [NSURL URLWithString:PASSWIRD_URL];
     [[UIApplication sharedApplication] openURL:url];
     
@@ -183,8 +172,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [Flurry logPageView];
-    
+
     //get expired deals setting from user defaults
     [self.expiredSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]];
     

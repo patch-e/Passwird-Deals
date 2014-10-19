@@ -51,7 +51,6 @@
 #pragma mark - Managing the refresh control
 
 - (void)refresh {
-//    [Flurry logEvent:FLURRY_REFRESH];
     [self createConnectionWithHUD:NO];
 }
 
@@ -86,7 +85,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [Flurry logPageView];
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
