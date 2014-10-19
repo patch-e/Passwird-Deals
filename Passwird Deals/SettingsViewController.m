@@ -10,14 +10,13 @@
 
 #import "StringTemplate.h"
 #import "MBProgressHUD.h"
-#import "Flurry.h"
 
 @implementation SettingsViewController
 
 #pragma mark - Managing the buttons
 
 - (IBAction)saveSettings:(id)sender {
-    [Flurry logEvent:FLURRY_SAVE];
+//    [Flurry logEvent:FLURRY_SAVE];
     
     [[NSUserDefaults standardUserDefaults] setBool:self.expiredSwitch.on forKey:@"showExpiredDeals"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -31,7 +30,7 @@
 }
 
 - (IBAction)donateLink:(id)sender {
-    [Flurry logEvent:FLURRY_DONATE_BUTTON];
+//    [Flurry logEvent:FLURRY_DONATE_BUTTON];
     
     NSURL *url = [NSURL URLWithString:SETTINGS_DONATE_URL];
     [[UIApplication sharedApplication] openURL:url];
@@ -40,12 +39,12 @@
 }
 
 - (IBAction)emailLink:(id)sender {
-    [Flurry logEvent:FLURRY_EMAIL_BUTTON];
+//    [Flurry logEvent:FLURRY_EMAIL_BUTTON];
     [self openMail];
 }
 
 - (IBAction)rateLink:(id)sender {
-    [Flurry logEvent:FLURRY_RATE_BUTTON];
+//    [Flurry logEvent:FLURRY_RATE_BUTTON];
     
     if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) && [SKStoreProductViewController class]) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -64,7 +63,7 @@
         [productViewController loadProductWithParameters:appParameters
                                          completionBlock:^(BOOL result, NSError *error) {
                                              [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                             NSLog(@"%hhd", result);
+                                             NSLog(result ? @"YES" : @"NO");
                                              if (result) {
                                                  NSLog(@"%@", productViewController);
                                                  [self presentViewController:productViewController animated:YES completion:nil];
@@ -79,7 +78,7 @@
 }
 
 - (IBAction)githubLink:(id)sender {
-    [Flurry logEvent:FLURRY_GITHUB_BUTTON];
+//    [Flurry logEvent:FLURRY_GITHUB_BUTTON];
     
     NSURL *url = [NSURL URLWithString:SETTINGS_GITHUB_URL];
     [[UIApplication sharedApplication] openURL:url];
@@ -88,7 +87,7 @@
 }
 
 - (IBAction)passwirdLink:(id)sender {
-    [Flurry logEvent:FLURRY_PASSWIRD_BUTTON];
+//    [Flurry logEvent:FLURRY_PASSWIRD_BUTTON];
     
     NSURL *url = [NSURL URLWithString:PASSWIRD_URL];
     [[UIApplication sharedApplication] openURL:url];
@@ -184,7 +183,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Flurry logPageView];
+//    [Flurry logPageView];
     
     //get expired deals setting from user defaults
     [self.expiredSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]];

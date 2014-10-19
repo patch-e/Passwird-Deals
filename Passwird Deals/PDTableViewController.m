@@ -51,8 +51,8 @@
     DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     [cell.textLabel setText:deal.headline];
-    [cell.imageView setImageWithURL:deal.imageURL
-                   placeholderImage:[UIImage imageNamed:@"icon-precomposed.png"]];
+    [cell.imageView sd_setImageWithURL:deal.imageURL
+                      placeholderImage:[UIImage imageNamed:@"icon-precomposed.png"]];
     
     if ( !deal.isExpired )
         [cell.detailTextLabel setText:nil];
@@ -200,8 +200,10 @@
 - (void)createRefreshControls {
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl setTintColor:[UIColor lightGrayColor]];
+    
+    SEL refreshSelector = NSSelectorFromString(@"refresh");
     [self.refreshControl addTarget:self
-                            action:@selector(refresh)
+                            action:refreshSelector
                   forControlEvents:UIControlEventValueChanged];
 }
 

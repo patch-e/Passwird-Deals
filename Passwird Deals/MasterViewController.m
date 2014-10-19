@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 
 #import "MBProgressHUD.h"
-#import "Flurry.h"
 
 @implementation MasterViewController
 
@@ -52,7 +51,7 @@
 #pragma mark - Managing the refresh control
 
 - (void)refresh {
-    [Flurry logEvent:FLURRY_REFRESH];
+//    [Flurry logEvent:FLURRY_REFRESH];
     [self createConnectionWithHUD:NO];
 }
 
@@ -87,7 +86,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Flurry logPageView];
+//    [Flurry logPageView];
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     

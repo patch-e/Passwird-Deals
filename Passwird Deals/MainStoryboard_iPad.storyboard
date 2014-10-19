@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="dKm-Lk-U1e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="dKm-Lk-U1e">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -11,7 +11,6 @@
                 <navigationController id="bwl-S8-LqE" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Lju-vg-CZ8" customClass="PDNavigationBar">
-                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.4392156862745098" green="0.5607843137254902" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
@@ -27,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="475" y="-638"/>
         </scene>
-        <!--Detail View Controller - Detail-->
+        <!--Detail-->
         <scene sceneID="7Ba-9m-dWy">
             <objects>
                 <viewController storyboardIdentifier="Detail" title="Detail" id="QVO-FX-4IC" customClass="DetailViewController" sceneMemberID="viewController">
@@ -46,7 +45,6 @@
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="tQ2-C1-M9A">
@@ -83,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="-721" y="-638"/>
         </scene>
-        <!--Master View Controller - Master-->
+        <!--Master-->
         <scene sceneID="mPs-dG-PLS">
             <objects>
                 <tableViewController storyboardIdentifier="MasterView" title="Master" clearsSelectionOnViewWillAppear="NO" id="ijQ-TP-skY" customClass="MasterViewController" sceneMemberID="viewController">
@@ -91,7 +89,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="mGI-dz-n6X" detailTextLabel="6pF-fG-6BO" imageView="ptc-h0-UlZ" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="YN7-Gd-VHv" customClass="PDTableViewCell">
@@ -157,7 +154,6 @@
             <objects>
                 <navigationController id="857-64-Brv" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Yee-1v-Vpm" customClass="PDNavigationBar">
-                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.4392156862745098" green="0.5607843137254902" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
@@ -315,7 +311,6 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
                         <outlet property="appNameLabel" destination="KMN-N5-f53" id="lo7-pb-R0R"/>
@@ -330,7 +325,7 @@
             </objects>
             <point key="canvasLocation" x="957" y="-1478"/>
         </scene>
-        <!--Search View Controller - Search-->
+        <!--Search-->
         <scene sceneID="sMf-a2-cFM">
             <objects>
                 <viewController title="Search" id="bT6-3P-qh5" customClass="SearchViewController" sceneMemberID="viewController">
@@ -338,7 +333,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="nFP-6L-tQx">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
@@ -392,7 +386,7 @@
             </objects>
             <point key="canvasLocation" x="1435" y="-638"/>
         </scene>
-        <!--Web View Controller - Web-->
+        <!--Web-->
         <scene sceneID="PBI-EW-njj">
             <objects>
                 <viewController title="Web" id="WS4-V6-9HE" customClass="WebViewController" sceneMemberID="viewController">
@@ -438,7 +432,6 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="browser" id="qQu-CU-e7f">
                         <barButtonItem key="backBarButtonItem" title="Browser" id="9Bu-Zy-HuJ"/>

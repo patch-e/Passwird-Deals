@@ -9,7 +9,6 @@
 #import "SearchViewController.h"
 
 #import "MBProgressHUD.h"
-#import "Flurry.h"
 
 @implementation SearchViewController
 
@@ -56,7 +55,7 @@
 #pragma mark - Managing the refresh control
 
 - (void)refresh {
-    [Flurry logEvent:FLURRY_REFRESH];
+//    [Flurry logEvent:FLURRY_REFRESH];
     [self createConnectionWithHUD:NO];
     
     [self.searchBar resignFirstResponder];
@@ -73,7 +72,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Flurry logPageView];
+//    [Flurry logPageView];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         [[self.navigationController.splitViewController.viewControllers lastObject] popViewControllerAnimated:YES];

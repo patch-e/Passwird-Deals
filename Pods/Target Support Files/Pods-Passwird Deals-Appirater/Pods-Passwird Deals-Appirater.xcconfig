@@ -1,0 +1,1 @@
+PODS_PASSWIRD_DEALS_APPIRATER_OTHER_LDFLAGS = -framework "CFNetwork" -framework "SystemConfiguration" -weak_framework "StoreKit"

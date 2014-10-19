@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -25,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-13" y="80"/>
         </scene>
-        <!--Master View Controller - Master-->
+        <!--Master-->
         <scene sceneID="18">
             <objects>
                 <tableViewController storyboardIdentifier="MasterView" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
@@ -268,7 +269,7 @@
             </objects>
             <point key="canvasLocation" x="479" y="1360"/>
         </scene>
-        <!--Detail View Controller - Detail-->
+        <!--Detail-->
         <scene sceneID="24">
             <objects>
                 <viewController storyboardIdentifier="Detail" title="Detail" id="21" customClass="DetailViewController" sceneMemberID="viewController">
@@ -305,7 +306,7 @@
             </objects>
             <point key="canvasLocation" x="957" y="722"/>
         </scene>
-        <!--Search View Controller - Search-->
+        <!--Search-->
         <scene sceneID="6aU-9M-Scf">
             <objects>
                 <viewController title="Search" id="NBq-gl-XMZ" customClass="SearchViewController" sceneMemberID="viewController">
@@ -373,7 +374,7 @@
             </objects>
             <point key="canvasLocation" x="957" y="80"/>
         </scene>
-        <!--Web View Controller - Web-->
+        <!--Web-->
         <scene sceneID="Ojm-P1-4GF">
             <objects>
                 <viewController title="Web" id="XfK-CY-JvJ" customClass="WebViewController" sceneMemberID="viewController">

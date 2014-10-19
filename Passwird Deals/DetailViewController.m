@@ -11,7 +11,6 @@
 
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
-#import "Flurry.h"
 
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
@@ -28,7 +27,7 @@
     }
     
     //build the connection for async data downloading, 20 second timeout
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/passwirddeal?id=%d", PASSWIRD_API_URL, self.detailId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/passwirddeal?id=%lu", PASSWIRD_API_URL, (unsigned long)self.detailId]];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
@@ -146,7 +145,7 @@
 }
 
 - (IBAction)showActionSheet:(id)sender {
-    [Flurry logEvent:FLURRY_ACTION];
+//    [Flurry logEvent:FLURRY_ACTION];
  
     if (self.actionSheet == nil) {
         UIActionSheet *sheet;
@@ -175,27 +174,27 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
-            [Flurry logEvent:FLURRY_FACEBOOK];
+//            [Flurry logEvent:FLURRY_FACEBOOK];
             [super postToFacebookWithDeal:self.detailItem];
             break;
         case 1:
-            [Flurry logEvent:FLURRY_TWITTER];
+//            [Flurry logEvent:FLURRY_TWITTER];
             [super tweetDealWithDeal:self.detailItem];
             break;
         case 2:
-            [Flurry logEvent:FLURRY_EMAIL];
+//            [Flurry logEvent:FLURRY_EMAIL];
             [super openMailWithDeal:self.detailItem];
             break;
         case 3:
-            [Flurry logEvent:FLURRY_COPY];
+//            [Flurry logEvent:FLURRY_COPY];
             [self copyURL];
             break;
         case 4:
-            [Flurry logEvent:FLURRY_SAFARI];
+//            [Flurry logEvent:FLURRY_SAFARI];
             [self openInSafari];
             break;
         case 5:
-            [Flurry logEvent:FLURRY_MARK_DEAD];
+//            [Flurry logEvent:FLURRY_MARK_DEAD];
             [super markDeadWithDeal:self.detailItem];
             break;
         default: //cancel button
@@ -275,7 +274,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Flurry logPageView];
+//    [Flurry logPageView];
     
     if (self.detailItem == nil && self.detailId > 0) {
         [self createConnectionWithHUD:YES];

@@ -10,7 +10,6 @@
 
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
-#import "Flurry.h"
 #import "StringTemplate.h"
 
 #import <MessageUI/MessageUI.h>
@@ -109,28 +108,27 @@
 - (void)markDeadWithDeal:(DealData *)deal {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:PASSWIRD_API_URL]];
+    NSString *postUrl = [NSString stringWithFormat:PASSWIRD_URL_MARK_DEAD, deal.dealId];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:postUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
-    [httpClient postPath:[NSString stringWithFormat:PASSWIRD_URL_MARK_DEAD, deal.dealId]
-              parameters:nil
-                 success:^(AFHTTPRequestOperation *loginOperation, id responseObject) {
-                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                     
-//                     NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//                     NSLog(@"Request Successful, response '%@'", responseStr);
-                     
-                     //show thank you HUD message for 2 seconds
-                     NSTimeInterval theTimeInterval = 2;
-                     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                     [hud setColor:[UIColor pdHudColor]];
-                     [hud setMode:MBProgressHUDModeText];
-                     [hud setLabelText:@"Thanks!"];
-                     [hud hide:YES afterDelay:theTimeInterval];
-                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                     
-//                     NSLog(@"Request Error, response '%d'", error.code);
-                 }];
+        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Request Successful, response '%@'", responseStr);
+
+        //show thank you HUD message for 2 seconds
+        NSTimeInterval theTimeInterval = 2;
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [hud setColor:[UIColor pdHudColor]];
+        [hud setMode:MBProgressHUDModeText];
+        [hud setLabelText:@"Thanks!"];
+        [hud hide:YES afterDelay:theTimeInterval];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+        NSLog(@"Request Error, response '%ld'", (long)error.code);
+    }];
 }
 
 #pragma mark - View lifecycle

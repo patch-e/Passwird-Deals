@@ -12,7 +12,7 @@
 
 #import "Appirater.h"
 #import "AFNetworking.h"
-#import "Flurry.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
@@ -70,10 +70,6 @@
                                      nil];
     [defaults registerDefaults:defaultSettings];
     
-    
-    [Flurry setCrashReportingEnabled:YES];
-    [Flurry startSession:@"DJTGVD43HJ7XV96WYCQD"];
-    
     [Appirater setAppId:PASSWIRD_APP_ID];
     [Appirater setDaysUntilPrompt:15];
     [Appirater setUsesUntilPrompt:10];
@@ -81,6 +77,8 @@
     [Appirater setTimeBeforeReminding:2];
     [Appirater appLaunched:YES];
 //    [Appirater setDebug:YES];
+    
+    [Crashlytics startWithAPIKey:@"7e5579f671abccb0156cc1a6de1201f981ef170c"];
     
     defaults = nil;
     defaultSettings = nil;
@@ -151,18 +149,17 @@
 + (void)postOperationWithPath:(NSString*)postPath parameters:(NSDictionary*)params {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:PASSWIRD_API_URL]];
+    NSString *postUrl = [NSString stringWithFormat:@"%@%@", PASSWIRD_API_URL, postPath];
     
-    [httpClient postPath:postPath
-              parameters:params
-                 success:^(AFHTTPRequestOperation *loginOperation, id responseObject) {
-                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                     
-                     //NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                     //NSLog(@"Request Successful, response '%@'", responseStr);
-                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                 }];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:postUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Request Successful, response '%@'", responseStr);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }];
 }
 
 + (void)postResetBadgeCount {

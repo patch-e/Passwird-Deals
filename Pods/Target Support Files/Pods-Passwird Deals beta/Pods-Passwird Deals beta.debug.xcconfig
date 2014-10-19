@@ -1,0 +1,6 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Appirater" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/THLabel"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/Appirater" -isystem "${PODS_ROOT}/Headers/Public/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/SDWebImage" -isystem "${PODS_ROOT}/Headers/Public/THLabel"
+OTHER_LDFLAGS = -ObjC -l"Pods-Passwird Deals beta-AFNetworking" -l"Pods-Passwird Deals beta-Appirater" -l"Pods-Passwird Deals beta-MBProgressHUD" -l"Pods-Passwird Deals beta-SDWebImage" -l"Pods-Passwird Deals beta-THLabel" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreText" -framework "ImageIO" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration" -weak_framework "StoreKit"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

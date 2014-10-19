@@ -32,22 +32,22 @@ NSString *const SETTINGS_MESSAGE = @"Expired deals setting will be applied durin
 NSString *const EMAIL_SUBJECT_SHARE = @"Check out this deal on passwird.com";
 NSString *const EMAIL_SUBJECT_FEEDBACK = @"Passwird Deals app feedback";
 
-#pragma mark - Flurry Actions
+#pragma mark - Usage Actions
 
-NSString *const FLURRY_REFRESH = @"Pull to Refresh";
-NSString *const FLURRY_ACTION = @"Action Sheet";
-NSString *const FLURRY_FACEBOOK = @"Post to Facebook";
-NSString *const FLURRY_TWITTER = @"Tweet Deal";
-NSString *const FLURRY_EMAIL = @"Email Deal";
-NSString *const FLURRY_COPY = @"Copy URL";
-NSString *const FLURRY_SAFARI = @"Open in Safari";
-NSString *const FLURRY_SAVE = @"Save Settings";
-NSString *const FLURRY_MARK_DEAD = @"Mark Deal Dead";
-NSString *const FLURRY_DONATE_BUTTON = @"Donate Button";
-NSString *const FLURRY_EMAIL_BUTTON = @"Email Button";
-NSString *const FLURRY_RATE_BUTTON = @"Rate Button";
-NSString *const FLURRY_GITHUB_BUTTON = @"Github Button";
-NSString *const FLURRY_PASSWIRD_BUTTON = @"Passwird Button";
+NSString *const USAGE_REFRESH = @"Pull to Refresh";
+NSString *const USAGE_ACTION = @"Action Sheet";
+NSString *const USAGE_FACEBOOK = @"Post to Facebook";
+NSString *const USAGE_TWITTER = @"Tweet Deal";
+NSString *const USAGE_EMAIL = @"Email Deal";
+NSString *const USAGE_COPY = @"Copy URL";
+NSString *const USAGE_SAFARI = @"Open in Safari";
+NSString *const USAGE_SAVE = @"Save Settings";
+NSString *const USAGE_MARK_DEAD = @"Mark Deal Dead";
+NSString *const USAGE_DONATE_BUTTON = @"Donate Button";
+NSString *const USAGE_EMAIL_BUTTON = @"Email Button";
+NSString *const USAGE_RATE_BUTTON = @"Rate Button";
+NSString *const USAGE_GITHUB_BUTTON = @"Github Button";
+NSString *const USAGE_PASSWIRD_BUTTON = @"Passwird Button";
 
 #pragma mark - Errors
 
