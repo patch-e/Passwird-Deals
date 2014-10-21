@@ -38,16 +38,12 @@
     [NSURLCache setSharedURLCache:sharedCache];
 
     //let the device know we want to receive push notifications
-    #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     } else {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
-    #else
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    #endif
     
     //handle notification tap while app isn't running
     if (launchOptions != nil) {
@@ -79,6 +75,9 @@
                                      nil];
     [defaults registerDefaults:defaultSettings];
     
+    //appearance
+    
+    
     [Appirater setAppId:PASSWIRD_APP_ID];
     [Appirater setDaysUntilPrompt:15];
     [Appirater setUsesUntilPrompt:10];
@@ -96,7 +95,6 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [application setApplicationIconBadgeNumber:0];
     [AppDelegate postResetBadgeCount];
 }
 
@@ -122,13 +120,24 @@
 	formattedToken = [formattedToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 	formattedToken = [formattedToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-    if (types == UIRemoteNotificationTypeNone) {
-        [AppDelegate postUnregisterDeviceToken:formattedToken];
-        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"deviceToken"];
+    if ([application respondsToSelector:@selector(currentUserNotificationSettings)]) {
+        UIUserNotificationSettings *types = [[UIApplication sharedApplication] currentUserNotificationSettings];
+        if (types == UIUserNotificationTypeNone) {
+            [AppDelegate postUnregisterDeviceToken:formattedToken];
+            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"deviceToken"];
+        } else {
+            [AppDelegate postRegisterDeviceToken:formattedToken];
+            [[NSUserDefaults standardUserDefaults] setObject:formattedToken forKey:@"deviceToken"];
+        }
     } else {
-        [AppDelegate postRegisterDeviceToken:formattedToken];
-        [[NSUserDefaults standardUserDefaults] setObject:formattedToken forKey:@"deviceToken"];
+        UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+        if (types == UIRemoteNotificationTypeNone) {
+            [AppDelegate postUnregisterDeviceToken:formattedToken];
+            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"deviceToken"];
+        } else {
+            [AppDelegate postRegisterDeviceToken:formattedToken];
+            [[NSUserDefaults standardUserDefaults] setObject:formattedToken forKey:@"deviceToken"];
+        }
     }
 }
 
@@ -153,12 +162,40 @@
     }
 }
 
++ (BOOL)setApplicationIconBadgeNumber:(NSInteger)badgeNumber {
+    BOOL badgePermission = YES;
+    
+    UIApplication *application = [UIApplication sharedApplication];
+    
+    if ([application respondsToSelector:@selector(currentUserNotificationSettings)]) {
+        if ([AppDelegate checkNotificationType:UIUserNotificationTypeBadge]) {
+            NSLog(@"badge number changed to %ld", (long)badgeNumber);
+            [application setApplicationIconBadgeNumber:badgeNumber];
+        } else {
+            NSLog(@"access denied for UIUserNotificationTypeBadge");
+            badgePermission = NO;
+        }
+    } else {
+        [application setApplicationIconBadgeNumber:badgeNumber];
+    }
+    
+    return badgePermission;
+}
+
++ (BOOL)checkNotificationType:(UIUserNotificationType)type {
+    UIUserNotificationSettings *currentSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    
+    return (currentSettings.types & type);
+}
+
 #pragma mark - Notification post operations
 
 + (void)postOperationWithPath:(NSString*)postPath parameters:(NSDictionary*)params {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     NSString *postUrl = [NSString stringWithFormat:@"%@%@", PASSWIRD_API_URL, postPath];
+    NSLog(@"POSTing to: %@", postUrl);
+    NSLog(@"with params: %@", params);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -166,22 +203,23 @@
     [manager POST:postUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"Request Successful, response '%@'", responseStr);
+        NSLog(@"Request Successful, response '%@'", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 
 + (void)postResetBadgeCount {
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    BOOL badgePermission = [AppDelegate setApplicationIconBadgeNumber:0];
     
-    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-    if ((deviceToken != nil) && (![deviceToken isEqual: @""])) {        
-        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                deviceToken, @"token",
-                                nil];
-        [AppDelegate postOperationWithPath:@"/ResetBadgeCount" parameters:params];
+    if (badgePermission) {
+        NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
+        if ((deviceToken != nil) && (![deviceToken isEqual: @""])) {        
+            NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    deviceToken, @"token",
+                                    nil];
+            [AppDelegate postOperationWithPath:@"/ResetBadgeCount" parameters:params];
+        }
     }
 }
 
@@ -210,6 +248,7 @@
     //custom appearance settings for UIKit items
     [[UINavigationBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 
     [[UIToolbar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UIToolbar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];

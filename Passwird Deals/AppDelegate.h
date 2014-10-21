@@ -13,5 +13,6 @@
 
 + (AppDelegate*)delegate;
 + (void)postResetBadgeCount;
++ (BOOL)setApplicationIconBadgeNumber:(NSInteger)badgeNumber;
 
 @end
