@@ -22,6 +22,13 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
+v4.3
+====
+- iOS 8 support
+- iPhone 6 / 6+ support
+- Revised wording of the "Mark Deal Dead" action to "Report Expired"
+- Bug fix for expired labels
+
 v4.2.1
 ====
 - Bug fix for sending email feedback

@@ -53,11 +53,7 @@
     [cell.textLabel setText:deal.headline];
     [cell.imageView sd_setImageWithURL:deal.imageURL
                       placeholderImage:[UIImage imageNamed:@"icon-precomposed.png"]];
-    
-    if ( !deal.isExpired )
-        [cell.detailTextLabel setText:nil];
-    else
-        [cell.detailTextLabel setText:@"EXPIRED"];
+    [cell.detailTextLabel setHidden:!deal.isExpired];
     
     UIView *selectedBgView = [[UIView alloc] init];
     [selectedBgView setBackgroundColor:[UIColor pdTitleTextStrokeColor]];
@@ -82,13 +78,6 @@
         
         [self.detailViewController setDetailItem:deal];
     }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.alpha = 0.25;
-    [UIView animateWithDuration:0.1 animations:^{
-        cell.alpha = 1.0;
-    }];
 }
 
 #pragma mark - Managing the asynchronous data download
