@@ -17,3 +17,7 @@
     #import "Constants.h"
     #import "Extensions.h"
 #endif
+
+#ifndef DEBUG
+    #define NSLog(...);
+#endif
