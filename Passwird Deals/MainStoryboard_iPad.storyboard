@@ -134,7 +134,7 @@
                                 <segue destination="vj2-RJ-oUl" kind="modal" identifier="About" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="NW9-0i-a0k"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="search" id="ghI-yO-aMy">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="search.png" id="ghI-yO-aMy">
                             <connections>
                                 <segue destination="bT6-3P-qh5" kind="push" identifier="Search" splitViewControllerTargetIndex="0" id="ucU-3g-w14"/>
                             </connections>
@@ -303,7 +303,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blingbear.png" id="rXO-VJ-Z3b">
-                                        <rect key="frame" x="204" y="50" width="132" height="156"/>
+                                        <rect key="frame" x="204" y="50" width="133" height="143"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -458,7 +458,8 @@
         <image name="left.png" width="24" height="24"/>
         <image name="refresh.png" width="24" height="24"/>
         <image name="right.png" width="24" height="24"/>
-        <image name="settings.png" width="16" height="16"/>
+        <image name="search.png" width="24" height="24"/>
+        <image name="settings.png" width="24" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
