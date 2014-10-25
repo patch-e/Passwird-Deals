@@ -22,6 +22,11 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
+v4.4
+====
+- Dynamic Type support
+- Revised UI representation of expired deals in the deal lists
+
 v4.3
 ====
 - iOS 8 support
