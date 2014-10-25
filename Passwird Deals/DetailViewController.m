@@ -225,10 +225,10 @@
 
         UIFont *headline = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
         UIFont *date = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-        UIFont *body = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+        UIFont *body = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
         
         NSString *html = [NSString stringWithFormat:dealHtmlString,
-                          [NSString stringWithFormat: @"%.0f", headline.pointSize],
+                          [NSString stringWithFormat: @"%.0f", headline.pointSize+5],
                           [NSString stringWithFormat: @"%.0f", date.pointSize],
                           [NSString stringWithFormat: @"%.0f", body.pointSize],
                           dateAsString,

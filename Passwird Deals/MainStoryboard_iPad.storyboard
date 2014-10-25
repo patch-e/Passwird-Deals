@@ -102,7 +102,7 @@
                                             <rect key="frame" x="87" y="16" width="198" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <string key="text">Deal Headline, up to five lines long. Some extra extra extra extra extra extra extra extra extra extra extra extra text to get to four lines. Will end truncate.</string>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" white="0.19" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -347,7 +347,7 @@
                                             <rect key="frame" x="87" y="16" width="198" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <string key="text">Deal Headline, up to five lines long. Some extra extra extra extra extra extra extra extra extra extra extra extra text to get to four lines. Will end truncate.</string>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
