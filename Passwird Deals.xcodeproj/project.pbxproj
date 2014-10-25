@@ -61,7 +61,6 @@
 		CD5B3D3216E5131B004BD9FD /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279916546ABE00A9D006 /* right@2x.png */; };
 		CD5B3D3916E5131B004BD9FD /* Deal.css in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B216546BD600A9D006 /* Deal.css */; };
 		CD5B3D3A16E5131B004BD9FD /* Deal.html in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B316546BD600A9D006 /* Deal.html */; };
-		CD5B3D3B16E5131B004BD9FD /* Deal.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B416546BD600A9D006 /* Deal.min.css */; };
 		CD5B3D3C16E5131B004BD9FD /* Facebook.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B516546BD600A9D006 /* Facebook.txt */; };
 		CD5B3D3D16E5131B004BD9FD /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B716546BD600A9D006 /* Tweet.txt */; };
 		CD5B3D3E16E5131B004BD9FD /* Licensing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDE9582016DA4D820034C27B /* Licensing.txt */; };
@@ -98,7 +97,6 @@
 		CDA927AB16546ABE00A9D006 /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279916546ABE00A9D006 /* right@2x.png */; };
 		CDA927B816546BD600A9D006 /* Deal.css in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B216546BD600A9D006 /* Deal.css */; };
 		CDA927B916546BD600A9D006 /* Deal.html in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B316546BD600A9D006 /* Deal.html */; };
-		CDA927BA16546BD600A9D006 /* Deal.min.css in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B416546BD600A9D006 /* Deal.min.css */; };
 		CDA927BB16546BD600A9D006 /* Facebook.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B516546BD600A9D006 /* Facebook.txt */; };
 		CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B716546BD600A9D006 /* Tweet.txt */; };
 		CDA927BE16546D1600A9D006 /* spin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B616546BD600A9D006 /* spin.min.js */; };
@@ -201,7 +199,6 @@
 		CDA9279916546ABE00A9D006 /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "right@2x.png"; path = "Resources/Images/right@2x.png"; sourceTree = "<group>"; };
 		CDA927B216546BD600A9D006 /* Deal.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = Deal.css; path = Resources/Deal.css; sourceTree = "<group>"; };
 		CDA927B316546BD600A9D006 /* Deal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Deal.html; path = Resources/Deal.html; sourceTree = "<group>"; };
-		CDA927B416546BD600A9D006 /* Deal.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = Deal.min.css; path = Resources/Deal.min.css; sourceTree = "<group>"; };
 		CDA927B516546BD600A9D006 /* Facebook.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Facebook.txt; path = Resources/Facebook.txt; sourceTree = "<group>"; };
 		CDA927B616546BD600A9D006 /* spin.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = spin.min.js; path = Resources/spin.min.js; sourceTree = "<group>"; };
 		CDA927B716546BD600A9D006 /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Tweet.txt; path = Resources/Tweet.txt; sourceTree = "<group>"; };
@@ -402,7 +399,6 @@
 				CDCDC280180C53840078C93B /* ArialBlack.ttf */,
 				CDA927B316546BD600A9D006 /* Deal.html */,
 				CDA927B216546BD600A9D006 /* Deal.css */,
-				CDA927B416546BD600A9D006 /* Deal.min.css */,
 				CDA927B616546BD600A9D006 /* spin.min.js */,
 				CD0F8FB7180FFEE6001B5808 /* Email.txt */,
 				CDA927B516546BD600A9D006 /* Facebook.txt */,
@@ -585,7 +581,6 @@
 				CDA927B916546BD600A9D006 /* Deal.html in Resources */,
 				CD0F8FA8180E2783001B5808 /* blingbear.png in Resources */,
 				CD9A1BC619F894E4007A42D6 /* search.png in Resources */,
-				CDA927BA16546BD600A9D006 /* Deal.min.css in Resources */,
 				CDA927BB16546BD600A9D006 /* Facebook.txt in Resources */,
 				CD9A1BC919F897A3007A42D6 /* bullet@3x.png in Resources */,
 				CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */,
@@ -630,7 +625,6 @@
 				CD5B3D3A16E5131B004BD9FD /* Deal.html in Resources */,
 				CD0F8FA9180E2783001B5808 /* blingbear.png in Resources */,
 				CD9A1BC719F894E4007A42D6 /* search.png in Resources */,
-				CD5B3D3B16E5131B004BD9FD /* Deal.min.css in Resources */,
 				CD5B3D3C16E5131B004BD9FD /* Facebook.txt in Resources */,
 				CD9A1BCA19F897A3007A42D6 /* bullet@3x.png in Resources */,
 				CD5B3D3D16E5131B004BD9FD /* Tweet.txt in Resources */,

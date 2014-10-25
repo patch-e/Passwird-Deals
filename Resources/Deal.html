@@ -2,11 +2,16 @@
     <head>
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="format-detection" content="telephone=no">
-        <link type="text/css" rel="stylesheet" href="Deal.min.css">
+        <link type="text/css" rel="stylesheet" href="Deal.css">
+        <style type="text/css">
+            .headline { font-size: %@px; }
+            .date { font-size: %@px; }
+            .body { font-size: %@px; }
+        </style>
         <script src="spin.min.js"></script>
     </head>
     <body>
-        <div class="date">%@</div>
+        <div class="date"><span>%@<span></div>
         <h1 class="headline">%@</h1>
         <div class="%@">EXPIRED</div>
         <div class="image center body">

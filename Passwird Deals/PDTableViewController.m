@@ -26,16 +26,15 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.sectionHeaderHeight)];
     [headerView setBackgroundColor:[UIColor pdSectionBackgroundColor]];
     
-    UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, tableView.bounds.size.width, 20)];
-    [labelView setBackgroundColor:[UIColor clearColor]];
-    [labelView setFont:[UIFont systemFontOfSize:15]];
-    [labelView setTextColor:[UIColor pdSectionTextColor]];
-    [labelView setText:[[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section] substringFromIndex:9]];
-    
-    [headerView addSubview:labelView];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, tableView.bounds.size.width, tableView.sectionHeaderHeight)];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]];
+    [label setTextColor:[UIColor pdSectionTextColor]];
+    [label setText:[[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:section] substringFromIndex:9]];
+    [headerView addSubview:label];
     
     return headerView;
 }
@@ -45,19 +44,28 @@
 }
 
 - (PDTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Set the deal into the PDTableViewCell
+    // set the deal into the PDTableViewCell
     PDTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DealCell"];
-    
     DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
+    // set values
     [cell.textLabel setText:deal.headline];
     [cell.imageView sd_setImageWithURL:deal.imageURL
                       placeholderImage:[UIImage imageNamed:@"icon-precomposed.png"]];
-    [cell.detailTextLabel setHidden:!deal.isExpired];
+//    [cell.detailTextLabel setHidden:!deal.isExpired];
+    if (!deal.isExpired) {
+        [cell.imageView setAlpha:1.0f];
+        [cell.textLabel setTextColor:[UIColor colorWithWhite:19.0/255.0f alpha:1.0f]];
+    } else {
+        [cell.imageView setAlpha:0.5f];
+        [cell.textLabel setTextColor:[UIColor lightGrayColor]];
+    }
     
+    // set the selection view
     UIView *selectedBgView = [[UIView alloc] init];
     [selectedBgView setBackgroundColor:[UIColor pdTitleTextStrokeColor]];
     [cell setSelectedBackgroundView:selectedBgView];
+    [cell.textLabel setHighlightedTextColor:[UIColor whiteColor]];
     
     return cell;
 }

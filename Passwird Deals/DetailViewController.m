@@ -222,13 +222,20 @@
         NSString *dealHtmlString = [NSString stringWithContentsOfFile:dealHtmlFilePath 
                                                    usedEncoding:&encoding 
                                                           error:&error];
+
+        UIFont *headline = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+        UIFont *date = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        UIFont *body = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
         
-        NSString *html = [NSString stringWithFormat:dealHtmlString, 
-                            dateAsString, 
-                            self.detailItem.headline, 
-                            (self.detailItem.isExpired ? @"expired" : @"hide"), 
-                            self.detailItem.imageURL, 
-                            self.detailItem.body];
+        NSString *html = [NSString stringWithFormat:dealHtmlString,
+                          [NSString stringWithFormat: @"%.0f", headline.pointSize],
+                          [NSString stringWithFormat: @"%.0f", date.pointSize],
+                          [NSString stringWithFormat: @"%.0f", body.pointSize],
+                          dateAsString,
+                          self.detailItem.headline,
+                          (self.detailItem.isExpired ? @"expired" : @"hide"),
+                          self.detailItem.imageURL,
+                          self.detailItem.body];
         
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSURL *baseURL = [NSURL fileURLWithPath:path];

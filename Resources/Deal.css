@@ -29,22 +29,24 @@ img {
 .date {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(218, 239, 255)), to(rgb(218, 239, 255)));
     color: rgb(174, 19, 18);
-    font-size: 15.2px;
-    height: 19px;
-    line-height: 15px;
-    padding: 3px 12px 0px 12px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 12px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
 }
+.date span {
+    display: inline-block;
+    vertical-align: middle;
+}
 .headline {
     clear: both;
     color: rgb(18, 70, 119);
-    font-size: 20px;
     font-weight: 400;
-    margin: 10px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
     overflow: visible;
     padding: 0px 10px;
     text-align: center;
@@ -57,7 +59,6 @@ img {
     border-left: none;
     border-right: none;
     margin-top: 15px;
-    font-size: 15.2px;    
     padding: 10px;
     position: relative;
 }
@@ -75,6 +76,7 @@ img {
 }
 .body ul li {
     background: transparent url('bullet.png') no-repeat 5px 3px;
+    background-size: 10px 13px;
     padding-left: 25px;
 }
 
@@ -101,13 +103,17 @@ img {
     text-align: center;
 }
 .hide {
-  display: none;
+    display: none;
 }
 
 /* RETINA */
 @media (-webkit-min-device-pixel-ratio: 2) {
     .body ul li {
         background-image: url('bullet@2x.png');
-        background-size: 10px 13px;
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .body ul li {
+        background-image: url('bullet@3x.png');
     }
 }
