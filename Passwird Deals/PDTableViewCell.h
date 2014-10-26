@@ -8,4 +8,7 @@
 
 @interface PDTableViewCell : UITableViewCell
 
+@property (nonatomic) BOOL hasBanner;
+@property (weak, nonatomic) CALayer *bannerLayer;
+
 @end

@@ -126,6 +126,20 @@
     return color;
 }
 
++ (UIColor *)pdTextColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [UIColor colorWithWhite:(19.0/255.0) alpha:1.0];
+    return color;
+}
+
++ (UIColor *)pdShadowColor {
+    static UIColor *color = nil;
+    if (!color)
+        color = [[UIColor alloc] initWithRed:(136.0/255.0) green:(136.0/255.0) blue:(136.0/255.0) alpha:1.0];
+    return color;
+}
+
 @end
 
 @implementation MFMailComposeViewController(Extension)

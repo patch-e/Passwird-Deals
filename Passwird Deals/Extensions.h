@@ -37,6 +37,8 @@
 + (UIColor *)pdSectionBackgroundColor;
 + (UIColor *)pdSectionTextColor;
 + (UIColor *)pdHudColor;
++ (UIColor *)pdTextColor;
++ (UIColor *)pdShadowColor;
 
 @end
 

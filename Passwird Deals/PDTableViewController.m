@@ -52,13 +52,14 @@
     [cell.textLabel setText:deal.headline];
     [cell.imageView sd_setImageWithURL:deal.imageURL
                       placeholderImage:[UIImage imageNamed:@"icon-precomposed.png"]];
-//    [cell.detailTextLabel setHidden:!deal.isExpired];
     if (!deal.isExpired) {
         [cell.imageView setAlpha:1.0f];
-        [cell.textLabel setTextColor:[UIColor colorWithWhite:19.0/255.0f alpha:1.0f]];
+        [cell.textLabel setTextColor:[UIColor pdTextColor]];
+        [cell setHasBanner:NO];
     } else {
         [cell.imageView setAlpha:0.5f];
         [cell.textLabel setTextColor:[UIColor lightGrayColor]];
+        [cell setHasBanner:YES];
     }
     
     // set the selection view
@@ -142,7 +143,6 @@
         NSDate *datePosted = [[NSDate dateWithTimeIntervalSince1970:[[jsonDateString substringWithRange:NSMakeRange(6, 10)] intValue]]dateByAddingTimeInterval:dateOffset];
     
         NSString *stringFromLongDate = [longFormat stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
-//        NSString *stringFromShortDate = [shortFormat stringFromDate:[datePosted dateByAddingTimeInterval:60*60*24*1]];
         NSString *joinedSectionKey = [NSString stringWithFormat:@"%d,%@", index, stringFromLongDate];
         
         sectionExists = NO;
@@ -173,7 +173,6 @@
         //clean up
         jsonDateString = nil;
         stringFromLongDate = nil;
-//        stringFromShortDate = nil;
         joinedSectionKey = nil;
         datePosted = nil;
         deal = nil;

@@ -36,7 +36,7 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="3zQ-ZY-FrV" imageView="wRv-gk-sFZ" style="IBUITableViewCellStyleDefault" id="1PG-Kw-PIS" customClass="PDTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="3zQ-ZY-FrV" imageView="wRv-gk-sFZ" style="IBUITableViewCellStyleDefault" id="1PG-Kw-PIS" customClass="PDTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1PG-Kw-PIS" id="cMp-Lt-CVM">
@@ -316,7 +316,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="Jy2-ER-57X" imageView="Ah1-Rq-oro" rowHeight="85" style="IBUITableViewCellStyleDefault" id="o8e-Bi-zBm" customClass="PDTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" textLabel="Jy2-ER-57X" imageView="Ah1-Rq-oro" rowHeight="85" style="IBUITableViewCellStyleDefault" id="o8e-Bi-zBm" customClass="PDTableViewCell">
                                 <rect key="frame" x="0.0" y="130" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8e-Bi-zBm" id="Icx-5s-d0a">
@@ -441,6 +441,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FTD-sn-uHj"/>
+        <segue reference="fD0-CD-sh5"/>
     </inferredMetricsTieBreakers>
 </document>
