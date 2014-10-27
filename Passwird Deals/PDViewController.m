@@ -137,6 +137,10 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationItem.titleView setHidden:YES];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

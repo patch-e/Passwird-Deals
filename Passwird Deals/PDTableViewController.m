@@ -214,6 +214,10 @@
     [self.tableView reloadData];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationItem.titleView setHidden:YES];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass selected deal to detail controller
     if ([segue.identifier isEqualToString:@"Detail"]) {
