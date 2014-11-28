@@ -59,7 +59,7 @@
                 //construct a detail view controller, set the detailId from the received push, and push the controller on the stack
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
                 
-                DetailViewController* detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+                DetailViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"Detail"];
                 [detailViewController setDetailId:[(NSNumber*)[userInfo objectForKey:@"id"] intValue]];
                 
                 [self.navigationController pushViewController:detailViewController animated:YES];
@@ -74,9 +74,6 @@
                                      @"",  @"deviceToken",
                                      nil];
     [defaults registerDefaults:defaultSettings];
-    
-    //appearance
-    
     
     [Appirater setAppId:PASSWIRD_APP_ID];
     [Appirater setDaysUntilPrompt:15];
