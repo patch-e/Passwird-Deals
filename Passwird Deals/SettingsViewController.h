@@ -1,11 +1,12 @@
 //
-//  AboutViewController.h
+//  SettingsViewController.h
 //  Passwird Deals
 //
 //  Created by Patrick Crager on 5/30/12.
 //  Copyright (c) 2012 McCrager. All rights reserved.
 //
 
+#import "PDViewController.h"
 #import "PDNavigationBar.h"
 
 #import "THLabel.h"
@@ -13,7 +14,7 @@
 #import <MessageUI/MessageUI.h>
 #import <StoreKit/StoreKit.h>
 
-@interface SettingsViewController : UIViewController <UIScrollViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate>
+@interface SettingsViewController : PDViewController <UIScrollViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UISwitch *expiredSwitch;

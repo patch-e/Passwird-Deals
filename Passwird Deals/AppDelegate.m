@@ -10,8 +10,8 @@
 
 #import "MasterViewController.h"
 
-#import "Appirater.h"
 #import "AFNetworking.h"
+#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
@@ -75,15 +75,7 @@
                                      nil];
     [defaults registerDefaults:defaultSettings];
     
-    [Appirater setAppId:PASSWIRD_APP_ID];
-    [Appirater setDaysUntilPrompt:15];
-    [Appirater setUsesUntilPrompt:10];
-    [Appirater setSignificantEventsUntilPrompt:-1];
-    [Appirater setTimeBeforeReminding:2];
-    [Appirater appLaunched:YES];
-//    [Appirater setDebug:YES];
-    
-    [Crashlytics startWithAPIKey:@"7e5579f671abccb0156cc1a6de1201f981ef170c"];
+    [Fabric with:@[[Crashlytics class]]];
     
     defaults = nil;
     defaultSettings = nil;
@@ -93,10 +85,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [AppDelegate postResetBadgeCount];
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -147,12 +135,12 @@
     
     if (application.applicationState == UIApplicationStateActive) {
         //if app is active on screen, just show alert view of deal headline
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Deal Alert"
-                                                            message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles: nil];
-        [alertView show];
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"Deal Alert"
+                                              message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
+//        [self presentViewController:alertController animated:YES completion:nil];
     } else {
         //if app is running, but in the background fire this notification (handled in master and search) to display the deal from the push
         [[NSNotificationCenter defaultCenter] postNotificationName:@"receivedPushNotification" object:nil userInfo:userInfo];
@@ -238,10 +226,7 @@
 
 #pragma mark - Customizations
 
-- (void)customizeAppearance {
-    // status bar
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
+- (void)customizeAppearance {    
     //custom appearance settings for UIKit items
     [[UINavigationBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
@@ -252,7 +237,9 @@
     
     [[UISearchBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UISearchBar appearance] setBarTintColor:[UIColor pdTitleTextColor]];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdHeaderTintColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]]
+                                           setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdHeaderTintColor], NSForegroundColorAttributeName, nil]
+                                                         forState:UIControlStateNormal];
     
     self.window.backgroundColor = [UIColor pdTitleTextColor];
 }

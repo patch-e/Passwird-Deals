@@ -32,17 +32,17 @@
         [mailer setMessageBody:emailTemplate.result isHTML:YES];
         
         [self presentViewController:mailer animated:YES completion:^{
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+            [self setNeedsStatusBarAppearanceUpdate];
         }];
         
         mailer = nil;
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
-                                                            message:ERROR_MAIL_SUPPORT
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles: nil];
-        [alertView show];
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:ERROR_TITLE
+                                              message:ERROR_MAIL_SUPPORT
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -51,12 +51,12 @@
                         error:(NSError*)error {
     if (error) {
         //error occured sending mail
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
-                                                            message:ERROR_MAIL_SEND
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles: nil];
-        [alertView show];
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:ERROR_TITLE
+                                              message:ERROR_MAIL_SEND
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
+        [self presentViewController:alertController animated:YES completion:nil];
     } else {
         // Remove the mail view
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -75,12 +75,12 @@
         return;
     }
 
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
-                                                        message:ERROR_TWITTER
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:ERROR_TITLE
+                                          message:ERROR_TWITTER
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction cancelActionWithController:self]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)postToFacebookWithDeal:(DealData *)deal {
@@ -96,12 +96,12 @@
         [self presentViewController:share animated:YES completion:nil];
     }
     else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
-                                                            message:ERROR_FACEBOOK
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:ERROR_TITLE
+                                              message:ERROR_FACEBOOK
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -148,6 +148,12 @@
     } else {
         return YES;
     }
+}
+
+#pragma mark - Misc
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

@@ -60,12 +60,7 @@
 @implementation NSString(Extension)
 
 - (NSString *)urlEncode {
-	return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(
-                                                                                 NULL,
-                                                                                 (__bridge_retained CFStringRef)self,
-                                                                                 NULL,
-                                                                                 (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                 kCFStringEncodingUTF8 );
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
 }
 
 + (NSString *)stringFromResource:(NSString*)resourceName {
@@ -154,6 +149,19 @@
     [mailer setModalPresentationStyle:UIModalPresentationFormSheet];
     
     return mailer;
+}
+
+@end
+
+@implementation UIAlertAction(Extension)
+
++ (UIAlertAction *)cancelActionWithController:(UIViewController*)controller {
+    return [UIAlertAction actionWithTitle:@"OK"
+            style:UIAlertActionStyleCancel
+            handler:^(UIAlertAction *action)
+            {
+              [controller dismissViewControllerAnimated:YES completion:nil];
+            }];
 }
 
 @end

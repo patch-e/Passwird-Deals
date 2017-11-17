@@ -47,3 +47,9 @@
 + (MFMailComposeViewController *)initMFMailComposeViewControllerWithDelegate:(id)delegate;
 
 @end
+
+@interface UIAlertAction(Extension)
+
++ (UIAlertAction *)cancelActionWithController:(UIViewController*)controller;
+
+@end

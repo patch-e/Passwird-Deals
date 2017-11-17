@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_Passwird_Deals_SDWebImage : NSObject
-@end
-@implementation PodsDummy_Pods_Passwird_Deals_SDWebImage
-@end

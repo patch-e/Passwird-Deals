@@ -1,10 +1,10 @@
 //
 //  THLabel.m
 //
-//  Version 1.4.4
+//  Version 1.4.7
 //
 //  Created by Tobias Hagemann on 11/25/12.
-//  Copyright (c) 2014 tobiha.de. All rights reserved.
+//  Copyright (c) 2015 tobiha.de. All rights reserved.
 //
 //  Original source and inspiration from:
 //  FXLabel by Nick Lockwood,
@@ -55,7 +55,7 @@
 
 @implementation THLabel
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
 		self.backgroundColor = [UIColor clearColor];
 		[self setDefaults];
@@ -63,7 +63,7 @@
 	return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
 	if (self = [super initWithCoder:aDecoder]) {
 		[self setDefaults];
 	}
@@ -91,7 +91,7 @@
 }
 
 - (BOOL)hasGradient {
-	return [self.gradientColors count] > 1;
+	return self.gradientColors.count > 1;
 }
 
 - (BOOL)hasFadeTruncating {
@@ -108,7 +108,7 @@
 	}
 	
 	CGRect textRect;
-	CTFrameRef frameRef = [self frameRefFromSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) textRectOutput:&textRect];
+	CTFrameRef frameRef = [self frameRefFromSize:CGSizeMake(self.preferredMaxLayoutWidth, CGFLOAT_MAX) textRectOutput:&textRect];
 	CFRelease(frameRef);
 	
 	return CGSizeMake(ceilf(CGRectGetWidth(textRect) + self.textInsets.left + self.textInsets.right),
@@ -122,33 +122,33 @@
 }
 
 - (UIColor *)gradientStartColor {
-	return [self.gradientColors count] ? [self.gradientColors firstObject] : nil;
+	return self.gradientColors.count ? self.gradientColors.firstObject : nil;
 }
 
 - (void)setGradientStartColor:(UIColor *)gradientStartColor {
 	if (gradientStartColor == nil) {
 		self.gradientColors = nil;
-	} else if ([self.gradientColors count] < 2) {
-		self.gradientColors = [NSArray arrayWithObjects:gradientStartColor, gradientStartColor, nil];
-	} else if ([self.gradientColors objectAtIndex:0] != gradientStartColor) {
+	} else if (self.gradientColors.count < 2) {
+		self.gradientColors = @[gradientStartColor, gradientStartColor];
+	} else if (![self.gradientColors.firstObject isEqual:gradientStartColor]) {
 		NSMutableArray *colors = [self.gradientColors mutableCopy];
-		[colors replaceObjectAtIndex:0 withObject:gradientStartColor];
+		colors[0] = gradientStartColor;
 		self.gradientColors = colors;
 	}
 }
 
 - (UIColor *)gradientEndColor {
-	return [self.gradientColors lastObject];
+	return self.gradientColors.lastObject;
 }
 
 - (void)setGradientEndColor:(UIColor *)gradientEndColor {
 	if (gradientEndColor == nil) {
 		self.gradientColors = nil;
-	} else if ([self.gradientColors count] < 2) {
-		self.gradientColors = [NSArray arrayWithObjects:gradientEndColor, gradientEndColor, nil];
-	} else if ([self.gradientColors lastObject] != gradientEndColor) {
+	} else if (self.gradientColors.count < 2) {
+		self.gradientColors = @[gradientEndColor, gradientEndColor];
+	} else if (![self.gradientColors.lastObject isEqual:gradientEndColor]) {
 		NSMutableArray *colors = [self.gradientColors mutableCopy];
-		[colors replaceObjectAtIndex:[colors count] - 1 withObject:gradientEndColor];
+		colors[colors.count - 1] = gradientEndColor;
 		self.gradientColors = colors;
 	}
 }
@@ -269,7 +269,7 @@
 		CGContextScaleCTM(context, 1.0, -1.0);
 		
 		// Get gradient colors as CGColor.
-		NSMutableArray *gradientColors = [NSMutableArray arrayWithCapacity:[self.gradientColors count]];
+		NSMutableArray *gradientColors = [NSMutableArray arrayWithCapacity:self.gradientColors.count];
 		for (UIColor *color in self.gradientColors) {
 			[gradientColors addObject:(__bridge id)color.CGColor];
 		}
@@ -427,13 +427,19 @@
 - (CTFrameRef)frameRefFromSize:(CGSize)size textRectOutput:(CGRect *)textRectOutput CF_RETURNS_RETAINED {
 	// Set up font.
 	CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)self.font.fontName, self.font.pointSize, NULL);
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
+	CTTextAlignment alignment = NSTextAlignmentToCTTextAlignment(self.textAlignment);
+#else
 	CTTextAlignment alignment = NSTextAlignmentToCTTextAlignment ? NSTextAlignmentToCTTextAlignment(self.textAlignment) : [self CTTextAlignmentFromNSTextAlignment:self.textAlignment];
+#endif
 	CTLineBreakMode lineBreakMode = (CTLineBreakMode)self.lineBreakMode;
+	CGFloat lineSpacing = self.lineSpacing;
 	CTParagraphStyleSetting paragraphStyleSettings[] = {
 		{kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &alignment},
-		{kCTParagraphStyleSpecifierLineBreakMode, sizeof(CTLineBreakMode), &lineBreakMode}
+		{kCTParagraphStyleSpecifierLineBreakMode, sizeof(CTLineBreakMode), &lineBreakMode},
+		{kCTParagraphStyleSpecifierLineSpacingAdjustment, sizeof(CGFloat), &lineSpacing}
 	};
-	CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphStyleSettings, 2);
+	CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphStyleSettings, 3);
 	CFNumberRef kernRef = CFNumberCreate(kCFAllocatorDefault, kCFNumberCGFloatType, &_letterSpacing);
 	
 	// Set up attributed string.
@@ -463,7 +469,7 @@
 	CGMutablePathRef pathRef = CGPathCreateMutable();
 	CGPathAddRect(pathRef, NULL, textRect);
 	
-	CTFrameRef frameRef = CTFramesetterCreateFrame(framesetterRef, CFRangeMake(0, [self.text length]), pathRef, NULL);
+	CTFrameRef frameRef = CTFramesetterCreateFrame(framesetterRef, CFRangeMake(0, self.text.length), pathRef, NULL);
 	CFRelease(framesetterRef);
 	CGPathRelease(pathRef);
 	return frameRef;
@@ -500,9 +506,9 @@
 }
 
 - (CGRect)textRectFromContentRect:(CGRect)contentRect framesetterRef:(CTFramesetterRef)framesetterRef {
-	CGSize suggestedTextRectSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetterRef, CFRangeMake(0, [self.text length]), NULL, contentRect.size, NULL);
+	CGSize suggestedTextRectSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetterRef, CFRangeMake(0, self.text.length), NULL, contentRect.size, NULL);
 	if (CGSizeEqualToSize(suggestedTextRectSize, CGSizeZero)) {
-		suggestedTextRectSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetterRef, CFRangeMake(0, [self.text length]), NULL, CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX), NULL);
+		suggestedTextRectSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetterRef, CFRangeMake(0, self.text.length), NULL, CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX), NULL);
 	}
 	CGRect textRect = CGRectMake(0.0, 0.0, ceilf(suggestedTextRectSize.width), ceilf(suggestedTextRectSize.height));
 	

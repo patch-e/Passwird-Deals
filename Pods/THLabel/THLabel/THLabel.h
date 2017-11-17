@@ -1,10 +1,10 @@
 //
 //  THLabel.h
 //
-//  Version 1.4.4
+//  Version 1.4.7
 //
 //  Created by Tobias Hagemann on 11/25/12.
-//  Copyright (c) 2014 tobiha.de. All rights reserved.
+//  Copyright (c) 2015 tobiha.de. All rights reserved.
 //
 //  Original source and inspiration from:
 //  FXLabel by Nick Lockwood,
@@ -60,6 +60,7 @@ typedef NS_OPTIONS(NSUInteger, THLabelFadeTruncatingMode) {
 @interface THLabel : UILabel
 
 @property (nonatomic, assign) CGFloat letterSpacing;
+@property (nonatomic, assign) CGFloat lineSpacing;
 
 @property (nonatomic, assign) CGFloat shadowBlur;
 

@@ -53,12 +53,13 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     NSLog(@"connection error");
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:ERROR_TITLE
-                                                        message:ERROR_MESSAGE
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles: nil];
-    [alertView show];
+
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:ERROR_TITLE
+                                          message:ERROR_MESSAGE
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction cancelActionWithController:self]];
+    [self presentViewController:alertController animated:YES completion:nil];
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
