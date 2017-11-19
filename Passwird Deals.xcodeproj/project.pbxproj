@@ -26,6 +26,8 @@
 		CD5E8AF1171108D2000CCC04 /* PDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */; };
 		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD69D95A157711C700BBAB50 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* SettingsViewController.m */; };
+		CD6E9D661FC0A39300D707F0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6E9D651FC0A39300D707F0 /* Launch Screen.storyboard */; };
+		CD6E9D681FC1C08600D707F0 /* icon-precomposed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6E9D671FC1C08600D707F0 /* icon-precomposed@3x.png */; };
 		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
 		CD9A1BB219F8927C007A42D6 /* blingbear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9A1BAD19F8927C007A42D6 /* blingbear@3x.png */; };
 		CD9A1BB419F8927C007A42D6 /* left@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9A1BAE19F8927C007A42D6 /* left@3x.png */; };
@@ -112,6 +114,8 @@
 		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		CD69D958157711C600BBAB50 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		CD69D959157711C700BBAB50 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		CD6E9D651FC0A39300D707F0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		CD6E9D671FC1C08600D707F0 /* icon-precomposed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-precomposed@3x.png"; path = "Resources/Images/App Store/icon-precomposed@3x.png"; sourceTree = "<group>"; };
 		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CD9A1BAD19F8927C007A42D6 /* blingbear@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blingbear@3x.png"; path = "Resources/Images/blingbear@3x.png"; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 		CD2A72DE1516B2AD003A4394 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				CD6E9D651FC0A39300D707F0 /* Launch Screen.storyboard */,
 				CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */,
 				CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */,
 				CD2A72D31516B12F003A4394 /* MasterViewController.h */,
@@ -329,6 +334,7 @@
 				CD2770BF180A4A2300DD06E1 /* Images.xcassets */,
 				CDA9277E1651E66700A9D006 /* icon-precomposed.png */,
 				CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */,
+				CD6E9D671FC1C08600D707F0 /* icon-precomposed@3x.png */,
 				CD0F8FA6180E2783001B5808 /* blingbear.png */,
 				CD0F8FA7180E2783001B5808 /* blingbear@2x.png */,
 				CD9A1BAD19F8927C007A42D6 /* blingbear@3x.png */,
@@ -446,6 +452,7 @@
 				CD0F8FAA180E2783001B5808 /* blingbear@2x.png in Resources */,
 				CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */,
 				CDA927861651E66800A9D006 /* icon-precomposed.png in Resources */,
+				CD6E9D661FC0A39300D707F0 /* Launch Screen.storyboard in Resources */,
 				CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */,
 				CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */,
 				CD9A1BB819F8927C007A42D6 /* right@3x.png in Resources */,
@@ -475,6 +482,7 @@
 				CDC6A308179CD7F9008C0290 /* refresh.png in Resources */,
 				CDC6A30A179CD7F9008C0290 /* refresh@2x.png in Resources */,
 				CDC6A30D17A03DFF008C0290 /* bullet@2x.png in Resources */,
+				CD6E9D681FC1C08600D707F0 /* icon-precomposed@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,7 +704,6 @@
 			baseConfigurationReference = 4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -725,7 +732,6 @@
 			baseConfigurationReference = 3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
