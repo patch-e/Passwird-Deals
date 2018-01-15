@@ -41,8 +41,9 @@
 - (IBAction)rateLink:(id)sender {
     if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) && [SKStoreProductViewController class]) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [hud setLabelText:@"Loading"];
-        [hud setColor:[UIColor pdHudColor]];        
+        hud.label.text = @"Loading";
+        hud.contentColor = [UIColor whiteColor];
+        hud.bezelView.color = [UIColor pdHudColor];
         
         NSDictionary *appParameters = [NSDictionary dictionaryWithObject:PASSWIRD_APP_ID
                                                                   forKey:SKStoreProductParameterITunesItemIdentifier];

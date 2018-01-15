@@ -22,8 +22,9 @@
 - (void)createConnectionWithHUD:(BOOL)showHUD {
     if ( showHUD ) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [hud setLabelText:@"Loading"];
-        [hud setColor:[UIColor pdHudColor]];
+        hud.label.text = @"Loading";
+        hud.contentColor = [UIColor whiteColor];
+        hud.bezelView.color = [UIColor pdHudColor];
     }
     
     //build the connection for async data downloading, 20 second timeout
@@ -135,10 +136,11 @@
     //show copied HUD message for 2 seconds
     NSTimeInterval theTimeInterval = 2;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [hud setColor:[UIColor pdHudColor]];
     [hud setMode:MBProgressHUDModeText];
-    [hud setLabelText:@"URL Copied!"];
-    [hud hide:YES afterDelay:theTimeInterval];
+    [hud hideAnimated:YES afterDelay:theTimeInterval];
+    hud.label.text = @"URL Copied!";
+    hud.contentColor = [UIColor whiteColor];
+    hud.bezelView.color = [UIColor pdHudColor];
 }
 
 - (void)openInSafari {

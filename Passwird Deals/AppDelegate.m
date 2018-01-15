@@ -31,12 +31,12 @@
         self.navigationController = (UINavigationController *)self.window.rootViewController;
     }
     
-    //performance caching settings 
+    //performance caching settings
     int cacheSizeMemory = 4*1024*1024; // 4MB
     int cacheSizeDisk = 32*1024*1024; // 32MB
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
     [NSURLCache setSharedURLCache:sharedCache];
-
+    
     //let the device know we want to receive push notifications
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
@@ -47,9 +47,9 @@
     
     //handle notification tap while app isn't running
     if (launchOptions != nil) {
-		NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-		if (userInfo != nil) {
-			NSLog(@"Launched from push notification: %@", userInfo);
+        NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (userInfo != nil) {
+            NSLog(@"Launched from push notification: %@", userInfo);
             
             if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
                 //set the detailId from the received push, connect and download the deal
@@ -64,7 +64,7 @@
                 
                 [self.navigationController pushViewController:detailViewController animated:YES];
             }
-		}
+        }
     }
     
     //settings defaults
@@ -99,11 +99,11 @@
 #pragma mark - Notifications
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
-	NSLog(@"My token is: %@", deviceToken);
+    NSLog(@"My token is: %@", deviceToken);
     
-	NSString *formattedToken = [deviceToken description];
-	formattedToken = [formattedToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-	formattedToken = [formattedToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *formattedToken = [deviceToken description];
+    formattedToken = [formattedToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    formattedToken = [formattedToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     if ([application respondsToSelector:@selector(currentUserNotificationSettings)]) {
         UIUserNotificationSettings *types = [[UIApplication sharedApplication] currentUserNotificationSettings];
@@ -127,11 +127,11 @@
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
-	NSLog(@"Failed to get token, error: %@", error);
+    NSLog(@"Failed to get token, error: %@", error);
 }
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
-	NSLog(@"Received notification: %@", userInfo);
+    NSLog(@"Received notification: %@", userInfo);
     
     if (application.applicationState == UIApplicationStateActive) {
         //if app is active on screen, just show alert view of deal headline
@@ -139,8 +139,7 @@
                                               alertControllerWithTitle:@"Deal Alert"
                                               message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
                                               preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
-//        [self presentViewController:alertController animated:YES completion:nil];
+        [alertController addAction:[UIAlertAction cancelActionWithController:self.window.rootViewController]];
     } else {
         //if app is running, but in the background fire this notification (handled in master and search) to display the deal from the push
         [[NSNotificationCenter defaultCenter] postNotificationName:@"receivedPushNotification" object:nil userInfo:userInfo];
@@ -190,7 +189,7 @@
         
         NSLog(@"Request Successful, response '%@'", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 
@@ -199,7 +198,7 @@
     
     if (badgePermission) {
         NSString *deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"deviceToken"];
-        if ((deviceToken != nil) && (![deviceToken isEqual: @""])) {        
+        if ((deviceToken != nil) && (![deviceToken isEqual: @""])) {
             NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                                     deviceToken, @"token",
                                     nil];
@@ -226,20 +225,20 @@
 
 #pragma mark - Customizations
 
-- (void)customizeAppearance {    
+- (void)customizeAppearance {
     //custom appearance settings for UIKit items
     [[UINavigationBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-
+    
     [[UIToolbar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UIToolbar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
     
     [[UISearchBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UISearchBar appearance] setBarTintColor:[UIColor pdTitleTextColor]];
     [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]]
-                                           setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdHeaderTintColor], NSForegroundColorAttributeName, nil]
-                                                         forState:UIControlStateNormal];
+     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdHeaderTintColor], NSForegroundColorAttributeName, nil]
+     forState:UIControlStateNormal];
     
     self.window.backgroundColor = [UIColor pdTitleTextColor];
 }

@@ -17,8 +17,9 @@
 - (void)createConnectionWithHUD:(BOOL)showHUD {
     if ( showHUD ) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        [hud setLabelText:@"Searching"];
-        [hud setColor:[UIColor pdHudColor]];        
+        hud.label.text = @"Searching";
+        hud.contentColor = [UIColor whiteColor];
+        hud.bezelView.color = [UIColor pdHudColor];
     }
     
     //build the connection for async data downloading, 20 second timeout

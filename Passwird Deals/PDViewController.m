@@ -123,10 +123,11 @@
         //show thank you HUD message for 2 seconds
         NSTimeInterval theTimeInterval = 2;
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [hud setColor:[UIColor pdHudColor]];
         [hud setMode:MBProgressHUDModeText];
-        [hud setLabelText:@"Thanks!"];
-        [hud hide:YES afterDelay:theTimeInterval];
+        [hud hideAnimated:YES afterDelay:theTimeInterval];
+        hud.label.text = @"Thanks!";
+        hud.contentColor = [UIColor whiteColor];
+        hud.bezelView.color = [UIColor pdHudColor];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
