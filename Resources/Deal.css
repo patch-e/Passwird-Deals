@@ -29,18 +29,22 @@ img {
 .date {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(218, 239, 255)), to(rgb(218, 239, 255)));
     color: rgb(174, 19, 18);
+    display: table;
     height: 30px;
     line-height: 30px;
-    padding: 0px 12px;
+    padding: 0px 0px 0px 11px;
     position: fixed;
+    table-layout: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
 }
 .date span {
-    display: inline-block;
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: middle;
+    white-space: nowrap;
 }
 .headline {
     clear: both;
