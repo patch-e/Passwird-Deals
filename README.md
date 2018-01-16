@@ -22,6 +22,11 @@ Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
 
+v4.5
+====
+- iPhone X support
+- Dynamic Type accessibility fixes
+
 v4.4
 ====
 - Dynamic Type support
