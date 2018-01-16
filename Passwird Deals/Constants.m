@@ -17,7 +17,7 @@ NSString *const PASSWIRD_API_URL = @"http://api.mccrager.com";
 NSString *const PASSWIRD_URL = @"http://www.passwird.com";
 NSString *const PASSWIRD_URL_REPORT_EXPIRED = @"http://www.passwird.com/deals/votedown/%@";
 
-#pragma mark - About
+#pragma mark - Settings
 
 NSString *const SETTINGS_EMAIL_ADDRESS = @"p.crager@gmail.com";
 

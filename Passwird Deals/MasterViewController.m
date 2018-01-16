@@ -55,9 +55,9 @@
     [self createConnectionWithHUD:NO];
 }
 
-#pragma mark - Managing the About modal view
+#pragma mark - Managing the Settings modal view
 
-- (void)showAboutModal:(id)sender {
+- (void)showSettingsModal:(id)sender {
     [self performSegueWithIdentifier:@"Settings" sender:self];
 }
 

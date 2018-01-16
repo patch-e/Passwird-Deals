@@ -1,5 +1,5 @@
 //
-//  AboutViewController.m
+//  SettingsViewController.m
 //  Passwird Deals
 //
 //  Created by Patrick Crager on 5/30/12.
@@ -144,7 +144,11 @@
 #pragma mark - View lifecycle
 
 - (IBAction)dismissView:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
@@ -159,16 +163,6 @@
     } else {
         return YES;
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.appNameLabel setFont:[UIFont fontWithName:@"Arial Black" size:24.0]];
-    [self.appNameLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.appNameLabel setTextColor:[UIColor pdTitleTextColor]];
-    
-    // THLabel specific properties
-    [self.appNameLabel setStrokeColor:[UIColor pdTitleTextStrokeColor]];
-	[self.appNameLabel setStrokeSize:2.5f];
 }
 
 - (void)viewDidLoad {
@@ -194,6 +188,18 @@
     self.githubButton.layer.borderColor = [UIColor pdHeaderTintColor].CGColor;
     
     [self calculateAndSetScrollViewHeight];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.appNameLabel setFont:[UIFont fontWithName:@"Arial Black" size:24.0]];
+    [self.appNameLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.appNameLabel setTextColor:[UIColor pdTitleTextColor]];
+    
+    // THLabel specific properties
+    [self.appNameLabel setStrokeColor:[UIColor pdTitleTextStrokeColor]];
+    [self.appNameLabel setStrokeSize:2.5f];
 }
 
 - (void)viewDidUnload {
