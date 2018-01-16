@@ -15,9 +15,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    THLabel *label = [[THLabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    THLabel *label = [[THLabel alloc] initWithFrame:CGRectZero];
 
-    [label setFont:[UIFont fontWithName:@"Arial Black" size:18.0]];
+    [label setFont:[UIFont fontWithName:@"Arial Black" size:21.0]];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setTextColor:[UIColor pdTitleTextColor]];
     [label setText:self.topItem.title];
