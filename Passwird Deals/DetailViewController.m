@@ -198,10 +198,6 @@
 
 #pragma mark - Managing the web view
 
-- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-}
-
 - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     if ( navigationType == UIWebViewNavigationTypeLinkClicked ) {
         SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:request.URL];
