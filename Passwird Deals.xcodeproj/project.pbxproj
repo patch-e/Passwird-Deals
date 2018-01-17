@@ -28,7 +28,6 @@
 		CD69D95A157711C700BBAB50 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* SettingsViewController.m */; };
 		CD6E9D661FC0A39300D707F0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6E9D651FC0A39300D707F0 /* Launch Screen.storyboard */; };
 		CD6E9D681FC1C08600D707F0 /* icon-precomposed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6E9D671FC1C08600D707F0 /* icon-precomposed@3x.png */; };
-		CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD89BBD5155A10CB00747FD5 /* WebViewController.m */; };
 		CD9A1BB219F8927C007A42D6 /* blingbear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9A1BAD19F8927C007A42D6 /* blingbear@3x.png */; };
 		CD9A1BB419F8927C007A42D6 /* left@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9A1BAE19F8927C007A42D6 /* left@3x.png */; };
 		CD9A1BB619F8927C007A42D6 /* refresh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9A1BAF19F8927C007A42D6 /* refresh@3x.png */; };
@@ -54,6 +53,7 @@
 		CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1116FBF1BB0008A613 /* Constants.m */; };
 		CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1516FC616B0008A613 /* PDTableViewController.m */; };
 		CDBABD1E16FFEC550008A613 /* PDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1D16FFEC550008A613 /* PDViewController.m */; };
+		CDC00EBC200EE4EF008E68D6 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC00EBA200EE4D5008E68D6 /* SafariServices.framework */; };
 		CDC21B0D170679EA00C144B4 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC21B0C170679EA00C144B4 /* bullet.png */; };
 		CDC6A308179CD7F9008C0290 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC6A306179CD7F9008C0290 /* refresh.png */; };
 		CDC6A30A179CD7F9008C0290 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC6A307179CD7F9008C0290 /* refresh@2x.png */; };
@@ -116,8 +116,6 @@
 		CD69D959157711C700BBAB50 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		CD6E9D651FC0A39300D707F0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CD6E9D671FC1C08600D707F0 /* icon-precomposed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-precomposed@3x.png"; path = "Resources/Images/App Store/icon-precomposed@3x.png"; sourceTree = "<group>"; };
-		CD89BBD4155A10CB00747FD5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		CD89BBD5155A10CB00747FD5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		CD9A1BAD19F8927C007A42D6 /* blingbear@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blingbear@3x.png"; path = "Resources/Images/blingbear@3x.png"; sourceTree = "<group>"; };
 		CD9A1BAE19F8927C007A42D6 /* left@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "left@3x.png"; path = "Resources/Images/left@3x.png"; sourceTree = "<group>"; };
 		CD9A1BAF19F8927C007A42D6 /* refresh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh@3x.png"; path = "Resources/Images/refresh@3x.png"; sourceTree = "<group>"; };
@@ -149,6 +147,8 @@
 		CDBABD1516FC616B0008A613 /* PDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTableViewController.m; sourceTree = "<group>"; };
 		CDBABD1C16FFEC540008A613 /* PDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDViewController.h; sourceTree = "<group>"; };
 		CDBABD1D16FFEC550008A613 /* PDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDViewController.m; sourceTree = "<group>"; };
+		CDC00EBA200EE4D5008E68D6 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		CDC00EBD200EE762008E68D6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CDC21B0C170679EA00C144B4 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/Images/bullet.png; sourceTree = "<group>"; };
 		CDC6A306179CD7F9008C0290 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = refresh.png; path = Resources/Images/refresh.png; sourceTree = "<group>"; };
 		CDC6A307179CD7F9008C0290 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh@2x.png"; path = "Resources/Images/refresh@2x.png"; sourceTree = "<group>"; };
@@ -167,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC00EBC200EE4EF008E68D6 /* SafariServices.framework in Frameworks */,
 				CDD7C1AA19F351A6001E148B /* CoreGraphics.framework in Frameworks */,
 				CDD7C1AC19F35743001E148B /* Foundation.framework in Frameworks */,
 				CDD7C1A619F3516A001E148B /* MessageUI.framework in Frameworks */,
@@ -222,6 +223,8 @@
 		CD2A72BA1516B12F003A4394 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDC00EBD200EE762008E68D6 /* WebKit.framework */,
+				CDC00EBA200EE4D5008E68D6 /* SafariServices.framework */,
 				CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */,
 				CD2A72BD1516B12F003A4394 /* Foundation.framework */,
 				CD55DF86156B36E800CF4D73 /* MessageUI.framework */,
@@ -273,8 +276,6 @@
 				CD418A7C153E653200E02F0D /* SearchViewController.m */,
 				CD2A72D61516B12F003A4394 /* DetailViewController.h */,
 				CD2A72D71516B12F003A4394 /* DetailViewController.m */,
-				CD89BBD4155A10CB00747FD5 /* WebViewController.h */,
-				CD89BBD5155A10CB00747FD5 /* WebViewController.m */,
 				CD69D958157711C600BBAB50 /* SettingsViewController.h */,
 				CD69D959157711C700BBAB50 /* SettingsViewController.m */,
 				CDBABD1416FC616B0008A613 /* PDTableViewController.h */,
@@ -569,7 +570,6 @@
 				CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */,
 				CD0F8FBC18109CFB001B5808 /* StringTemplate.m in Sources */,
 				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
-				CD89BBD6155A10CB00747FD5 /* WebViewController.m in Sources */,
 				CD69D95A157711C700BBAB50 /* SettingsViewController.m in Sources */,
 				CDE37C40168D6C2300C48DF0 /* PDTableViewCell.m in Sources */,
 				CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */,

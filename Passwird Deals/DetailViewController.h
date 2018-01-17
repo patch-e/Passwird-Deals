@@ -11,8 +11,9 @@
 #import "DealData.h"
 
 #import <MessageUI/MessageUI.h>
+#import <SafariServices/SafariServices.h>
 
-@interface DetailViewController : PDViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UISplitViewControllerDelegate>
+@interface DetailViewController : PDViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UISplitViewControllerDelegate, SFSafariViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;

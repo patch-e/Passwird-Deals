@@ -7,7 +7,6 @@
 //
 
 #import "DetailViewController.h"
-#import "WebViewController.h"
 
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
@@ -199,12 +198,22 @@
 
 #pragma mark - Managing the web view
 
-- (BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {    
-    if( navigationType == UIWebViewNavigationTypeLinkClicked ) {
-        [self setSelectedURL:request.URL];
-        [self performSegueWithIdentifier:@"Web" sender:self];
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+- (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if ( navigationType == UIWebViewNavigationTypeLinkClicked ) {
+        SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:request.URL];
+        [svc setDelegate:self];
+        [svc setPreferredBarTintColor:[UIColor pdHeaderBarTintColor]];
+        [svc setPreferredControlTintColor:[UIColor pdHeaderTintColor]];
+        
+        [self presentViewController:svc animated:YES completion:nil];
+        
         return NO;
-    } 
+    }
+    
     return YES; 
 }
 
@@ -260,13 +269,6 @@
 
 #pragma mark - View lifecycle
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Pass selected URL and deal to web controller
-    WebViewController *webController = segue.destinationViewController;
-    [webController setPushedURL:self.selectedURL];
-    [webController setDetailItem:self.detailItem];
-}
-
 - (void)configureView {
     [self loadDealIntoWebView];
 }
@@ -285,6 +287,8 @@
     } else {
         [self configureView];
     }
+    
+    [self.webView setAllowsLinkPreview:YES];
 }
 
 - (void)viewDidUnload {
