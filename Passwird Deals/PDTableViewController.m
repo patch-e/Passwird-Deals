@@ -216,19 +216,12 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
-    [self.navigationItem.titleView setHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [self.navigationItem.titleView setHidden:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    [self.navigationItem.titleView setHidden:NO];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
