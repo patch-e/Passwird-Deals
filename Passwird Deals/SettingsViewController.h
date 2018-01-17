@@ -7,7 +7,6 @@
 //
 
 #import "PDViewController.h"
-#import "PDNavigationBar.h"
 
 #import "THLabel.h"
 
