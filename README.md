@@ -26,6 +26,8 @@ v4.5
 ====
 - iPhone X support
 - Dynamic Type accessibility fixes
+- 3D Touch peak/pop
+- Revised browser view, now uses Safari view controller
 
 v4.4
 ====
