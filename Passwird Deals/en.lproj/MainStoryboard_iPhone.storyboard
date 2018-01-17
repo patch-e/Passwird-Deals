@@ -226,11 +226,6 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="settings" id="7Aw-yb-AcX">
                         <barButtonItem key="backBarButtonItem" title="Settings" id="9Sf-18-pns"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="DyU-fu-fOw">
-                            <connections>
-                                <action selector="dismissView:" destination="URx-zU-rTN" id="FYW-hh-mp4"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="appNameLabel" destination="QdS-d9-teF" id="FgS-x0-lyJ"/>
@@ -420,6 +415,6 @@
         <image name="settings.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fD0-CD-sh5"/>
+        <segue reference="FTD-sn-uHj"/>
     </inferredMetricsTieBreakers>
 </document>

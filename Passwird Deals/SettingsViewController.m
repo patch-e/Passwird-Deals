@@ -134,10 +134,12 @@
 
 - (void)calculateAndSetScrollViewHeight {
     CGFloat scrollViewHeight = 0.0f;
+    
     for (UIView *view in self.scrollView.subviews) {
         if (scrollViewHeight < view.frame.origin.y + view.frame.size.height)
             scrollViewHeight = view.frame.origin.y + view.frame.size.height;
     }
+    
     [self.scrollView setContentSize:CGSizeMake(0, scrollViewHeight)];
 }
 
