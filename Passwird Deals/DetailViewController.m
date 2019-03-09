@@ -287,11 +287,4 @@
     [self.webView setAllowsLinkPreview:YES];
 }
 
-- (void)viewDidUnload {
-    [self setWebView:nil];
-    [self setShareButton:nil];
-    [self setActionSheet:nil];
-    [super viewDidUnload];
-}
-
 @end

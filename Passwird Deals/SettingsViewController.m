@@ -152,19 +152,11 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [self calculateAndSetScrollViewHeight];
     [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 - (void)viewDidLoad {
@@ -202,16 +194,6 @@
     // THLabel specific properties
     [self.appNameLabel setStrokeColor:[UIColor pdTitleTextStrokeColor]];
     [self.appNameLabel setStrokeSize:2.5f];
-}
-
-- (void)viewDidUnload {
-    [self setScrollView:nil];
-    [self setExpiredSwitch:nil];
-    [self setAppNameLabel:nil];
-    [self setFeedbackButton:nil];
-    [self setRateButton:nil];
-    [self setGithubButton:nil];
-    [super viewDidUnload];
 }
 
 @end

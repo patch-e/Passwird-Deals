@@ -100,10 +100,4 @@
                                                object:nil];
 }
 
-- (void)viewDidUnload {
-    [self setSettingsButton:nil];
-    [self setSearchButton:nil];
-    [super viewDidUnload];
-}
-
 @end

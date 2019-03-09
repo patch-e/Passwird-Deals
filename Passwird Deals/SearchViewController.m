@@ -103,9 +103,4 @@
                                                object:nil];
 }
 
-- (void)viewDidUnload {
-    [self setSearchBar:nil];
-    [super viewDidUnload];
-}
-
 @end
