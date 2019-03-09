@@ -29,7 +29,7 @@
 
 - (IBAction)donateLink:(id)sender {
     NSURL *url = [NSURL URLWithString:SETTINGS_DONATE_URL];
-    [[UIApplication sharedApplication] openURL:url];
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
     
     url = nil;
 }
@@ -65,7 +65,7 @@
                                          }];
     } else {
         NSURL *url = [NSURL URLWithString:SETTINGS_REVIEW_URL];
-        [[UIApplication sharedApplication] openURL:url];
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
         
         url = nil;
     }
@@ -73,14 +73,14 @@
 
 - (IBAction)githubLink:(id)sender {
     NSURL *url = [NSURL URLWithString:SETTINGS_GITHUB_URL];
-    [[UIApplication sharedApplication] openURL:url];
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
     
     url = nil;
 }
 
 - (IBAction)passwirdLink:(id)sender {
     NSURL *url = [NSURL URLWithString:PASSWIRD_URL];
-    [[UIApplication sharedApplication] openURL:url];
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
     
     url = nil;
 }

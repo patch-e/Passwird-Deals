@@ -143,7 +143,7 @@
 }
 
 - (void)openInSafari {
-    [[UIApplication sharedApplication] openURL:[self.detailItem getURL]];
+    [[UIApplication sharedApplication] openURL:[self.detailItem getURL] options:@{} completionHandler:nil];
 }
 
 - (IBAction)showActionSheet:(id)sender {
