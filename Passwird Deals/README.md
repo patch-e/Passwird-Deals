@@ -21,6 +21,10 @@ http://mccrager.com/PasswirdDeals
 Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
+v4.6
+====
+- Code cleanup
+- Migrate to Firebase
 
 v4.5
 ====
