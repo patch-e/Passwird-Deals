@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276F761D223402C6002AE715 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 276F761C223402C6002AE715 /* GoogleService-Info.plist */; };
 		9573A639135C562B36547ED0 /* libPods-Passwird Deals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */; };
 		CD0F8FA8180E2783001B5808 /* blingbear.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA6180E2783001B5808 /* blingbear.png */; };
 		CD0F8FAA180E2783001B5808 /* blingbear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA7180E2783001B5808 /* blingbear@2x.png */; };
@@ -73,9 +74,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2469F0A9EA0B0326AB46C624 /* Pods-Passwird Deals beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals beta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals beta/Pods-Passwird Deals beta.release.xcconfig"; sourceTree = "<group>"; };
+		276F761B22340184002AE715 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		276F761C223402C6002AE715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.release.xcconfig"; sourceTree = "<group>"; };
-		45D1EBC5FDBD5D9F647B0997 /* Pods-Passwird Deals beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals beta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals beta/Pods-Passwird Deals beta.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Passwird Deals.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0F8FA6180E2783001B5808 /* blingbear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blingbear.png; path = Resources/Images/blingbear.png; sourceTree = "<group>"; };
@@ -138,7 +139,7 @@
 		CDA927B516546BD600A9D006 /* Facebook.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Facebook.txt; path = Resources/Facebook.txt; sourceTree = "<group>"; };
 		CDA927B616546BD600A9D006 /* spin.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = spin.min.js; path = Resources/spin.min.js; sourceTree = "<group>"; };
 		CDA927B716546BD600A9D006 /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Tweet.txt; path = Resources/Tweet.txt; sourceTree = "<group>"; };
-		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDB8FF171589704D0041EE56 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CDBABD1016FBF1BB0008A613 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -187,8 +188,6 @@
 			children = (
 				4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */,
 				3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */,
-				45D1EBC5FDBD5D9F647B0997 /* Pods-Passwird Deals beta.debug.xcconfig */,
-				2469F0A9EA0B0326AB46C624 /* Pods-Passwird Deals beta.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -254,12 +253,15 @@
 			children = (
 				CD2A72CA1516B12F003A4394 /* AppDelegate.h */,
 				CD2A72CB1516B12F003A4394 /* AppDelegate.m */,
-				CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */,
-				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
-				CD2A72C71516B12F003A4394 /* main.m */,
-				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
 				CDBABD1016FBF1BB0008A613 /* Constants.h */,
 				CDBABD1116FBF1BB0008A613 /* Constants.m */,
+				CD2A72C71516B12F003A4394 /* main.m */,
+				276F761C223402C6002AE715 /* GoogleService-Info.plist */,
+				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
+				CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */,
+				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
+				276F761B22340184002AE715 /* Podfile */,
+				CDB6DABF1564105400BFF2B2 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -322,7 +324,6 @@
 				CDA927B516546BD600A9D006 /* Facebook.txt */,
 				CDA927B716546BD600A9D006 /* Tweet.txt */,
 				CDE9582016DA4D820034C27B /* Licensing.txt */,
-				CDB6DABF1564105400BFF2B2 /* README.md */,
 			);
 			name = Resources;
 			path = ..;
@@ -392,8 +393,6 @@
 				CD2A72B41516B12F003A4394 /* Frameworks */,
 				CD2A72B51516B12F003A4394 /* Resources */,
 				CDD7C1AF19F35ACC001E148B /* ShellScript */,
-				F144EBFADEE4AAF5A37031F5 /* [CP] Embed Pods Frameworks */,
-				B2814A39CD4D06901B372006 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -410,7 +409,7 @@
 		CD2A72AE1516B12F003A4394 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				TargetAttributes = {
 					CD2A72B61516B12F003A4394 = {
 						DevelopmentTeam = JA9LQCT6NB;
@@ -463,6 +462,7 @@
 				CD9A1BB419F8927C007A42D6 /* left@3x.png in Resources */,
 				CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */,
 				CDCDC281180C53840078C93B /* ArialBlack.ttf in Resources */,
+				276F761D223402C6002AE715 /* GoogleService-Info.plist in Resources */,
 				CDA927A616546ABE00A9D006 /* left.png in Resources */,
 				CDA927A716546ABE00A9D006 /* left@2x.png in Resources */,
 				CDA927AA16546ABE00A9D006 /* right.png in Resources */,
@@ -491,24 +491,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B2814A39CD4D06901B372006 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/Appirater/Appirater.bundle,
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CDD7C1AF19F35ACC001E148B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,21 +520,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F144EBFADEE4AAF5A37031F5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -607,16 +574,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -659,16 +629,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -716,7 +689,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mccrager.${PRODUCT_NAME:rfc1034identifier}";
@@ -726,7 +699,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -747,7 +719,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Passwird Deals/Passwird Deals-Prefix.pch";
 				INFOPLIST_FILE = "Passwird Deals/Passwird Deals-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mccrager.${PRODUCT_NAME:rfc1034identifier}";
@@ -758,7 +730,6 @@
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

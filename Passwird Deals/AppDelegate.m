@@ -11,12 +11,15 @@
 #import "MasterViewController.h"
 
 #import "AFNetworking.h"
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
+@import Firebase;
+@import Fabric;
+@import Crashlytics;
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FIRApp configure];
+    
     //override point for customization after application launch.
     [self customizeAppearance];
     
