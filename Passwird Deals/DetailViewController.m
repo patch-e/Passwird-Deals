@@ -11,9 +11,6 @@
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
 
-#import <Social/Social.h>
-#import <Accounts/Accounts.h>
-
 @implementation DetailViewController
 
 #pragma mark - Managing the asynchronous data download
@@ -127,73 +124,18 @@
     }
 }
 
-#pragma mark - Managing the action sheet
-
-- (void)copyURL {
-    [[UIPasteboard generalPasteboard] setString: [[self.detailItem getURL] absoluteString]];
-    
-    //show copied HUD message for 2 seconds
-    NSTimeInterval theTimeInterval = 2;
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [hud setMode:MBProgressHUDModeText];
-    [hud hideAnimated:YES afterDelay:theTimeInterval];
-    hud.label.text = @"URL Copied!";
-    hud.contentColor = [UIColor whiteColor];
-    hud.bezelView.color = [UIColor pdHudColor];
-}
-
-- (void)openInSafari {
-    [[UIApplication sharedApplication] openURL:[self.detailItem getURL] options:@{} completionHandler:nil];
-}
+#pragma mark - Managing the activity controller
 
 - (IBAction)showActionSheet:(id)sender {
-    if (self.actionSheet == nil) {
-        UIActionSheet *sheet;
-
-        sheet = [[UIActionSheet alloc] initWithTitle:@"Deal Options"
-                                            delegate:self
-                                   cancelButtonTitle:@"Cancel"
-                              destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Post to Facebook", @"Tweet Deal", @"Email Deal", @"Copy URL", @"Open in Safari", @"Report Expired", nil];
-        
-        [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            [sheet showFromBarButtonItem:sender animated:YES];
-        }
-        else {
-            [sheet showInView:self.parentViewController.view];
-        }
-        
-        [self setActionSheet:sheet];
-    } else {
-        [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-    }
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (buttonIndex) {
-        case 0:
-            [super postToFacebookWithDeal:self.detailItem];
-            break;
-        case 1:
-            [super tweetDealWithDeal:self.detailItem];
-            break;
-        case 2:
-            [super openMailWithDeal:self.detailItem];
-            break;
-        case 3:
-            [self copyURL];
-            break;
-        case 4:
-            [self openInSafari];
-            break;
-        case 5:
-            [super reportExpiredWithDeal:self.detailItem];
-            break;
-        default: //cancel button
-            break;
-    }
+    //load custom activities
+    
+    NSArray *activityItems = @[[self.detailItem getURL]];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc]
+                                                        initWithActivityItems:activityItems
+                                                        applicationActivities:@[]];
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 #pragma mark - Managing the web view
@@ -255,14 +197,6 @@
     }
 }
 
-#pragma mark - Managing the split view
-
-- (BOOL)splitViewController:(UISplitViewController *)svc
-   shouldHideViewController:(UIViewController *)vc
-              inOrientation:(UIInterfaceOrientation)orientation {
-    return NO;
-}
-
 #pragma mark - View lifecycle
 
 - (void)configureView {
@@ -271,8 +205,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    
-    [self.actionSheet dismissWithClickedButtonIndex:0 animated:NO];
 }
 
 - (void)viewDidLoad {
@@ -285,6 +217,7 @@
     }
     
     [self.webView setAllowsLinkPreview:YES];
+    [self.splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
 }
 
 @end

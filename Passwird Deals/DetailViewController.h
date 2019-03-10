@@ -10,8 +10,8 @@
 
 #import "DealData.h"
 
-#import <MessageUI/MessageUI.h>
-#import <SafariServices/SafariServices.h>
+@import MessageUI;
+@import SafariServices;
 
 @interface DetailViewController : PDViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UISplitViewControllerDelegate, SFSafariViewControllerDelegate>
 
@@ -22,8 +22,6 @@
 @property (strong, nonatomic) NSURL *selectedURL;
 @property (strong, nonatomic) NSMutableData *responseData;
 @property (assign, nonatomic) NSUInteger detailId;
-
-@property (weak, nonatomic) UIActionSheet *actionSheet;
 
 - (IBAction)showActionSheet:(id)sender;
 

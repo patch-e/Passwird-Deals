@@ -12,9 +12,7 @@
 #import "MBProgressHUD.h"
 #import "StringTemplate.h"
 
-#import <MessageUI/MessageUI.h>
-#import <Social/Social.h>
-#import <Accounts/Accounts.h>
+@import MessageUI;
 
 @implementation PDViewController
 
@@ -63,48 +61,6 @@
     }
 }
 
-- (void)tweetDealWithDeal:(DealData *)deal {
-    StringTemplate *tweetTemplate = [StringTemplate templateWithName:@"Tweet.txt"];
-    [tweetTemplate setString:[deal getURL].absoluteString forKey:@"url"];
-    
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [share setInitialText:tweetTemplate.result];
-        [self presentViewController:share animated:YES completion:nil];
-        
-        return;
-    }
-
-    UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:ERROR_TITLE
-                                          message:ERROR_TWITTER
-                                          preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction cancelActionWithController:self]];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
-- (void)postToFacebookWithDeal:(DealData *)deal {
-    StringTemplate *facebookTemplate = [StringTemplate templateWithName:@"Facebook.txt"];
-    [facebookTemplate setString:[deal getURL].absoluteString forKey:@"url"];
-    [facebookTemplate setString:deal.sHeadline forKey:@"sHeadline"];
-    
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *share = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-        [share setInitialText:facebookTemplate.result];
-        
-        [self presentViewController:share animated:YES completion:nil];
-    }
-    else {
-        UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:ERROR_TITLE
-                                              message:ERROR_FACEBOOK
-                                              preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-}
-
 - (void)reportExpiredWithDeal:(DealData *)deal {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
@@ -112,14 +68,13 @@
     
     NSLog(@"Posting to '%@'", postUrl);
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-    [manager POST:postUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:postUrl parameters:nil progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+        
         NSLog(@"Request Successful, response '%@'", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-
+        
         //show thank you HUD message for 2 seconds
         NSTimeInterval theTimeInterval = 2;
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -128,9 +83,9 @@
         hud.label.text = @"Thanks!";
         hud.contentColor = [UIColor whiteColor];
         hud.bezelView.color = [UIColor pdHudColor];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+        
         NSLog(@"Request Error, response '%ld'", (long)error.code);
         NSLog(@"Request Error, response.debugDescription '%@'", error.debugDescription);
     }];

@@ -8,13 +8,10 @@
 
 #import "DealData.h"
 
-#import <MessageUI/MessageUI.h>
+@import MessageUI;
 
 @interface PDViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
-- (void)openMailWithDeal:(DealData *)deal;
-- (void)tweetDealWithDeal:(DealData *)deal;
-- (void)postToFacebookWithDeal:(DealData *)deal;
 - (void)reportExpiredWithDeal:(DealData *)deal;
 
 @end

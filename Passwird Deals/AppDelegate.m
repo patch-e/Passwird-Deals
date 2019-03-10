@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
-
 #import "AFNetworking.h"
+
 @import Firebase;
 @import Fabric;
 @import Crashlytics;
@@ -184,14 +184,12 @@
     NSLog(@"POSTing to: %@", postUrl);
     NSLog(@"with params: %@", params);
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-    [manager POST:postUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:postUrl parameters:params progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
         NSLog(@"Request Successful, response '%@'", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
 }
