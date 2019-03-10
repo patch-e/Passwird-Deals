@@ -9,7 +9,6 @@
 #import "MasterViewController.h"
 
 #import "AppDelegate.h"
-
 #import "MBProgressHUD.h"
 
 @implementation MasterViewController

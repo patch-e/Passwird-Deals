@@ -10,8 +10,8 @@
 
 #import "THLabel.h"
 
-#import <MessageUI/MessageUI.h>
-#import <StoreKit/StoreKit.h>
+@import MessageUI;
+@import StoreKit;
 
 @interface SettingsViewController : PDViewController <UIScrollViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate>
 
