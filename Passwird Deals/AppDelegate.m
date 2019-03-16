@@ -237,7 +237,7 @@
     
     [[UISearchBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
     [[UISearchBar appearance] setBarTintColor:[UIColor pdTitleTextColor]];
-    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]]
+    [[UIBarButtonItem appearance]
      setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdHeaderTintColor], NSForegroundColorAttributeName, nil]
      forState:UIControlStateNormal];
     

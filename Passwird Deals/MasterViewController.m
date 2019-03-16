@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "AFNetworking.h"
 
 @implementation MasterViewController
 
