@@ -1,7 +1,7 @@
 Passwird Deals iOS
 ====
 
-![alt text](https://raw.github.com/patch-e/Passwird-Deals/master/Resources/Images/Images.xcassets/AppIcon.appiconset/icon@2x.png?raw=true "Passwird Deals App Icon")
+![Screenshot](Resources/Images/Images.xcassets/AppIcon.appiconset/icon76@2x.png)
 
 Passwird Deals is the unofficial iOS app for passwird.com. Get this app for easy browsing of deals on the go and instant up-to-date deal notifications!
 
