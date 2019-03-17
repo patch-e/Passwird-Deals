@@ -61,6 +61,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
+  - GTMNSStringHTMLAdditions (0.2.1)
   - MBProgressHUD (1.1.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - Crashlytics (~> 3.12.0)
   - Fabric (~> 1.9.0)
   - Firebase/Core
+  - GTMNSStringHTMLAdditions
   - MBProgressHUD (~> 1.1.0)
   - SDWebImage (~> 4.4.6)
   - THLabel (~> 1.4.8)
@@ -92,6 +94,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleAppMeasurement
     - GoogleUtilities
+    - GTMNSStringHTMLAdditions
     - MBProgressHUD
     - nanopb
     - SDWebImage
@@ -107,11 +110,12 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
+  GTMNSStringHTMLAdditions: 4bfc402b1b17165360728083156cae0a74ecb308
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   THLabel: a2ca21c06cd7daba5c0c6d3095d48f6c137a3d80
 
-PODFILE CHECKSUM: d40c91b962147478e137535133bf5db08c66fea4
+PODFILE CHECKSUM: 1ea263769332e63109eaa2bdc322df825f965aaa
 
 COCOAPODS: 1.5.3

@@ -11,7 +11,6 @@
 		9573A639135C562B36547ED0 /* libPods-Passwird Deals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */; };
 		CD0F8FA8180E2783001B5808 /* blingbear.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA6180E2783001B5808 /* blingbear.png */; };
 		CD0F8FAA180E2783001B5808 /* blingbear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA7180E2783001B5808 /* blingbear@2x.png */; };
-		CD0F8FB8180FFEE6001B5808 /* Email.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FB7180FFEE6001B5808 /* Email.txt */; };
 		CD0F8FBC18109CFB001B5808 /* StringTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0F8FBB18109CFB001B5808 /* StringTemplate.m */; };
 		CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2770BF180A4A2300DD06E1 /* Images.xcassets */; };
 		CD2A72C61516B12F003A4394 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD2A72C41516B12F003A4394 /* InfoPlist.strings */; };
@@ -25,7 +24,6 @@
 		CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD418A7C153E653200E02F0D /* SearchViewController.m */; };
 		CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4A8831159103BD0017FEE2 /* MainStoryboard_iPad.storyboard */; };
 		CD5E8AF1171108D2000CCC04 /* PDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */; };
-		CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65EACD1529547300102C14 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD69D95A157711C700BBAB50 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD69D959157711C700BBAB50 /* SettingsViewController.m */; };
 		CD6E9D661FC0A39300D707F0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6E9D651FC0A39300D707F0 /* Launch Screen.storyboard */; };
 		CD6E9D681FC1C08600D707F0 /* icon-precomposed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6E9D671FC1C08600D707F0 /* icon-precomposed@3x.png */; };
@@ -48,8 +46,6 @@
 		CDA927AB16546ABE00A9D006 /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9279916546ABE00A9D006 /* right@2x.png */; };
 		CDA927B816546BD600A9D006 /* Deal.css in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B216546BD600A9D006 /* Deal.css */; };
 		CDA927B916546BD600A9D006 /* Deal.html in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B316546BD600A9D006 /* Deal.html */; };
-		CDA927BB16546BD600A9D006 /* Facebook.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B516546BD600A9D006 /* Facebook.txt */; };
-		CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B716546BD600A9D006 /* Tweet.txt */; };
 		CDA927BE16546D1600A9D006 /* spin.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CDA927B616546BD600A9D006 /* spin.min.js */; };
 		CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1116FBF1BB0008A613 /* Constants.m */; };
 		CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBABD1516FC616B0008A613 /* PDTableViewController.m */; };
@@ -74,14 +70,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		276F761B22340184002AE715 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		276F761B22340184002AE715 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		276F761C223402C6002AE715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.release.xcconfig"; sourceTree = "<group>"; };
 		4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Passwird Deals.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0F8FA6180E2783001B5808 /* blingbear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blingbear.png; path = Resources/Images/blingbear.png; sourceTree = "<group>"; };
 		CD0F8FA7180E2783001B5808 /* blingbear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blingbear@2x.png"; path = "Resources/Images/blingbear@2x.png"; sourceTree = "<group>"; };
-		CD0F8FB7180FFEE6001B5808 /* Email.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Email.txt; path = Resources/Email.txt; sourceTree = "<group>"; };
 		CD0F8FBA18109CFB001B5808 /* StringTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringTemplate.h; sourceTree = "<group>"; };
 		CD0F8FBB18109CFB001B5808 /* StringTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringTemplate.m; sourceTree = "<group>"; };
 		CD2770BF180A4A2300DD06E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images/Images.xcassets; sourceTree = "<group>"; };
@@ -110,9 +105,6 @@
 		CD55DF86156B36E800CF4D73 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CD5E8AEF171108D2000CCC04 /* PDNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDNavigationBar.h; sourceTree = "<group>"; };
 		CD5E8AF0171108D2000CCC04 /* PDNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDNavigationBar.m; sourceTree = "<group>"; };
-		CD65EACC1529547200102C14 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
-		CD65EACD1529547300102C14 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
-		CD65EACF1529562300102C14 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		CD69D958157711C600BBAB50 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		CD69D959157711C700BBAB50 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		CD6E9D651FC0A39300D707F0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -136,9 +128,7 @@
 		CDA9279916546ABE00A9D006 /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "right@2x.png"; path = "Resources/Images/right@2x.png"; sourceTree = "<group>"; };
 		CDA927B216546BD600A9D006 /* Deal.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = Deal.css; path = Resources/Deal.css; sourceTree = "<group>"; };
 		CDA927B316546BD600A9D006 /* Deal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Deal.html; path = Resources/Deal.html; sourceTree = "<group>"; };
-		CDA927B516546BD600A9D006 /* Facebook.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Facebook.txt; path = Resources/Facebook.txt; sourceTree = "<group>"; };
 		CDA927B616546BD600A9D006 /* spin.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = spin.min.js; path = Resources/spin.min.js; sourceTree = "<group>"; };
-		CDA927B716546BD600A9D006 /* Tweet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Tweet.txt; path = Resources/Tweet.txt; sourceTree = "<group>"; };
 		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDB8FF171589704D0041EE56 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -304,7 +294,6 @@
 		CD2B2E7D1520CF51004A222C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CDCDC295180CD8BC0078C93B /* GTM */,
 				CD0F8FBE1810A8EC001B5808 /* StringTemplate */,
 				CD2B2E77151DF841004A222C /* Extensions.h */,
 				CD2B2E78151DF841004A222C /* Extensions.m */,
@@ -320,9 +309,6 @@
 				CDA927B316546BD600A9D006 /* Deal.html */,
 				CDA927B216546BD600A9D006 /* Deal.css */,
 				CDA927B616546BD600A9D006 /* spin.min.js */,
-				CD0F8FB7180FFEE6001B5808 /* Email.txt */,
-				CDA927B516546BD600A9D006 /* Facebook.txt */,
-				CDA927B716546BD600A9D006 /* Tweet.txt */,
 				CDE9582016DA4D820034C27B /* Licensing.txt */,
 			);
 			name = Resources;
@@ -369,16 +355,6 @@
 				CDA927851651E66800A9D006 /* pd-icon-appstore-1024.png */,
 			);
 			name = "App Store";
-			sourceTree = "<group>";
-		};
-		CDCDC295180CD8BC0078C93B /* GTM */ = {
-			isa = PBXGroup;
-			children = (
-				CD65EACC1529547200102C14 /* GTMNSString+HTML.h */,
-				CD65EACD1529547300102C14 /* GTMNSString+HTML.m */,
-				CD65EACF1529562300102C14 /* GTMDefines.h */,
-			);
-			name = GTM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,16 +443,13 @@
 				CDA927A716546ABE00A9D006 /* left@2x.png in Resources */,
 				CDA927AA16546ABE00A9D006 /* right.png in Resources */,
 				CDCDC28E180CD4870078C93B /* settings.png in Resources */,
-				CD0F8FB8180FFEE6001B5808 /* Email.txt in Resources */,
 				CDA927AB16546ABE00A9D006 /* right@2x.png in Resources */,
 				CDA927B816546BD600A9D006 /* Deal.css in Resources */,
 				CDCDC290180CD4870078C93B /* settings@2x.png in Resources */,
 				CDA927B916546BD600A9D006 /* Deal.html in Resources */,
 				CD0F8FA8180E2783001B5808 /* blingbear.png in Resources */,
 				CD9A1BC619F894E4007A42D6 /* search.png in Resources */,
-				CDA927BB16546BD600A9D006 /* Facebook.txt in Resources */,
 				CD9A1BC919F897A3007A42D6 /* bullet@3x.png in Resources */,
-				CDA927BD16546BD600A9D006 /* Tweet.txt in Resources */,
 				CDE9582116DA4D820034C27B /* Licensing.txt in Resources */,
 				CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */,
 				CD9A1BB619F8927C007A42D6 /* refresh@3x.png in Resources */,
@@ -535,7 +508,6 @@
 				CD2A72D81516B12F003A4394 /* DetailViewController.m in Sources */,
 				CD2A72E21516B329003A4394 /* DealData.m in Sources */,
 				CD2B2E79151DF841004A222C /* Extensions.m in Sources */,
-				CD65EACE1529547300102C14 /* GTMNSString+HTML.m in Sources */,
 				CD0F8FBC18109CFB001B5808 /* StringTemplate.m in Sources */,
 				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
 				CD69D95A157711C700BBAB50 /* SettingsViewController.m in Sources */,

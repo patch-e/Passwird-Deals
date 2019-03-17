@@ -1,3 +1,0 @@
-Check out this deal on passwird.com: <%= sHeadline %>
-
-<%= url %>
