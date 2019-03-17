@@ -101,9 +101,9 @@
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         //hide view via alpha, and animate in over 1 sec
-        [self.webView setAlpha:0];
+        [self.wkWebView setAlpha:0];
         [UIView animateWithDuration:0.8 animations:^() {
-            [self.webView setAlpha:1];
+            [self.wkWebView setAlpha:1];
         }];
         //enable the action buttons
         [self.shareButton setEnabled:YES];
@@ -170,19 +170,20 @@
 
 #pragma mark - Managing the web view
 
-- (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    if ( navigationType == UIWebViewNavigationTypeLinkClicked ) {
-        SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:request.URL];
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (navigationAction.navigationType == UIWebViewNavigationTypeLinkClicked) {
+        SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:navigationAction.request.URL];
         [svc setDelegate:self];
         [svc setPreferredBarTintColor:[UIColor pdHeaderBarTintColor]];
         [svc setPreferredControlTintColor:[UIColor pdHeaderTintColor]];
         
         [self presentViewController:svc animated:YES completion:nil];
         
-        return NO;
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
     }
     
-    return YES; 
+    decisionHandler(WKNavigationActionPolicyAllow);
 }
 
 - (void)loadDealIntoWebView {
@@ -223,7 +224,7 @@
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSURL *baseURL = [NSURL fileURLWithPath:path];
         
-        [self.webView loadHTMLString:html baseURL:baseURL];
+        [self.wkWebView loadHTMLString:html baseURL:baseURL];
     }
 }
 
@@ -246,7 +247,7 @@
         [self configureView];
     }
     
-    [self.webView setAllowsLinkPreview:YES];
+    [self.wkWebView setNavigationDelegate:self];
     [self.splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
 }
 

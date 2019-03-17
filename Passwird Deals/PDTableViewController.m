@@ -76,9 +76,9 @@
         [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];
         
         //hide view via alpha, and animate in over 1 sec
-        [self.detailViewController.webView setAlpha:0];
+        [self.detailViewController.wkWebView setAlpha:0];
         [UIView animateWithDuration:0.8 animations:^() {
-            [self.detailViewController.webView setAlpha:1];
+            [self.detailViewController.wkWebView setAlpha:1];
         }];
         //enable the share button if it isn't already
         [self.detailViewController.shareButton setEnabled:YES];

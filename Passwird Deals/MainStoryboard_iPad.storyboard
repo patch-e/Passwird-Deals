@@ -39,15 +39,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" id="Jw9-yL-Lhi">
+                            <wkWebView contentMode="scaleToFill" id="roZ-kx-HlA">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="QVO-FX-4IC" id="YoH-k9-Gdm"/>
-                                </connections>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
+                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -74,7 +74,7 @@
                     <connections>
                         <outlet property="reportButton" destination="YR2-TS-eUj" id="Rdl-mg-jKi"/>
                         <outlet property="shareButton" destination="68s-Na-UuC" id="SjU-cw-bfs"/>
-                        <outlet property="webView" destination="Jw9-yL-Lhi" id="3eK-92-Aa4"/>
+                        <outlet property="wkWebView" destination="roZ-kx-HlA" id="Lmk-2D-6ge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoL-b9-DET" sceneMemberID="firstResponder"/>

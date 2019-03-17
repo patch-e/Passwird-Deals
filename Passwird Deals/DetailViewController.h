@@ -13,9 +13,9 @@
 @import MessageUI;
 @import SafariServices;
 
-@interface DetailViewController : PDViewController <UIWebViewDelegate, UISplitViewControllerDelegate, SFSafariViewControllerDelegate>
+@interface DetailViewController : PDViewController <WKNavigationDelegate, UISplitViewControllerDelegate, SFSafariViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet WKWebView *wkWebView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *reportButton;
 

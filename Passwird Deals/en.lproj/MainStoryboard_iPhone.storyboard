@@ -258,15 +258,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="fRC-ds-tlm">
+                            <wkWebView contentMode="scaleToFill" id="mUz-z1-a8m">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="21" id="oFF-9u-ndg"/>
-                                </connections>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
+                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -291,12 +291,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="reportButton" destination="UaB-8C-NJ6" id="9rY-Xi-2KN"/>
-                        <outlet property="webView" destination="fRC-ds-tlm" id="l02-EF-q4B"/>
+                        <outlet property="wkWebView" destination="mUz-z1-a8m" id="SVU-6S-j3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531.2" y="844.67766116941539"/>
+            <point key="canvasLocation" x="1530.4000000000001" y="844.22788605697156"/>
         </scene>
         <!--Search-->
         <scene sceneID="6aU-9M-Scf">

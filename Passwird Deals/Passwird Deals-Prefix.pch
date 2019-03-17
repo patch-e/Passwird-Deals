@@ -9,6 +9,7 @@
     @import Foundation;
     @import SystemConfiguration;
     @import MobileCoreServices;
+    @import WebKit;
 
     #import "Constants.h"
     #import "Extensions.h"
