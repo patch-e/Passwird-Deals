@@ -85,6 +85,8 @@
     url = nil;
 }
 
+#pragma mark - Managing the mail view delegate
+
 - (void)openMail {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailer = [MFMailComposeViewController initMFMailComposeViewControllerWithDelegate:self];
@@ -107,8 +109,8 @@
     }
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller 
-          didFinishWithResult:(MFMailComposeResult)result 
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error {
     if (error) {
         //error occured sending mail
@@ -124,13 +126,13 @@
     }
 }
 
-#pragma mark - Managing the StoreKit view
+#pragma mark - Managing the store view delegate
 
 - (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - Managing the scroll view
+#pragma mark - Managing the scroll view delegate
 
 - (void)calculateAndSetScrollViewHeight {
     CGFloat scrollViewHeight = 0.0f;

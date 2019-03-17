@@ -16,50 +16,7 @@
 
 @implementation PDViewController
 
-#pragma mark - Managing the action sheet
-
-- (void)openMailWithDeal:(DealData *)deal {
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailer = [MFMailComposeViewController initMFMailComposeViewControllerWithDelegate:self];
-        [mailer setSubject:EMAIL_SUBJECT_SHARE];
-        
-        StringTemplate *emailTemplate = [StringTemplate templateWithName:@"Email.txt"];
-        [emailTemplate setString:[deal getURL].absoluteString forKey:@"url"];
-        [emailTemplate setString:deal.headline forKey:@"headline"];
-        [emailTemplate setString:deal.body forKey:@"body"];
-        [mailer setMessageBody:emailTemplate.result isHTML:YES];
-        
-        [self presentViewController:mailer animated:YES completion:^{
-            [self setNeedsStatusBarAppearanceUpdate];
-        }];
-        
-        mailer = nil;
-    } else {
-        UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:ERROR_TITLE
-                                              message:ERROR_MAIL_SUPPORT
-                                              preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-}
-
-- (void)mailComposeController:(MFMailComposeViewController*)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError*)error {
-    if (error) {
-        //error occured sending mail
-        UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:ERROR_TITLE
-                                              message:ERROR_MAIL_SEND
-                                              preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction cancelActionWithController:self]];
-        [self presentViewController:alertController animated:YES completion:nil];
-    } else {
-        // Remove the mail view
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
+#pragma mark - Managing the actions
 
 - (void)reportExpiredWithDeal:(DealData *)deal {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

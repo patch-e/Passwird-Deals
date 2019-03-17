@@ -10,7 +10,7 @@
 
 @import MessageUI;
 
-@interface PDViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface PDViewController : UIViewController <UIActionSheetDelegate>
 
 - (void)reportExpiredWithDeal:(DealData *)deal;
 
