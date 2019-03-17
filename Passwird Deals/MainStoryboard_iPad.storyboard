@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" colorMatched="YES" initialViewController="dKm-Lk-U1e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" colorMatched="YES" initialViewController="dKm-Lk-U1e">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +15,7 @@
                 <navigationController id="bwl-S8-LqE" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Lju-vg-CZ8" customClass="PDNavigationBar">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.4392156862745098" green="0.5607843137254902" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -29,7 +29,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FX6-UW-pRr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337" y="-638"/>
+            <point key="canvasLocation" x="263.28125" y="-373.828125"/>
         </scene>
         <!--Detail-->
         <scene sceneID="7Ba-9m-dWy">
@@ -53,8 +53,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="tQ2-C1-M9A">
-                        <barButtonItem key="backBarButtonItem" title="Deal" id="9VJ-PM-ZDf"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="68s-Na-UuC">
+                        <barButtonItem key="backBarButtonItem" title="Deal" id="9VJ-PM-ZDf">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="68s-Na-UuC" userLabel="Share">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="showActionSheet:" destination="QVO-FX-4IC" id="Uzd-MQ-6V3"/>
                             </connections>
@@ -67,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoL-b9-DET" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692" y="886"/>
+            <point key="canvasLocation" x="540.625" y="519.140625"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="JGU-bl-0fa">
@@ -82,7 +85,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Va9-IB-xTl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-721" y="-638"/>
+            <point key="canvasLocation" x="-563.28125" y="-373.828125"/>
         </scene>
         <!--Master-->
         <scene sceneID="mPs-dG-PLS">
@@ -125,13 +128,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="passwird deals" id="R0H-Lz-wnT">
-                        <barButtonItem key="backBarButtonItem" title="Deals" id="J92-0k-TCT"/>
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="settings.png" id="QtV-aG-74I" userLabel="Bar Button Item - Settings">
+                        <barButtonItem key="backBarButtonItem" title="Deals" id="J92-0k-TCT">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="settings.png" id="QtV-aG-74I" userLabel="Settings">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="vj2-RJ-oUl" kind="modal" identifier="Settings" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="NW9-0i-a0k"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="search.png" id="ghI-yO-aMy">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="search.png" id="ghI-yO-aMy" userLabel="Search">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="bT6-3P-qh5" kind="push" identifier="Search" splitViewControllerTargetIndex="0" id="ucU-3g-w14"/>
                             </connections>
@@ -144,14 +151,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNN-CW-mzQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1383" y="-638"/>
+            <point key="canvasLocation" x="1080.46875" y="-373.828125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yt2-qO-0f7">
             <objects>
                 <navigationController id="857-64-Brv" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Yee-1v-Vpm" customClass="PDNavigationBar">
-                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.4392156862745098" green="0.5607843137254902" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -165,7 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQd-Qh-CRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-577" y="886"/>
+            <point key="canvasLocation" x="-450.78125" y="519.140625"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="VE4-uv-Cen">
@@ -183,6 +190,7 @@
                                 <items>
                                     <navigationItem title="settings" id="4Ff-S2-Jj2">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="0Ml-DN-NVJ">
+                                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="dismissView:" destination="vj2-RJ-oUl" id="uAv-8R-XIj"/>
                                             </connections>
@@ -322,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGY-Jf-Wdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="-1902"/>
+            <point key="canvasLocation" x="1891.40625" y="-1114.453125"/>
         </scene>
         <!--Search-->
         <scene sceneID="sMf-a2-cFM">
@@ -369,7 +377,9 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="search" id="mtZ-Vy-XtJ">
-                        <barButtonItem key="backBarButtonItem" title="Search" id="Te3-qs-gvX"/>
+                        <barButtonItem key="backBarButtonItem" title="Search" id="Te3-qs-gvX">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="nFP-6L-tQx" id="9Cf-5z-tr4"/>
@@ -377,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1S0-qe-wxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2520" y="-638"/>
+            <point key="canvasLocation" x="1968.75" y="-373.828125"/>
         </scene>
     </scenes>
     <resources>

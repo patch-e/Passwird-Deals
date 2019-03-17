@@ -143,9 +143,6 @@
     MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
     
     [mailer setMailComposeDelegate:delegate];
-    [mailer.navigationBar setBarTintColor:[UIColor pdHeaderBarTintColor]];
-    [mailer.navigationBar setTintColor:[UIColor pdHeaderTintColor]];
-    [mailer.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdTitleTextColor], NSForegroundColorAttributeName, nil]];
     [mailer setModalPresentationStyle:UIModalPresentationFormSheet];
     
     return mailer;

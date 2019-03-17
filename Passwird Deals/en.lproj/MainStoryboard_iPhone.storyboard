@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,7 +29,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="80"/>
+            <point key="canvasLocation" x="-20.800000000000001" y="71.964017991004496"/>
         </scene>
         <!--Master-->
         <scene sceneID="18">
@@ -78,13 +77,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="passwird deals" id="35">
-                        <barButtonItem key="backBarButtonItem" title="Deals" id="5O4-cv-2XE"/>
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="settings.png" id="zzJ-ne-Rvv" userLabel="Bar Button Item - Settings">
+                        <barButtonItem key="backBarButtonItem" title="Deals" id="5O4-cv-2XE">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="settings.png" id="zzJ-ne-Rvv" userLabel="Settings">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="URx-zU-rTN" kind="push" id="Yr6-f2-DSJ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="search.png" id="kuV-Hf-HgB">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="search.png" id="kuV-Hf-HgB" userLabel="Search">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="NBq-gl-XMZ" kind="push" identifier="Search" id="1X7-xZ-Xil"/>
                             </connections>
@@ -97,7 +100,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="80"/>
+            <point key="canvasLocation" x="766.39999999999998" y="71.964017991004496"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Kp8-JF-p1l">
@@ -229,7 +232,9 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="settings" id="7Aw-yb-AcX">
-                        <barButtonItem key="backBarButtonItem" title="Settings" id="9Sf-18-pns"/>
+                        <barButtonItem key="backBarButtonItem" title="Settings" id="9Sf-18-pns">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="appNameLabel" destination="QdS-d9-teF" id="FgS-x0-lyJ"/>
@@ -243,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irj-kN-EzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="979"/>
+            <point key="canvasLocation" x="766.39999999999998" y="880.65967016491766"/>
         </scene>
         <!--Detail-->
         <scene sceneID="24">
@@ -266,8 +271,11 @@
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="deal" id="26">
-                        <barButtonItem key="backBarButtonItem" title="Deal" id="cSE-B3-ipb"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="L4r-Z8-ZlO">
+                        <barButtonItem key="backBarButtonItem" title="Deal" id="cSE-B3-ipb">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="L4r-Z8-ZlO" userLabel="Share">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="showActionSheet:" destination="21" id="KuM-XO-VVe"/>
                             </connections>
@@ -279,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="939"/>
+            <point key="canvasLocation" x="1531.2" y="844.67766116941539"/>
         </scene>
         <!--Search-->
         <scene sceneID="6aU-9M-Scf">
@@ -335,7 +343,9 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="search" id="X6B-Ts-a42">
-                        <barButtonItem key="backBarButtonItem" title="Search" id="hHl-I7-P1i"/>
+                        <barButtonItem key="backBarButtonItem" title="Search" id="hHl-I7-P1i">
+                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="zrD-mn-MYf" id="0Y7-Uy-pzx"/>
@@ -343,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhp-vk-rUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="80"/>
+            <point key="canvasLocation" x="1531.2" y="71.964017991004496"/>
         </scene>
     </scenes>
     <resources>
@@ -353,6 +363,6 @@
         <image name="settings.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FTD-sn-uHj"/>
+        <segue reference="9nr-WC-XbH"/>
     </inferredMetricsTieBreakers>
 </document>

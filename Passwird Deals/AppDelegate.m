@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import "SearchViewController.h"
+#import "SettingsViewController.h"
 #import "AFNetworking.h"
 
 @import Firebase;
@@ -18,10 +20,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [FIRApp configure];
-    
     //override point for customization after application launch.
-    [self customizeAppearance];
+    [FIRApp configure];
     
     //iPad controller settings
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -222,26 +222,6 @@
                             formattedToken, @"token",
                             nil];
     [AppDelegate postOperationWithPath:@"/UnregisterDeviceToken" parameters:params];
-}
-
-#pragma mark - Customizations
-
-- (void)customizeAppearance {
-    //custom appearance settings for UIKit items
-    [[UINavigationBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    
-    [[UIToolbar appearance] setTintColor:[UIColor pdHeaderTintColor]];
-    [[UIToolbar appearance] setBarTintColor:[UIColor pdHeaderBarTintColor]];
-    
-    [[UISearchBar appearance] setTintColor:[UIColor pdHeaderTintColor]];
-    [[UISearchBar appearance] setBarTintColor:[UIColor pdTitleTextColor]];
-    [[UIBarButtonItem appearance]
-     setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor pdHeaderTintColor], NSForegroundColorAttributeName, nil]
-     forState:UIControlStateNormal];
-    
-    self.window.backgroundColor = [UIColor pdTitleTextColor];
 }
 
 @end
