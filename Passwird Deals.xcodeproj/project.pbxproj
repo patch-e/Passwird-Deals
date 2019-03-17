@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275D2098223E9446008B303B /* GoogleChromeActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D2097223E9446008B303B /* GoogleChromeActivity.m */; };
+		275D209D223E949A008B303B /* GoogleChrome-Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D2099223E949A008B303B /* GoogleChrome-Icon~ipad.png */; };
+		275D209E223E949A008B303B /* GoogleChrome-Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D209A223E949A008B303B /* GoogleChrome-Icon@2x.png */; };
+		275D209F223E949A008B303B /* GoogleChrome-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D209B223E949A008B303B /* GoogleChrome-Icon.png */; };
+		275D20A0223E949A008B303B /* GoogleChrome-Icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D209C223E949A008B303B /* GoogleChrome-Icon@2x~ipad.png */; };
+		275D20A3223E9C42008B303B /* AppleSafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D20A1223E9C42008B303B /* AppleSafariActivity.m */; };
+		275D20A8223E9C58008B303B /* AppleSafari-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D20A4223E9C57008B303B /* AppleSafari-Icon.png */; };
+		275D20A9223E9C58008B303B /* AppleSafari-Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D20A5223E9C58008B303B /* AppleSafari-Icon@2x.png */; };
+		275D20AA223E9C58008B303B /* AppleSafari-Icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D20A6223E9C58008B303B /* AppleSafari-Icon@2x~ipad.png */; };
+		275D20AB223E9C58008B303B /* AppleSafari-Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D20A7223E9C58008B303B /* AppleSafari-Icon~ipad.png */; };
 		276F761D223402C6002AE715 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 276F761C223402C6002AE715 /* GoogleService-Info.plist */; };
 		9573A639135C562B36547ED0 /* libPods-Passwird Deals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */; };
 		CD0F8FA8180E2783001B5808 /* blingbear.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA6180E2783001B5808 /* blingbear.png */; };
@@ -70,6 +80,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		275D2096223E9446008B303B /* GoogleChromeActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleChromeActivity.h; sourceTree = "<group>"; };
+		275D2097223E9446008B303B /* GoogleChromeActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleChromeActivity.m; sourceTree = "<group>"; };
+		275D2099223E949A008B303B /* GoogleChrome-Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GoogleChrome-Icon~ipad.png"; path = "Resources/Images/GoogleChrome-Icon~ipad.png"; sourceTree = "<group>"; };
+		275D209A223E949A008B303B /* GoogleChrome-Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GoogleChrome-Icon@2x.png"; path = "Resources/Images/GoogleChrome-Icon@2x.png"; sourceTree = "<group>"; };
+		275D209B223E949A008B303B /* GoogleChrome-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GoogleChrome-Icon.png"; path = "Resources/Images/GoogleChrome-Icon.png"; sourceTree = "<group>"; };
+		275D209C223E949A008B303B /* GoogleChrome-Icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GoogleChrome-Icon@2x~ipad.png"; path = "Resources/Images/GoogleChrome-Icon@2x~ipad.png"; sourceTree = "<group>"; };
+		275D20A1223E9C42008B303B /* AppleSafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleSafariActivity.m; sourceTree = "<group>"; };
+		275D20A2223E9C42008B303B /* AppleSafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleSafariActivity.h; sourceTree = "<group>"; };
+		275D20A4223E9C57008B303B /* AppleSafari-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppleSafari-Icon.png"; path = "Resources/Images/AppleSafari-Icon.png"; sourceTree = "<group>"; };
+		275D20A5223E9C58008B303B /* AppleSafari-Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppleSafari-Icon@2x.png"; path = "Resources/Images/AppleSafari-Icon@2x.png"; sourceTree = "<group>"; };
+		275D20A6223E9C58008B303B /* AppleSafari-Icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppleSafari-Icon@2x~ipad.png"; path = "Resources/Images/AppleSafari-Icon@2x~ipad.png"; sourceTree = "<group>"; };
+		275D20A7223E9C58008B303B /* AppleSafari-Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppleSafari-Icon~ipad.png"; path = "Resources/Images/AppleSafari-Icon~ipad.png"; sourceTree = "<group>"; };
 		276F761B22340184002AE715 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		276F761C223402C6002AE715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +204,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		275D2095223E93AC008B303B /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				275D20A2223E9C42008B303B /* AppleSafariActivity.h */,
+				275D20A1223E9C42008B303B /* AppleSafariActivity.m */,
+				275D2096223E9446008B303B /* GoogleChromeActivity.h */,
+				275D2097223E9446008B303B /* GoogleChromeActivity.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
 		CD0F8FBE1810A8EC001B5808 /* StringTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +262,7 @@
 		CD2A72C11516B12F003A4394 /* Passwird Deals */ = {
 			isa = PBXGroup;
 			children = (
+				275D2095223E93AC008B303B /* Activity */,
 				CD2B2E861520D36E004A222C /* Resources */,
 				CD2B2E7D1520CF51004A222C /* Extensions */,
 				CD2A72DF1516B2D8003A4394 /* Model */,
@@ -323,6 +357,14 @@
 				CDA9277E1651E66700A9D006 /* icon-precomposed.png */,
 				CDA9277F1651E66700A9D006 /* icon-precomposed@2x.png */,
 				CD6E9D671FC1C08600D707F0 /* icon-precomposed@3x.png */,
+				275D20A4223E9C57008B303B /* AppleSafari-Icon.png */,
+				275D20A5223E9C58008B303B /* AppleSafari-Icon@2x.png */,
+				275D20A6223E9C58008B303B /* AppleSafari-Icon@2x~ipad.png */,
+				275D20A7223E9C58008B303B /* AppleSafari-Icon~ipad.png */,
+				275D209B223E949A008B303B /* GoogleChrome-Icon.png */,
+				275D209A223E949A008B303B /* GoogleChrome-Icon@2x.png */,
+				275D209C223E949A008B303B /* GoogleChrome-Icon@2x~ipad.png */,
+				275D2099223E949A008B303B /* GoogleChrome-Icon~ipad.png */,
 				CD0F8FA6180E2783001B5808 /* blingbear.png */,
 				CD0F8FA7180E2783001B5808 /* blingbear@2x.png */,
 				CD9A1BAD19F8927C007A42D6 /* blingbear@3x.png */,
@@ -432,6 +474,7 @@
 				CD6E9D661FC0A39300D707F0 /* Launch Screen.storyboard in Resources */,
 				CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */,
 				CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */,
+				275D20AA223E9C58008B303B /* AppleSafari-Icon@2x~ipad.png in Resources */,
 				CD9A1BB819F8927C007A42D6 /* right@3x.png in Resources */,
 				CD9A1BB219F8927C007A42D6 /* blingbear@3x.png in Resources */,
 				CD9A1BC319F894D2007A42D6 /* search@3x.png in Resources */,
@@ -439,6 +482,10 @@
 				CDA9278D1651E66800A9D006 /* pd-icon-appstore-1024.png in Resources */,
 				CDCDC281180C53840078C93B /* ArialBlack.ttf in Resources */,
 				276F761D223402C6002AE715 /* GoogleService-Info.plist in Resources */,
+				275D209D223E949A008B303B /* GoogleChrome-Icon~ipad.png in Resources */,
+				275D20A8223E9C58008B303B /* AppleSafari-Icon.png in Resources */,
+				275D20A9223E9C58008B303B /* AppleSafari-Icon@2x.png in Resources */,
+				275D20A0223E949A008B303B /* GoogleChrome-Icon@2x~ipad.png in Resources */,
 				CDA927A616546ABE00A9D006 /* left.png in Resources */,
 				CDA927A716546ABE00A9D006 /* left@2x.png in Resources */,
 				CDA927AA16546ABE00A9D006 /* right.png in Resources */,
@@ -447,11 +494,14 @@
 				CDA927B816546BD600A9D006 /* Deal.css in Resources */,
 				CDCDC290180CD4870078C93B /* settings@2x.png in Resources */,
 				CDA927B916546BD600A9D006 /* Deal.html in Resources */,
+				275D209E223E949A008B303B /* GoogleChrome-Icon@2x.png in Resources */,
 				CD0F8FA8180E2783001B5808 /* blingbear.png in Resources */,
 				CD9A1BC619F894E4007A42D6 /* search.png in Resources */,
 				CD9A1BC919F897A3007A42D6 /* bullet@3x.png in Resources */,
 				CDE9582116DA4D820034C27B /* Licensing.txt in Resources */,
+				275D20AB223E9C58008B303B /* AppleSafari-Icon~ipad.png in Resources */,
 				CD2770C0180A4A2300DD06E1 /* Images.xcassets in Resources */,
+				275D209F223E949A008B303B /* GoogleChrome-Icon.png in Resources */,
 				CD9A1BB619F8927C007A42D6 /* refresh@3x.png in Resources */,
 				CDC21B0D170679EA00C144B4 /* bullet.png in Resources */,
 				CDC6A308179CD7F9008C0290 /* refresh.png in Resources */,
@@ -507,6 +557,7 @@
 				CD2A72D51516B12F003A4394 /* MasterViewController.m in Sources */,
 				CD2A72D81516B12F003A4394 /* DetailViewController.m in Sources */,
 				CD2A72E21516B329003A4394 /* DealData.m in Sources */,
+				275D20A3223E9C42008B303B /* AppleSafariActivity.m in Sources */,
 				CD2B2E79151DF841004A222C /* Extensions.m in Sources */,
 				CD0F8FBC18109CFB001B5808 /* StringTemplate.m in Sources */,
 				CD418A7D153E653200E02F0D /* SearchViewController.m in Sources */,
@@ -515,6 +566,7 @@
 				CDBABD1216FBF1BB0008A613 /* Constants.m in Sources */,
 				CDBABD1616FC616B0008A613 /* PDTableViewController.m in Sources */,
 				CDBABD1E16FFEC550008A613 /* PDViewController.m in Sources */,
+				275D2098223E9446008B303B /* GoogleChromeActivity.m in Sources */,
 				CD5E8AF1171108D2000CCC04 /* PDNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

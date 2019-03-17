@@ -56,14 +56,23 @@
                         <barButtonItem key="backBarButtonItem" title="Deal" id="9VJ-PM-ZDf">
                             <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="68s-Na-UuC" userLabel="Share">
-                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="showActionSheet:" destination="QVO-FX-4IC" id="Uzd-MQ-6V3"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" systemItem="action" id="68s-Na-UuC" userLabel="Share">
+                                <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="showActionSheet:" destination="QVO-FX-4IC" id="Uzd-MQ-6V3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Report" id="YR2-TS-eUj">
+                                <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="reportExpired:" destination="QVO-FX-4IC" id="Aml-0z-EOi"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="reportButton" destination="YR2-TS-eUj" id="Rdl-mg-jKi"/>
                         <outlet property="shareButton" destination="68s-Na-UuC" id="SjU-cw-bfs"/>
                         <outlet property="webView" destination="Jw9-yL-Lhi" id="3eK-92-Aa4"/>
                     </connections>

@@ -274,14 +274,23 @@
                         <barButtonItem key="backBarButtonItem" title="Deal" id="cSE-B3-ipb">
                             <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="L4r-Z8-ZlO" userLabel="Share">
-                            <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="showActionSheet:" destination="21" id="KuM-XO-VVe"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="L4r-Z8-ZlO" userLabel="Share">
+                                <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="showActionSheet:" destination="21" id="KuM-XO-VVe"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Report" id="UaB-8C-NJ6" userLabel="Report">
+                                <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="reportExpired:" destination="21" id="9gs-iN-26h"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="reportButton" destination="UaB-8C-NJ6" id="9rY-Xi-2KN"/>
                         <outlet property="webView" destination="fRC-ds-tlm" id="l02-EF-q4B"/>
                     </connections>
                 </viewController>

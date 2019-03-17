@@ -10,6 +10,8 @@
 
 #import "MBProgressHUD.h"
 #import "GTMNSString+HTML.h"
+#import "AppleSafariActivity.h"
+#import "GoogleChromeActivity.h"
 
 @implementation DetailViewController
 
@@ -103,8 +105,9 @@
         [UIView animateWithDuration:0.8 animations:^() {
             [self.webView setAlpha:1];
         }];
-        //enable the share button if it isn't already
+        //enable the action buttons
         [self.shareButton setEnabled:YES];
+        [self.reportButton setEnabled:YES];
     }
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -128,14 +131,41 @@
 
 - (IBAction)showActionSheet:(id)sender {
     //load custom activities
+    AppleSafariActivity *safariActivity = [[AppleSafariActivity alloc] init];
+    GoogleChromeActivity *chromeActivity = [[GoogleChromeActivity alloc] init];
     
     NSArray *activityItems = @[[self.detailItem getURL]];
     
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc]
                                                         initWithActivityItems:activityItems
-                                                        applicationActivities:@[]];
+                                                        applicationActivities:@[safariActivity, chromeActivity]];
     
     [self presentViewController:activityViewController animated:YES completion:nil];
+}
+
+- (IBAction)reportExpired:(id)sender {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Report Expired?"
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleCancel
+                                   handler:nil];
+    
+    UIAlertAction *confirmAction = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       [self reportExpiredWithDeal:self.detailItem];
+                                   }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:confirmAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Managing the web view
