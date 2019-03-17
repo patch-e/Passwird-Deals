@@ -278,7 +278,7 @@
                             <barButtonItem systemItem="action" id="L4r-Z8-ZlO" userLabel="Share">
                                 <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="showActionSheet:" destination="21" id="KuM-XO-VVe"/>
+                                    <action selector="showActivity:" destination="21" id="Lk0-tc-uvf"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Report" id="UaB-8C-NJ6" userLabel="Report">

@@ -24,7 +24,7 @@
 @property (strong, nonatomic) NSMutableData *responseData;
 @property (assign, nonatomic) NSUInteger detailId;
 
-- (IBAction)showActionSheet:(id)sender;
+- (IBAction)showActivity:(id)sender;
 - (IBAction)reportExpired:(id)sender;
 
 - (void)configureView;

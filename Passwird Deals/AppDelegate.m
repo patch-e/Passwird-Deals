@@ -14,8 +14,6 @@
 #import "AFNetworking.h"
 
 @import Firebase;
-@import Fabric;
-@import Crashlytics;
 
 @implementation AppDelegate
 
@@ -77,8 +75,6 @@
                                      @"",  @"deviceToken",
                                      nil];
     [defaults registerDefaults:defaultSettings];
-    
-    [Fabric with:@[[Crashlytics class]]];
     
     defaults = nil;
     defaultSettings = nil;

@@ -129,7 +129,7 @@
 
 #pragma mark - Managing the activity controller
 
-- (IBAction)showActionSheet:(id)sender {
+- (IBAction)showActivity:(id)sender {
     //load custom activities
     AppleSafariActivity *safariActivity = [[AppleSafariActivity alloc] init];
     GoogleChromeActivity *chromeActivity = [[GoogleChromeActivity alloc] init];
