@@ -63,7 +63,7 @@
                                     <action selector="showActivity:" destination="QVO-FX-4IC" id="SAV-PY-ynz"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Report" id="YR2-TS-eUj">
+                            <barButtonItem enabled="NO" title="Report" id="YR2-TS-eUj">
                                 <color key="tintColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="reportExpired:" destination="QVO-FX-4IC" id="Aml-0z-EOi"/>

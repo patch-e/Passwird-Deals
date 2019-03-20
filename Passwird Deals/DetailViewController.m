@@ -140,6 +140,7 @@
                                                         initWithActivityItems:activityItems
                                                         applicationActivities:@[safariActivity, chromeActivity]];
     
+    [activityViewController.popoverPresentationController setBarButtonItem:sender];
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
@@ -165,6 +166,7 @@
     [alertController addAction:cancelAction];
     [alertController addAction:confirmAction];
     
+    [alertController.popoverPresentationController setBarButtonItem:sender];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 

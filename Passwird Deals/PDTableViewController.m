@@ -80,8 +80,9 @@
         [UIView animateWithDuration:0.8 animations:^() {
             [self.detailViewController.wkWebView setAlpha:1];
         }];
-        //enable the share button if it isn't already
+        //enable the action buttons
         [self.detailViewController.shareButton setEnabled:YES];
+        [self.detailViewController.reportButton setEnabled:YES];
         
         DealData *deal = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingDescriptors:[NSArray arrayWithObject:self.sortDescriptor]] objectAtIndex:self.tableView.indexPathForSelectedRow.section]] objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         
