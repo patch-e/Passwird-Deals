@@ -72,7 +72,6 @@
 		CDD7C1A619F3516A001E148B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DF86156B36E800CF4D73 /* MessageUI.framework */; };
 		CDD7C1A719F35178001E148B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BB1516B12F003A4394 /* UIKit.framework */; };
 		CDD7C1A819F35184001E148B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */; };
-		CDD7C1A919F3519B001E148B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCDC283180C53F70078C93B /* StoreKit.framework */; };
 		CDD7C1AA19F351A6001E148B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BF1516B12F003A4394 /* CoreGraphics.framework */; };
 		CDD7C1AC19F35743001E148B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2A72BD1516B12F003A4394 /* Foundation.framework */; };
 		CDE37C40168D6C2300C48DF0 /* PDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE37C3F168D6C2300C48DF0 /* PDTableViewCell.m */; };
@@ -94,6 +93,7 @@
 		275D20A7223E9C58008B303B /* AppleSafari-Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppleSafari-Icon~ipad.png"; path = "Resources/Images/AppleSafari-Icon~ipad.png"; sourceTree = "<group>"; };
 		276F761B22340184002AE715 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		276F761C223402C6002AE715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		27DC150F2241D69E003446F0 /* Passwird Deals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Passwird Deals.entitlements"; sourceTree = "<group>"; };
 		3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.release.xcconfig"; sourceTree = "<group>"; };
 		4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Passwird Deals.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +167,6 @@
 		CDC6A307179CD7F9008C0290 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh@2x.png"; path = "Resources/Images/refresh@2x.png"; sourceTree = "<group>"; };
 		CDC6A30C17A03DFF008C0290 /* bullet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bullet@2x.png"; path = "Resources/Images/bullet@2x.png"; sourceTree = "<group>"; };
 		CDCDC280180C53840078C93B /* ArialBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ArialBlack.ttf; path = Resources/ArialBlack.ttf; sourceTree = "<group>"; };
-		CDCDC283180C53F70078C93B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CDCDC28C180CD4870078C93B /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Resources/Images/settings.png; sourceTree = "<group>"; };
 		CDCDC28D180CD4870078C93B /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "Resources/Images/settings@2x.png"; sourceTree = "<group>"; };
 		CDE37C3E168D6C2300C48DF0 /* PDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDTableViewCell.h; sourceTree = "<group>"; };
@@ -186,7 +185,6 @@
 				CDD7C1A619F3516A001E148B /* MessageUI.framework in Frameworks */,
 				CDD7C1A819F35184001E148B /* QuartzCore.framework in Frameworks */,
 				CDD7C1A519F350FA001E148B /* Social.framework in Frameworks */,
-				CDD7C1A919F3519B001E148B /* StoreKit.framework in Frameworks */,
 				CDD7C1A719F35178001E148B /* UIKit.framework in Frameworks */,
 				9573A639135C562B36547ED0 /* libPods-Passwird Deals.a in Frameworks */,
 			);
@@ -252,7 +250,6 @@
 				CD55DF86156B36E800CF4D73 /* MessageUI.framework */,
 				CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */,
 				CDB8FF171589704D0041EE56 /* Social.framework */,
-				CDCDC283180C53F70078C93B /* StoreKit.framework */,
 				CD2A72BB1516B12F003A4394 /* UIKit.framework */,
 				B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */,
 			);
@@ -284,6 +281,7 @@
 				CD2A72C41516B12F003A4394 /* InfoPlist.strings */,
 				CD2A72C31516B12F003A4394 /* Passwird Deals-Info.plist */,
 				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
+				27DC150F2241D69E003446F0 /* Passwird Deals.entitlements */,
 				276F761B22340184002AE715 /* Podfile */,
 				CDB6DABF1564105400BFF2B2 /* README.md */,
 			);
@@ -434,6 +432,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -702,6 +703,7 @@
 			baseConfigurationReference = 4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Passwird Deals/Passwird Deals.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -732,6 +734,7 @@
 			baseConfigurationReference = 3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Passwird Deals/Passwird Deals.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
