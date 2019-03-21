@@ -23,7 +23,6 @@ NSString *const SETTINGS_EMAIL_ADDRESS = @"p.crager@gmail.com";
 
 NSString *const SETTINGS_GITHUB_URL = @"https://github.com/patch-e/Passwird-Deals";
 NSString *const SETTINGS_REVIEW_URL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=517165629";
-NSString *const SETTINGS_DONATE_URL = @"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=p.crager@gmail.com&item_name=Passwird+Deals+app+donation&currency_code=USD";
 NSString *const SETTINGS_TITLE = @"Settings";
 NSString *const SETTINGS_MESSAGE = @"Expired deals setting will be applied during the next refresh or search.";
 

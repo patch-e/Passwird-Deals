@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
-                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
@@ -257,23 +257,8 @@
                                 <rect key="frame" x="0.0" y="205" width="768" height="206"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="GpO-y1-GwW">
-                                        <rect key="frame" x="125" y="0.0" width="67" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="Donate">
-                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="donateLink:" destination="vj2-RJ-oUl" eventType="touchUpInside" id="W0c-o1-l6S"/>
-                                        </connections>
-                                    </button>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="d1E-Ad-xcH">
-                                        <rect key="frame" x="428" y="0.0" width="88" height="25"/>
+                                        <rect key="frame" x="222" y="0.0" width="88" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -288,7 +273,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="PBO-zB-NQT">
-                                        <rect key="frame" x="296" y="0.0" width="47" height="25"/>
+                                        <rect key="frame" x="361" y="0.0" width="47" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -302,8 +287,12 @@
                                             <action selector="rateLink:" destination="vj2-RJ-oUl" eventType="touchUpInside" id="KpC-T0-SfF"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blingbear.png" id="rXO-VJ-Z3b">
+                                        <rect key="frame" x="318" y="50" width="133" height="143"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="bUG-eC-l8I">
-                                        <rect key="frame" x="579" y="0.0" width="64" height="25"/>
+                                        <rect key="frame" x="459" y="0.0" width="64" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -317,10 +306,6 @@
                                             <action selector="githubLink:" destination="vj2-RJ-oUl" eventType="touchUpInside" id="Uzu-v2-RT9"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blingbear.png" id="rXO-VJ-Z3b">
-                                        <rect key="frame" x="318" y="50" width="133" height="143"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -330,7 +315,6 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="appNameLabel" destination="KMN-N5-f53" id="lo7-pb-R0R"/>
-                        <outlet property="donateButton" destination="GpO-y1-GwW" id="e9o-vi-iCb"/>
                         <outlet property="expiredSwitch" destination="vAI-Ii-s3a" id="9DS-Uo-oLQ"/>
                         <outlet property="feedbackButton" destination="d1E-Ad-xcH" id="C5z-7O-Dlm"/>
                         <outlet property="githubButton" destination="bUG-eC-l8I" id="SZc-er-snU"/>

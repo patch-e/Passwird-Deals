@@ -160,38 +160,8 @@
                                 <rect key="frame" x="0.0" y="161" width="375" height="206"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="BAu-8q-Y9T">
-                                        <rect key="frame" x="41" y="0.0" width="58" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="Donate">
-                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="donateLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="RVF-hI-JiS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tat-Rh-ic7">
-                                        <rect key="frame" x="122" y="0.0" width="75" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="Feedback">
-                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="emailLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="0UB-VQ-oD7"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="oOg-nN-csv">
-                                        <rect key="frame" x="219" y="0.0" width="41" height="22"/>
+                                        <rect key="frame" x="167" y="0.0" width="41" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -206,7 +176,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FrQ-Ht-b2W">
-                                        <rect key="frame" x="279" y="0.0" width="54" height="22"/>
+                                        <rect key="frame" x="262" y="0.0" width="54" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -224,6 +194,21 @@
                                         <rect key="frame" x="121" y="50" width="133" height="143"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tat-Rh-ic7">
+                                        <rect key="frame" x="38" y="0.0" width="75" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Feedback">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.68235294120000001" green="0.074509803920000006" blue="0.070588235289999995" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="emailLink:" destination="URx-zU-rTN" eventType="touchUpInside" id="0UB-VQ-oD7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -238,7 +223,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="appNameLabel" destination="QdS-d9-teF" id="FgS-x0-lyJ"/>
-                        <outlet property="donateButton" destination="BAu-8q-Y9T" id="o6k-Zr-uHn"/>
                         <outlet property="expiredSwitch" destination="E3G-IE-Rh3" id="Djn-65-fWE"/>
                         <outlet property="feedbackButton" destination="tat-Rh-ic7" id="Fze-EN-fJl"/>
                         <outlet property="githubButton" destination="FrQ-Ht-b2W" id="aj6-fW-xcf"/>
@@ -262,7 +246,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
-                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>

@@ -16,7 +16,6 @@ extern NSString *const PASSWIRD_URL_REPORT_EXPIRED;
 extern NSString *const SETTINGS_EMAIL_ADDRESS;
 extern NSString *const SETTINGS_GITHUB_URL;
 extern NSString *const SETTINGS_REVIEW_URL;
-extern NSString *const SETTINGS_DONATE_URL;
 extern NSString *const SETTINGS_TITLE;
 extern NSString *const SETTINGS_MESSAGE;
 

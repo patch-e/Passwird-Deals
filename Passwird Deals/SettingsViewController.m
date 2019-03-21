@@ -27,13 +27,6 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (IBAction)donateLink:(id)sender {
-    NSURL *url = [NSURL URLWithString:SETTINGS_DONATE_URL];
-    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-    
-    url = nil;
-}
-
 - (IBAction)emailLink:(id)sender {
     [self openMail];
 }
@@ -166,10 +159,6 @@
 
     //get expired deals setting from user defaults
     [self.expiredSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"showExpiredDeals"]];
-    
-    self.donateButton.layer.cornerRadius = 5;
-    self.donateButton.layer.borderWidth = 1;
-    self.donateButton.layer.borderColor = [UIColor pdHeaderTintColor].CGColor;
     
     self.feedbackButton.layer.cornerRadius = 5;
     self.feedbackButton.layer.borderWidth = 1;
