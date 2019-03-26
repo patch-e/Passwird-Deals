@@ -93,6 +93,7 @@
 		275D20A7223E9C58008B303B /* AppleSafari-Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppleSafari-Icon~ipad.png"; path = "Resources/Images/AppleSafari-Icon~ipad.png"; sourceTree = "<group>"; };
 		276F761B22340184002AE715 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		276F761C223402C6002AE715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		27B7390B2249C9250054A735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		27DC150F2241D69E003446F0 /* Passwird Deals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Passwird Deals.entitlements"; sourceTree = "<group>"; };
 		3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.release.xcconfig"; sourceTree = "<group>"; };
 		4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Passwird Deals-Prefix.pch"; sourceTree = "<group>"; };
 		CD2A72CA1516B12F003A4394 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD2A72CB1516B12F003A4394 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CD2A72CE1516B12F003A4394 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		CD2A72D31516B12F003A4394 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		CD2A72D41516B12F003A4394 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		CD2A72D61516B12F003A4394 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -443,11 +443,12 @@
 			};
 			buildConfigurationList = CD2A72B11516B12F003A4394 /* Build configuration list for PBXProject "Passwird Deals" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				de,
+				Base,
 			);
 			mainGroup = CD2A72AC1516B12F003A4394;
 			productRefGroup = CD2A72B81516B12F003A4394 /* Products */;
@@ -586,7 +587,7 @@
 		CD2A72CD1516B12F003A4394 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CD2A72CE1516B12F003A4394 /* en */,
+				27B7390B2249C9250054A735 /* Base */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
