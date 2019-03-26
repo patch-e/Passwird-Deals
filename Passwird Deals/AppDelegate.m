@@ -139,6 +139,7 @@
                                               message:[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]
                                               preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction cancelActionWithController:self.window.rootViewController]];
+        [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
     } else {
         //if app is running, but in the background fire this notification (handled in master and search) to display the deal from the push
         [[NSNotificationCenter defaultCenter] postNotificationName:@"receivedPushNotification" object:nil userInfo:userInfo];
