@@ -21,6 +21,10 @@ http://mccrager.com/PasswirdDeals
 Frequently Asked Questions:
 https://github.com/patch-e/Passwird-Deals/wiki/FAQs
 
+v4.7
+====
+- Bug fix for in-app notifications
+
 v4.6
 ====
 - Update to latest iOS standards
