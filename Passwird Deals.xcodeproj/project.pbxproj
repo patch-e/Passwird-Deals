@@ -18,6 +18,7 @@
 		275D20AA223E9C58008B303B /* AppleSafari-Icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D20A6223E9C58008B303B /* AppleSafari-Icon@2x~ipad.png */; };
 		275D20AB223E9C58008B303B /* AppleSafari-Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 275D20A7223E9C58008B303B /* AppleSafari-Icon~ipad.png */; };
 		276F761D223402C6002AE715 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 276F761C223402C6002AE715 /* GoogleService-Info.plist */; };
+		27B7390D224AF4BB0054A735 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 27B7390C224AF4BB0054A735 /* README.md */; };
 		9573A639135C562B36547ED0 /* libPods-Passwird Deals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7FAEBE6E04FB5D4BD7590 /* libPods-Passwird Deals.a */; };
 		CD0F8FA8180E2783001B5808 /* blingbear.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA6180E2783001B5808 /* blingbear.png */; };
 		CD0F8FAA180E2783001B5808 /* blingbear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0F8FA7180E2783001B5808 /* blingbear@2x.png */; };
@@ -94,6 +95,7 @@
 		276F761B22340184002AE715 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		276F761C223402C6002AE715 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27B7390B2249C9250054A735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		27B7390C224AF4BB0054A735 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		27DC150F2241D69E003446F0 /* Passwird Deals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Passwird Deals.entitlements"; sourceTree = "<group>"; };
 		3531846351C66EB8E45D2F90 /* Pods-Passwird Deals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.release.xcconfig"; sourceTree = "<group>"; };
 		4D5CD094B982684D826F5039 /* Pods-Passwird Deals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passwird Deals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passwird Deals/Pods-Passwird Deals.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +153,6 @@
 		CDA927B216546BD600A9D006 /* Deal.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = Deal.css; path = Resources/Deal.css; sourceTree = "<group>"; };
 		CDA927B316546BD600A9D006 /* Deal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Deal.html; path = Resources/Deal.html; sourceTree = "<group>"; };
 		CDA927B616546BD600A9D006 /* spin.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = spin.min.js; path = Resources/spin.min.js; sourceTree = "<group>"; };
-		CDB6DABF1564105400BFF2B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CDB6DADB15682F9B00BFF2B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDB8FF171589704D0041EE56 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CDBABD1016FBF1BB0008A613 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -283,7 +284,7 @@
 				CD2A72C91516B12F003A4394 /* Passwird Deals-Prefix.pch */,
 				27DC150F2241D69E003446F0 /* Passwird Deals.entitlements */,
 				276F761B22340184002AE715 /* Podfile */,
-				CDB6DABF1564105400BFF2B2 /* README.md */,
+				27B7390C224AF4BB0054A735 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -473,6 +474,7 @@
 				CD0F8FAA180E2783001B5808 /* blingbear@2x.png in Resources */,
 				CD4A8832159103BD0017FEE2 /* MainStoryboard_iPad.storyboard in Resources */,
 				CDA927861651E66800A9D006 /* icon-precomposed.png in Resources */,
+				27B7390D224AF4BB0054A735 /* README.md in Resources */,
 				CD6E9D661FC0A39300D707F0 /* Launch Screen.storyboard in Resources */,
 				CDA927871651E66800A9D006 /* icon-precomposed@2x.png in Resources */,
 				CDA9278C1651E66800A9D006 /* pd-icon-appstore-512.png in Resources */,
